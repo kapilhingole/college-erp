@@ -131,7 +131,7 @@ model Section {
 model Student {
   id               String       @id @default(uuid())
   userId           String       @unique
-  rollNumber       String       @unique
+  rollNumber       String
   enrollmentNumber String       @unique
   firstName        String
   lastName         String
@@ -167,6 +167,8 @@ model Student {
   semesterResults   StudentSemesterResult[]
   feeLedgers        StudentFeeLedger[]
   bookIssues        BookIssueRecord[]
+
+  @@unique([rollNumber, batchId])
 }
 
 // -------------------------------------------------------------

@@ -189,23 +189,21 @@ async function main() {
   }
 
   // 6. Master Subjects & Course Credits
-  const cseDept = depts.find((d) => d.code === 'CSE')!;
-  const itDept = depts.find((d) => d.code === 'IT')!;
+  const compDept = depts.find((d) => d.code === 'COMP')!;
+  const aidsDept = depts.find((d) => d.code === 'AIDS')!;
   const entcDept = depts.find((d) => d.code === 'ENTC')!;
-  const mechDept = depts.find((d) => d.code === 'MECH')!;
-  const civilDept = depts.find((d) => d.code === 'CIVIL')!;
+  const eceDept = depts.find((d) => d.code === 'ECE')!;
 
   await prisma.subject.createMany({
     data: [
-      { code: 'CS301', name: 'Data Structures & Algorithms', departmentId: cseDept.id, semester: 3, credits: 4, type: 'THEORY' },
-      { code: 'CS302', name: 'Object Oriented Programming with Java', departmentId: cseDept.id, semester: 3, credits: 4, type: 'THEORY' },
-      { code: 'CS303', name: 'Database Management Systems', departmentId: cseDept.id, semester: 3, credits: 4, type: 'THEORY' },
-      { code: 'CS304L', name: 'Data Structures Laboratory', departmentId: cseDept.id, semester: 3, credits: 2, type: 'PRACTICAL' },
-      { code: 'IT301', name: 'Operating Systems & System Programming', departmentId: itDept.id, semester: 3, credits: 4, type: 'THEORY' },
-      { code: 'IT302', name: 'Computer Networks & Protocols', departmentId: itDept.id, semester: 3, credits: 4, type: 'THEORY' },
+      { code: 'CS301', name: 'Data Structures & Algorithms', departmentId: compDept.id, semester: 3, credits: 4, type: 'THEORY' },
+      { code: 'CS302', name: 'Object Oriented Programming with Java', departmentId: compDept.id, semester: 3, credits: 4, type: 'THEORY' },
+      { code: 'CS303', name: 'Database Management Systems', departmentId: compDept.id, semester: 3, credits: 4, type: 'THEORY' },
+      { code: 'CS304L', name: 'Data Structures Laboratory', departmentId: compDept.id, semester: 3, credits: 2, type: 'PRACTICAL' },
+      { code: 'AD301', name: 'Artificial Intelligence & Machine Learning Fundamentals', departmentId: aidsDept.id, semester: 3, credits: 4, type: 'THEORY' },
+      { code: 'AD302', name: 'Data Science & Analytics with Python', departmentId: aidsDept.id, semester: 3, credits: 4, type: 'THEORY' },
       { code: 'EC301', name: 'Signals, Systems & DSP', departmentId: entcDept.id, semester: 3, credits: 4, type: 'THEORY' },
-      { code: 'ME301', name: 'Thermodynamics & Fluid Power', departmentId: mechDept.id, semester: 3, credits: 4, type: 'THEORY' },
-      { code: 'CE301', name: 'Structural Analysis & Mechanics', departmentId: civilDept.id, semester: 3, credits: 4, type: 'THEORY' },
+      { code: 'EE301', name: 'Embedded Systems & Computer Architecture', departmentId: eceDept.id, semester: 3, credits: 4, type: 'THEORY' },
     ],
   });
 
@@ -249,6 +247,10 @@ async function main() {
       },
     });
   }
+
+  // 10. Ingest all official FY and SY Degree students (excluding diploma)
+  const { importDegreeStudents } = require('../scripts/import-students-fy-sy');
+  await importDegreeStudents();
 
   console.log('✅ Clean Slate database initialized successfully!');
   console.log(`   - Roles & Responsibilities Matrix: ${INITIAL_ROLES_RESPONSIBILITIES.length} formats loaded`);
