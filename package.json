@@ -1,0 +1,26 @@
+{
+  "name": "college-erp",
+  "version": "1.0.0",
+  "description": "Full-Featured Enterprise Resource Planning (ERP) System for Zeal Education Society, Induri Campus",
+  "scripts": {
+    "build": "npm --prefix backend run build && npm --prefix frontend run build",
+    "start": "npm --prefix backend start",
+    "backend:dev": "npm --prefix backend run dev",
+    "backend:build": "npm --prefix backend run build",
+    "backend:test": "npm --prefix backend test",
+    "backend:seed": "npm --prefix backend run prisma:clean-seed",
+    "frontend:dev": "npm --prefix frontend run dev",
+    "frontend:build": "npm --prefix frontend run build",
+    "backup": "node scripts/backup.js"
+  },
+  "keywords": [
+    "college-erp",
+    "education-management",
+    "student-portal",
+    "faculty-portal",
+    "rbac",
+    "zeal-education-society"
+  ],
+  "author": "Antigravity Engineering",
+  "license": "MIT"
+}

@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: zeal-college-erp
+    env: node
+    plan: free
+    buildCommand: npm --prefix backend install && npm --prefix frontend install && cd backend && npx prisma generate && cd .. && npm --prefix backend run build && npm --prefix frontend run build
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        value: file:./erp.db
+      - key: COLLEGE_NAME
+        value: Zeal College of Engineering and Research
+      - key: COLLEGE_CODE
+        value: ZCOER
+

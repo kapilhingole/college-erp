@@ -1,0 +1,573 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// -------------------------------------------------------------
+// MODULE: Authentication, Users & RBAC
+// -------------------------------------------------------------
+
+model User {
+  id           String      @id @default(uuid())
+  email        String      @unique
+  passwordHash String
+  role         String      // SUPER_ADMIN, ADMIN, FACULTY, STUDENT
+  status       String      @default("ACTIVE") // ACTIVE, INACTIVE, SUSPENDED
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  studentProfile    Student?
+  facultyProfile    Faculty?
+  managementProfile ManagementProfile?
+  auditLogs         AuditLog[]
+  noticesAuthored   Notice[]
+}
+
+model ManagementProfile {
+  id          String   @id @default(uuid())
+  userId      String   @unique
+  employeeId  String   @unique
+  firstName   String
+  lastName    String
+  email       String   @unique
+  phone       String?
+  designation String   // Director, Dean, Registrar, Executive Admin
+  office      String   @default("Central Administration")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  userId     String?
+  userEmail  String?
+  action     String   // CREATE, UPDATE, DELETE, LOGIN, EXPORT
+  module     String   // STUDENTS, FACULTY, FEES, ATTENDANCE, etc.
+  details    String?  // JSON string or summary
+  ipAddress  String?
+  timestamp  DateTime @default(now())
+
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+}
+
+// -------------------------------------------------------------
+// MODULE 8: Department & Academic Structure
+// -------------------------------------------------------------
+
+model Department {
+  id          String    @id @default(uuid())
+  code        String    @unique // e.g. CSE, ECE, MECH
+  name        String
+  description String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  programs    Program[]
+  faculty     Faculty[]
+  students    Student[]
+  subjects    Subject[]
+  feeStructures FeeStructure[]
+}
+
+model Program {
+  id             String     @id @default(uuid())
+  departmentId   String
+  code           String     @unique // e.g. BTECH-CSE, MTECH-AI
+  name           String     // Bachelor of Technology in Computer Science
+  totalSemesters Int        @default(8)
+  degreeType     String     @default("UG") // UG, PG, DIPLOMA
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  department     Department @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  batches        Batch[]
+  students       Student[]
+  feeStructures  FeeStructure[]
+}
+
+model Batch {
+  id              String    @id @default(uuid())
+  programId       String
+  name            String    // 2023-2027
+  academicYear    String    // 2023-24
+  startYear       Int
+  endYear         Int
+  currentSemester Int       @default(1)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  program         Program   @relation(fields: [programId], references: [id], onDelete: Cascade)
+  sections        Section[]
+  students        Student[]
+  subjectAssignments FacultySubjectAssignment[]
+}
+
+model Section {
+  id          String    @id @default(uuid())
+  batchId     String
+  name        String    // Section A, Section B
+  capacity    Int       @default(60)
+  roomNumber  String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  batch       Batch     @relation(fields: [batchId], references: [id], onDelete: Cascade)
+  students    Student[]
+  timetableSlots TimetableSlot[]
+  lectureSessions LectureSession[]
+  subjectAssignments FacultySubjectAssignment[]
+}
+
+// -------------------------------------------------------------
+// MODULE 1: Student Management
+// -------------------------------------------------------------
+
+model Student {
+  id               String       @id @default(uuid())
+  userId           String       @unique
+  rollNumber       String       @unique
+  enrollmentNumber String       @unique
+  firstName        String
+  lastName         String
+  dateOfBirth      DateTime
+  gender           String       // MALE, FEMALE, OTHER
+  bloodGroup       String?
+  email            String       @unique
+  phone            String
+  address          String?
+  guardianName     String?
+  guardianPhone    String?
+  admissionDate    DateTime     @default(now())
+  currentSemester  Int          @default(1)
+  academicStatus   String       @default("ACTIVE") // ACTIVE, ALUMNI, SUSPENDED
+
+  departmentId     String
+  programId        String
+  batchId          String
+  sectionId        String?
+
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+
+  user             User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  department       Department   @relation(fields: [departmentId], references: [id])
+  program          Program      @relation(fields: [programId], references: [id])
+  batch            Batch        @relation(fields: [batchId], references: [id])
+  section          Section?     @relation(fields: [sectionId], references: [id])
+
+  attendanceRecords AttendanceRecord[]
+  leaveApplications LeaveApplication[]
+  marksEntries      MarksEntry[]
+  semesterResults   StudentSemesterResult[]
+  feeLedgers        StudentFeeLedger[]
+  bookIssues        BookIssueRecord[]
+}
+
+// -------------------------------------------------------------
+// MODULE 2: Faculty Management
+// -------------------------------------------------------------
+
+model Faculty {
+  id              String      @id @default(uuid())
+  userId          String      @unique
+  employeeId      String      @unique
+  firstName       String
+  lastName        String
+  email           String      @unique
+  phone           String
+  designation     String      // Professor, Associate Professor, Assistant Professor, HOD
+  qualification   String      // Ph.D, M.Tech, etc.
+  joiningDate     DateTime    @default(now())
+  departmentId    String
+  maxWeeklyHours  Int         @default(18)
+  currentLoadHours Int        @default(0)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  department      Department  @relation(fields: [departmentId], references: [id])
+
+  subjectAssignments FacultySubjectAssignment[]
+  timetableSlots     TimetableSlot[]
+  lectureSessions    LectureSession[]
+}
+
+// -------------------------------------------------------------
+// MODULE 5: Academics & Examination Management
+// -------------------------------------------------------------
+
+model Subject {
+  id               String      @id @default(uuid())
+  code             String      @unique // CS301
+  name             String      // Data Structures & Algorithms
+  departmentId     String
+  semester         Int         // 1 to 8
+  credits          Int         @default(4)
+  type             String      @default("THEORY") // THEORY, PRACTICAL, ELECTIVE
+  maxInternalMarks Float       @default(30.0)
+  maxExternalMarks Float       @default(70.0)
+  totalMarks       Float       @default(100.0)
+  syllabusOverview String?
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+
+  department       Department  @relation(fields: [departmentId], references: [id])
+  timetableSlots   TimetableSlot[]
+  lectureSessions  LectureSession[]
+  examSchedules    ExamSchedule[]
+  subjectAssignments FacultySubjectAssignment[]
+}
+
+model FacultySubjectAssignment {
+  id              String     @id @default(uuid())
+  facultyId       String
+  subjectId       String
+  batchId         String
+  sectionId       String?
+  academicSession String     // e.g. 2024-25
+  createdAt       DateTime   @default(now())
+
+  faculty         Faculty    @relation(fields: [facultyId], references: [id], onDelete: Cascade)
+  subject         Subject    @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  batch           Batch      @relation(fields: [batchId], references: [id], onDelete: Cascade)
+  section         Section?   @relation(fields: [sectionId], references: [id], onDelete: SetNull)
+}
+
+model Exam {
+  id           String         @id @default(uuid())
+  name         String         // Mid Semester Examination, End Semester Examination
+  examType     String         // MID_TERM, FINAL, INTERNAL, PRACTICAL
+  semester     Int
+  academicYear String         // 2024-25
+  startDate    DateTime
+  endDate      DateTime
+  isPublished  Boolean        @default(false)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  schedules    ExamSchedule[]
+}
+
+model ExamSchedule {
+  id         String       @id @default(uuid())
+  examId     String
+  subjectId  String
+  examDate   DateTime
+  startTime  String       // 10:00 AM
+  endTime    String       // 01:00 PM
+  roomNumber String
+  maxMarks   Float        @default(100.0)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  exam       Exam         @relation(fields: [examId], references: [id], onDelete: Cascade)
+  subject    Subject      @relation(fields: [subjectId], references: [id])
+  marks      MarksEntry[]
+}
+
+model MarksEntry {
+  id             String       @id @default(uuid())
+  examScheduleId String
+  studentId      String
+  internalMarks  Float        @default(0.0)
+  theoryMarks    Float        @default(0.0)
+  practicalMarks Float        @default(0.0)
+  totalMarks     Float        @default(0.0)
+  percentage     Float        @default(0.0)
+  letterGrade    String       @default("F") // O, A+, A, B+, B, C, P, F
+  gradePoint     Float        @default(0.0) // 10.0, 9.0, ..., 0.0
+  status         String       @default("PASS") // PASS, FAIL, ABSENT
+  remarks        String?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  examSchedule   ExamSchedule @relation(fields: [examScheduleId], references: [id], onDelete: Cascade)
+  student        Student      @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@unique([examScheduleId, studentId])
+}
+
+model StudentSemesterResult {
+  id            String    @id @default(uuid())
+  studentId     String
+  semester      Int
+  totalCredits  Int       @default(0)
+  earnedCredits Int       @default(0)
+  sgpa          Float     @default(0.0)
+  cgpa          Float     @default(0.0)
+  resultStatus  String    @default("PASSED") // PASSED, PROMOTED, FAILED
+  publishedAt   DateTime  @default(now())
+
+  student       Student   @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, semester])
+}
+
+// -------------------------------------------------------------
+// MODULE 6: Timetable Management & Conflict Prevention
+// -------------------------------------------------------------
+
+model TimetableSlot {
+  id              String      @id @default(uuid())
+  dayOfWeek       String      // MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+  startTime       String      // "09:00"
+  endTime         String      // "10:00"
+  subjectId       String
+  facultyId       String
+  sectionId       String
+  roomNumber      String
+  semester        Int
+  academicSession String      // 2024-25
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  subject         Subject     @relation(fields: [subjectId], references: [id])
+  faculty         Faculty     @relation(fields: [facultyId], references: [id])
+  section         Section     @relation(fields: [sectionId], references: [id])
+  lectureSessions LectureSession[]
+}
+
+// -------------------------------------------------------------
+// MODULE 4: Attendance Management & Low Attendance Alerts
+// -------------------------------------------------------------
+
+model LectureSession {
+  id              String             @id @default(uuid())
+  timetableSlotId String?
+  subjectId       String
+  facultyId       String
+  sectionId       String
+  sessionDate     DateTime
+  sessionTime     String             // "09:00 - 10:00"
+  topicCovered    String?
+  createdAt       DateTime           @default(now())
+
+  timetableSlot   TimetableSlot?     @relation(fields: [timetableSlotId], references: [id], onDelete: SetNull)
+  subject         Subject            @relation(fields: [subjectId], references: [id])
+  faculty         Faculty            @relation(fields: [facultyId], references: [id])
+  section         Section            @relation(fields: [sectionId], references: [id])
+  attendanceRecords AttendanceRecord[]
+}
+
+model AttendanceRecord {
+  id               String         @id @default(uuid())
+  lectureSessionId String
+  studentId        String
+  status           String         // PRESENT, ABSENT, LATE, EXCUSED
+  remarks          String?
+  createdAt        DateTime       @default(now())
+
+  lectureSession   LectureSession @relation(fields: [lectureSessionId], references: [id], onDelete: Cascade)
+  student          Student        @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@unique([lectureSessionId, studentId])
+}
+
+model LeaveApplication {
+  id          String    @id @default(uuid())
+  studentId   String
+  startDate   DateTime
+  endDate     DateTime
+  reason      String
+  status      String    @default("PENDING") // PENDING, APPROVED, REJECTED
+  approvedBy  String?
+  comments    String?
+  appliedAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  student     Student   @relation(fields: [studentId], references: [id], onDelete: Cascade)
+}
+
+// -------------------------------------------------------------
+// MODULE 7: Fees Management & Financial Ledgers
+// -------------------------------------------------------------
+
+model FeeStructure {
+  id           String         @id @default(uuid())
+  name         String         // B.Tech CSE Sem 3 Regular
+  departmentId String
+  programId    String
+  semester     Int
+  academicYear String         // 2024-25
+  totalAmount  Float
+  dueDate      DateTime
+  lateFeePerDay Float         @default(50.0)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  department   Department     @relation(fields: [departmentId], references: [id])
+  program      Program        @relation(fields: [programId], references: [id])
+  components   FeeComponent[]
+  ledgers      StudentFeeLedger[]
+}
+
+model FeeComponent {
+  id             String       @id @default(uuid())
+  feeStructureId String
+  name           String       // Tuition, Lab, Library, Examination
+  amount         Float
+
+  feeStructure   FeeStructure @relation(fields: [feeStructureId], references: [id], onDelete: Cascade)
+}
+
+model StudentFeeLedger {
+  id             String       @id @default(uuid())
+  studentId      String
+  feeStructureId String
+  invoiceNumber  String       @unique
+  baseAmount     Float
+  discountAmount Float        @default(0.0)
+  penaltyAmount  Float        @default(0.0)
+  totalDue       Float
+  amountPaid     Float        @default(0.0)
+  balanceDue     Float
+  paymentStatus  String       @default("PENDING") // PAID, PARTIALLY_PAID, PENDING, OVERDUE
+  dueDate        DateTime
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  student        Student      @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  feeStructure   FeeStructure @relation(fields: [feeStructureId], references: [id])
+  payments       FeePayment[]
+}
+
+model FeePayment {
+  id            String           @id @default(uuid())
+  ledgerId      String
+  studentId     String
+  transactionId String           @unique
+  receiptNumber String           @unique
+  amount        Float
+  paymentMethod String           // ONLINE, CASH, CHEQUE, BANK_TRANSFER
+  paymentDate   DateTime         @default(now())
+  status        String           @default("COMPLETED") // COMPLETED, FAILED, REFUNDED
+  collectedBy   String?
+  notes         String?
+
+  ledger        StudentFeeLedger @relation(fields: [ledgerId], references: [id], onDelete: Cascade)
+}
+
+// -------------------------------------------------------------
+// MODULE 9: Library Management & Book Lending
+// -------------------------------------------------------------
+
+model Book {
+  id              String            @id @default(uuid())
+  isbn            String            @unique
+  title           String
+  author          String
+  publisher       String?
+  category        String            // Computer Science, Mathematics, Physics, etc.
+  edition         String?
+  totalCopies     Int               @default(1)
+  availableCopies Int               @default(1)
+  shelfLocation   String?           // Rack A-3
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  issues          BookIssueRecord[]
+}
+
+model BookIssueRecord {
+  id          String    @id @default(uuid())
+  bookId      String
+  studentId   String
+  issueDate   DateTime  @default(now())
+  dueDate     DateTime
+  returnDate  DateTime?
+  status      String    @default("ISSUED") // ISSUED, RETURNED, OVERDUE, LOST
+  overdueDays Int       @default(0)
+  fineAmount  Float     @default(0.0)
+  finePaid    Boolean   @default(false)
+  issuedBy    String?
+  returnedTo  String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  book        Book      @relation(fields: [bookId], references: [id])
+  student     Student   @relation(fields: [studentId], references: [id], onDelete: Cascade)
+}
+
+// -------------------------------------------------------------
+// MODULE 10: Notices & Announcements
+// -------------------------------------------------------------
+
+model Notice {
+  id                 String    @id @default(uuid())
+  title              String
+  content            String
+  authorId           String
+  targetRole         String    @default("ALL") // ALL, STUDENT, FACULTY, ADMIN
+  targetDepartmentId String?
+  priority           String    @default("NORMAL") // NORMAL, HIGH, URGENT
+  attachmentUrl      String?
+  isPublished        Boolean   @default(true)
+  publishedAt        DateTime  @default(now())
+  expiresAt          DateTime?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  author             User      @relation(fields: [authorId], references: [id])
+}
+
+// -------------------------------------------------------------
+// MODULE 13: SuperAdmin Roles & Responsibilities Compliance Matrix
+// -------------------------------------------------------------
+
+model RoleResponsibility {
+  id              String   @id @default(uuid())
+  sheetNo         String?
+  reportNo        String
+  title           String
+  section         String
+  frequency       String   // Monthly, Semester, Yearly
+  hyperlink       String?
+  filledBy        String
+  assignedFaculty String?
+  verifiedBy      String?
+  department      String   @default("Mechanical Engineering")
+  academicYear    String   @default("2024-25")
+  status          String   @default("CONFIGURED") // CONFIGURED, IN_PROGRESS, SUBMITTED, VERIFIED
+  remarks         String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+// -------------------------------------------------------------
+// MODULE 14: Monthly Report Submissions (Filled Report Data)
+// -------------------------------------------------------------
+
+model MonthlyReportSubmission {
+  id              String   @id @default(uuid())
+  reportNo        String   // M 1, M 2, M 3, ... links to RoleResponsibility.reportNo
+  reportTitle     String   // e.g. COURSE FILE VERIFICATION REPORT
+  docNumber       String?  // e.g. ZEAL/ZCOER/REPORTS/M-01
+  campus          String   @default("ZCOER INDORI")
+  reportMonth     String   // e.g. "October 2026"
+  reportPeriod    String?  // e.g. "01-10-2026 to 31-10-2026"
+  department      String   @default("Mechanical Engineering")
+  submittedBy     String?
+  totalEntries    Int      @default(0)
+  status          String   @default("SUBMITTED") // DRAFT, SUBMITTED, VERIFIED, REJECTED
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  entries         MonthlyReportEntry[]
+}
+
+model MonthlyReportEntry {
+  id              String   @id @default(uuid())
+  submissionId    String
+  srNo            Int
+  rowData         String   // JSON string storing all column key-value pairs for the row
+  createdAt       DateTime @default(now())
+
+  submission      MonthlyReportSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+}
+
