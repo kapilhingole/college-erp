@@ -11,7 +11,7 @@ router.get('/', authenticateJWT, TimetableController.listSlots);
 router.post(
   '/',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('TIMETABLE', 'CREATE_SLOT'),
   TimetableController.createSlot
 );
@@ -19,7 +19,7 @@ router.post(
 router.delete(
   '/:id',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('TIMETABLE', 'DELETE_SLOT'),
   TimetableController.deleteSlot
 );

@@ -10,25 +10,25 @@ const router = Router();
 router.get('/books', authenticateJWT, LibraryController.listBooks);
 router.get('/issues', authenticateJWT, LibraryController.listIssues);
 
-// Admin / Librarian operations
+// Admin / Management / Librarian operations
 router.post(
   '/books',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('LIBRARY', 'ADD_BOOK'),
   LibraryController.addBook
 );
 router.post(
   '/issue',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('LIBRARY', 'ISSUE_BOOK'),
   LibraryController.issueBook
 );
 router.post(
   '/return/:issueRecordId',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('LIBRARY', 'RETURN_BOOK'),
   LibraryController.returnBook
 );

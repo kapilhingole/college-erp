@@ -18,7 +18,7 @@ export const NoticesPage: React.FC = () => {
 
   const { user } = useAuth();
   const canPublish =
-    user?.role === 'SUPER_ADMIN' || user?.role === 'ADMIN' || user?.role === 'FACULTY';
+    user?.role === 'SUPER_ADMIN' || user?.role === 'ADMIN' || user?.role === 'MANAGEMENT' || user?.role === 'FACULTY';
 
   const fetchData = async () => {
     setLoading(true);

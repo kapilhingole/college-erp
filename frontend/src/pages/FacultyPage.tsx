@@ -20,7 +20,7 @@ export const FacultyPage: React.FC = () => {
   const [maxWeeklyHours, setMaxWeeklyHours] = useState(18);
 
   const { user } = useAuth();
-  const isAdmin = user?.role === 'SUPER_ADMIN' || user?.role === 'ADMIN';
+  const isAdmin = user?.role === 'SUPER_ADMIN' || user?.role === 'ADMIN' || user?.role === 'MANAGEMENT';
 
   const fetchFaculty = () => {
     setLoading(true);

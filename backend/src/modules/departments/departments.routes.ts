@@ -9,25 +9,25 @@ const router = Router();
 // Everyone authenticated can view department hierarchy
 router.get('/', authenticateJWT, DepartmentsController.listDepartments);
 
-// Only Super Admin & Admin can modify academic hierarchy
+// Only Super Admin, Admin & Management can modify academic hierarchy
 router.post(
   '/',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('DEPARTMENT', 'CREATE'),
   DepartmentsController.createDepartment
 );
 router.put(
   '/:id',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('DEPARTMENT', 'UPDATE'),
   DepartmentsController.updateDepartment
 );
 router.delete(
   '/:id',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('DEPARTMENT', 'DELETE'),
   DepartmentsController.deleteDepartment
 );
@@ -35,21 +35,21 @@ router.delete(
 router.post(
   '/programs',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('PROGRAM', 'CREATE'),
   DepartmentsController.createProgram
 );
 router.post(
   '/batches',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('BATCH', 'CREATE'),
   DepartmentsController.createBatch
 );
 router.post(
   '/sections',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('SECTION', 'CREATE'),
   DepartmentsController.createSection
 );

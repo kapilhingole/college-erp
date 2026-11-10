@@ -7,6 +7,6 @@ const router = Router();
 
 router.get('/student', authenticateJWT, requireRoles('STUDENT'), DashboardsController.getStudentDashboard);
 router.get('/faculty', authenticateJWT, requireRoles('FACULTY'), DashboardsController.getFacultyDashboard);
-router.get('/admin', authenticateJWT, requireRoles('SUPER_ADMIN', 'ADMIN'), DashboardsController.getAdminDashboard);
+router.get('/admin', authenticateJWT, requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'), DashboardsController.getAdminDashboard);
 
 export default router;

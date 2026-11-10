@@ -45,7 +45,10 @@ export const errorHandler = (
   if (err.code === 'P2002') {
     res.status(409).json({
       success: false,
-      message: `Conflict error: Unique constraint failed on field(s): ${err.meta?.target || 'unknown'}`,
+      message:
+        CONFIG.NODE_ENV === 'production'
+          ? 'Conflict error: A record with this unique identifier or code already exists.'
+          : `Conflict error: Unique constraint failed on field(s): ${err.meta?.target || 'unknown'}`,
     });
     return;
   }

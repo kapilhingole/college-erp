@@ -22,6 +22,9 @@ import {
   AlertCircle,
   BarChart3,
   Search,
+  Plus,
+  Sliders,
+  Bell,
 } from 'lucide-react';
 import { apiClient } from '../api/client';
 
@@ -164,7 +167,70 @@ export const AdminDashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. Top-Tier KPI Metrics Grid with Zeal Cerulean Styling */}
+      {/* 2. Management & SuperAdmin Fast Onboarding Bar */}
+      <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-xs">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <div>
+            <span className="text-[10px] font-black uppercase tracking-widest text-zes-700 bg-zes-50 px-2.5 py-0.5 rounded-md border border-zes-200">
+              Executive Fast Actions
+            </span>
+            <h3 className="text-sm font-extrabold text-slate-900 mt-1">Manual Administration &amp; Onboarding Hub</h3>
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <NavLink
+              to="/students"
+              className="px-3 py-1.5 bg-zes-800 hover:bg-zes-900 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-xs"
+            >
+              <Plus className="w-3.5 h-3.5" />
+              <span>Admit Student</span>
+            </NavLink>
+            <NavLink
+              to="/students"
+              className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-bold transition flex items-center gap-1.5 border border-slate-300"
+            >
+              <Sliders className="w-3.5 h-3.5 text-zes-700" />
+              <span>ZPRN Setup</span>
+            </NavLink>
+            <NavLink
+              to="/faculty"
+              className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-xs"
+            >
+              <Plus className="w-3.5 h-3.5" />
+              <span>Onboard Faculty</span>
+            </NavLink>
+            <NavLink
+              to="/departments"
+              className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-xs"
+            >
+              <Plus className="w-3.5 h-3.5" />
+              <span>Hierarchy &amp; Programs</span>
+            </NavLink>
+            <NavLink
+              to="/academics"
+              className="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-xs"
+            >
+              <Plus className="w-3.5 h-3.5" />
+              <span>Add Subject / Exam</span>
+            </NavLink>
+            <NavLink
+              to="/fees"
+              className="px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-xs"
+            >
+              <Plus className="w-3.5 h-3.5" />
+              <span>Fee Structures</span>
+            </NavLink>
+            <NavLink
+              to="/notices"
+              className="px-3 py-1.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-xs"
+            >
+              <Bell className="w-3.5 h-3.5" />
+              <span>Broadcast Notice</span>
+            </NavLink>
+          </div>
+        </div>
+      </div>
+
+      {/* 3. Top-Tier KPI Metrics Grid with Zeal Cerulean Styling */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         {/* Card 1: Total Students */}
         <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-all duration-300 group">

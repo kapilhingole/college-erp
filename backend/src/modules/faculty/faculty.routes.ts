@@ -12,14 +12,14 @@ router.get('/:id', authenticateJWT, FacultyController.getFacultyById);
 router.post(
   '/',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('FACULTY', 'ONBOARD'),
   FacultyController.onboardFaculty
 );
 router.post(
   '/assign-subject',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('FACULTY', 'ASSIGN_SUBJECT'),
   FacultyController.assignSubject
 );

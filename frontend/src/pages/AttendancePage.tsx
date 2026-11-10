@@ -33,7 +33,7 @@ export const AttendancePage: React.FC = () => {
 
   const { user } = useAuth();
   const isFacultyOrAdmin =
-    user?.role === 'SUPER_ADMIN' || user?.role === 'ADMIN' || user?.role === 'FACULTY';
+    user?.role === 'SUPER_ADMIN' || user?.role === 'ADMIN' || user?.role === 'MANAGEMENT' || user?.role === 'FACULTY';
 
   const fetchData = async () => {
     setLoading(true);

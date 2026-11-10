@@ -22,7 +22,7 @@ export const TimetablePage: React.FC = () => {
   const [roomNumber, setRoomNumber] = useState('Room-301');
 
   const { user } = useAuth();
-  const isAdmin = user?.role === 'SUPER_ADMIN' || user?.role === 'ADMIN';
+  const isAdmin = user?.role === 'SUPER_ADMIN' || user?.role === 'ADMIN' || user?.role === 'MANAGEMENT';
 
   const fetchTimetable = async () => {
     setLoading(true);

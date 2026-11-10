@@ -10,25 +10,25 @@ const router = Router();
 router.get('/ledgers', authenticateJWT, FeesController.listStudentLedgers);
 router.get('/structures', authenticateJWT, FeesController.listStructures);
 
-// Admin-only fee operations
+// Admin and Management fee operations
 router.post(
   '/structures',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('FEES', 'CREATE_STRUCTURE'),
   FeesController.createStructure
 );
 router.post(
   '/generate-invoices',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('FEES', 'GENERATE_INVOICES'),
   FeesController.generateInvoices
 );
 router.post(
   '/pay',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('FEES', 'RECORD_PAYMENT'),
   FeesController.recordPayment
 );

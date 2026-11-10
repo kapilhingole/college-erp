@@ -10,31 +10,31 @@ const router = Router();
 router.get('/student/:studentId', authenticateJWT, AttendanceController.getStudentAttendance);
 router.post('/leave/apply', authenticateJWT, logAudit('ATTENDANCE', 'APPLY_LEAVE'), AttendanceController.applyLeave);
 
-// Faculty & Admin routes
+// Faculty, Management & Admin routes
 router.post(
   '/sessions',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN', 'FACULTY'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT', 'FACULTY'),
   logAudit('ATTENDANCE', 'CREATE_SESSION'),
   AttendanceController.createSession
 );
 router.post(
   '/mark',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN', 'FACULTY'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT', 'FACULTY'),
   logAudit('ATTENDANCE', 'MARK_BULK'),
   AttendanceController.markBulkAttendance
 );
 router.get(
   '/defaulters',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN', 'FACULTY'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT', 'FACULTY'),
   AttendanceController.getDefaulters
 );
 router.patch(
   '/leave/:id/review',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN', 'FACULTY'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT', 'FACULTY'),
   logAudit('ATTENDANCE', 'REVIEW_LEAVE'),
   AttendanceController.reviewLeave
 );

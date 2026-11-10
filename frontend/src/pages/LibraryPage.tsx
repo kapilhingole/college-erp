@@ -26,7 +26,7 @@ export const LibraryPage: React.FC = () => {
   const [shelfLocation, setShelfLocation] = useState('Rack CS-01');
 
   const { user } = useAuth();
-  const isAdmin = user?.role === 'SUPER_ADMIN' || user?.role === 'ADMIN';
+  const isAdmin = user?.role === 'SUPER_ADMIN' || user?.role === 'ADMIN' || user?.role === 'MANAGEMENT';
 
   const fetchData = async () => {
     setLoading(true);

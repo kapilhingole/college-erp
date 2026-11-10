@@ -15,6 +15,9 @@ import {
   AlertCircle,
   X,
   FileUp,
+  Settings,
+  Sliders,
+  Hash,
 } from 'lucide-react';
 import { apiClient } from '../api/client';
 import { useAuth } from '../context/AuthContext';
@@ -26,6 +29,13 @@ export const StudentsPage: React.FC = () => {
   const [search, setSearch] = useState('');
   const [selectedDept, setSelectedDept] = useState('');
   const [showModal, setShowModal] = useState(false);
+
+  // ZPRN Config state
+  const [showZprnModal, setShowZprnModal] = useState(false);
+  const [zprnConfig, setZprnConfig] = useState<any>(null);
+  const [zprnPrefix, setZprnPrefix] = useState('ZPRN');
+  const [zprnStartNum, setZprnStartNum] = useState(240001);
+  const [zprnPadding, setZprnPadding] = useState(5);
 
   // Bulk Import state
   const [showImportModal, setShowImportModal] = useState(false);
@@ -46,6 +56,7 @@ export const StudentsPage: React.FC = () => {
   const [programId, setProgramId] = useState('');
   const [batchId, setBatchId] = useState('');
   const [currentSemester, setCurrentSemester] = useState(1);
+  const [customEnrollmentNumber, setCustomEnrollmentNumber] = useState('');
 
   const { user } = useAuth();
   const isAdmin = user?.role === 'SUPER_ADMIN' || user?.role === 'ADMIN' || user?.role === 'MANAGEMENT';
@@ -63,8 +74,23 @@ export const StudentsPage: React.FC = () => {
       .finally(() => setLoading(false));
   };
 
+  const fetchZprnConfig = () => {
+    apiClient
+      .get('/students/zprn-config')
+      .then((res) => {
+        if (res.data.data) {
+          setZprnConfig(res.data.data);
+          setZprnPrefix(res.data.data.prefix || 'ZPRN');
+          setZprnStartNum(res.data.data.startNumber || 240001);
+          setZprnPadding(res.data.data.padding || 5);
+        }
+      })
+      .catch((err) => console.error('Failed to load ZPRN config:', err));
+  };
+
   useEffect(() => {
     fetchStudents();
+    fetchZprnConfig();
     apiClient.get('/departments').then((res) => {
       setDepartments(res.data.data);
       if (res.data.data.length > 0) {
@@ -78,6 +104,33 @@ export const StudentsPage: React.FC = () => {
       }
     });
   }, []);
+
+  const handleDeptSelectChange = (newDeptId: string) => {
+    setDepartmentId(newDeptId);
+    const matchedDept = departments.find((d) => d.id === newDeptId);
+    if (matchedDept && matchedDept.programs?.length > 0) {
+      setProgramId(matchedDept.programs[0].id);
+      if (matchedDept.programs[0].batches?.length > 0) {
+        setBatchId(matchedDept.programs[0].batches[0].id);
+      } else {
+        setBatchId('');
+      }
+    } else {
+      setProgramId('');
+      setBatchId('');
+    }
+  };
+
+  const handleProgramSelectChange = (newProgId: string) => {
+    setProgramId(newProgId);
+    const matchedDept = departments.find((d) => d.id === departmentId);
+    const matchedProg = matchedDept?.programs?.find((p: any) => p.id === newProgId);
+    if (matchedProg && matchedProg.batches?.length > 0) {
+      setBatchId(matchedProg.batches[0].id);
+    } else {
+      setBatchId('');
+    }
+  };
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -142,7 +195,7 @@ export const StudentsPage: React.FC = () => {
   const handleAdmitStudent = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await apiClient.post('/students', {
+      const payload: any = {
         firstName,
         lastName,
         email,
@@ -153,31 +206,77 @@ export const StudentsPage: React.FC = () => {
         programId,
         batchId,
         currentSemester: Number(currentSemester),
-      });
+      };
+
+      if (customEnrollmentNumber.trim()) {
+        payload.enrollmentNumber = customEnrollmentNumber.trim().toUpperCase();
+      }
+
+      const res = await apiClient.post('/students', payload);
 
       setShowModal(false);
       setFirstName('');
       setLastName('');
       setEmail('');
       setPhone('');
+      setCustomEnrollmentNumber('');
       fetchStudents();
-      alert('Student admitted successfully! Default password is Student@123');
+      fetchZprnConfig();
+      alert(res.data.message || 'Student admitted successfully! Default password is Student@123');
     } catch (err: any) {
       alert(err.response?.data?.message || 'Admission failed.');
     }
   };
 
+  const handleSaveZprnConfig = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const res = await apiClient.put('/students/zprn-config', {
+        prefix: zprnPrefix.trim().toUpperCase(),
+        startNumber: Number(zprnStartNum),
+        padding: Number(zprnPadding),
+      });
+      alert(res.data.message || 'ZPRN sequence updated successfully!');
+      setShowZprnModal(false);
+      fetchZprnConfig();
+    } catch (err: any) {
+      alert(err.response?.data?.message || 'Failed to update ZPRN settings.');
+    }
+  };
+
+  const currentDept = departments.find((d) => d.id === departmentId);
+  const currentPrograms = currentDept?.programs || [];
+  const currentProg = currentPrograms.find((p: any) => p.id === programId);
+  const currentBatches = currentProg?.batches || [];
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 pb-12">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Student Directory</h1>
           <p className="text-xs text-slate-500 mt-1">
-            Enrollment records, roll number allocation, and semester tracking (Induri Campus)
+            Enrollment records, ZPRN allocation sequence, and semester tracking (Induri Campus)
           </p>
         </div>
         {isAdmin && (
-          <div className="flex items-center space-x-2.5">
+          <div className="flex flex-wrap items-center gap-2.5">
+            <button
+              onClick={() => {
+                fetchZprnConfig();
+                setShowZprnModal(true);
+              }}
+              className="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-bold shadow-xs transition flex items-center gap-1.5 border border-slate-300"
+              title="Configure starting ZPRN counter and prefix"
+            >
+              <Sliders className="w-3.5 h-3.5 text-zes-700" />
+              <span>ZPRN Setup</span>
+              {zprnConfig && (
+                <span className="font-mono text-[10px] bg-zes-200/80 px-1.5 py-0.2 rounded text-zes-900 font-bold">
+                  {zprnConfig.nextZprn}
+                </span>
+              )}
+            </button>
+
             <button
               onClick={() => {
                 setShowImportModal(true);
@@ -185,9 +284,9 @@ export const StudentsPage: React.FC = () => {
                 setImportError(null);
                 setImportFile(null);
               }}
-              className="px-4 py-2 bg-gradient-to-r from-zes-700 to-zes-600 hover:from-zes-800 hover:to-zes-700 text-white rounded-xl text-xs font-bold shadow-sm transition flex items-center gap-1.5"
+              className="px-3.5 py-2 bg-gradient-to-r from-zes-700 to-zes-600 hover:from-zes-800 hover:to-zes-700 text-white rounded-xl text-xs font-bold shadow-sm transition flex items-center gap-1.5"
             >
-              <FileSpreadsheet className="w-4 h-4" />
+              <FileSpreadsheet className="w-3.5 h-3.5" />
               <span>Bulk Import (Excel/CSV)</span>
             </button>
 
@@ -196,7 +295,7 @@ export const StudentsPage: React.FC = () => {
               className="px-4 py-2 bg-zes-800 hover:bg-zes-900 text-white rounded-xl text-xs font-bold shadow-sm transition flex items-center"
             >
               <Plus className="w-4 h-4 mr-1.5" />
-              <span>Admit Single Student</span>
+              <span>Admit Student</span>
             </button>
           </div>
         )}
@@ -312,20 +411,18 @@ export const StudentsPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Admission Modal */}
+      {/* Modal 1: Admission Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl overflow-y-auto max-h-[90vh]">
             <h3 className="text-lg font-bold text-slate-900 mb-1">Student Admission Onboarding</h3>
             <p className="text-xs text-slate-500 mb-4">
-              Provisions user credentials and enrolls student into academic batch
+              Provisions user credentials and enrolls student into academic cohort with auto-allocated ZPRN
             </p>
             <form onSubmit={handleAdmitStudent} className="space-y-3.5">
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    First Name
-                  </label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">First Name</label>
                   <input
                     type="text"
                     required
@@ -335,9 +432,7 @@ export const StudentsPage: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Last Name
-                  </label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">Last Name</label>
                   <input
                     type="text"
                     required
@@ -376,9 +471,7 @@ export const StudentsPage: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Date of Birth
-                  </label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">Date of Birth</label>
                   <input
                     type="date"
                     required
@@ -402,12 +495,10 @@ export const StudentsPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Department
-                </label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">Department</label>
                 <select
                   value={departmentId}
-                  onChange={(e) => setDepartmentId(e.target.value)}
+                  onChange={(e) => handleDeptSelectChange(e.target.value)}
                   className="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs"
                 >
                   {departments.map((d) => (
@@ -416,6 +507,64 @@ export const StudentsPage: React.FC = () => {
                     </option>
                   ))}
                 </select>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">Degree Program</label>
+                  <select
+                    value={programId}
+                    onChange={(e) => handleProgramSelectChange(e.target.value)}
+                    className="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs"
+                  >
+                    {currentPrograms.map((p: any) => (
+                      <option key={p.id} value={p.id}>
+                        {p.code} - {p.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">Academic Batch</label>
+                  <select
+                    value={batchId}
+                    onChange={(e) => setBatchId(e.target.value)}
+                    className="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs"
+                  >
+                    {currentBatches.map((b: any) => (
+                      <option key={b.id} value={b.id}>
+                        {b.name} ({b.academicYear})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">Current Semester</label>
+                  <input
+                    type="number"
+                    min={1}
+                    max={12}
+                    required
+                    value={currentSemester}
+                    onChange={(e) => setCurrentSemester(Number(e.target.value))}
+                    className="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    Custom ZPRN (Optional)
+                  </label>
+                  <input
+                    type="text"
+                    value={customEnrollmentNumber}
+                    onChange={(e) => setCustomEnrollmentNumber(e.target.value)}
+                    placeholder={zprnConfig ? `Auto: ${zprnConfig.nextZprn}` : 'e.g. ZPRN240100'}
+                    className="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs font-mono uppercase"
+                  />
+                </div>
               </div>
 
               <div className="flex justify-end space-x-3 pt-3">
@@ -438,7 +587,107 @@ export const StudentsPage: React.FC = () => {
         </div>
       )}
 
-      {/* Bulk Excel/CSV Import Modal */}
+      {/* Modal 2: ZPRN Sequence Setup Modal */}
+      {showZprnModal && (
+        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl">
+            <div className="flex items-start justify-between pb-3 border-b border-slate-100">
+              <div className="flex items-center space-x-2.5">
+                <div className="w-9 h-9 rounded-xl bg-zes-50 text-zes-800 flex items-center justify-center font-bold">
+                  <Sliders className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-slate-900">ZPRN Sequence Setup</h3>
+                  <p className="text-[11px] text-slate-500">Configure auto-generated student PRN base values</p>
+                </div>
+              </div>
+              <button onClick={() => setShowZprnModal(false)} className="text-slate-400 hover:text-slate-600">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {zprnConfig && (
+              <div className="my-4 p-3.5 bg-gradient-to-r from-zes-50 to-indigo-50 border border-zes-200 rounded-xl">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-600">Current Next Assigned ZPRN:</span>
+                  <span className="font-mono font-black text-zes-900 text-sm bg-white px-2 py-0.5 rounded border border-zes-300">
+                    {zprnConfig.nextZprn}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between text-[11px] text-slate-500 mt-1">
+                  <span>Current Base Counter:</span>
+                  <span className="font-mono">{zprnConfig.currentNumber}</span>
+                </div>
+              </div>
+            )}
+
+            <form onSubmit={handleSaveZprnConfig} className="space-y-3.5">
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  ZPRN Prefix (e.g. ZPRN, ZES, PRN)
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={zprnPrefix}
+                  onChange={(e) => setZprnPrefix(e.target.value.toUpperCase())}
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl text-xs uppercase font-mono"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  Starting Counter / Number (e.g. 240001)
+                </label>
+                <input
+                  type="number"
+                  required
+                  min={1}
+                  value={zprnStartNum}
+                  onChange={(e) => setZprnStartNum(Number(e.target.value))}
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl text-xs font-mono"
+                />
+                <p className="text-[10px] text-slate-400 mt-1">
+                  New student admissions will increment continuously starting from this value.
+                </p>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  Zero Padding Digits (e.g. 5 or 6)
+                </label>
+                <input
+                  type="number"
+                  required
+                  min={3}
+                  max={10}
+                  value={zprnPadding}
+                  onChange={(e) => setZprnPadding(Number(e.target.value))}
+                  className="w-full px-3 py-2 border border-slate-300 rounded-xl text-xs font-mono"
+                />
+              </div>
+
+              <div className="flex justify-end space-x-2 pt-2 border-t border-slate-100">
+                <button
+                  type="button"
+                  onClick={() => setShowZprnModal(false)}
+                  className="px-4 py-2 border border-slate-300 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-zes-800 hover:bg-zes-900 text-white rounded-xl text-xs font-bold"
+                >
+                  Save Sequence
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Modal 3: Bulk Excel/CSV Import Modal */}
       {showImportModal && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-in fade-in">
           <div className="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-slate-200">
@@ -448,129 +697,90 @@ export const StudentsPage: React.FC = () => {
                   <FileSpreadsheet className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-extrabold text-slate-900">
-                    Bulk Student Admissions (Excel / CSV)
-                  </h3>
+                  <h3 className="text-base font-bold text-slate-900">Bulk Student Onboarding</h3>
                   <p className="text-xs text-slate-500">
-                    Upload official student batch roster to auto-provision accounts, PRNs, and annual fee ledgers.
+                    Upload roll call spreadsheet (.xlsx or .csv) to batch provision students
                   </p>
                 </div>
               </div>
               <button
                 onClick={() => setShowImportModal(false)}
-                className="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-100 transition"
+                className="p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Template Download Alert */}
-            <div className="mt-4 p-3.5 rounded-2xl bg-zes-50/80 border border-zes-200/80 flex items-center justify-between gap-3 text-xs">
-              <div className="flex items-center space-x-2 text-zes-800">
-                <Download className="w-4 h-4 shrink-0 text-zes-700" />
-                <span>Need the official format? Download the pre-formatted Excel template.</span>
-              </div>
-              <button
-                type="button"
-                onClick={handleDownloadTemplate}
-                className="px-3 py-1.5 bg-white text-zes-800 hover:bg-zes-100 font-bold rounded-lg border border-zes-300 shadow-2xs shrink-0 transition"
-              >
-                Download Template (.xlsx)
-              </button>
-            </div>
-
-            {/* Error Message */}
-            {importError && (
-              <div className="mt-3 p-3 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-800 flex items-start gap-2">
-                <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                <span>{importError}</span>
-              </div>
-            )}
-
-            {/* Success Summary */}
-            {importResult && (
-              <div className="mt-3 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 space-y-2">
-                <div className="flex items-center space-x-2 font-bold text-emerald-800">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>{importResult.message}</span>
-                </div>
-                <div className="grid grid-cols-3 gap-2 pt-1 font-medium">
-                  <div className="bg-white p-2 rounded-lg border border-emerald-200 text-center">
-                    <span className="block text-[10px] text-slate-400 uppercase">Processed</span>
-                    <span className="text-sm font-bold text-slate-800">{importResult.totalProcessed}</span>
-                  </div>
-                  <div className="bg-white p-2 rounded-lg border border-emerald-200 text-center">
-                    <span className="block text-[10px] text-emerald-600 uppercase">Imported</span>
-                    <span className="text-sm font-bold text-emerald-700">{importResult.importedCount}</span>
-                  </div>
-                  <div className="bg-white p-2 rounded-lg border border-emerald-200 text-center">
-                    <span className="block text-[10px] text-amber-600 uppercase">Skipped / Duplicates</span>
-                    <span className="text-sm font-bold text-amber-700">{importResult.skippedCount}</span>
-                  </div>
-                </div>
-
-                {importResult.skipped && importResult.skipped.length > 0 && (
-                  <div className="mt-2 text-[11px] text-slate-600 max-h-24 overflow-y-auto">
-                    <p className="font-bold text-amber-800 mb-1">Skipped entries:</p>
-                    {importResult.skipped.map((s: any, idx: number) => (
-                      <div key={idx} className="text-slate-500">
-                        Row {s.row}: {s.prn || s.email} - {s.reason}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* Upload Area */}
-            <form onSubmit={handleBulkImportSubmit} className="mt-5 space-y-4">
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept=".xlsx, .xls, .csv"
-                onChange={(e) => {
-                  if (e.target.files && e.target.files[0]) {
-                    setImportFile(e.target.files[0]);
-                    setImportError(null);
-                  }
-                }}
-                className="hidden"
-              />
-
+            <form onSubmit={handleBulkImportSubmit} className="space-y-4 my-4">
               <div
                 onClick={() => fileInputRef.current?.click()}
-                className="border-2 border-dashed border-slate-300 hover:border-zes-500 hover:bg-zes-50/30 rounded-2xl p-6 text-center cursor-pointer transition group"
+                className={`border-2 border-dashed rounded-2xl p-6 text-center cursor-pointer transition ${
+                  importFile
+                    ? 'border-emerald-300 bg-emerald-50/30'
+                    : 'border-slate-300 hover:border-zes-500 bg-slate-50/50'
+                }`}
               >
-                <div className="w-12 h-12 rounded-2xl bg-slate-100 group-hover:bg-zes-100 text-slate-500 group-hover:text-zes-700 flex items-center justify-center mx-auto mb-3 transition">
-                  <FileUp className="w-6 h-6" />
-                </div>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept=".xlsx, .xls, .csv"
+                  onChange={(e) => {
+                    if (e.target.files && e.target.files[0]) {
+                      setImportFile(e.target.files[0]);
+                      setImportError(null);
+                    }
+                  }}
+                  className="hidden"
+                />
+                <FileUp className="w-8 h-8 text-slate-400 mx-auto mb-2" />
                 {importFile ? (
                   <div>
-                    <p className="text-xs font-bold text-slate-900">{importFile.name}</p>
-                    <p className="text-[11px] text-slate-500 mt-0.5">
-                      {(importFile.size / 1024).toFixed(1)} KB • Ready to upload
-                    </p>
-                    <span className="inline-block mt-2 text-[11px] text-zes-700 font-semibold hover:underline">
-                      Click to choose another file
+                    <span className="text-xs font-bold text-emerald-800 block">{importFile.name}</span>
+                    <span className="text-[11px] text-slate-500">
+                      {(importFile.size / 1024).toFixed(1)} KB • Click to change file
                     </span>
                   </div>
                 ) : (
                   <div>
-                    <p className="text-xs font-bold text-slate-800">
-                      Click to select or drag and drop Excel/CSV file
-                    </p>
-                    <p className="text-[11px] text-slate-400 mt-1">
-                      Supports .xlsx, .xls, and .csv with columns: PRN, RollNumber, FirstName, LastName, Email, DepartmentCode, etc.
-                    </p>
+                    <span className="text-xs font-semibold text-slate-700 block">
+                      Click to browse or drop student roll-call Excel/CSV file here
+                    </span>
+                    <span className="text-[11px] text-slate-400">
+                      Supports SPPU / DTE Maharashtra standard tabular sheets
+                    </span>
                   </div>
                 )}
               </div>
 
+              {importError && (
+                <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl text-xs text-rose-800 flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
+                  <span>{importError}</span>
+                </div>
+              )}
+
+              {importResult && (
+                <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-900 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>
+                      Successfully imported <strong>{importResult.importedCount}</strong> student records!
+                    </span>
+                  </div>
+                </div>
+              )}
+
               <div className="flex items-center justify-between pt-2">
-                <span className="text-[11px] text-slate-400">
-                  Accounts will be created with default password <code className="font-mono text-slate-600">Student@123</code>
-                </span>
-                <div className="flex items-center space-x-2.5">
+                <button
+                  type="button"
+                  onClick={handleDownloadTemplate}
+                  className="text-xs font-bold text-zes-700 hover:text-zes-800 flex items-center gap-1.5"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>Download Sample Template</span>
+                </button>
+
+                <div className="flex items-center space-x-2">
                   <button
                     type="button"
                     onClick={() => setShowImportModal(false)}
@@ -581,19 +791,9 @@ export const StudentsPage: React.FC = () => {
                   <button
                     type="submit"
                     disabled={importing || !importFile}
-                    className="px-5 py-2 bg-gradient-to-r from-zes-800 to-zes-700 hover:from-zes-900 hover:to-zes-800 text-white rounded-xl text-xs font-bold tracking-wide transition shadow-sm disabled:opacity-50 flex items-center gap-1.5"
+                    className="px-5 py-2 bg-gradient-to-r from-zes-700 to-zes-600 hover:from-zes-800 hover:to-zes-700 text-white rounded-xl text-xs font-bold shadow-sm transition disabled:opacity-50 flex items-center gap-1.5"
                   >
-                    {importing ? (
-                      <>
-                        <div className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                        <span>Importing Records...</span>
-                      </>
-                    ) : (
-                      <>
-                        <Upload className="w-4 h-4" />
-                        <span>Process &amp; Insert Real Data</span>
-                      </>
-                    )}
+                    {importing ? 'Processing File...' : 'Upload & Import Students'}
                   </button>
                 </div>
               </div>

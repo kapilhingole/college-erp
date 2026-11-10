@@ -11,7 +11,7 @@ router.get('/', authenticateJWT, NoticesController.listNotices);
 router.post(
   '/',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN', 'FACULTY'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT', 'FACULTY'),
   logAudit('NOTICES', 'CREATE'),
   NoticesController.createNotice
 );
@@ -19,7 +19,7 @@ router.post(
 router.delete(
   '/:id',
   authenticateJWT,
-  requireRoles('SUPER_ADMIN', 'ADMIN'),
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
   logAudit('NOTICES', 'DELETE'),
   NoticesController.deleteNotice
 );
