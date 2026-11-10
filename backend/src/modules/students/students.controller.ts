@@ -4,6 +4,7 @@ import * as XLSX from 'xlsx';
 import { z } from 'zod';
 import { prisma } from '../../config';
 import { AppError } from '../../middleware/errorHandler';
+import { ZprnService } from '../../services/zprnService';
 
 const studentAdmissionSchema = z.object({
   firstName: z.string().min(2),
@@ -20,7 +21,7 @@ const studentAdmissionSchema = z.object({
   departmentId: z.string().uuid(),
   programId: z.string().uuid(),
   batchId: z.string().uuid(),
-  sectionId: z.string().uuid().optional(),
+  sectionId: z.string().uuid().optional().nullable(),
   currentSemester: z.number().int().min(1).default(1),
   rollNumber: z.string().optional(),
   enrollmentNumber: z.string().optional(),
@@ -134,6 +135,34 @@ export class StudentsController {
     }
   }
 
+  static async getZprnConfig(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const config = await ZprnService.getConfig();
+      res.json({ success: true, data: config });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async updateZprnConfig(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const schema = z.object({
+        prefix: z.string().min(1).max(10).optional(),
+        startNumber: z.number().int().min(1).optional(),
+        padding: z.number().int().min(3).max(10).optional(),
+      });
+      const body = schema.parse(req.body);
+      const updated = await ZprnService.updateConfig(body);
+      res.json({
+        success: true,
+        message: `ZPRN sequence successfully configured. Next assigned ZPRN will be ${updated.nextZprn}`,
+        data: updated,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
   static async admitStudent(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const data = studentAdmissionSchema.parse(req.body);
@@ -146,17 +175,33 @@ export class StudentsController {
         throw new AppError('User with this email already exists.', 409);
       }
 
-      // Generate roll number and enrollment number if not provided
-      const year = new Date().getFullYear();
-      const count = await prisma.student.count();
-      const rollNumber = data.rollNumber || `ROLL-${year}-${String(count + 1).padStart(4, '0')}`;
-      const enrollmentNumber =
-        data.enrollmentNumber || `ENR-${year}-${String(count + 1).padStart(5, '0')}`;
-
       const passwordHash = await bcrypt.hash(data.password, 10);
 
-      // ACID Transaction: Create User + Student Profile
+      // ACID Transaction: Allocate ZPRN + Create User + Student Profile
       const student = await prisma.$transaction(async (tx) => {
+        // 1. Determine or allocate ZPRN (enrollmentNumber)
+        let enrollmentNumber = data.enrollmentNumber?.trim().toUpperCase();
+        if (!enrollmentNumber) {
+          enrollmentNumber = await ZprnService.allocateNextZprn(tx);
+        } else {
+          // Check uniqueness of provided enrollmentNumber
+          const existingEnr = await tx.student.findUnique({
+            where: { enrollmentNumber },
+          });
+          if (existingEnr) {
+            throw new AppError(`ZPRN / Enrollment number ${enrollmentNumber} is already in use.`, 409);
+          }
+        }
+
+        // 2. Determine or generate roll number
+        let rollNumber = data.rollNumber?.trim().toUpperCase();
+        if (!rollNumber) {
+          const dept = await tx.department.findUnique({ where: { id: data.departmentId } });
+          const deptCode = dept?.code || 'STU';
+          const countInBatch = await tx.student.count({ where: { batchId: data.batchId } });
+          rollNumber = `${deptCode}${String(countInBatch + 101).padStart(4, '0')}`;
+        }
+
         const user = await tx.user.create({
           data: {
             email: data.email.toLowerCase().trim(),
@@ -171,10 +216,10 @@ export class StudentsController {
             userId: user.id,
             rollNumber,
             enrollmentNumber,
-            firstName: data.firstName,
-            lastName: data.lastName,
+            firstName: data.firstName.trim(),
+            lastName: data.lastName.trim(),
             email: data.email.toLowerCase().trim(),
-            phone: data.phone,
+            phone: data.phone.trim(),
             dateOfBirth: new Date(data.dateOfBirth),
             gender: data.gender,
             bloodGroup: data.bloodGroup,
@@ -184,7 +229,7 @@ export class StudentsController {
             departmentId: data.departmentId,
             programId: data.programId,
             batchId: data.batchId,
-            sectionId: data.sectionId,
+            sectionId: data.sectionId || null,
             currentSemester: data.currentSemester,
           },
           include: {
@@ -198,7 +243,7 @@ export class StudentsController {
 
       res.status(201).json({
         success: true,
-        message: 'Student admitted and credentials provisioned.',
+        message: `Student admitted successfully with ZPRN: ${student.enrollmentNumber}`,
         data: student,
       });
     } catch (error) {
