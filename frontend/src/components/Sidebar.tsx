@@ -18,6 +18,7 @@ import {
   UserCheck,
   ChevronRight,
   Sparkles,
+  Trophy,
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
@@ -75,6 +76,7 @@ export const Sidebar: React.FC = () => {
       items: [
         { name: 'Notice Circulars', path: '/notices', icon: Bell },
         { name: 'Analytics & Reports', path: '/reports', icon: FileSpreadsheet },
+        { name: 'Student Leaderboard', path: '/leaderboard', icon: Trophy },
       ],
     },
   ];
@@ -101,6 +103,7 @@ export const Sidebar: React.FC = () => {
       group: 'BULLETINS',
       items: [
         { name: 'Circulars & Notices', path: '/notices', icon: Bell },
+        { name: 'Student Leaderboard', path: '/leaderboard', icon: Trophy },
       ],
     },
   ];
@@ -127,6 +130,7 @@ export const Sidebar: React.FC = () => {
         { name: 'Fee Invoices & Dues', path: '/fees', icon: DollarSign },
         { name: 'Library Books Issued', path: '/library', icon: Library },
         { name: 'Campus Bulletins', path: '/notices', icon: Bell },
+        { name: 'Student Leaderboard', path: '/leaderboard', icon: Trophy },
       ],
     },
   ];

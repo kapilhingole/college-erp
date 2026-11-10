@@ -18,6 +18,7 @@ import { LibraryPage } from './pages/LibraryPage';
 import { NoticesPage } from './pages/NoticesPage';
 import { ReportsPage } from './pages/ReportsPage';
 import { RolesResponsibilitiesPage } from './pages/RolesResponsibilitiesPage';
+import { Leaderboard } from './pages/Leaderboard';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { token, loading } = useAuth();
@@ -80,6 +81,7 @@ export const App: React.FC = () => {
             <Route path="notices" element={<NoticesPage />} />
             <Route path="reports" element={<ReportsPage />} />
             <Route path="roles-responsibilities" element={<RolesResponsibilitiesPage />} />
+            <Route path="leaderboard" element={<Leaderboard />} />
           </Route>
 
           <Route path="*" element={<Navigate to="/" replace />} />
