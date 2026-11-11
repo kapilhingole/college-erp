@@ -21,6 +21,7 @@ import noticeRoutes from './modules/notices/notices.routes';
 import dashboardRoutes from './modules/dashboards/dashboards.routes';
 import reportRoutes from './modules/reports/reports.routes';
 import responsibilityRoutes from './modules/responsibilities/responsibilities.routes';
+import dataSyncRoutes from './modules/dataSync/dataSync.routes';
 
 const app: Application = express();
 
@@ -91,6 +92,7 @@ app.use('/api/v1/notices', noticeRoutes);
 app.use('/api/v1/dashboards', dashboardRoutes);
 app.use('/api/v1/reports', reportRoutes);
 app.use('/api/v1/responsibilities', responsibilityRoutes);
+app.use('/api/v1/data-sync', dataSyncRoutes);
 
 // In production or combined hosting, serve frontend build directly
 const frontendDistPath = path.resolve(__dirname, '../../frontend/dist');

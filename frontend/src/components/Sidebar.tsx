@@ -19,6 +19,7 @@ import {
   ChevronRight,
   Sparkles,
   Trophy,
+  FileUp,
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
@@ -69,6 +70,7 @@ export const Sidebar: React.FC = () => {
         { name: 'Attendance Records', path: '/attendance', icon: CheckCircle2 },
         { name: 'Fee Ledgers & Billing', path: '/fees', icon: DollarSign },
         { name: 'Library Hub', path: '/library', icon: Library },
+        { name: 'Data Ingest (PDF/Excel)', path: '/data-sync', icon: FileUp, badge: 'SYNC' },
       ],
     },
     {

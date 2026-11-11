@@ -25,6 +25,7 @@ import {
   Plus,
   Sliders,
   Bell,
+  FileUp,
 } from 'lucide-react';
 import { apiClient } from '../api/client';
 
@@ -225,6 +226,13 @@ export const AdminDashboard: React.FC = () => {
             >
               <Bell className="w-3.5 h-3.5" />
               <span>Broadcast Notice</span>
+            </NavLink>
+            <NavLink
+              to="/data-sync"
+              className="px-3 py-1.5 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:from-indigo-800 hover:to-indigo-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-xs"
+            >
+              <FileUp className="w-3.5 h-3.5" />
+              <span>Sync PDF / Excel / CSV</span>
             </NavLink>
           </div>
         </div>

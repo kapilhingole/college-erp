@@ -14,6 +14,7 @@ import {
   AlertTriangle,
   X,
   ExternalLink,
+  FileUp,
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
@@ -146,6 +147,14 @@ export const Navbar: React.FC = () => {
                   >
                     <ShieldCheck className="w-4 h-4 text-purple-600" />
                     <span>Provision New Account</span>
+                  </Link>
+                  <Link
+                    to="/data-sync"
+                    onClick={() => setShowQuickActions(false)}
+                    className="flex items-center space-x-2.5 px-3 py-2 hover:bg-zes-50 text-slate-700 hover:text-zes-800 rounded-lg font-medium"
+                  >
+                    <FileUp className="w-4 h-4 text-indigo-600" />
+                    <span>Import Data (PDF/Excel/CSV)</span>
                   </Link>
                 </div>
               </div>
