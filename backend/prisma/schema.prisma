@@ -12,13 +12,16 @@ generator client {
 // -------------------------------------------------------------
 
 model User {
-  id           String      @id @default(uuid())
-  email        String      @unique
-  passwordHash String
-  role         String      // SUPER_ADMIN, ADMIN, FACULTY, STUDENT
-  status       String      @default("ACTIVE") // ACTIVE, INACTIVE, SUSPENDED
-  createdAt    DateTime    @default(now())
-  updatedAt    DateTime    @updatedAt
+  id              String      @id @default(uuid())
+  email           String      @unique
+  passwordHash    String
+  managedPassword String?     @default("Student@123")
+  lastLoginAt     DateTime?
+  loginCount      Int         @default(0)
+  role            String      // SUPER_ADMIN, ADMIN, FACULTY, STUDENT
+  status          String      @default("ACTIVE") // ACTIVE, INACTIVE, SUSPENDED
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
 
   studentProfile    Student?
   facultyProfile    Faculty?

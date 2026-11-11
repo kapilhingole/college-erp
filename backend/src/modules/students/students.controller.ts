@@ -66,6 +66,11 @@ export class StudentsController {
         ];
       }
 
+      const isManagement =
+        req.user?.role === 'SUPER_ADMIN' ||
+        req.user?.role === 'ADMIN' ||
+        req.user?.role === 'MANAGEMENT';
+
       const students = await prisma.student.findMany({
         where,
         include: {
@@ -73,6 +78,26 @@ export class StudentsController {
           program: { select: { id: true, code: true, name: true } },
           batch: { select: { id: true, name: true, academicYear: true } },
           section: { select: { id: true, name: true } },
+          user: {
+            select: {
+              id: true,
+              email: true,
+              status: true,
+              managedPassword: isManagement,
+              lastLoginAt: true,
+              loginCount: true,
+              createdAt: true,
+              updatedAt: true,
+            },
+          },
+          _count: {
+            select: {
+              attendanceRecords: true,
+              marksEntries: true,
+              feeLedgers: true,
+              bookIssues: true,
+            },
+          },
         },
         orderBy: [{ rollNumber: 'asc' }],
       });
@@ -206,6 +231,7 @@ export class StudentsController {
           data: {
             email: data.email.toLowerCase().trim(),
             passwordHash,
+            managedPassword: data.password || 'Student@123',
             role: 'STUDENT',
             status: 'ACTIVE',
           },
@@ -518,6 +544,7 @@ export class StudentsController {
             data: {
               email,
               passwordHash,
+              managedPassword: initialPassword || 'Student@123',
               role: 'STUDENT',
               status: 'ACTIVE',
             },
@@ -588,6 +615,100 @@ export class StudentsController {
         imported,
         skipped,
       });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async resetStudentPassword(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const { id } = req.params;
+      const { newPassword } = req.body;
+
+      const student = await prisma.student.findUnique({
+        where: { id },
+        include: { user: true },
+      });
+
+      if (!student || !student.user) {
+        throw new AppError('Student user account not found.', 404);
+      }
+
+      const assignedPassword =
+        newPassword && String(newPassword).trim().length >= 6
+          ? String(newPassword).trim()
+          : 'Student@123';
+
+      const passwordHash = await bcrypt.hash(assignedPassword, 10);
+
+      await prisma.user.update({
+        where: { id: student.userId },
+        data: {
+          passwordHash,
+          managedPassword: assignedPassword,
+        },
+      });
+
+      res.json({
+        success: true,
+        message: `Password for student ${student.firstName} ${student.lastName} (${student.enrollmentNumber}) reset successfully.`,
+        data: {
+          studentId: student.id,
+          studentName: `${student.firstName} ${student.lastName}`,
+          enrollmentNumber: student.enrollmentNumber,
+          rollNumber: student.rollNumber,
+          loginEmail: student.user.email,
+          newPassword: assignedPassword,
+        },
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async getStudentActivity(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const { id } = req.params;
+
+      const student = await prisma.student.findUnique({
+        where: { id },
+        include: {
+          user: {
+            select: {
+              id: true,
+              email: true,
+              status: true,
+              lastLoginAt: true,
+              loginCount: true,
+              managedPassword: true,
+              createdAt: true,
+              auditLogs: {
+                take: 15,
+                orderBy: { timestamp: 'desc' },
+              },
+            },
+          },
+          department: true,
+          program: true,
+          batch: true,
+          section: true,
+          attendanceRecords: {
+            take: 10,
+            orderBy: { createdAt: 'desc' },
+            include: { lectureSession: { include: { subject: true } } },
+          },
+          feeLedgers: {
+            include: { feeStructure: true, payments: true },
+          },
+          bookIssues: {
+            include: { book: true },
+          },
+        },
+      });
+
+      if (!student) throw new AppError('Student profile not found.', 404);
+
+      res.json({ success: true, data: student });
     } catch (error) {
       next(error);
     }

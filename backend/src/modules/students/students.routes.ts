@@ -30,6 +30,19 @@ router.post(
 );
 
 router.get('/:id', authenticateJWT, StudentsController.getStudentById);
+router.get(
+  '/:id/activity',
+  authenticateJWT,
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT', 'FACULTY'),
+  StudentsController.getStudentActivity
+);
+router.post(
+  '/:id/reset-password',
+  authenticateJWT,
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
+  logAudit('STUDENTS', 'RESET_PASSWORD'),
+  StudentsController.resetStudentPassword
+);
 
 // Admin & Management operations for Student Onboarding & Lifecycle
 router.post(

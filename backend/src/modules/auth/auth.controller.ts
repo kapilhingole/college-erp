@@ -176,6 +176,15 @@ export class AuthController {
         throw new AppError('Invalid email or password.', 401);
       }
 
+      // Update user login activity and statistics
+      await prisma.user.update({
+        where: { id: user.id },
+        data: {
+          lastLoginAt: new Date(),
+          loginCount: { increment: 1 },
+        },
+      });
+
       // 4. Issue JWT carrying user's ID, email, and Management-assigned role
       const token = jwt.sign(
         {
@@ -289,6 +298,7 @@ export class AuthController {
           data: {
             email: emailNormalized,
             passwordHash,
+            managedPassword: password,
             role: canonicalRole,
             status: 'ACTIVE',
           },
@@ -494,7 +504,10 @@ export class AuthController {
       const passwordHash = await bcrypt.hash(newPassword, 12);
       await prisma.user.update({
         where: { id: user.id },
-        data: { passwordHash },
+        data: {
+          passwordHash,
+          managedPassword: newPassword,
+        },
       });
 
       res.json({
