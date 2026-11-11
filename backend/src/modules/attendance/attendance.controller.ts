@@ -123,7 +123,10 @@ export class AttendanceController {
         where: { studentId },
         include: {
           lectureSession: {
-            include: { subject: true },
+            include: {
+              subject: true,
+              faculty: { select: { firstName: true, lastName: true, designation: true } },
+            },
           },
         },
         orderBy: { lectureSession: { sessionDate: 'desc' } },
@@ -138,6 +141,96 @@ export class AttendanceController {
       res.json({
         success: true,
         data: evaluation,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  // Personal read-only attendance portal endpoint for logged-in students
+  static async getMyAttendance(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      // Find student profile from user token
+      let studentId = req.user?.studentId;
+
+      if (!studentId && req.user?.id) {
+        const studentProfile = await prisma.student.findUnique({
+          where: { userId: req.user.id },
+        });
+        studentId = studentProfile?.id;
+      }
+
+      if (!studentId) {
+        throw new AppError('No student record tied to this user account.', 404);
+      }
+
+      const student = await prisma.student.findUnique({
+        where: { id: studentId },
+        include: {
+          department: true,
+          program: true,
+          batch: true,
+          section: true,
+        },
+      });
+
+      if (!student) throw new AppError('Student profile not found.', 404);
+
+      const records = await prisma.attendanceRecord.findMany({
+        where: { studentId },
+        include: {
+          lectureSession: {
+            include: {
+              subject: true,
+              faculty: { select: { firstName: true, lastName: true, designation: true } },
+            },
+          },
+        },
+        orderBy: { lectureSession: { sessionDate: 'desc' } },
+      });
+
+      const evaluation = AttendanceAlertService.evaluateStudentAttendance(
+        studentId,
+        records as any,
+        CONFIG.ATTENDANCE_MIN_THRESHOLD
+      );
+
+      const dailyLogs = records.map((r) => ({
+        id: r.id,
+        date: r.lectureSession.sessionDate,
+        time: r.lectureSession.sessionTime,
+        subjectCode: r.lectureSession.subject.code,
+        subjectName: r.lectureSession.subject.name,
+        facultyName: r.lectureSession.faculty
+          ? `Prof. ${r.lectureSession.faculty.firstName} ${r.lectureSession.faculty.lastName}`
+          : 'Course Faculty',
+        topicCovered: r.lectureSession.topicCovered || 'Curriculum Lecture Session',
+        status: r.status,
+        remarks: r.remarks,
+        readOnly: true,
+      }));
+
+      res.json({
+        success: true,
+        data: {
+          student: {
+            id: student.id,
+            name: `${student.firstName} ${student.lastName}`,
+            rollNumber: student.rollNumber,
+            enrollmentNumber: student.enrollmentNumber,
+            department: student.department?.name,
+            departmentCode: student.department?.code,
+            program: student.program?.name,
+            semester: student.currentSemester,
+            section: student.section?.name || 'Division A',
+            academicStatus: student.academicStatus,
+          },
+          evaluation,
+          dailyLogs,
+          canEdit: false,
+          securityNotice:
+            'Official university attendance records marked by course professors. Students have read-only access.',
+        },
       });
     } catch (error) {
       next(error);

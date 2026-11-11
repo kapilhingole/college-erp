@@ -8,17 +8,33 @@ import {
   Calendar,
   Plus,
   Filter,
+  Lock,
+  ShieldCheck,
+  BookOpen,
+  UserCheck,
+  AlertCircle,
+  ChevronRight,
+  TrendingUp,
 } from 'lucide-react';
 import { apiClient } from '../api/client';
 import { useAuth } from '../context/AuthContext';
 
 export const AttendancePage: React.FC = () => {
-  const [sessions, setSessions] = useState<any[]>([]);
+  const { user } = useAuth();
+  const isStudent = user?.role === 'STUDENT';
+  const isFacultyOrAdmin =
+    user?.role === 'SUPER_ADMIN' ||
+    user?.role === 'ADMIN' ||
+    user?.role === 'MANAGEMENT' ||
+    user?.role === 'FACULTY';
+
+  // -------------------------------------------------------------
+  // FACULTY & MANAGEMENT STATE
+  // -------------------------------------------------------------
   const [subjects, setSubjects] = useState<any[]>([]);
   const [sections, setSections] = useState<any[]>([]);
   const [students, setStudents] = useState<any[]>([]);
   const [defaulters, setDefaulters] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'mark' | 'defaulters'>('mark');
 
   // New session state
@@ -27,15 +43,16 @@ export const AttendancePage: React.FC = () => {
   const [sessionDate, setSessionDate] = useState(new Date().toISOString().split('T')[0]);
   const [sessionTime, setSessionTime] = useState('09:00 - 10:00');
   const [topicCovered, setTopicCovered] = useState('');
-
-  // Bulk attendance state (studentId -> status)
   const [attendanceMap, setAttendanceMap] = useState<{ [studentId: string]: string }>({});
 
-  const { user } = useAuth();
-  const isFacultyOrAdmin =
-    user?.role === 'SUPER_ADMIN' || user?.role === 'ADMIN' || user?.role === 'MANAGEMENT' || user?.role === 'FACULTY';
+  // -------------------------------------------------------------
+  // STUDENT STATE (STRICTLY READ-ONLY)
+  // -------------------------------------------------------------
+  const [studentData, setStudentData] = useState<any | null>(null);
+  const [studentSubjectFilter, setStudentSubjectFilter] = useState('ALL');
+  const [loading, setLoading] = useState(true);
 
-  const fetchData = async () => {
+  const fetchFacultyData = async () => {
     setLoading(true);
     try {
       const [subsRes, deptsRes, studentsRes, defRes] = await Promise.all([
@@ -77,10 +94,27 @@ export const AttendancePage: React.FC = () => {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const fetchStudentData = async () => {
+    setLoading(true);
+    try {
+      const res = await apiClient.get('/attendance/my-attendance');
+      setStudentData(res.data.data);
+    } catch (err) {
+      console.error('Failed to load student attendance:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
+    if (isStudent) {
+      fetchStudentData();
+    } else {
+      fetchFacultyData();
+    }
+  }, [isStudent]);
+
+  // Faculty bulk marking actions
   const setStatus = (studentId: string, status: string) => {
     setAttendanceMap((prev) => ({ ...prev, [studentId]: status }));
   };
@@ -100,7 +134,6 @@ export const AttendancePage: React.FC = () => {
     }
 
     try {
-      // 1. Create lecture session
       const sessRes = await apiClient.post('/attendance/sessions', {
         subjectId: selectedSubjectId,
         sectionId: selectedSectionId,
@@ -111,7 +144,6 @@ export const AttendancePage: React.FC = () => {
 
       const lectureSessionId = sessRes.data.data.id;
 
-      // 2. Submit bulk records
       const records = Object.entries(attendanceMap).map(([studentId, status]) => ({
         studentId,
         status,
@@ -122,21 +154,368 @@ export const AttendancePage: React.FC = () => {
         records,
       });
 
-      alert(`Attendance recorded for ${records.length} students! Defaulter lists updated.`);
+      alert(`Session attendance successfully marked for ${records.length} students! Defaulter rosters updated.`);
       setTopicCovered('');
-      fetchData();
+      fetchFacultyData();
     } catch (err: any) {
       alert(err.response?.data?.message || 'Failed to submit attendance.');
     }
   };
 
+  // -------------------------------------------------------------
+  // RENDER 1: STUDENT VIEW (READ-ONLY PERSONAL ATTENDANCE)
+  // -------------------------------------------------------------
+  if (isStudent) {
+    if (loading) {
+      return (
+        <div className="flex flex-col items-center justify-center py-24 space-y-3">
+          <div className="w-8 h-8 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin" />
+          <p className="text-xs font-semibold text-slate-500">Loading verified attendance ledger...</p>
+        </div>
+      );
+    }
+
+    const evaluation = studentData?.evaluation || {
+      overallPercentage: 0,
+      totalLectures: 0,
+      totalAttended: 0,
+      isOverallDefaulter: false,
+      subjectSummaries: [],
+    };
+    const dailyLogs = studentData?.dailyLogs || [];
+
+    const filteredLogs =
+      studentSubjectFilter === 'ALL'
+        ? dailyLogs
+        : dailyLogs.filter((log: any) => log.subjectCode === studentSubjectFilter);
+
+    return (
+      <div className="space-y-6 pb-12">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2">
+              <h1 className="text-2xl font-bold text-slate-900">My Attendance &amp; Compliance</h1>
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-300 flex items-center gap-1">
+                <Lock className="w-3 h-3 text-slate-500" />
+                Read-Only Record
+              </span>
+            </div>
+            <p className="text-xs text-slate-500 mt-1">
+              Official lecture session records marked by course professors &bull; Students cannot modify attendance records
+            </p>
+          </div>
+
+          <div className="flex items-center space-x-2 text-xs font-semibold px-3 py-1.5 rounded-xl bg-indigo-50 text-indigo-700 border border-indigo-200">
+            <ShieldCheck className="w-4 h-4 text-indigo-600" />
+            <span>Marked by Authorized Faculty Only</span>
+          </div>
+        </div>
+
+        {/* Security Notification Banner */}
+        <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl flex items-start gap-3">
+          <div className="p-2 bg-indigo-600 text-white rounded-xl shrink-0 mt-0.5">
+            <Lock className="w-4 h-4" />
+          </div>
+          <div className="text-xs text-slate-700 space-y-1">
+            <span className="font-bold text-slate-900 block">
+              University Attendance Integrity Policy
+            </span>
+            <p>
+              Your attendance is officially recorded in real time by subject professors during daily/monthly lecture sessions.
+              Under academic statutory regulations, students have <strong>strictly read-only access</strong> and cannot edit, alter, or self-mark attendance.
+            </p>
+          </div>
+        </div>
+
+        {/* Statutory Attendance Gauge & Metrics */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+              Overall Cumulative Attendance
+            </span>
+            <div className="my-3 flex items-baseline gap-2">
+              <span
+                className={`text-3xl font-black ${
+                  evaluation.isOverallDefaulter ? 'text-rose-600' : 'text-emerald-600'
+                }`}
+              >
+                {evaluation.overallPercentage}%
+              </span>
+              <span className="text-xs font-semibold text-slate-400">
+                ({evaluation.totalAttended} / {evaluation.totalLectures} sessions)
+              </span>
+            </div>
+            <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+              <div
+                className={`h-2 rounded-full ${
+                  evaluation.isOverallDefaulter ? 'bg-rose-500' : 'bg-emerald-500'
+                }`}
+                style={{ width: `${Math.min(evaluation.overallPercentage, 100)}%` }}
+              />
+            </div>
+          </div>
+
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+              Statutory Exam Eligibility
+            </span>
+            <div className="my-2">
+              {evaluation.isOverallDefaulter ? (
+                <div className="space-y-1">
+                  <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-800 border border-rose-300 inline-block">
+                    Critical Defaulter (&lt; 75.0%)
+                  </span>
+                  <p className="text-[11px] text-rose-600 font-medium">
+                    Risk of exam debarment. Meet your HOD immediately.
+                  </p>
+                </div>
+              ) : (
+                <div className="space-y-1">
+                  <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300 inline-block">
+                    Compliant (&ge; 75.0%)
+                  </span>
+                  <p className="text-[11px] text-emerald-700 font-medium">
+                    Eligible for term-end university examinations.
+                  </p>
+                </div>
+              )}
+            </div>
+            <span className="text-[10px] text-slate-400">SPPU / DTE Mandate: 75.0% Minimum</span>
+          </div>
+
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+              Lectures Conducted
+            </span>
+            <div className="my-2">
+              <span className="text-3xl font-black text-slate-900">{evaluation.totalLectures}</span>
+              <span className="text-xs text-slate-500 block mt-0.5">Total class hours held</span>
+            </div>
+            <span className="text-[10px] text-slate-400">Across all registered subjects</span>
+          </div>
+
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+              Academic Cohort
+            </span>
+            <div className="my-2 space-y-0.5 text-xs font-semibold text-slate-800">
+              <div>{studentData?.student?.departmentCode || 'Branch'} &bull; Semester {studentData?.student?.semester || 1}</div>
+              <div className="text-[11px] text-slate-500 font-normal">
+                {studentData?.student?.section || 'Division A'}
+              </div>
+            </div>
+            <span className="text-[10px] text-indigo-600 font-mono">
+              Roll: {studentData?.student?.rollNumber}
+            </span>
+          </div>
+        </div>
+
+        {/* Subject-Wise Breakdown Table */}
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div className="p-4 bg-slate-50/70 border-b border-slate-200 flex items-center justify-between">
+            <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+              <BookOpen className="w-4 h-4 text-indigo-600" />
+              Subject-Wise Attendance Summary (Marked by Subject Professors)
+            </span>
+            <span className="text-[11px] text-slate-500 font-medium">
+              Target: &ge; 75% per course
+            </span>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs">
+              <thead className="bg-slate-50 text-slate-500 font-semibold uppercase border-b border-slate-200">
+                <tr>
+                  <th className="py-3 px-4">Subject</th>
+                  <th className="py-3 px-4">Attended / Held</th>
+                  <th className="py-3 px-4">Attendance %</th>
+                  <th className="py-3 px-4">Compliance Status</th>
+                  <th className="py-3 px-4">Required Classes</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {evaluation.subjectSummaries.length === 0 ? (
+                  <tr>
+                    <td colSpan={5} className="py-8 text-center text-slate-400">
+                      No subject attendance sessions recorded yet for current term.
+                    </td>
+                  </tr>
+                ) : (
+                  evaluation.subjectSummaries.map((sub: any) => (
+                    <tr key={sub.subjectId} className="hover:bg-slate-50/60 transition">
+                      <td className="py-3 px-4 font-semibold text-slate-900">
+                        <div>{sub.subjectName}</div>
+                        <span className="font-mono text-[10px] text-slate-400">{sub.subjectCode}</span>
+                      </td>
+                      <td className="py-3 px-4 text-slate-700 font-medium">
+                        {sub.attended} / {sub.totalConducted}
+                      </td>
+                      <td className="py-3 px-4">
+                        <div className="flex items-center gap-2">
+                          <span
+                            className={`font-bold ${
+                              sub.isDefaulter ? 'text-rose-600' : 'text-emerald-700'
+                            }`}
+                          >
+                            {sub.percentage}%
+                          </span>
+                          <div className="w-16 bg-slate-100 rounded-full h-1.5 overflow-hidden">
+                            <div
+                              className={`h-1.5 rounded-full ${
+                                sub.isDefaulter ? 'bg-rose-500' : 'bg-emerald-500'
+                              }`}
+                              style={{ width: `${Math.min(sub.percentage, 100)}%` }}
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      <td className="py-3 px-4">
+                        <span
+                          className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                            sub.isDefaulter
+                              ? 'bg-rose-100 text-rose-800 border border-rose-200'
+                              : 'bg-emerald-100 text-emerald-800 border border-emerald-200'
+                          }`}
+                        >
+                          {sub.isDefaulter ? 'DEFAULTER RISK' : 'SATISFACTORY'}
+                        </span>
+                      </td>
+                      <td className="py-3 px-4 text-slate-500">
+                        {sub.requiredClassesToReachThreshold > 0 ? (
+                          <span className="text-rose-600 font-semibold">
+                            +{sub.requiredClassesToReachThreshold} more needed
+                          </span>
+                        ) : (
+                          <span className="text-emerald-700 font-medium">Safe margin</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Daily / Lecture-Wise Attendance Ledger (Strictly Read-Only) */}
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm space-y-4 p-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
+            <div>
+              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-indigo-600" />
+                Session-by-Session Attendance Ledger (Daily Audit Log)
+              </h3>
+              <p className="text-[11px] text-slate-500 mt-0.5">
+                Timestamped records marked by course faculty during lectures
+              </p>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <span className="text-xs text-slate-500 font-medium">Filter Subject:</span>
+              <select
+                value={studentSubjectFilter}
+                onChange={(e) => setStudentSubjectFilter(e.target.value)}
+                className="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 focus:outline-none"
+              >
+                <option value="ALL">All Subjects</option>
+                {evaluation.subjectSummaries.map((sub: any) => (
+                  <option key={sub.subjectCode} value={sub.subjectCode}>
+                    {sub.subjectCode} - {sub.subjectName}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs">
+              <thead className="bg-slate-50 text-slate-500 font-semibold uppercase border-b border-slate-200">
+                <tr>
+                  <th className="py-2.5 px-3">Date &amp; Time</th>
+                  <th className="py-2.5 px-3">Subject</th>
+                  <th className="py-2.5 px-3">Marked by (Professor)</th>
+                  <th className="py-2.5 px-3">Topic Covered</th>
+                  <th className="py-2.5 px-3">Recorded Status</th>
+                  <th className="py-2.5 px-3">Student Modification</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {filteredLogs.length === 0 ? (
+                  <tr>
+                    <td colSpan={6} className="py-8 text-center text-slate-400">
+                      No lecture attendance records matching criteria.
+                    </td>
+                  </tr>
+                ) : (
+                  filteredLogs.map((log: any) => (
+                    <tr key={log.id} className="hover:bg-slate-50/60">
+                      <td className="py-3 px-3">
+                        <div className="font-semibold text-slate-800">
+                          {new Date(log.date).toLocaleDateString([], {
+                            weekday: 'short',
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                          })}
+                        </div>
+                        <div className="text-[11px] text-slate-400 font-mono">{log.time}</div>
+                      </td>
+                      <td className="py-3 px-3 font-semibold text-slate-900">
+                        <div>{log.subjectName}</div>
+                        <span className="font-mono text-[10px] text-slate-400">{log.subjectCode}</span>
+                      </td>
+                      <td className="py-3 px-3 text-slate-700 font-medium">
+                        {log.facultyName}
+                      </td>
+                      <td className="py-3 px-3 text-slate-600 max-w-xs truncate">
+                        {log.topicCovered}
+                      </td>
+                      <td className="py-3 px-3">
+                        <span
+                          className={`px-2.5 py-0.5 rounded-full font-bold text-[10px] ${
+                            log.status === 'PRESENT'
+                              ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
+                              : log.status === 'ABSENT'
+                              ? 'bg-rose-100 text-rose-800 border border-rose-200'
+                              : 'bg-amber-100 text-amber-800 border border-amber-200'
+                          }`}
+                        >
+                          {log.status}
+                        </span>
+                      </td>
+                      <td className="py-3 px-3">
+                        <span className="text-[11px] font-semibold text-slate-400 flex items-center gap-1">
+                          <Lock className="w-3 h-3 text-slate-400" />
+                          Locked
+                        </span>
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // -------------------------------------------------------------
+  // RENDER 2: FACULTY & MANAGEMENT SUITE (ATTENDANCE MARKING & DEFAULTERS)
+  // -------------------------------------------------------------
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 pb-12">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Attendance Management</h1>
+          <div className="flex items-center gap-2">
+            <h1 className="text-2xl font-bold text-slate-900">Attendance Management</h1>
+            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
+              Professor / Faculty Portal
+            </span>
+          </div>
           <p className="text-xs text-slate-500 mt-1">
-            Lecture session recording, single-click bulk attendance, and mandatory &lt;75% statutory alerts
+            Professors record daily lecture sessions &bull; System auto-calculates SPPU &lt;75% statutory exam warnings
           </p>
         </div>
 
@@ -202,7 +581,7 @@ export const AttendancePage: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">Date</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1">Session Date</label>
               <input
                 type="date"
                 value={sessionDate}
@@ -255,16 +634,14 @@ export const AttendancePage: React.FC = () => {
               </button>
             </div>
 
-            {isFacultyOrAdmin && (
-              <button
-                type="button"
-                onClick={handleSaveAttendance}
-                className="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-semibold shadow-md transition flex items-center"
-              >
-                <CheckCircle2 className="w-4 h-4 mr-1.5" />
-                Submit Session Attendance
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={handleSaveAttendance}
+              className="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-semibold shadow-md transition flex items-center"
+            >
+              <CheckCircle2 className="w-4 h-4 mr-1.5" />
+              Submit Session Attendance
+            </button>
           </div>
 
           <div className="overflow-x-auto">
@@ -273,7 +650,7 @@ export const AttendancePage: React.FC = () => {
                 <tr>
                   <th className="py-2.5 px-3">Roll Number</th>
                   <th className="py-2.5 px-3">Student Name</th>
-                  <th className="py-2.5 px-3">Status Selection</th>
+                  <th className="py-2.5 px-3">Status Selection (Faculty Marking)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
@@ -388,4 +765,3 @@ export const AttendancePage: React.FC = () => {
     </div>
   );
 };
-

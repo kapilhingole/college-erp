@@ -6,7 +6,8 @@ import { logAudit } from '../../middleware/audit';
 
 const router = Router();
 
-// Student routes
+// Student routes (Strictly Read-Only for students)
+router.get('/my-attendance', authenticateJWT, AttendanceController.getMyAttendance);
 router.get('/student/:studentId', authenticateJWT, AttendanceController.getStudentAttendance);
 router.post('/leave/apply', authenticateJWT, logAudit('ATTENDANCE', 'APPLY_LEAVE'), AttendanceController.applyLeave);
 
