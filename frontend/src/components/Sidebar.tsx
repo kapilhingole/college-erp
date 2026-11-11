@@ -13,11 +13,7 @@ import {
   FileSpreadsheet,
   Building2,
   ShieldCheck,
-  Activity,
   LogOut,
-  UserCheck,
-  ChevronRight,
-  Sparkles,
   Trophy,
   FileUp,
 } from 'lucide-react';
@@ -28,8 +24,6 @@ interface NavItem {
   path: string;
   icon: React.ComponentType<{ className?: string }>;
   badge?: string;
-  badgeColor?: string;
-  count?: string;
 }
 
 interface NavGroup {
@@ -44,95 +38,94 @@ export const Sidebar: React.FC = () => {
   const isFaculty = role === 'FACULTY';
   const isStudent = role === 'STUDENT';
 
-  // Structured Navigation Groups (Standard Clean College ERP)
   const managementNav: NavGroup[] = [
     {
-      group: 'OVERVIEW',
+      group: 'Overview',
       items: [
         { name: 'Dashboard', path: '/dashboard/admin', icon: LayoutDashboard },
-        { name: 'Identity & Profile', path: '/profile', icon: ShieldCheck },
+        { name: 'Profile', path: '/profile', icon: ShieldCheck },
         { name: 'Roles & Responsibilities', path: '/roles-responsibilities', icon: FileSpreadsheet },
       ],
     },
     {
-      group: 'ACADEMICS',
+      group: 'Academics',
       items: [
         { name: 'Departments', path: '/departments', icon: Building2 },
-        { name: 'Student Directory', path: '/students', icon: GraduationCap },
-        { name: 'Faculty Directory', path: '/faculty', icon: Users },
-        { name: 'Curriculum & Courses', path: '/academics', icon: BookOpen },
-        { name: 'Timetable Schedules', path: '/timetable', icon: CalendarDays },
+        { name: 'Students', path: '/students', icon: GraduationCap },
+        { name: 'Faculty', path: '/faculty', icon: Users },
+        { name: 'Curriculum', path: '/academics', icon: BookOpen },
+        { name: 'Timetable', path: '/timetable', icon: CalendarDays },
       ],
     },
     {
-      group: 'ADMINISTRATION & FEES',
+      group: 'Administration',
       items: [
-        { name: 'Attendance Records', path: '/attendance', icon: CheckCircle2 },
-        { name: 'Fee Ledgers & Billing', path: '/fees', icon: DollarSign },
-        { name: 'Library Hub', path: '/library', icon: Library },
-        { name: 'Data Ingest (PDF/Excel)', path: '/data-sync', icon: FileUp, badge: 'SYNC' },
+        { name: 'Attendance', path: '/attendance', icon: CheckCircle2 },
+        { name: 'Fees', path: '/fees', icon: DollarSign },
+        { name: 'Library', path: '/library', icon: Library },
+        { name: 'Data Sync', path: '/data-sync', icon: FileUp, badge: 'SYNC' },
       ],
     },
     {
-      group: 'COMMUNICATIONS & REPORTS',
+      group: 'Reports',
       items: [
-        { name: 'Notice Circulars', path: '/notices', icon: Bell },
-        { name: 'Analytics & Reports', path: '/reports', icon: FileSpreadsheet },
-        { name: 'Student Leaderboard', path: '/leaderboard', icon: Trophy },
+        { name: 'Notices', path: '/notices', icon: Bell },
+        { name: 'Reports', path: '/reports', icon: FileSpreadsheet },
+        { name: 'Leaderboard', path: '/leaderboard', icon: Trophy },
       ],
     },
   ];
 
   const facultyNav: NavGroup[] = [
     {
-      group: 'WORKSPACE',
+      group: 'Workspace',
       items: [
-        { name: 'Faculty Dashboard', path: '/dashboard/faculty', icon: LayoutDashboard },
-        { name: 'My Profile & Load', path: '/profile', icon: ShieldCheck },
+        { name: 'Dashboard', path: '/dashboard/faculty', icon: LayoutDashboard },
+        { name: 'Profile', path: '/profile', icon: ShieldCheck },
         { name: 'Roles & Responsibilities', path: '/roles-responsibilities', icon: FileSpreadsheet },
       ],
     },
     {
-      group: 'TEACHING & CLASSES',
+      group: 'Teaching',
       items: [
-        { name: 'Weekly Schedule', path: '/timetable', icon: CalendarDays },
-        { name: 'Mark Attendance', path: '/attendance', icon: CheckCircle2 },
-        { name: 'Curriculum & Marks', path: '/academics', icon: BookOpen },
-        { name: 'Enrolled Students', path: '/students', icon: GraduationCap },
+        { name: 'Timetable', path: '/timetable', icon: CalendarDays },
+        { name: 'Attendance', path: '/attendance', icon: CheckCircle2 },
+        { name: 'Curriculum', path: '/academics', icon: BookOpen },
+        { name: 'Students', path: '/students', icon: GraduationCap },
       ],
     },
     {
-      group: 'BULLETINS',
+      group: 'General',
       items: [
-        { name: 'Circulars & Notices', path: '/notices', icon: Bell },
-        { name: 'Student Leaderboard', path: '/leaderboard', icon: Trophy },
+        { name: 'Notices', path: '/notices', icon: Bell },
+        { name: 'Leaderboard', path: '/leaderboard', icon: Trophy },
       ],
     },
   ];
 
   const studentNav: NavGroup[] = [
     {
-      group: 'STUDENT PORTAL',
+      group: 'Portal',
       items: [
-        { name: 'My Dashboard', path: '/dashboard/student', icon: LayoutDashboard },
-        { name: 'Student Profile', path: '/profile', icon: ShieldCheck },
+        { name: 'Dashboard', path: '/dashboard/student', icon: LayoutDashboard },
+        { name: 'Profile', path: '/profile', icon: ShieldCheck },
       ],
     },
     {
-      group: 'ACADEMICS & PROGRESS',
+      group: 'Academics',
       items: [
-        { name: 'Attendance Records', path: '/attendance', icon: CheckCircle2 },
-        { name: 'Curriculum & Grades', path: '/academics', icon: BookOpen },
-        { name: 'Weekly Timetable', path: '/timetable', icon: CalendarDays },
+        { name: 'Attendance', path: '/attendance', icon: CheckCircle2 },
+        { name: 'Curriculum', path: '/academics', icon: BookOpen },
+        { name: 'Timetable', path: '/timetable', icon: CalendarDays },
       ],
     },
     {
-      group: 'FINANCE & LIBRARY',
+      group: 'Other',
       items: [
-        { name: 'Fee Invoices & Dues', path: '/fees', icon: DollarSign },
-        { name: 'Library Books Issued', path: '/library', icon: Library },
-        { name: 'Campus Bulletins', path: '/notices', icon: Bell },
-        { name: 'Student Leaderboard', path: '/leaderboard', icon: Trophy },
+        { name: 'Fees', path: '/fees', icon: DollarSign },
+        { name: 'Library', path: '/library', icon: Library },
+        { name: 'Notices', path: '/notices', icon: Bell },
+        { name: 'Leaderboard', path: '/leaderboard', icon: Trophy },
       ],
     },
   ];
@@ -143,109 +136,85 @@ export const Sidebar: React.FC = () => {
     user?.studentProfile
       ? `${user.studentProfile.firstName} ${user.studentProfile.lastName}`
       : user?.facultyProfile
-      ? `Prof. ${user.facultyProfile.firstName} ${user.facultyProfile.lastName}`
+      ? `${user.facultyProfile.firstName} ${user.facultyProfile.lastName}`
       : user?.managementProfile
       ? `${user.managementProfile.firstName} ${user.managementProfile.lastName}`
-      : user?.email?.split('@')[0] || 'Administrator';
+      : user?.email?.split('@')[0] || 'User';
 
   return (
-    <aside className="w-72 bg-[#0B1528] text-slate-300 flex flex-col shrink-0 min-h-screen border-r border-slate-800/80 shadow-2xl z-20">
-      {/* 1. Brand & Institutional Banner with Official ZES Logo */}
-      <div className="p-5 border-b border-slate-800/80 bg-gradient-to-b from-slate-900 to-[#0B1528]">
-        <div className="flex items-center space-x-3.5">
-          <div className="relative">
-            <img
-              src="/zes-logo.png"
-              alt="Zeal Education Society"
-              className="w-12 h-12 rounded-xl object-contain bg-white p-1 shadow-lg shadow-zes-950/50 border border-zes-400/40"
-            />
-            <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-slate-900 rounded-full" />
-          </div>
-          <div className="min-w-0 flex-1">
-            <div className="flex items-center space-x-1.5">
-              <h1 className="font-extrabold text-white text-sm tracking-tight truncate">
-                Zeal College (ZCOER)
-              </h1>
-            </div>
-            <p className="text-[10px] text-zes-300 font-medium tracking-wider uppercase flex items-center gap-1.5 mt-0.5">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-zes-400 animate-pulse" />
-              Zeal Education Society
-            </p>
+    <aside className="w-60 bg-white border-r border-slate-200 flex flex-col shrink-0 min-h-screen">
+      {/* Brand */}
+      <div className="px-5 py-4 border-b border-slate-200">
+        <div className="flex items-center gap-2.5">
+          <img
+            src="/zes-logo.png"
+            alt="ZCOER"
+            className="w-8 h-8 rounded object-contain border border-slate-200"
+          />
+          <div>
+            <p className="text-sm font-bold text-slate-800 leading-tight">ZCOER</p>
+            <p className="text-[10px] text-slate-500">College ERP</p>
           </div>
         </div>
       </div>
 
-      {/* 2. Scrollable Categorized Navigation */}
-      <nav className="flex-1 px-4 py-5 space-y-6 overflow-y-auto custom-scrollbar">
+      {/* Nav */}
+      <nav className="flex-1 px-3 py-4 space-y-5 overflow-y-auto">
         {activeNav.map((section, idx) => (
-          <div key={idx} className="space-y-1.5">
-            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-3 mb-2 flex items-center justify-between">
-              <span>{section.group}</span>
+          <div key={idx}>
+            <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">
+              {section.group}
             </p>
-            {section.items.map((link) => {
-              const Icon = link.icon;
-              return (
-                <NavLink
-                  key={link.path}
-                  to={link.path}
-                  className={({ isActive }) =>
-                    `group flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 ${
-                      isActive
-                        ? 'bg-gradient-to-r from-zes-800 to-zes-700 text-white shadow-md shadow-zes-950/50 border border-zes-500/40 translate-x-1'
-                        : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/50'
-                    }`
-                  }
-                >
-                  <div className="flex items-center space-x-3 truncate">
-                    <Icon className="w-4 h-4 shrink-0 transition-transform group-hover:scale-110" />
-                    <span className="truncate">{link.name}</span>
-                  </div>
-
-                  {link.badge ? (
-                    <span
-                      className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
-                        link.badgeColor || 'bg-zes-500/20 text-zes-300 border-zes-500/30'
-                      }`}
-                    >
-                      {link.badge}
-                    </span>
-                  ) : link.count ? (
-                    <span className="text-[10px] font-semibold text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-md border border-slate-700/50">
-                      {link.count}
-                    </span>
-                  ) : (
-                    <ChevronRight className="w-3 h-3 text-slate-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  )}
-                </NavLink>
-              );
-            })}
+            <div className="space-y-0.5">
+              {section.items.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <NavLink
+                    key={link.path}
+                    to={link.path}
+                    className={({ isActive }) =>
+                      `flex items-center justify-between px-2.5 py-2 rounded-lg text-xs font-medium transition-colors ${
+                        isActive
+                          ? 'bg-slate-900 text-white'
+                          : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                      }`
+                    }
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <Icon className="w-3.5 h-3.5 shrink-0" />
+                      <span>{link.name}</span>
+                    </div>
+                    {link.badge && (
+                      <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-indigo-100 text-indigo-700">
+                        {link.badge}
+                      </span>
+                    )}
+                  </NavLink>
+                );
+              })}
+            </div>
           </div>
         ))}
       </nav>
 
-      {/* 3. Bottom Institutional User Session Card */}
-      <div className="p-4 border-t border-slate-800/80 bg-slate-950/60">
-        <div className="flex items-center justify-between p-2 rounded-xl bg-slate-900/80 border border-slate-800">
-          <div className="flex items-center space-x-2.5 min-w-0">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-zes-800 to-zes-900 border border-zes-700 flex items-center justify-center text-white text-xs font-bold shrink-0">
+      {/* User */}
+      <div className="px-3 py-3 border-t border-slate-200">
+        <div className="flex items-center justify-between px-2 py-2 rounded-lg bg-slate-50">
+          <div className="flex items-center gap-2 min-w-0">
+            <div className="w-7 h-7 rounded-full bg-slate-800 text-white flex items-center justify-center text-xs font-bold shrink-0">
               {displayName.charAt(0)}
             </div>
             <div className="min-w-0">
-              <p className="text-xs font-bold text-slate-200 truncate leading-tight">
-                {displayName}
-              </p>
-              <span className="inline-block text-[10px] text-zes-400 font-semibold tracking-wider uppercase mt-0.5">
-                {role}
-              </span>
+              <p className="text-xs font-semibold text-slate-800 truncate leading-tight">{displayName}</p>
+              <p className="text-[10px] text-slate-500 truncate">{role}</p>
             </div>
           </div>
-
           <button
             onClick={() => logout()}
-            className="p-1.5 text-slate-400 hover:text-zes-300 hover:bg-zes-500/10 rounded-lg transition-colors ml-2"
-            title="Terminate ERP Session"
+            className="p-1 text-slate-400 hover:text-slate-700 rounded transition-colors"
+            title="Logout"
           >
-            <LogOut className="w-4 h-4" />
+            <LogOut className="w-3.5 h-3.5" />
           </button>
         </div>
       </div>
