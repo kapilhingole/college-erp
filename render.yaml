@@ -3,7 +3,7 @@ services:
     name: zeal-college-erp
     env: node
     plan: free
-    buildCommand: npm --prefix backend install --include=dev && npm --prefix frontend install --include=dev && cd backend && npx prisma generate && cd .. && npm --prefix backend run build && npm --prefix frontend run build
+    buildCommand: npm --prefix backend install --include=dev && npm --prefix frontend install --include=dev && cd backend && npx prisma generate && npx prisma db push && cd .. && npm --prefix backend run build && npm --prefix frontend run build
     startCommand: cd backend && npm start
     envVars:
       - key: NODE_ENV
@@ -13,7 +13,7 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: DATABASE_URL
-        value: file:./erp.db
+        value: file:./prisma/erp.db
       - key: COLLEGE_NAME
         value: Zeal College of Engineering and Research
       - key: COLLEGE_CODE
