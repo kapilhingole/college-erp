@@ -47,9 +47,8 @@ export const Login: React.FC = () => {
       });
 
       if (res.data.success) {
-        const { token, user, profile } = res.data.data;
-        login(token, user, profile);
-        // Direct to profile or role dashboard
+        const { token, refreshToken, user, profile } = res.data.data;
+        login(token, refreshToken, user, profile);
         navigate('/profile');
       }
     } catch (err: any) {

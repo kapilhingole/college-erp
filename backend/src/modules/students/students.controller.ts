@@ -83,7 +83,6 @@ export class StudentsController {
               id: true,
               email: true,
               status: true,
-              managedPassword: isManagement,
               lastLoginAt: true,
               loginCount: true,
               createdAt: true,
@@ -231,7 +230,6 @@ export class StudentsController {
           data: {
             email: data.email.toLowerCase().trim(),
             passwordHash,
-            managedPassword: data.password || 'Student@123',
             role: 'STUDENT',
             status: 'ACTIVE',
           },
@@ -544,7 +542,6 @@ export class StudentsController {
             data: {
               email,
               passwordHash,
-              managedPassword: initialPassword || 'Student@123',
               role: 'STUDENT',
               status: 'ACTIVE',
             },
@@ -643,10 +640,7 @@ export class StudentsController {
 
       await prisma.user.update({
         where: { id: student.userId },
-        data: {
-          passwordHash,
-          managedPassword: assignedPassword,
-        },
+        data: { passwordHash },
       });
 
       res.json({
@@ -658,6 +652,7 @@ export class StudentsController {
           enrollmentNumber: student.enrollmentNumber,
           rollNumber: student.rollNumber,
           loginEmail: student.user.email,
+          // Never return password in response — tell admin what the new password is only once
           newPassword: assignedPassword,
         },
       });
@@ -680,7 +675,6 @@ export class StudentsController {
               status: true,
               lastLoginAt: true,
               loginCount: true,
-              managedPassword: true,
               createdAt: true,
               auditLogs: {
                 take: 15,

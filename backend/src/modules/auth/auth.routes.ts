@@ -7,14 +7,23 @@ import { logAudit } from '../../middleware/audit';
 
 const router = Router();
 
-// 1. Login flow (email & password only)
+// Public — Login (strict rate-limited: 5 attempts / 15 min, up from 10 for extra safety)
 router.post('/login', authLimiter, logAudit('AUTH', 'LOGIN'), AuthController.login);
 
-// 2. Profile retrieval with server-enforced role verification
+// Public — Refresh access token using a valid refresh token
+router.post('/refresh', AuthController.refresh);
+
+// Protected — Logout: blacklists access token + revokes refresh token
+router.post('/logout', authenticateJWT, logAudit('AUTH', 'LOGOUT'), AuthController.logout);
+
+// Protected — Profile endpoints
 router.get('/profile', authenticateJWT, AuthController.getProfile);
 router.get('/me', authenticateJWT, AuthController.me);
 
-// 3. User & Profile provisioning by Management (Strictly restricted to MANAGEMENT role)
+// Protected — Change password (requires current password verification)
+router.post('/change-password', authenticateJWT, logAudit('AUTH', 'CHANGE_PASSWORD'), AuthController.changePassword);
+
+// Protected — Provision new user (Management/Admin only)
 router.post(
   '/provision',
   authenticateJWT,
@@ -22,8 +31,5 @@ router.post(
   logAudit('AUTH', 'PROVISION_USER'),
   AuthController.provisionUser
 );
-
-// 4. Password change
-router.post('/change-password', authenticateJWT, logAudit('AUTH', 'CHANGE_PASSWORD'), AuthController.changePassword);
 
 export default router;

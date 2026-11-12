@@ -15,9 +15,10 @@ model User {
   id              String      @id @default(uuid())
   email           String      @unique
   passwordHash    String
-  managedPassword String?     @default("Student@123")
   lastLoginAt     DateTime?
   loginCount      Int         @default(0)
+  failedLoginCount Int        @default(0)
+  lockedUntil     DateTime?
   role            String      // SUPER_ADMIN, ADMIN, FACULTY, STUDENT
   status          String      @default("ACTIVE") // ACTIVE, INACTIVE, SUSPENDED
   createdAt       DateTime    @default(now())
@@ -28,6 +29,7 @@ model User {
   managementProfile ManagementProfile?
   auditLogs         AuditLog[]
   noticesAuthored   Notice[]
+  refreshTokens     RefreshToken[]
 }
 
 model ManagementProfile {
@@ -57,6 +59,26 @@ model AuditLog {
   timestamp  DateTime @default(now())
 
   user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+}
+
+// Refresh tokens — long-lived, rotated on each use
+model RefreshToken {
+  id        String   @id @default(uuid())
+  userId    String
+  token     String   @unique  // SHA-256 hash of the actual token
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  revokedAt DateTime?
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Blacklisted access tokens — for immediate logout invalidation
+model TokenBlacklist {
+  id        String   @id @default(uuid())
+  jti       String   @unique  // JWT ID claim — unique per token
+  expiresAt DateTime           // kept only until natural expiry, then pruned
+  createdAt DateTime @default(now())
 }
 
 // -------------------------------------------------------------

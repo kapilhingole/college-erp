@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import path from 'path';
 import fs from 'fs';
 import { CONFIG } from './config';
+import { prisma } from './config';
 import { apiLimiter } from './middleware/rateLimiter';
 import { errorHandler } from './middleware/errorHandler';
 
@@ -24,6 +25,16 @@ import responsibilityRoutes from './modules/responsibilities/responsibilities.ro
 import dataSyncRoutes from './modules/dataSync/dataSync.routes';
 
 const app: Application = express();
+
+// Prune expired token blacklist entries every hour to keep the table small
+setInterval(async () => {
+  try {
+    await prisma.tokenBlacklist.deleteMany({ where: { expiresAt: { lt: new Date() } } });
+    await prisma.refreshToken.deleteMany({ where: { expiresAt: { lt: new Date() } } });
+  } catch {
+    // non-critical background job — silence errors
+  }
+}, 60 * 60 * 1000);
 
 // Security Hardening
 app.disable('x-powered-by');

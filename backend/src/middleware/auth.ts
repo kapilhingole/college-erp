@@ -8,6 +8,7 @@ export interface AuthUser {
   id: string;
   email: string;
   role: Role;
+  jti?: string;
   departmentId?: string;
   studentId?: string;
   facultyId?: string;
@@ -22,7 +23,11 @@ declare global {
   }
 }
 
-export const authenticateJWT = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const authenticateJWT = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
@@ -40,9 +45,24 @@ export const authenticateJWT = async (req: Request, res: Response, next: NextFun
       id: string;
       email: string;
       role: Role;
+      jti?: string;
     };
 
-    // Verify user exists and is active
+    // 1. Check token blacklist — catches tokens that were explicitly revoked on logout
+    if (decoded.jti) {
+      const blacklisted = await prisma.tokenBlacklist.findUnique({
+        where: { jti: decoded.jti },
+      });
+      if (blacklisted) {
+        res.status(401).json({
+          success: false,
+          message: 'Token has been revoked. Please log in again.',
+        });
+        return;
+      }
+    }
+
+    // 2. Verify user still exists and is active in DB
     const user = await prisma.user.findUnique({
       where: { id: decoded.id },
       include: {
@@ -60,10 +80,20 @@ export const authenticateJWT = async (req: Request, res: Response, next: NextFun
       return;
     }
 
+    // 3. Check account lockout
+    if (user.lockedUntil && user.lockedUntil > new Date()) {
+      res.status(423).json({
+        success: false,
+        message: 'Account is temporarily locked.',
+      });
+      return;
+    }
+
     req.user = {
       id: user.id,
       email: user.email,
       role: user.role as Role,
+      jti: decoded.jti,
       departmentId: user.studentProfile?.departmentId || user.facultyProfile?.departmentId,
       studentId: user.studentProfile?.id,
       facultyId: user.facultyProfile?.id,
@@ -76,6 +106,5 @@ export const authenticateJWT = async (req: Request, res: Response, next: NextFun
       success: false,
       message: 'Invalid, malformed, or expired authentication token.',
     });
-    return;
   }
 };

@@ -12,15 +12,16 @@ export const apiLimiter = rateLimit({
   },
 });
 
-// Strict rate limiter for Authentication endpoints to prevent brute-force attacks (Security PDF Section 6)
+// Strict rate limiter for Authentication endpoints to prevent brute-force attacks
 export const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 10, // Strict limit: 10 login attempts per 15 min
+  max: 5, // 5 login attempts per 15 min per IP
   standardHeaders: true,
   legacyHeaders: false,
+  skipSuccessfulRequests: true, // only count failed attempts toward the limit
   message: {
     success: false,
-    message: 'Too many authentication attempts. Account access temporarily throttled. Please retry after 15 minutes.',
+    message: 'Too many authentication attempts from this IP. Please retry after 15 minutes.',
   },
 });
 

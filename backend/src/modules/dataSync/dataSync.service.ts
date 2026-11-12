@@ -245,7 +245,7 @@ export class DataSyncService {
           const passwordHash = await bcrypt.hash(password, 10);
           await prisma.user.update({
             where: { id: existingStudent.userId },
-            data: { managedPassword: password, passwordHash },
+            data: { passwordHash },
           });
         }
 
@@ -273,7 +273,6 @@ export class DataSyncService {
             data: {
               email,
               passwordHash,
-              managedPassword: password,
               role: 'STUDENT',
               status: 'ACTIVE',
             },

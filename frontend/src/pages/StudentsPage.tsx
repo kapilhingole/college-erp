@@ -272,7 +272,7 @@ export const StudentsPage: React.FC = () => {
               ) : students.map((s) => {
                 const userAcc = s.user;
                 const passwordRevealed = revealedPasswords[s.id];
-                const passwordValue = userAcc?.managedPassword || 'Student@123';
+                const passwordValue = 'Student@123'; // Default — actual passwords are never exposed
                 return (
                   <tr key={s.id} className="hover:bg-slate-50 transition">
                     <td className="py-3 px-4">
