@@ -25,26 +25,33 @@ import dataSyncRoutes from './modules/dataSync/dataSync.routes';
 
 const app: Application = express();
 
-// Security Hardening (as specified in Production Security Architecture Section 6)
+// Security Hardening
 app.disable('x-powered-by');
 app.use(
   helmet({
-    crossOriginResourcePolicy: { policy: 'cross-origin' },
-    contentSecurityPolicy: false, // Managed by reverse proxy or Cloudflare in production
-    frameguard: { action: 'deny' }, // Anti-clickjacking
+    crossOriginResourcePolicy: { policy: 'same-origin' },
+    contentSecurityPolicy: false,
+    frameguard: { action: 'deny' },
     noSniff: true,
   })
 );
 
-// Strict CORS configuration
+// Serve frontend static files FIRST — before any CORS or API middleware.
+// This ensures /assets/*.js, /assets/*.css etc. are never blocked by CORS.
+const frontendDistPath = path.resolve(__dirname, '../../frontend/dist');
+if (fs.existsSync(frontendDistPath)) {
+  app.use(express.static(frontendDistPath));
+}
+
+// CORS applies only to /api routes — never to static assets or the SPA shell
 const allowedOrigins = process.env.FRONTEND_URL
   ? [process.env.FRONTEND_URL, 'http://localhost:5173', 'http://localhost:3000', 'http://127.0.0.1:5173']
   : ['http://localhost:5173', 'http://localhost:3000', 'http://127.0.0.1:5173'];
 
 app.use(
+  '/api',
   cors({
     origin: (origin, callback) => {
-      // In dev or local testing, permit local origins or undefined (server-to-server / curl)
       if (!origin || allowedOrigins.includes(origin) || CONFIG.NODE_ENV !== 'production') {
         callback(null, true);
       } else {
@@ -57,7 +64,7 @@ app.use(
   })
 );
 
-// Request body limits to prevent Denial of Service (Security PDF: 1mb default, 15mb for student bulk import)
+// Request body limits
 app.use(express.json({ limit: '15mb' }));
 app.use(express.urlencoded({ extended: true, limit: '15mb' }));
 
@@ -94,10 +101,8 @@ app.use('/api/v1/reports', reportRoutes);
 app.use('/api/v1/responsibilities', responsibilityRoutes);
 app.use('/api/v1/data-sync', dataSyncRoutes);
 
-// In production or combined hosting, serve frontend build directly
-const frontendDistPath = path.resolve(__dirname, '../../frontend/dist');
+// SPA fallback — serve index.html for all non-API routes so React Router works
 if (fs.existsSync(frontendDistPath)) {
-  app.use(express.static(frontendDistPath));
   app.get('*', (req: Request, res: Response, next: NextFunction) => {
     if (req.path.startsWith('/api')) {
       return next();
