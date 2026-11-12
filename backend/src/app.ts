@@ -43,20 +43,30 @@ if (fs.existsSync(frontendDistPath)) {
   app.use(express.static(frontendDistPath));
 }
 
-// CORS applies only to /api routes — never to static assets or the SPA shell
-const allowedOrigins = process.env.FRONTEND_URL
-  ? [process.env.FRONTEND_URL, 'http://localhost:5173', 'http://localhost:3000', 'http://127.0.0.1:5173']
-  : ['http://localhost:5173', 'http://localhost:3000', 'http://127.0.0.1:5173'];
+// CORS applies only to /api routes — never to static assets or the SPA shell.
+// In production the frontend is served from the same origin, so same-origin
+// requests arrive with no Origin header and must always be allowed.
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'http://127.0.0.1:5173',
+  ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : []),
+];
 
 app.use(
   '/api',
   cors({
     origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin) || CONFIG.NODE_ENV !== 'production') {
-        callback(null, true);
-      } else {
-        callback(new Error('CORS access rejected by College ERP security policy.'));
-      }
+      // No origin = same-origin request (browser on same domain) — always allow
+      if (!origin) return callback(null, true);
+      // Explicitly listed origins — always allow
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+      // Any *.onrender.com domain — allow (covers all Render preview/prod URLs)
+      if (origin.endsWith('.onrender.com')) return callback(null, true);
+      // Allow everything in non-production (local dev)
+      if (CONFIG.NODE_ENV !== 'production') return callback(null, true);
+      // Reject everything else
+      callback(new Error('CORS access rejected by College ERP security policy.'));
     },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
