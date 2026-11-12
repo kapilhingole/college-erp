@@ -4,7 +4,7 @@ services:
     env: node
     plan: free
     buildCommand: npm --prefix backend install --include=dev && npm --prefix frontend install --include=dev && cd backend && npx prisma generate && npx prisma db push && cd .. && npm --prefix backend run build && npm --prefix frontend run build
-    startCommand: cd backend && npm start
+    startCommand: cd backend && npx prisma db push && npm start
     envVars:
       - key: NODE_ENV
         value: production
