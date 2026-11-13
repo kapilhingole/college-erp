@@ -23,6 +23,7 @@ import dashboardRoutes from './modules/dashboards/dashboards.routes';
 import reportRoutes from './modules/reports/reports.routes';
 import responsibilityRoutes from './modules/responsibilities/responsibilities.routes';
 import dataSyncRoutes from './modules/dataSync/dataSync.routes';
+import marksRoutes from './modules/marks/marks.routes';
 
 const app: Application = express();
 
@@ -121,6 +122,7 @@ app.use('/api/v1/dashboards', dashboardRoutes);
 app.use('/api/v1/reports', reportRoutes);
 app.use('/api/v1/responsibilities', responsibilityRoutes);
 app.use('/api/v1/data-sync', dataSyncRoutes);
+app.use('/api/v1/marks', marksRoutes);
 
 // SPA fallback — serve index.html for all non-API routes so React Router works
 if (fs.existsSync(frontendDistPath)) {

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LayoutDashboard, LogOut, UserPlus, CheckCircle2, AlertCircle, Mail } from 'lucide-react';
+import { LayoutDashboard, LogOut, UserPlus, CheckCircle2, AlertCircle, Mail, Award, CalendarDays } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { apiClient } from '../api/client';
 
@@ -21,12 +21,36 @@ export const Profile: React.FC = () => {
   const [provSuccess, setProvSuccess] = useState<string | null>(null);
   const [provError, setProvError] = useState<string | null>(null);
 
+  // Attendance summary for student profile
+  const [attSummary, setAttSummary] = useState<any | null>(null);
+  // Faculty session summary for faculty profile
+  const [facSummary, setFacSummary] = useState<any | null>(null);
+  // Student marks
+  const [marks, setMarks] = useState<any[]>([]);
+
   const roleUpper = (user?.role || '').toUpperCase();
   const isManagement = roleUpper === 'MANAGEMENT' || roleUpper === 'ADMIN' || roleUpper === 'SUPER_ADMIN';
   const isFaculty = roleUpper === 'FACULTY';
   const isStudent = roleUpper === 'STUDENT';
 
   const profile = user?.profile || (isStudent ? user?.studentProfile : isFaculty ? user?.facultyProfile : user?.managementProfile) || {};
+
+  // Fetch timetable-scoped attendance for students; session summary for faculty
+  useEffect(() => {
+    if (isStudent && user?.studentProfile?.id) {
+      apiClient.get('/attendance/my-attendance')
+        .then((res) => setAttSummary(res.data.data?.evaluation ?? null))
+        .catch(() => {});
+      apiClient.get(`/marks/student/${user.studentProfile.id}`)
+        .then((res) => setMarks(res.data.data ?? []))
+        .catch(() => {});
+    }
+    if (isFaculty && user?.facultyProfile?.id) {
+      apiClient.get(`/attendance/faculty/${user.facultyProfile.id}`)
+        .then((res) => setFacSummary(res.data.data ?? null))
+        .catch(() => {});
+    }
+  }, [isStudent, isFaculty]);
 
   const handleProvision = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -138,6 +162,124 @@ export const Profile: React.FC = () => {
               </div>
             </div>
           </div>
+
+          {/* Student: timetable-driven attendance summary on profile */}
+          {isStudent && attSummary && (
+            <div className="bg-white rounded-xl border border-slate-200 p-6">
+              <div className="flex items-center gap-2 mb-4 pb-4 border-b border-slate-100">
+                <CalendarDays className="w-4 h-4 text-slate-600" />
+                <h3 className="text-sm font-bold text-slate-900">Attendance Summary</h3>
+                <span className="ml-auto text-[10px] text-slate-400">From your section's timetable</span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+                <div className="p-3 bg-slate-50 border border-slate-100 rounded-lg">
+                  <p className="text-[10px] font-semibold text-slate-400 uppercase">Overall</p>
+                  <p className={`text-xl font-bold mt-0.5 ${attSummary.isOverallDefaulter ? 'text-red-600' : 'text-emerald-600'}`}>
+                    {attSummary.overallPercentage}%
+                  </p>
+                </div>
+                <div className="p-3 bg-slate-50 border border-slate-100 rounded-lg">
+                  <p className="text-[10px] font-semibold text-slate-400 uppercase">Attended</p>
+                  <p className="text-xl font-bold text-slate-800 mt-0.5">
+                    {attSummary.totalAttended}/{attSummary.totalLectures}
+                  </p>
+                </div>
+                <div className="p-3 bg-slate-50 border border-slate-100 rounded-lg">
+                  <p className="text-[10px] font-semibold text-slate-400 uppercase">Eligibility</p>
+                  <span className={`inline-block text-[11px] font-bold mt-1.5 px-2 py-0.5 rounded-full ${attSummary.isOverallDefaulter ? 'bg-red-100 text-red-700' : 'bg-emerald-100 text-emerald-700'}`}>
+                    {attSummary.isOverallDefaulter ? 'AT RISK' : 'ELIGIBLE'}
+                  </span>
+                </div>
+                <div className="p-3 bg-slate-50 border border-slate-100 rounded-lg">
+                  <p className="text-[10px] font-semibold text-slate-400 uppercase">Subjects</p>
+                  <p className="text-xl font-bold text-slate-800 mt-0.5">
+                    {attSummary.subjectSummaries?.length ?? 0}
+                  </p>
+                </div>
+              </div>
+              {attSummary.subjectSummaries?.length > 0 && (
+                <div className="space-y-1">
+                  {attSummary.subjectSummaries.map((sub: any) => (
+                    <div key={sub.subjectId} className="flex items-center gap-3 text-xs">
+                      <span className="font-mono text-slate-500 w-14 shrink-0">{sub.subjectCode}</span>
+                      <span className="text-slate-700 flex-1 truncate">{sub.subjectName}</span>
+                      <span className={`font-bold ${sub.isDefaulter ? 'text-red-600' : 'text-emerald-600'}`}>
+                        {sub.percentage}%
+                      </span>
+                      <span className="text-slate-400 w-16 text-right">
+                        {sub.attended}/{sub.totalConducted}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Student: marks summary on profile */}
+          {isStudent && marks.length > 0 && (
+            <div className="bg-white rounded-xl border border-slate-200 p-6">
+              <div className="flex items-center gap-2 mb-4 pb-4 border-b border-slate-100">
+                <Award className="w-4 h-4 text-slate-600" />
+                <h3 className="text-sm font-bold text-slate-900">Recent Marks</h3>
+              </div>
+              <div className="space-y-1">
+                {marks.slice(0, 6).map((m: any) => (
+                  <div key={m.id} className="flex items-center gap-3 text-xs">
+                    <span className="font-mono text-slate-500 w-14 shrink-0">
+                      {m.examSchedule?.subject?.code}
+                    </span>
+                    <span className="text-slate-700 flex-1 truncate">
+                      {m.examSchedule?.subject?.name}
+                    </span>
+                    <span className="text-slate-500">{m.examSchedule?.exam?.name}</span>
+                    <span className="font-bold text-slate-800">{m.totalMarks}</span>
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${m.letterGrade === 'F' ? 'bg-red-100 text-red-700' : 'bg-emerald-100 text-emerald-700'}`}>
+                      {m.letterGrade}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Faculty: session summary on profile */}
+          {isFaculty && facSummary && (
+            <div className="bg-white rounded-xl border border-slate-200 p-6">
+              <div className="flex items-center gap-2 mb-4 pb-4 border-b border-slate-100">
+                <CalendarDays className="w-4 h-4 text-slate-600" />
+                <h3 className="text-sm font-bold text-slate-900">My Teaching Summary</h3>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-4">
+                <div className="p-3 bg-slate-50 border border-slate-100 rounded-lg">
+                  <p className="text-[10px] font-semibold text-slate-400 uppercase">Sessions Taken</p>
+                  <p className="text-xl font-bold text-slate-800 mt-0.5">{facSummary.totalSessions}</p>
+                </div>
+                <div className="p-3 bg-slate-50 border border-slate-100 rounded-lg">
+                  <p className="text-[10px] font-semibold text-slate-400 uppercase">Records Marked</p>
+                  <p className="text-xl font-bold text-slate-800 mt-0.5">{facSummary.totalMarkedRecords}</p>
+                </div>
+                <div className="p-3 bg-slate-50 border border-slate-100 rounded-lg">
+                  <p className="text-[10px] font-semibold text-slate-400 uppercase">Subjects</p>
+                  <p className="text-xl font-bold text-slate-800 mt-0.5">
+                    {facSummary.subjectSummary?.length ?? 0}
+                  </p>
+                </div>
+              </div>
+              {facSummary.subjectSummary?.length > 0 && (
+                <div className="space-y-1">
+                  {facSummary.subjectSummary.map((sub: any, i: number) => (
+                    <div key={i} className="flex items-center gap-3 text-xs">
+                      <span className="font-mono text-slate-500 w-14 shrink-0">{sub.subjectCode}</span>
+                      <span className="text-slate-700 flex-1 truncate">{sub.subjectName}</span>
+                      <span className="text-slate-500">{sub.sessions} sessions</span>
+                      <span className="text-slate-400">{sub.markedRecords} records</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Provisioning console (management only) */}
           {isManagement && (

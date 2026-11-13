@@ -223,6 +223,7 @@ model Faculty {
   subjectAssignments FacultySubjectAssignment[]
   timetableSlots     TimetableSlot[]
   lectureSessions    LectureSession[]
+  marksEntered       MarksEntry[] @relation("FacultyMarksEntered")
 }
 
 // -------------------------------------------------------------
@@ -311,6 +312,8 @@ model MarksEntry {
   gradePoint     Float        @default(0.0) // 10.0, 9.0, ..., 0.0
   status         String       @default("PASS") // PASS, FAIL, ABSENT
   remarks        String?
+  enteredByFacultyId String?
+  enteredByFaculty   Faculty?  @relation("FacultyMarksEntered", fields: [enteredByFacultyId], references: [id], onDelete: SetNull)
   createdAt      DateTime     @default(now())
   updatedAt      DateTime     @updatedAt
 
@@ -351,6 +354,9 @@ model TimetableSlot {
   roomNumber      String
   semester        Int
   academicSession String      // 2024-25
+  divisionLabel   String?     // e.g. "Div A", "Div B" — from PDF timetable
+  yearLabel       String?     // "FY" | "SY" — First Year or Second Year
+  slotType        String      @default("LECTURE") // LECTURE, LAB, TUTORIAL
   createdAt       DateTime    @default(now())
   updatedAt       DateTime    @updatedAt
 

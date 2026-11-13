@@ -1,4 +1,4 @@
-# Apex Institute College ERP System
+# Zeal Institute College ERP System
 
 An interconnected, data-integrity-first Enterprise Resource Planning (ERP) platform designed for universities and collegiate institutions.
 

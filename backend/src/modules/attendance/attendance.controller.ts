@@ -31,15 +31,37 @@ const leaveApplicationSchema = z.object({
 });
 
 export class AttendanceController {
+  // ----------------------------------------------------------------
   // Create a lecture session (Faculty or Admin)
+  // Faculty may only create sessions for timetable slots assigned to them.
+  // ----------------------------------------------------------------
   static async createSession(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const data = lectureSessionSchema.parse(req.body);
-      const facultyId = req.user?.role === 'FACULTY' ? req.user.facultyId : req.body.facultyId;
+      const user = req.user!;
 
-      if (!facultyId) {
-        throw new AppError('Faculty ID is required for a lecture session.', 400);
+      let facultyId: string | undefined;
+
+      if (user.role === 'FACULTY') {
+        facultyId = user.facultyId;
+        if (!facultyId) throw new AppError('Faculty profile not linked to this account.', 403);
+
+        // If a timetable slot is specified, verify it is assigned to this faculty
+        if (data.timetableSlotId) {
+          const slot = await prisma.timetableSlot.findUnique({
+            where: { id: data.timetableSlotId },
+          });
+          if (!slot) throw new AppError('Timetable slot not found.', 404);
+          if (slot.facultyId !== facultyId) {
+            throw new AppError('Forbidden: This timetable slot is not assigned to you.', 403);
+          }
+        }
+      } else {
+        // Admin / Management may supply explicit facultyId or fall back to body
+        facultyId = req.body.facultyId;
       }
+
+      if (!facultyId) throw new AppError('Faculty ID is required for a lecture session.', 400);
 
       const session = await prisma.lectureSession.create({
         data: {
@@ -51,10 +73,7 @@ export class AttendanceController {
           sessionTime: data.sessionTime,
           topicCovered: data.topicCovered,
         },
-        include: {
-          subject: true,
-          section: true,
-        },
+        include: { subject: true, section: true },
       });
 
       res.status(201).json({
@@ -67,17 +86,27 @@ export class AttendanceController {
     }
   }
 
-  // Bulk record attendance for students in a lecture session
+  // ----------------------------------------------------------------
+  // Bulk record attendance — faculty must own the session
+  // Duplicate entries are prevented by the unique constraint on
+  // (lectureSessionId, studentId) via upsert.
+  // ----------------------------------------------------------------
   static async markBulkAttendance(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const { lectureSessionId, records } = bulkAttendanceSchema.parse(req.body);
+      const user = req.user!;
 
       const session = await prisma.lectureSession.findUnique({
         where: { id: lectureSessionId },
       });
       if (!session) throw new AppError('Lecture session not found.', 404);
 
-      // Perform upsert inside transaction
+      // Faculty may only mark attendance for sessions they own
+      if (user.role === 'FACULTY' && session.facultyId !== user.facultyId) {
+        throw new AppError('Forbidden: You can only mark attendance for your own lecture sessions.', 403);
+      }
+
+      // Upsert inside transaction — prevents duplicate entries
       await prisma.$transaction(
         records.map((r) =>
           prisma.attendanceRecord.upsert({
@@ -110,12 +139,15 @@ export class AttendanceController {
     }
   }
 
-  // Get attendance evaluation & <75% alert for a specific student
+  // ----------------------------------------------------------------
+  // Get attendance for a specific student (server-enforced scoping)
+  // ----------------------------------------------------------------
   static async getStudentAttendance(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const { studentId } = req.params;
+      const user = req.user!;
 
-      if (req.user?.role === 'STUDENT' && req.user.studentId !== studentId) {
+      if (user.role === 'STUDENT' && user.studentId !== studentId) {
         throw new AppError('Forbidden: Access denied to other student attendance.', 403);
       }
 
@@ -138,46 +170,53 @@ export class AttendanceController {
         CONFIG.ATTENDANCE_MIN_THRESHOLD
       );
 
-      res.json({
-        success: true,
-        data: evaluation,
-      });
+      res.json({ success: true, data: evaluation });
     } catch (error) {
       next(error);
     }
   }
 
-  // Personal read-only attendance portal endpoint for logged-in students
+  // ----------------------------------------------------------------
+  // Personal attendance portal for logged-in student.
+  // Attendance is computed ONLY against subjects from the student's
+  // section's timetable — lectures from other departments/years
+  // do not count against them.
+  // ----------------------------------------------------------------
   static async getMyAttendance(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
-      // Find student profile from user token
       let studentId = req.user?.studentId;
 
       if (!studentId && req.user?.id) {
-        const studentProfile = await prisma.student.findUnique({
-          where: { userId: req.user.id },
-        });
-        studentId = studentProfile?.id;
+        const sp = await prisma.student.findUnique({ where: { userId: req.user.id } });
+        studentId = sp?.id;
       }
-
-      if (!studentId) {
-        throw new AppError('No student record tied to this user account.', 404);
-      }
+      if (!studentId) throw new AppError('No student record tied to this user account.', 404);
 
       const student = await prisma.student.findUnique({
         where: { id: studentId },
-        include: {
-          department: true,
-          program: true,
-          batch: true,
-          section: true,
-        },
+        include: { department: true, program: true, batch: true, section: true },
       });
-
       if (!student) throw new AppError('Student profile not found.', 404);
 
+      // Pull subject IDs from the student's section's timetable so only
+      // scheduled subjects count in the attendance denominator.
+      const timetableSubjectIds = student.sectionId
+        ? (
+            await prisma.timetableSlot.findMany({
+              where: { sectionId: student.sectionId },
+              select: { subjectId: true },
+              distinct: ['subjectId'],
+            })
+          ).map((s) => s.subjectId)
+        : undefined;
+
       const records = await prisma.attendanceRecord.findMany({
-        where: { studentId },
+        where: {
+          studentId,
+          ...(timetableSubjectIds && timetableSubjectIds.length > 0
+            ? { lectureSession: { subjectId: { in: timetableSubjectIds } } }
+            : {}),
+        },
         include: {
           lectureSession: {
             include: {
@@ -237,11 +276,142 @@ export class AttendanceController {
     }
   }
 
-  // Get defaulter list (<75%) for a section or department
+  // ----------------------------------------------------------------
+  // Faculty profile view: sessions and attendance marked by this faculty
+  // ----------------------------------------------------------------
+  static async getFacultyAttendanceSummary(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const { facultyId } = req.params;
+      const user = req.user!;
+
+      // Faculty can only view their own summary
+      if (user.role === 'FACULTY' && user.facultyId !== facultyId) {
+        throw new AppError('Forbidden: You may only view your own attendance records.', 403);
+      }
+
+      const sessions = await prisma.lectureSession.findMany({
+        where: { facultyId },
+        include: {
+          subject: { select: { id: true, code: true, name: true } },
+          section: { select: { id: true, name: true } },
+          timetableSlot: {
+            select: {
+              dayOfWeek: true, startTime: true, endTime: true,
+              yearLabel: true, divisionLabel: true,
+            },
+          },
+          _count: { select: { attendanceRecords: true } },
+        },
+        orderBy: { sessionDate: 'desc' },
+        take: 100,
+      });
+
+      // Aggregate: sessions per subject
+      const subjectMap = new Map<
+        string,
+        { subjectCode: string; subjectName: string; sessions: number; markedRecords: number }
+      >();
+      for (const s of sessions) {
+        const key = s.subjectId;
+        const existing = subjectMap.get(key) ?? {
+          subjectCode: s.subject.code,
+          subjectName: s.subject.name,
+          sessions: 0,
+          markedRecords: 0,
+        };
+        existing.sessions += 1;
+        existing.markedRecords += s._count.attendanceRecords;
+        subjectMap.set(key, existing);
+      }
+
+      res.json({
+        success: true,
+        data: {
+          facultyId,
+          totalSessions: sessions.length,
+          totalMarkedRecords: sessions.reduce((acc, s) => acc + s._count.attendanceRecords, 0),
+          subjectSummary: Array.from(subjectMap.values()),
+          recentSessions: sessions.slice(0, 20),
+        },
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  // ----------------------------------------------------------------
+  // Superadmin: all attendance records with rich filtering
+  // ----------------------------------------------------------------
+  static async getAllAttendance(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const { departmentId, studentId, facultyId, subjectId, yearLabel, fromDate, toDate } =
+        req.query;
+
+      const where: any = {};
+      if (studentId) where.studentId = String(studentId);
+
+      const sessionWhere: any = {};
+      if (facultyId) sessionWhere.facultyId = String(facultyId);
+      if (subjectId) sessionWhere.subjectId = String(subjectId);
+      if (fromDate || toDate) {
+        sessionWhere.sessionDate = {};
+        if (fromDate) sessionWhere.sessionDate.gte = new Date(String(fromDate));
+        if (toDate) sessionWhere.sessionDate.lte = new Date(String(toDate));
+      }
+      if (yearLabel) {
+        sessionWhere.timetableSlot = { yearLabel: String(yearLabel).toUpperCase() };
+      }
+
+      if (Object.keys(sessionWhere).length > 0) {
+        where.lectureSession = sessionWhere;
+      }
+
+      if (departmentId) {
+        where.student = { departmentId: String(departmentId) };
+      }
+
+      const records = await prisma.attendanceRecord.findMany({
+        where,
+        include: {
+          student: {
+            select: {
+              id: true, firstName: true, lastName: true, rollNumber: true, enrollmentNumber: true,
+              department: { select: { id: true, code: true, name: true } },
+            },
+          },
+          lectureSession: {
+            include: {
+              subject: { select: { id: true, code: true, name: true } },
+              faculty: { select: { id: true, firstName: true, lastName: true, employeeId: true } },
+              timetableSlot: {
+                select: { dayOfWeek: true, yearLabel: true, divisionLabel: true },
+              },
+            },
+          },
+        },
+        orderBy: { lectureSession: { sessionDate: 'desc' } },
+        take: 1000,
+      });
+
+      res.json({ success: true, count: records.length, data: records });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  // ----------------------------------------------------------------
+  // Defaulter list (< threshold %)
+  // ----------------------------------------------------------------
   static async getDefaulters(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const { sectionId, departmentId, threshold } = req.query;
-      const minThreshold = threshold ? parseFloat(String(threshold)) : CONFIG.ATTENDANCE_MIN_THRESHOLD;
+      const minThreshold = threshold
+        ? parseFloat(String(threshold))
+        : CONFIG.ATTENDANCE_MIN_THRESHOLD;
 
       const where: any = { academicStatus: 'ACTIVE' };
       if (sectionId) where.sectionId = String(sectionId);
@@ -254,22 +424,18 @@ export class AttendanceController {
           program: true,
           section: true,
           attendanceRecords: {
-            include: {
-              lectureSession: { include: { subject: true } },
-            },
+            include: { lectureSession: { include: { subject: true } } },
           },
         },
       });
 
       const defaulters = [];
-
       for (const student of students) {
         const evaluation = AttendanceAlertService.evaluateStudentAttendance(
           student.id,
           student.attendanceRecords as any,
           minThreshold
         );
-
         if (evaluation.isOverallDefaulter) {
           defaulters.push({
             studentId: student.id,
@@ -287,26 +453,21 @@ export class AttendanceController {
         }
       }
 
-      res.json({
-        success: true,
-        count: defaulters.length,
-        minThreshold,
-        data: defaulters,
-      });
+      res.json({ success: true, count: defaulters.length, minThreshold, data: defaulters });
     } catch (error) {
       next(error);
     }
   }
 
+  // ----------------------------------------------------------------
   // Student leave application
+  // ----------------------------------------------------------------
   static async applyLeave(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       if (req.user?.role !== 'STUDENT' || !req.user.studentId) {
         throw new AppError('Only students can apply for leave.', 403);
       }
-
       const data = leaveApplicationSchema.parse(req.body);
-
       const leave = await prisma.leaveApplication.create({
         data: {
           studentId: req.user.studentId,
@@ -316,37 +477,26 @@ export class AttendanceController {
           status: 'PENDING',
         },
       });
-
-      res.status(201).json({
-        success: true,
-        message: 'Leave application submitted.',
-        data: leave,
-      });
+      res.status(201).json({ success: true, message: 'Leave application submitted.', data: leave });
     } catch (error) {
       next(error);
     }
   }
 
-  // Approve / reject leave application (Faculty or Admin)
+  // ----------------------------------------------------------------
+  // Approve / reject leave (Faculty or Admin)
+  // ----------------------------------------------------------------
   static async reviewLeave(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const { id } = req.params;
       const { status, comments } = z
-        .object({
-          status: z.enum(['APPROVED', 'REJECTED']),
-          comments: z.string().optional(),
-        })
+        .object({ status: z.enum(['APPROVED', 'REJECTED']), comments: z.string().optional() })
         .parse(req.body);
 
       const updated = await prisma.leaveApplication.update({
         where: { id },
-        data: {
-          status,
-          comments,
-          approvedBy: req.user?.id,
-        },
+        data: { status, comments, approvedBy: req.user?.id },
       });
-
       res.json({
         success: true,
         message: `Leave application ${status.toLowerCase()}.`,

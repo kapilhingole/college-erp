@@ -16,6 +16,8 @@ import {
   LogOut,
   Trophy,
   FileUp,
+  Award,
+  BarChart3,
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
@@ -61,6 +63,8 @@ export const Sidebar: React.FC = () => {
       group: 'Administration',
       items: [
         { name: 'Attendance', path: '/attendance', icon: CheckCircle2 },
+        { name: 'Marks', path: '/marks', icon: Award },
+        { name: 'SuperAdmin View', path: '/superadmin', icon: BarChart3, badge: 'SA' },
         { name: 'Fees', path: '/fees', icon: DollarSign },
         { name: 'Library', path: '/library', icon: Library },
         { name: 'Data Sync', path: '/data-sync', icon: FileUp, badge: 'SYNC' },
@@ -90,6 +94,7 @@ export const Sidebar: React.FC = () => {
       items: [
         { name: 'Timetable', path: '/timetable', icon: CalendarDays },
         { name: 'Attendance', path: '/attendance', icon: CheckCircle2 },
+        { name: 'Marks Entry', path: '/marks', icon: Award },
         { name: 'Curriculum', path: '/academics', icon: BookOpen },
         { name: 'Students', path: '/students', icon: GraduationCap },
       ],
@@ -115,6 +120,7 @@ export const Sidebar: React.FC = () => {
       group: 'Academics',
       items: [
         { name: 'Attendance', path: '/attendance', icon: CheckCircle2 },
+        { name: 'My Marks', path: '/marks', icon: Award },
         { name: 'Curriculum', path: '/academics', icon: BookOpen },
         { name: 'Timetable', path: '/timetable', icon: CalendarDays },
       ],
