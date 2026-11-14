@@ -62,6 +62,7 @@ interface LoadRow {
   allottedMinutes: number;
 }
 
+const baseInputCls = 'px-3 py-2 border border-slate-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-slate-300';
 const inputCls = 'w-full px-3 py-2 border border-slate-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-slate-300';
 const btnPrimary = 'px-3 py-1.5 bg-slate-900 hover:bg-slate-700 text-white rounded-lg text-xs font-medium transition disabled:opacity-60';
 const btnGhost = 'px-3 py-1.5 border border-slate-200 hover:bg-slate-50 text-slate-700 rounded-lg text-xs font-medium transition';
@@ -292,21 +293,26 @@ const ProvisionModal: React.FC<{ onClose: () => void; onCreated: () => void }> =
             <div className="space-y-2">
               {topics.map((t, i) => (
                 <div key={i} className="flex items-center gap-2">
-                  <input
-                    className={inputCls + ' flex-1'}
-                    placeholder="Topic / unit title"
-                    value={t.title}
-                    onChange={(e) => setTopics((p) => p.map((r, j) => (j === i ? { ...r, title: e.target.value } : r)))}
-                  />
-                  <input
-                    type="number"
-                    min={1}
-                    className={inputCls + ' w-24'}
-                    placeholder="Minutes"
-                    value={t.allottedMinutes}
-                    onChange={(e) => setTopics((p) => p.map((r, j) => (j === i ? { ...r, allottedMinutes: Number(e.target.value) } : r)))}
-                  />
-                  <button type="button" onClick={() => setTopics((p) => p.filter((_, j) => j !== i))} className="text-slate-400 hover:text-red-500 px-1">✕</button>
+                  <div className="flex-1 min-w-0">
+                    <input
+                      className={baseInputCls + ' w-full'}
+                      placeholder="Topic / unit title"
+                      value={t.title}
+                      onChange={(e) => setTopics((p) => p.map((r, j) => (j === i ? { ...r, title: e.target.value } : r)))}
+                    />
+                  </div>
+                  <div className="w-28 shrink-0 flex items-center gap-1.5">
+                    <input
+                      type="number"
+                      min={1}
+                      className={baseInputCls + ' w-full'}
+                      placeholder="Minutes"
+                      value={t.allottedMinutes}
+                      onChange={(e) => setTopics((p) => p.map((r, j) => (j === i ? { ...r, allottedMinutes: Number(e.target.value) } : r)))}
+                    />
+                    <span className="text-[11px] text-slate-400 font-medium">min</span>
+                  </div>
+                  <button type="button" onClick={() => setTopics((p) => p.filter((_, j) => j !== i))} className="text-slate-400 hover:text-red-500 p-1">✕</button>
                 </div>
               ))}
               <button type="button" onClick={() => setTopics((p) => [...p, { title: '', allottedMinutes: 60 }])} className={btnGhost + ' flex items-center gap-1'}>
@@ -434,23 +440,34 @@ const ManageModal: React.FC<{ detail: FacultyDetail; onClose: () => void; onChan
           <div className="space-y-2">
             {load.map((t, i) => (
               <div key={i} className="flex items-center gap-2">
-                <input
-                  className={inputCls + ' flex-1'}
-                  placeholder="Topic title"
-                  value={t.title}
-                  onChange={(e) => setLoad((p) => p.map((r, j) => (j === i ? { ...r, title: e.target.value } : r)))}
-                />
-                <input
-                  type="number"
-                  min={1}
-                  className={inputCls + ' w-24'}
-                  value={t.allottedMinutes}
-                  onChange={(e) => setLoad((p) => p.map((r, j) => (j === i ? { ...r, allottedMinutes: Number(e.target.value) } : r)))}
-                />
-                <button type="button" onClick={() => setLoad((p) => p.filter((_, j) => j !== i))} className="text-slate-400 hover:text-red-500 px-1">✕</button>
+                <div className="flex-1 min-w-0">
+                  <input
+                    className={baseInputCls + ' w-full'}
+                    placeholder="Topic / unit title"
+                    value={t.title}
+                    onChange={(e) => setLoad((p) => p.map((r, j) => (j === i ? { ...r, title: e.target.value } : r)))}
+                  />
+                </div>
+                <div className="w-28 shrink-0 flex items-center gap-1.5">
+                  <input
+                    type="number"
+                    min={1}
+                    className={baseInputCls + ' w-full'}
+                    placeholder="Minutes"
+                    value={t.allottedMinutes}
+                    onChange={(e) => setLoad((p) => p.map((r, j) => (j === i ? { ...r, allottedMinutes: Number(e.target.value) } : r)))}
+                  />
+                  <span className="text-[11px] text-slate-400 font-medium">min</span>
+                </div>
+                {detail.topics[i] && (
+                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded shrink-0 ${detail.topics[i].status === 'DONE' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-600'}`}>
+                    {detail.topics[i].status}
+                  </span>
+                )}
+                <button type="button" onClick={() => setLoad((p) => p.filter((_, j) => j !== i))} className="text-slate-400 hover:text-red-500 p-1">✕</button>
               </div>
             ))}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 pt-1">
               <button type="button" onClick={() => setLoad((p) => [...p, { title: '', allottedMinutes: 60 }])} className={btnGhost + ' flex items-center gap-1'}>
                 <Plus className="w-3 h-3" /> Add Topic
               </button>
