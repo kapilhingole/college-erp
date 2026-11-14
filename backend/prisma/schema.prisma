@@ -224,6 +224,11 @@ model Faculty {
   timetableSlots     TimetableSlot[]
   lectureSessions    LectureSession[]
   marksEntered       MarksEntry[] @relation("FacultyMarksEntered")
+
+  // MODULE: Faculty Academic Load & Syllabus Progress Tracking
+  syllabusTopics            SyllabusTopic[]
+  syllabusExtraLoads        SyllabusExtraLoad[]
+  syllabusCompletionAudits  SyllabusCompletionAudit[]
 }
 
 // -------------------------------------------------------------
@@ -616,6 +621,77 @@ model SystemSetting {
   category  String   @default("GENERAL") // GENERAL, ADMISSIONS, ACADEMIC
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
+}
+
+// -------------------------------------------------------------
+// MODULE: Faculty Academic Load & Syllabus Progress Tracking
+//
+// A faculty member carries an academic load: an ordered set of
+// topics (lessons/units), each with an allotted time budget
+// (allottedMinutes). The load-period clock starts at assignedAt.
+// When the allotted time expires without completion, exactly one
+// extra load period is recorded once (SyllabusExtraLoad). Extra
+// loads are tracked and displayed but NEVER count toward the
+// completion percentage. Progress percentage is computed from
+// actually completed topics only: completedTopics / totalTopics.
+//
+// Any change to a topic's completion record — by faculty marking
+// done or by Superadmin override — writes an immutable audit row
+// (SyllabusCompletionAudit) capturing who, what, when, and the
+// old/new values.
+// -------------------------------------------------------------
+
+model SyllabusTopic {
+  id                String    @id @default(uuid())
+  facultyId         String
+  title             String
+  description       String?
+  orderIndex        Int       @default(0)
+  allottedMinutes   Int
+  assignedAt        DateTime  @default(now()) // start of the load-period clock
+  status            String    @default("PENDING") // PENDING | DONE
+  completedAt       DateTime?
+  completedByUserId String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  faculty           Faculty  @relation(fields: [facultyId], references: [id], onDelete: Cascade)
+  extraLoads        SyllabusExtraLoad[]
+  completionAudits  SyllabusCompletionAudit[]
+
+  @@index([facultyId])
+}
+
+model SyllabusExtraLoad {
+  id        String   @id @default(uuid())
+  topicId   String
+  facultyId String
+  reason    String   @default("TIME_EXPIRED") // TIME_EXPIRED
+  createdAt DateTime @default(now())
+
+  topic     SyllabusTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  faculty   Faculty       @relation(fields: [facultyId], references: [id], onDelete: Cascade)
+
+  @@index([topicId])
+  @@index([facultyId])
+}
+
+model SyllabusCompletionAudit {
+  id          String   @id @default(uuid())
+  topicId     String
+  facultyId   String
+  actorUserId String
+  actorEmail  String?
+  action      String   // FACULTY_MARK_DONE | SUPERADMIN_OVERRIDE
+  oldValue    String?  // JSON: { status, completedAt, completedByUserId }
+  newValue    String?  // JSON: { status, completedAt, completedByUserId }
+  note        String?
+  createdAt   DateTime @default(now())
+
+  topic       SyllabusTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  faculty     Faculty       @relation(fields: [facultyId], references: [id], onDelete: Cascade)
+
+  @@index([facultyId])
 }
 
 

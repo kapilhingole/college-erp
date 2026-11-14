@@ -22,6 +22,8 @@ import { Leaderboard } from './pages/Leaderboard';
 import { DataSyncPage } from './pages/DataSyncPage';
 import { MarksPage } from './pages/MarksPage';
 import { SuperAdminViewPage } from './pages/SuperAdminViewPage';
+import { SyllabusLoadPage } from './pages/SyllabusLoadPage';
+import { SyllabusAdminPage } from './pages/SyllabusAdminPage';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { token, loading } = useAuth();
@@ -88,6 +90,8 @@ export const App: React.FC = () => {
             <Route path="data-sync" element={<DataSyncPage />} />
             <Route path="marks" element={<MarksPage />} />
             <Route path="superadmin" element={<SuperAdminViewPage />} />
+            <Route path="syllabus" element={<SyllabusLoadPage />} />
+            <Route path="syllabus-admin" element={<SyllabusAdminPage />} />
           </Route>
 
           <Route path="*" element={<Navigate to="/" replace />} />
