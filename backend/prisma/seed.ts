@@ -239,48 +239,40 @@ async function main() {
     },
   });
 
-  // 3. Departments
-  const cseDept = await prisma.department.create({
+  // 3. Departments (Strictly 4 Departments: AIDS, CE/COMP, ECE, E&TC/ENTC)
+  const compDept = await prisma.department.create({
     data: {
-      code: 'CSE',
+      code: 'COMP',
       name: 'Computer Engineering',
-      description: 'Department of Computer Engineering, AI & Machine Learning',
+      description: 'Department of Computer Engineering - ZCOER Induri Campus, Pune',
     },
   });
 
-  const itDept = await prisma.department.create({
+  const aidsDept = await prisma.department.create({
     data: {
-      code: 'IT',
-      name: 'Information Technology',
-      description: 'Department of Information Technology, Cloud Computing & Cyber Security',
+      code: 'AIDS',
+      name: 'Artificial Intelligence and Data Science',
+      description: 'Department of Artificial Intelligence and Data Science - ZCOER Induri Campus, Pune',
     },
   });
 
   const eceDept = await prisma.department.create({
     data: {
+      code: 'ECE',
+      name: 'Electronic and Computer Engineering',
+      description: 'Department of Electronic and Computer Engineering - ZCOER Induri Campus, Pune',
+    },
+  });
+
+  const entcDept = await prisma.department.create({
+    data: {
       code: 'ENTC',
       name: 'Electronics & Telecommunication',
-      description: 'Department of E&TC Engineering, Embedded Systems & IoT',
+      description: 'Department of Electronics & Telecommunication - ZCOER Induri Campus, Pune',
     },
   });
 
-  const mechDept = await prisma.department.create({
-    data: {
-      code: 'MECH',
-      name: 'Mechanical Engineering',
-      description: 'Department of Mechanical Engineering, Robotics & Automation',
-    },
-  });
-
-  const civilDept = await prisma.department.create({
-    data: {
-      code: 'CIVIL',
-      name: 'Civil Engineering',
-      description: 'Department of Civil Engineering & Infrastructure Technology',
-    },
-  });
-
-  const depts = [cseDept, itDept, eceDept, mechDept, civilDept];
+  const depts = [compDept, aidsDept, eceDept, entcDept];
 
   // 4. Programs, Batches & Sections
   const programs: any[] = [];
@@ -338,7 +330,7 @@ async function main() {
       { title: 'Engineering Graphics — Orthographic & 3D Isometric Views', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Engineering Mechanics (EM-I) — Force Systems & Equilibrium', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 2, email: 'priti.pande@zeal.edu.in', firstName: 'Priti', lastName: 'Pande', empId: 'FAC-ZCOER-002', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in CSE', topics: [
+    { num: 2, email: 'priti.pande@zeal.edu.in', firstName: 'Priti', lastName: 'Pande', empId: 'FAC-ZCOER-002', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in CSE', topics: [
       { title: 'Data Structures — Binary Search Trees & AVL Trees', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Computer Algorithms — Divide & Conquer Techniques', allottedMinutes: 120, status: 'PENDING' },
     ]},
@@ -346,11 +338,11 @@ async function main() {
       { title: 'Electronic Circuits & Analysis — BJT and MOSFET Models', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Digital Signals — Frequency Domain Representation', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 4, email: 'harshala.ritapure@zeal.edu.in', firstName: 'Harshala', lastName: 'Ritapure', empId: 'FAC-ZCOER-004', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in CSE', topics: [
+    { num: 4, email: 'harshala.ritapure@zeal.edu.in', firstName: 'Harshala', lastName: 'Ritapure', empId: 'FAC-ZCOER-004', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in CSE', topics: [
       { title: 'Electronic Communication Systems — Modulation Techniques', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Digital Transmission — Sampling & Quantization', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 5, email: 'sayali.ambole@zeal.edu.in', firstName: 'Sayali', lastName: 'Ambole', empId: 'FAC-ZCOER-005', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in IT', topics: [
+    { num: 5, email: 'sayali.ambole@zeal.edu.in', firstName: 'Sayali', lastName: 'Ambole', empId: 'FAC-ZCOER-005', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in IT', topics: [
       { title: 'Digital Marketing Fundamentals — SEO & SEM Workflows', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Social Media Analytics & Brand Engagement', allottedMinutes: 120, status: 'PENDING' },
     ]},
@@ -358,19 +350,19 @@ async function main() {
       { title: 'Digital Techniques — Combinational Logic & Karnaugh Maps', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Sequential Logic — Flip-Flops and Shift Registers', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 7, email: 'rupesh.gonate@zeal.edu.in', firstName: 'Rupesh', lastName: 'Gonate', empId: 'FAC-ZCOER-007', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in AI & ML', topics: [
+    { num: 7, email: 'rupesh.gonate@zeal.edu.in', firstName: 'Rupesh', lastName: 'Gonate', empId: 'FAC-ZCOER-007', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in AI & ML', topics: [
       { title: 'Fundamentals of ICT — Hardware Architectures & Bus Topologies', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Network Protocols & Cloud Computing Basics', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 8, email: 'mahima.gamot@zeal.edu.in', firstName: 'Mahima', lastName: 'Gamot', empId: 'FAC-ZCOER-008', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in CSE', topics: [
+    { num: 8, email: 'mahima.gamot@zeal.edu.in', firstName: 'Mahima', lastName: 'Gamot', empId: 'FAC-ZCOER-008', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in CSE', topics: [
       { title: 'Database Management Systems — Relational Algebra & SQL', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Transaction Management & ACID Properties', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 9, email: 'aparna.bhat@zeal.edu.in', firstName: 'Aparna', lastName: 'Bhat', empId: 'FAC-ZCOER-009', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in Data Science', topics: [
+    { num: 9, email: 'aparna.bhat@zeal.edu.in', firstName: 'Aparna', lastName: 'Bhat', empId: 'FAC-ZCOER-009', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in Data Science', topics: [
       { title: 'Statistics for AI — Probability Distributions & Hypothesis Testing', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Multivariate Analysis & Linear Regression', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 10, email: 'lata.arjun@zeal.edu.in', firstName: 'Lata', lastName: 'Arjun', empId: 'FAC-ZCOER-010', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Sc. in Mathematics', topics: [
+    { num: 10, email: 'lata.arjun@zeal.edu.in', firstName: 'Lata', lastName: 'Arjun', empId: 'FAC-ZCOER-010', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Sc. in Mathematics', topics: [
       { title: 'Basic Mathematics — Differential Equations & Calculus', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Discrete Mathematics — Graph Theory & Set Theory', allottedMinutes: 120, status: 'PENDING' },
     ]},
@@ -382,11 +374,11 @@ async function main() {
       { title: 'Analog Electronics — Operational Amplifiers & Feedback Circuits', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Basic Electrical & Electronics — AC Circuits & Transformers', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 13, email: 'bhasker.singh@zeal.edu.in', firstName: 'Bhasker', lastName: 'Singh', empId: 'FAC-ZCOER-013', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in CSE', topics: [
+    { num: 13, email: 'bhasker.singh@zeal.edu.in', firstName: 'Bhasker', lastName: 'Singh', empId: 'FAC-ZCOER-013', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in CSE', topics: [
       { title: 'Computer Organization & Architecture — Pipeline Hazards & ALU', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Memory Hierarchy — Cache Mapping & Virtual Memory', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 14, email: 'snehal.dharme@zeal.edu.in', firstName: 'Snehal', lastName: 'Dharme', empId: 'FAC-ZCOER-014', deptId: cseDept.id, desig: 'Associate Professor', qual: 'Ph.D in Computer Science', topics: [
+    { num: 14, email: 'snehal.dharme@zeal.edu.in', firstName: 'Snehal', lastName: 'Dharme', empId: 'FAC-ZCOER-014', deptId: compDept.id, desig: 'Associate Professor', qual: 'Ph.D in Computer Science', topics: [
       { title: 'Object Oriented Programming — Encapsulation & Inheritance', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Java Exception Handling & Multithreading', allottedMinutes: 120, status: 'PENDING' },
     ]},
@@ -398,31 +390,31 @@ async function main() {
       { title: 'Electronic Circuit Design — Frequency Response & Power Stages', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Data Structures and Algorithms for Embedded Systems', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 17, email: 'rakhi.tarone@zeal.edu.in', firstName: 'Rakhi', lastName: 'Tarone', empId: 'FAC-ZCOER-017', deptId: cseDept.id, desig: 'Associate Professor', qual: 'M.Tech in CSE', topics: [
+    { num: 17, email: 'rakhi.tarone@zeal.edu.in', firstName: 'Rakhi', lastName: 'Tarone', empId: 'FAC-ZCOER-017', deptId: compDept.id, desig: 'Associate Professor', qual: 'M.Tech in CSE', topics: [
       { title: 'Data Structures — Linear Linked Lists, Stacks and Queues', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Fundamentals of ICT — Digital Foundations and Operating Concepts', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 18, email: 'vedant.sharma@zeal.edu.in', firstName: 'Vedant', lastName: 'Sharma', empId: 'FAC-ZCOER-018', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in Software Engineering', topics: [
+    { num: 18, email: 'vedant.sharma@zeal.edu.in', firstName: 'Vedant', lastName: 'Sharma', empId: 'FAC-ZCOER-018', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in Software Engineering', topics: [
       { title: 'Object Oriented Programming using C++ — Polymorphism & Templates', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Advanced Java Programming — GUI Development & JDBC', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 19, email: 'shrutika.more@zeal.edu.in', firstName: 'Shrutika', lastName: 'More', empId: 'FAC-ZCOER-019', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in AI', topics: [
+    { num: 19, email: 'shrutika.more@zeal.edu.in', firstName: 'Shrutika', lastName: 'More', empId: 'FAC-ZCOER-019', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in AI', topics: [
       { title: 'Advanced Python Programming — Generators & Decorators', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Scientific Computing with NumPy and Pandas', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 20, email: 'priyanka.bahirwade@zeal.edu.in', firstName: 'Priyanka', lastName: 'Bahirwade', empId: 'FAC-ZCOER-020', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.E. in CSE', topics: [
+    { num: 20, email: 'priyanka.bahirwade@zeal.edu.in', firstName: 'Priyanka', lastName: 'Bahirwade', empId: 'FAC-ZCOER-020', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.E. in CSE', topics: [
       { title: 'Web Application Development (WAD) — Frontend Responsive Layouts', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Backend REST API Integration with Express and SQLite', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 21, email: 'samrudhi.pachpinde@zeal.edu.in', firstName: 'Samrudhi', lastName: 'Pachpinde', empId: 'FAC-ZCOER-021', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in IT', topics: [
+    { num: 21, email: 'samrudhi.pachpinde@zeal.edu.in', firstName: 'Samrudhi', lastName: 'Pachpinde', empId: 'FAC-ZCOER-021', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in IT', topics: [
       { title: 'Data Structure Using C — Pointers, Arrays and Structs', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Trees, Heaps and Hashing Techniques in C', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 22, email: 'swati.jadhav@zeal.edu.in', firstName: 'Swati', lastName: 'Jadhav', empId: 'FAC-ZCOER-022', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.A. in Communication', topics: [
+    { num: 22, email: 'swati.jadhav@zeal.edu.in', firstName: 'Swati', lastName: 'Jadhav', empId: 'FAC-ZCOER-022', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.A. in Communication', topics: [
       { title: 'Communication Skills — Technical Writing and Listening Skills', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Business Presentations and Group Discussion Mastery', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 23, email: 'yogita.chaskar@zeal.edu.in', firstName: 'Yogita', lastName: 'Chaskar', empId: 'FAC-ZCOER-023', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in CSE', topics: [
+    { num: 23, email: 'yogita.chaskar@zeal.edu.in', firstName: 'Yogita', lastName: 'Chaskar', empId: 'FAC-ZCOER-023', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in CSE', topics: [
       { title: 'Data Storytelling & Visualization — Visual Perception Principles', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Dashboard Authoring & Interactive Visual Dashboards', allottedMinutes: 120, status: 'PENDING' },
     ]},
@@ -434,23 +426,23 @@ async function main() {
       { title: 'Processor Architecture — Register Organization & Instruction Sets', allottedMinutes: 120, status: 'PENDING' },
       { title: 'System Design — Bus Timing & Memory Controller Interfacing', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 26, email: 'shivam.more@zeal.edu.in', firstName: 'Shivam', lastName: 'More', empId: 'FAC-ZCOER-026', deptId: civilDept.id, desig: 'Assistant Professor', qual: 'M.Sc. in Physics', topics: [
+    { num: 26, email: 'shivam.more@zeal.edu.in', firstName: 'Shivam', lastName: 'More', empId: 'FAC-ZCOER-026', deptId: eceDept.id, desig: 'Assistant Professor', qual: 'M.Sc. in Physics', topics: [
       { title: 'Basic Science (Physics) — Wave Optics & Lasers', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Electromagnetics & Quantum Physics Foundations', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 27, email: 'sachin.kadam@zeal.edu.in', firstName: 'Sachin', lastName: 'Kadam', empId: 'FAC-ZCOER-027', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in CSE', topics: [
+    { num: 27, email: 'sachin.kadam@zeal.edu.in', firstName: 'Sachin', lastName: 'Kadam', empId: 'FAC-ZCOER-027', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in CSE', topics: [
       { title: 'Fundamentals of C Programming — Control Flow and Functions', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Dynamic Memory Allocation and File I/O in C', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 28, email: 'anita.nikam@zeal.edu.in', firstName: 'Anita', lastName: 'Nikam', empId: 'FAC-ZCOER-028', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in AI', topics: [
+    { num: 28, email: 'anita.nikam@zeal.edu.in', firstName: 'Anita', lastName: 'Nikam', empId: 'FAC-ZCOER-028', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in AI', topics: [
       { title: 'Basic Python Programming — Data Types & Functions', allottedMinutes: 120, status: 'PENDING' },
       { title: 'File Handling & Object-Oriented Principles in Python', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 29, email: 'suhas.chavan@zeal.edu.in', firstName: 'Suhas', lastName: 'Chavan', empId: 'FAC-ZCOER-029', deptId: cseDept.id, desig: 'Associate Professor', qual: 'Ph.D in IT', topics: [
+    { num: 29, email: 'suhas.chavan@zeal.edu.in', firstName: 'Suhas', lastName: 'Chavan', empId: 'FAC-ZCOER-029', deptId: compDept.id, desig: 'Associate Professor', qual: 'Ph.D in IT', topics: [
       { title: 'Liberal Learning — Ethics, Technology & Society', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Indian Constitution & Institutional Governance', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 30, email: 'sandeep.pawar@zeal.edu.in', firstName: 'Sandeep', lastName: 'Pawar', empId: 'FAC-ZCOER-030', deptId: mechDept.id, desig: 'Associate Professor', qual: 'M.Tech in Mechanical', topics: [
+    { num: 30, email: 'sandeep.pawar@zeal.edu.in', firstName: 'Sandeep', lastName: 'Pawar', empId: 'FAC-ZCOER-030', deptId: compDept.id, desig: 'Associate Professor', qual: 'M.Tech in Mechanical', topics: [
       { title: 'Engineering Workshop — Fitting, Carpentry & Welding Practice', allottedMinutes: 120, status: 'PENDING' },
       { title: 'CNC Machine Tools & Modern Manufacturing Technology', allottedMinutes: 120, status: 'PENDING' },
     ]},
@@ -458,23 +450,23 @@ async function main() {
       { title: 'Computer Organization — CPU Control Unit Design', allottedMinutes: 120, status: 'PENDING' },
       { title: 'I/O Organization & Direct Memory Access (DMA)', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 32, email: 'seema.patil@zeal.edu.in', firstName: 'Seema', lastName: 'Patil', empId: 'FAC-ZCOER-032', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in Graphics', topics: [
+    { num: 32, email: 'seema.patil@zeal.edu.in', firstName: 'Seema', lastName: 'Patil', empId: 'FAC-ZCOER-032', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in Graphics', topics: [
       { title: 'Computer Graphics — 2D Transformations & Clipping', allottedMinutes: 120, status: 'PENDING' },
       { title: '3D Projections and Illumination / Shading Models', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 33, email: 'nitesh.lad@zeal.edu.in', firstName: 'Nitesh', lastName: 'Lad', empId: 'FAC-ZCOER-033', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in Machine Learning', topics: [
+    { num: 33, email: 'nitesh.lad@zeal.edu.in', firstName: 'Nitesh', lastName: 'Lad', empId: 'FAC-ZCOER-033', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in Machine Learning', topics: [
       { title: 'Statistical Modelling for ML — Linear Models & Regularization', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Clustering & Principal Component Analysis (PCA)', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 34, email: 'jyoti.jadhav@zeal.edu.in', firstName: 'Jyoti', lastName: 'Jadhav', empId: 'FAC-ZCOER-034', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in CSE', topics: [
+    { num: 34, email: 'jyoti.jadhav@zeal.edu.in', firstName: 'Jyoti', lastName: 'Jadhav', empId: 'FAC-ZCOER-034', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in CSE', topics: [
       { title: 'Web Development — DOM Manipulation & Asynchronous JS', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Full Stack Architecture & Server-Side Security', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 35, email: 'chetan.harak@zeal.edu.in', firstName: 'Chetan', lastName: 'Harak', empId: 'FAC-ZCOER-035', deptId: civilDept.id, desig: 'Professor & HOD', qual: 'Ph.D in Chemistry', topics: [
+    { num: 35, email: 'chetan.harak@zeal.edu.in', firstName: 'Chetan', lastName: 'Harak', empId: 'FAC-ZCOER-035', deptId: eceDept.id, desig: 'Professor & HOD', qual: 'Ph.D in Chemistry', topics: [
       { title: 'Engineering Chemistry — Water Treatment & Polymers', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Corrosion Science, Lubricants & Green Chemistry', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 36, email: 'krushnat.dubal@zeal.edu.in', firstName: 'Krushnat', lastName: 'Dubal', empId: 'FAC-ZCOER-036', deptId: mechDept.id, desig: 'Assistant Professor', qual: 'M.E. in Design', topics: [
+    { num: 36, email: 'krushnat.dubal@zeal.edu.in', firstName: 'Krushnat', lastName: 'Dubal', empId: 'FAC-ZCOER-036', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.E. in Design', topics: [
       { title: 'Engineering Workshop (Comp Group) — PCB Fabrication', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Hardware Assembly, Soldering & Diagnostic Testing', allottedMinutes: 120, status: 'PENDING' },
     ]},
@@ -482,7 +474,7 @@ async function main() {
       { title: 'BEEE — Single Phase & Three Phase AC Circuits', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Electrical Machines, Transformers & Protection Relays', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 38, email: 'mayur.narawade@zeal.edu.in', firstName: 'Mayur', lastName: 'Narawade', empId: 'FAC-ZCOER-038', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in Data Science', topics: [
+    { num: 38, email: 'mayur.narawade@zeal.edu.in', firstName: 'Mayur', lastName: 'Narawade', empId: 'FAC-ZCOER-038', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in Data Science', topics: [
       { title: 'Data Structure Using Python — Stacks, Queues & HashMaps', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Tree Traversal Algorithms & Binary Heaps in Python', allottedMinutes: 120, status: 'PENDING' },
     ]},
@@ -490,7 +482,7 @@ async function main() {
       { title: 'Professional Skills Training (PST-I) — Aptitude & Logical Reasoning', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Interview Skills and Corporate Communication', allottedMinutes: 120, status: 'PENDING' },
     ]},
-    { num: 40, email: 'vishnu.jadhav@zeal.edu.in', firstName: 'Vishnu', lastName: 'Jadhav', empId: 'FAC-ZCOER-040', deptId: cseDept.id, desig: 'Assistant Professor', qual: 'M.Tech in CSE', topics: [
+    { num: 40, email: 'vishnu.jadhav@zeal.edu.in', firstName: 'Vishnu', lastName: 'Jadhav', empId: 'FAC-ZCOER-040', deptId: compDept.id, desig: 'Assistant Professor', qual: 'M.Tech in CSE', topics: [
       { title: 'IT Proficiency — Command Line Utilities & Git Version Control', allottedMinutes: 120, status: 'PENDING' },
       { title: 'Data Structures and Algorithms Problem Solving Sprint', allottedMinutes: 120, status: 'PENDING' },
     ]},
@@ -566,7 +558,7 @@ async function main() {
     data: {
       code: 'CS301',
       name: 'Data Structures & Algorithms',
-      departmentId: cseDept.id,
+      departmentId: compDept.id,
       semester: 3,
       credits: 4,
       type: 'THEORY',
@@ -581,7 +573,7 @@ async function main() {
     data: {
       code: 'CS302',
       name: 'Object Oriented Programming with Java',
-      departmentId: cseDept.id,
+      departmentId: compDept.id,
       semester: 3,
       credits: 4,
       type: 'THEORY',
@@ -596,7 +588,7 @@ async function main() {
     data: {
       code: 'CS303',
       name: 'Database Management Systems',
-      departmentId: cseDept.id,
+      departmentId: compDept.id,
       semester: 3,
       credits: 4,
       type: 'THEORY',
@@ -674,7 +666,7 @@ async function main() {
   const feePlan = await prisma.feeStructure.create({
     data: {
       name: 'B.E. Academic Year Regular Fee (2024-25)',
-      departmentId: cseDept.id,
+      departmentId: compDept.id,
       programId: programs[0].id,
       semester: 3,
       academicYear: '2024-25',
@@ -908,7 +900,7 @@ async function main() {
       address: 'Zeal Education Society, Induri Campus, Talegaon Dabhade, Pune - 410507',
       guardianName: 'Mr. Ramesh Kulkarni',
       guardianPhone: '+91 98220 99999',
-      departmentId: cseDept.id,
+      departmentId: compDept.id,
       programId: programs[0].id,
       batchId: batches[0].id,
       sectionId: sections[0].id,
