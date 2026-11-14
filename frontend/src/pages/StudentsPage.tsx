@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import {
   GraduationCap, Plus, Search, Eye, EyeOff, Copy, Check,
-  KeyRound, Activity, FileSpreadsheet, Sliders, Download,
+  KeyRound, FileSpreadsheet, Sliders, Download, Users,
 } from 'lucide-react';
 import { apiClient } from '../api/client';
 import { useAuth } from '../context/AuthContext';
@@ -13,6 +13,7 @@ export const StudentsPage: React.FC = () => {
   const [search, setSearch] = useState('');
   const [selectedDept, setSelectedDept] = useState('');
   const [selectedSemester, setSelectedSemester] = useState<number | 'ALL'>('ALL');
+  const [selectedBatch, setSelectedBatch] = useState<string>('ALL');
   const [showModal, setShowModal] = useState(false);
   const [revealedPasswords, setRevealedPasswords] = useState<Record<string, boolean>>({});
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -85,7 +86,10 @@ export const StudentsPage: React.FC = () => {
     });
   }, []);
 
-  useEffect(() => { fetchStudents(); }, [selectedDept, selectedSemester]);
+  useEffect(() => {
+    setSelectedBatch('ALL');
+    fetchStudents();
+  }, [selectedDept, selectedSemester]);
 
   const branchCounts = useMemo(() => {
     const c: Record<string, number> = {};
@@ -98,6 +102,42 @@ export const StudentsPage: React.FC = () => {
     students.forEach((s) => { const sem = s.currentSemester || 1; c[sem] = (c[sem] || 0) + 1; });
     return c;
   }, [students]);
+
+  // Batches available for current branch filter (for sub-filter tabs)
+  const availableBatches = useMemo(() => {
+    const seen = new Map<string, { id: string; name: string; count: number }>();
+    students.forEach((s) => {
+      if (s.batch?.id) {
+        if (!seen.has(s.batch.id)) seen.set(s.batch.id, { id: s.batch.id, name: s.batch.name, count: 0 });
+        seen.get(s.batch.id)!.count += 1;
+      }
+    });
+    return Array.from(seen.values()).sort((a, b) => b.name.localeCompare(a.name));
+  }, [students]);
+
+  // Students after applying batch sub-filter
+  const filteredStudents = useMemo(() => {
+    if (selectedBatch === 'ALL') return students;
+    return students.filter((s) => s.batch?.id === selectedBatch);
+  }, [students, selectedBatch]);
+
+  // Group filteredStudents by batch for branch-wise display
+  const studentsByBatch = useMemo(() => {
+    const groups = new Map<string, { batchName: string; batchYear: string; sections: Map<string, { sectionName: string; students: any[] }> }>();
+    filteredStudents.forEach((s) => {
+      const batchId = s.batch?.id || 'unknown';
+      const batchName = s.batch?.name || 'Unknown Batch';
+      const batchYear = s.batch?.academicYear || '';
+      const sectionId = s.section?.id || 'no-section';
+      const sectionName = s.section?.name || 'No GFM Batch';
+
+      if (!groups.has(batchId)) groups.set(batchId, { batchName, batchYear, sections: new Map() });
+      const batchGroup = groups.get(batchId)!;
+      if (!batchGroup.sections.has(sectionId)) batchGroup.sections.set(sectionId, { sectionName, students: [] });
+      batchGroup.sections.get(sectionId)!.students.push(s);
+    });
+    return groups;
+  }, [filteredStudents]);
 
   const togglePasswordVisibility = (id: string) => setRevealedPasswords((p) => ({ ...p, [id]: !p[id] }));
 
@@ -204,7 +244,13 @@ export const StudentsPage: React.FC = () => {
         {isManagement && (
           <div className="flex flex-wrap gap-2">
             <button onClick={() => { fetchZprnConfig(); setShowZprnModal(true); }} className="flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 hover:bg-slate-50 text-slate-700 rounded-lg text-xs font-medium transition">
-              <Sliders className="w-3.5 h-3.5" /> ZPRN {zprnConfig && <span className="font-mono text-[10px] text-slate-500">{zprnConfig.nextZprn}</span>}
+              <Sliders className="w-3.5 h-3.5" />
+              <span>ZPRN</span>
+              {zprnConfig && (
+                <span className="font-mono text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded">
+                  {zprnConfig.nextZprn}
+                </span>
+              )}
             </button>
             <button onClick={() => { setShowImportModal(true); setImportResult(null); setImportError(null); setImportFile(null); }} className="flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 hover:bg-slate-50 text-slate-700 rounded-lg text-xs font-medium transition">
               <FileSpreadsheet className="w-3.5 h-3.5" /> Bulk Import
@@ -219,25 +265,62 @@ export const StudentsPage: React.FC = () => {
       {/* Branch filter */}
       <div className="bg-white rounded-xl border border-slate-200 p-3">
         <div className="flex flex-wrap gap-1.5">
-          <button onClick={() => setSelectedDept('')} className={`px-3 py-1 rounded-lg text-xs font-medium transition ${selectedDept === '' ? 'bg-slate-900 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'}`}>
+          <button
+            onClick={() => { setSelectedDept(''); setSelectedBatch('ALL'); }}
+            className={`px-3 py-1 rounded-lg text-xs font-medium transition ${selectedDept === '' ? 'bg-slate-900 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'}`}
+          >
             All ({students.length})
           </button>
-          {departments.map((d) => (
-            <button key={d.id} onClick={() => setSelectedDept(d.id)} className={`px-3 py-1 rounded-lg text-xs font-medium transition ${selectedDept === d.id ? 'bg-slate-900 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'}`}>
-              {d.code} ({branchCounts[d.code] || 0})
-            </button>
-          ))}
+          {departments.map((d) => {
+            const count = students.filter((s) => s.department?.id === d.id).length;
+            return (
+              <button
+                key={d.id}
+                onClick={() => { setSelectedDept(d.id); setSelectedBatch('ALL'); }}
+                className={`px-3 py-1 rounded-lg text-xs font-medium transition ${selectedDept === d.id ? 'bg-slate-900 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'}`}
+              >
+                {d.code} ({count})
+              </button>
+            );
+          })}
         </div>
       </div>
+
+      {/* Batch sub-filter (only when a branch is selected and multiple batches exist) */}
+      {selectedDept && availableBatches.length > 1 && (
+        <div className="bg-white rounded-xl border border-slate-200 p-3">
+          <p className="text-[10px] font-semibold text-slate-400 uppercase mb-2">Batch</p>
+          <div className="flex flex-wrap gap-1.5">
+            <button
+              onClick={() => setSelectedBatch('ALL')}
+              className={`px-3 py-1 rounded-lg text-xs font-medium transition ${selectedBatch === 'ALL' ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'}`}
+            >
+              All Batches ({students.length})
+            </button>
+            {availableBatches.map((b) => (
+              <button
+                key={b.id}
+                onClick={() => setSelectedBatch(b.id)}
+                className={`px-3 py-1 rounded-lg text-xs font-medium transition ${selectedBatch === b.id ? 'bg-indigo-600 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'}`}
+              >
+                {b.name} ({b.count})
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Semester filter */}
       <div className="flex flex-wrap gap-1.5">
         <button onClick={() => setSelectedSemester('ALL')} className={`px-3 py-1 rounded-lg text-xs font-medium transition ${selectedSemester === 'ALL' ? 'bg-slate-900 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'}`}>All Sems</button>
-        {[1,2,3,4,5,6,7,8].map((sem) => (
-          <button key={sem} onClick={() => setSelectedSemester(sem)} className={`px-3 py-1 rounded-lg text-xs font-medium transition ${selectedSemester === sem ? 'bg-slate-900 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'}`}>
-            Sem {sem} {semesterCounts[sem] ? `(${semesterCounts[sem]})` : ''}
-          </button>
-        ))}
+        {[1,2,3,4,5,6,7,8].map((sem) => {
+          const semCount = filteredStudents.filter((s) => s.currentSemester === sem).length;
+          return (
+            <button key={sem} onClick={() => setSelectedSemester(sem)} className={`px-3 py-1 rounded-lg text-xs font-medium transition ${selectedSemester === sem ? 'bg-slate-900 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'}`}>
+              Sem {sem} {semCount > 0 ? `(${semCount})` : ''}
+            </button>
+          );
+        })}
       </div>
 
       {/* Search */}
@@ -249,84 +332,60 @@ export const StudentsPage: React.FC = () => {
         <button onClick={fetchStudents} className="px-3 py-2 bg-slate-900 hover:bg-slate-700 text-white rounded-lg text-xs font-medium transition">Search</button>
       </div>
 
-      {/* Table */}
-      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs">
-            <thead className="bg-slate-50 border-b border-slate-200">
-              <tr className="text-[11px] font-semibold text-slate-500 uppercase">
-                <th className="py-3 px-4">Student</th>
-                <th className="py-3 px-4">Branch</th>
-                <th className="py-3 px-4">Sem</th>
-                <th className="py-3 px-4">Email</th>
-                {isManagement && <th className="py-3 px-4">Password</th>}
-                <th className="py-3 px-4">Last Login</th>
-                {isManagement && <th className="py-3 px-4">Actions</th>}
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              {loading ? (
-                <tr><td colSpan={isManagement ? 7 : 5} className="py-12 text-center text-slate-400">Loading...</td></tr>
-              ) : students.length === 0 ? (
-                <tr><td colSpan={isManagement ? 7 : 5} className="py-12 text-center text-slate-400">No students found.</td></tr>
-              ) : students.map((s) => {
-                const userAcc = s.user;
-                const passwordRevealed = revealedPasswords[s.id];
-                const passwordValue = 'Student@123'; // Default — actual passwords are never exposed
-                return (
-                  <tr key={s.id} className="hover:bg-slate-50 transition">
-                    <td className="py-3 px-4">
-                      <p className="font-semibold text-slate-900">{s.firstName} {s.lastName}</p>
-                      <p className="text-[11px] text-slate-400 font-mono mt-0.5">{s.enrollmentNumber} · {s.rollNumber}</p>
-                    </td>
-                    <td className="py-3 px-4">
-                      <span className="inline-block text-[10px] font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">{s.department?.code}</span>
-                      <p className="text-[11px] text-slate-400 mt-0.5">{s.batch?.name}</p>
-                    </td>
-                    <td className="py-3 px-4">
-                      <span className="text-[11px] font-semibold text-slate-700">Sem {s.currentSemester}</span>
-                    </td>
-                    <td className="py-3 px-4">
-                      <div className="flex items-center gap-1">
-                        <span className="font-mono text-[11px] text-slate-700">{userAcc?.email || s.email}</span>
-                        <button onClick={() => copyToClipboard(userAcc?.email || s.email, `email-${s.id}`)} className="p-0.5 text-slate-400 hover:text-slate-700">
-                          {copiedId === `email-${s.id}` ? <Check className="w-3 h-3 text-emerald-600" /> : <Copy className="w-3 h-3" />}
-                        </button>
-                      </div>
-                    </td>
-                    {isManagement && (
-                      <td className="py-3 px-4">
-                        <div className="flex items-center gap-1">
-                          <span className="font-mono text-[11px] bg-slate-100 px-2 py-0.5 rounded">{passwordRevealed ? passwordValue : '••••••••'}</span>
-                          <button onClick={() => togglePasswordVisibility(s.id)} className="p-0.5 text-slate-400 hover:text-slate-700">
-                            {passwordRevealed ? <EyeOff className="w-3 h-3" /> : <Eye className="w-3 h-3" />}
-                          </button>
-                          <button onClick={() => copyToClipboard(passwordValue, `pwd-${s.id}`)} className="p-0.5 text-slate-400 hover:text-slate-700">
-                            {copiedId === `pwd-${s.id}` ? <Check className="w-3 h-3 text-emerald-600" /> : <Copy className="w-3 h-3" />}
-                          </button>
-                        </div>
-                      </td>
-                    )}
-                    <td className="py-3 px-4">
-                      <div className="flex items-center gap-1.5">
-                        <span className={`w-1.5 h-1.5 rounded-full ${userAcc?.lastLoginAt ? 'bg-emerald-500' : 'bg-slate-300'}`} />
-                        <span className="text-[11px] text-slate-500">{userAcc?.lastLoginAt ? new Date(userAcc.lastLoginAt).toLocaleDateString() : 'Never'}</span>
-                      </div>
-                    </td>
-                    {isManagement && (
-                      <td className="py-3 px-4">
-                        <button onClick={() => { setResetModalStudent(s); setNewPasswordInput('Student@123'); }} className="p-1 text-amber-600 hover:bg-amber-50 rounded transition" title="Reset password">
-                          <KeyRound className="w-3.5 h-3.5" />
-                        </button>
-                      </td>
-                    )}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      {/* Student list — grouped by batch → GFM section when branch is selected, flat otherwise */}
+      {loading ? (
+        <div className="bg-white rounded-xl border border-slate-200 py-12 text-center text-slate-400 text-xs">Loading...</div>
+      ) : filteredStudents.length === 0 ? (
+        <div className="bg-white rounded-xl border border-slate-200 py-12 text-center text-slate-400 text-xs">No students found.</div>
+      ) : selectedDept ? (
+        // Branch selected → grouped view: batch → GFM section
+        Array.from(studentsByBatch.entries()).map(([batchId, batchGroup]) => (
+          <div key={batchId} className="space-y-3">
+            {/* Batch header */}
+            <div className="flex items-center gap-2 mt-2">
+              <span className="text-xs font-bold text-slate-700">{batchGroup.batchName}</span>
+              {batchGroup.batchYear && <span className="text-[10px] text-slate-400 font-medium">({batchGroup.batchYear})</span>}
+              <span className="text-[10px] text-slate-400 ml-1">
+                · {Array.from(batchGroup.sections.values()).reduce((sum, sec) => sum + sec.students.length, 0)} students
+              </span>
+            </div>
+
+            {Array.from(batchGroup.sections.entries()).map(([sectionId, sectionGroup]) => (
+              <div key={sectionId} className="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                {/* GFM section sub-header */}
+                <div className="flex items-center gap-2 px-4 py-2 bg-indigo-50 border-b border-indigo-100">
+                  <Users className="w-3.5 h-3.5 text-indigo-500" />
+                  <span className="text-xs font-semibold text-indigo-700">{sectionGroup.sectionName}</span>
+                  <span className="text-[10px] text-indigo-400 font-medium ml-auto">{sectionGroup.students.length} students</span>
+                </div>
+                <StudentTable students={sectionGroup.students} isManagement={isManagement} revealedPasswords={revealedPasswords} copiedId={copiedId} togglePasswordVisibility={togglePasswordVisibility} copyToClipboard={copyToClipboard} setResetModalStudent={setResetModalStudent} setNewPasswordInput={setNewPasswordInput} />
+              </div>
+            ))}
+          </div>
+        ))
+      ) : (
+        // No branch selected → flat list grouped by branch
+        (() => {
+          const byDept = new Map<string, { deptCode: string; deptName: string; students: any[] }>();
+          filteredStudents.forEach((s) => {
+            const deptId = s.department?.id || 'unknown';
+            if (!byDept.has(deptId)) byDept.set(deptId, { deptCode: s.department?.code || 'N/A', deptName: s.department?.name || '', students: [] });
+            byDept.get(deptId)!.students.push(s);
+          });
+          return Array.from(byDept.entries()).map(([deptId, deptGroup]) => (
+            <div key={deptId} className="space-y-2">
+              <div className="flex items-center gap-2 mt-2">
+                <span className="text-xs font-bold text-slate-700">{deptGroup.deptCode}</span>
+                <span className="text-[10px] text-slate-400">{deptGroup.deptName}</span>
+                <span className="text-[10px] text-slate-400 ml-1">· {deptGroup.students.length} students</span>
+              </div>
+              <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                <StudentTable students={deptGroup.students} isManagement={isManagement} revealedPasswords={revealedPasswords} copiedId={copiedId} togglePasswordVisibility={togglePasswordVisibility} copyToClipboard={copyToClipboard} setResetModalStudent={setResetModalStudent} setNewPasswordInput={setNewPasswordInput} />
+              </div>
+            </div>
+          ));
+        })()
+      )}
 
       {/* Admit Student Modal */}
       {showModal && (
@@ -422,6 +481,113 @@ export const StudentsPage: React.FC = () => {
           </div>
         </div>
       )}
+    </div>
+  );
+};
+
+// ---------------------------------------------------------------------------
+// Reusable table component used by both grouped and flat views
+// ---------------------------------------------------------------------------
+interface StudentTableProps {
+  students: any[];
+  isManagement: boolean;
+  revealedPasswords: Record<string, boolean>;
+  copiedId: string | null;
+  togglePasswordVisibility: (id: string) => void;
+  copyToClipboard: (text: string, id: string) => void;
+  setResetModalStudent: (s: any) => void;
+  setNewPasswordInput: (v: string) => void;
+}
+
+const StudentTable: React.FC<StudentTableProps> = ({
+  students,
+  isManagement,
+  revealedPasswords,
+  copiedId,
+  togglePasswordVisibility,
+  copyToClipboard,
+  setResetModalStudent,
+  setNewPasswordInput,
+}) => {
+  const colSpan = isManagement ? 7 : 5;
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full text-left text-xs">
+        <thead className="bg-slate-50 border-b border-slate-200">
+          <tr className="text-[11px] font-semibold text-slate-500 uppercase">
+            <th className="py-3 px-4">Student</th>
+            <th className="py-3 px-4">Branch / GFM Batch</th>
+            <th className="py-3 px-4">Sem</th>
+            <th className="py-3 px-4">Email</th>
+            {isManagement && <th className="py-3 px-4">Password</th>}
+            <th className="py-3 px-4">Last Login</th>
+            {isManagement && <th className="py-3 px-4">Actions</th>}
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-slate-100">
+          {students.length === 0 ? (
+            <tr><td colSpan={colSpan} className="py-8 text-center text-slate-400">No students.</td></tr>
+          ) : students.map((s) => {
+            const userAcc = s.user;
+            const passwordRevealed = revealedPasswords[s.id];
+            const passwordValue = 'Student@123';
+            return (
+              <tr key={s.id} className="hover:bg-slate-50 transition">
+                <td className="py-3 px-4">
+                  <p className="font-semibold text-slate-900">{s.firstName} {s.lastName}</p>
+                  <p className="text-[11px] text-slate-400 font-mono mt-0.5">{s.enrollmentNumber} · {s.rollNumber}</p>
+                </td>
+                <td className="py-3 px-4">
+                  <span className="inline-block text-[10px] font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">{s.department?.code}</span>
+                  <p className="text-[11px] text-slate-500 mt-0.5">{s.batch?.name}</p>
+                  {s.section?.name && (
+                    <span className="inline-block text-[10px] font-medium bg-indigo-50 text-indigo-600 px-1.5 py-0.5 rounded mt-0.5">
+                      {s.section.name}
+                    </span>
+                  )}
+                </td>
+                <td className="py-3 px-4">
+                  <span className="text-[11px] font-semibold text-slate-700">Sem {s.currentSemester}</span>
+                </td>
+                <td className="py-3 px-4">
+                  <div className="flex items-center gap-1">
+                    <span className="font-mono text-[11px] text-slate-700">{userAcc?.email || s.email}</span>
+                    <button onClick={() => copyToClipboard(userAcc?.email || s.email, `email-${s.id}`)} className="p-0.5 text-slate-400 hover:text-slate-700">
+                      {copiedId === `email-${s.id}` ? <Check className="w-3 h-3 text-emerald-600" /> : <Copy className="w-3 h-3" />}
+                    </button>
+                  </div>
+                </td>
+                {isManagement && (
+                  <td className="py-3 px-4">
+                    <div className="flex items-center gap-1">
+                      <span className="font-mono text-[11px] bg-slate-100 px-2 py-0.5 rounded">{passwordRevealed ? passwordValue : '••••••••'}</span>
+                      <button onClick={() => togglePasswordVisibility(s.id)} className="p-0.5 text-slate-400 hover:text-slate-700">
+                        {passwordRevealed ? <EyeOff className="w-3 h-3" /> : <Eye className="w-3 h-3" />}
+                      </button>
+                      <button onClick={() => copyToClipboard(passwordValue, `pwd-${s.id}`)} className="p-0.5 text-slate-400 hover:text-slate-700">
+                        {copiedId === `pwd-${s.id}` ? <Check className="w-3 h-3 text-emerald-600" /> : <Copy className="w-3 h-3" />}
+                      </button>
+                    </div>
+                  </td>
+                )}
+                <td className="py-3 px-4">
+                  <div className="flex items-center gap-1.5">
+                    <span className={`w-1.5 h-1.5 rounded-full ${userAcc?.lastLoginAt ? 'bg-emerald-500' : 'bg-slate-300'}`} />
+                    <span className="text-[11px] text-slate-500">{userAcc?.lastLoginAt ? new Date(userAcc.lastLoginAt).toLocaleDateString() : 'Never'}</span>
+                  </div>
+                </td>
+                {isManagement && (
+                  <td className="py-3 px-4">
+                    <button onClick={() => { setResetModalStudent(s); setNewPasswordInput('Student@123'); }} className="p-1 text-amber-600 hover:bg-amber-50 rounded transition" title="Reset password">
+                      <KeyRound className="w-3.5 h-3.5" />
+                    </button>
+                  </td>
+                )}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 };
