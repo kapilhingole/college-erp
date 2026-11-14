@@ -29,21 +29,65 @@ export const AttendancePage: React.FC = () => {
   const fetchFacultyData = async () => {
     setLoading(true);
     try {
-      const [subsRes, deptsRes, studentsRes, defRes] = await Promise.all([
-        apiClient.get('/academics/subjects'), apiClient.get('/departments'),
-        apiClient.get('/students'), apiClient.get('/attendance/defaulters'),
+      const [subsRes, deptsRes, defRes] = await Promise.all([
+        apiClient.get('/academics/subjects'),
+        apiClient.get('/departments'),
+        apiClient.get('/attendance/defaulters'),
       ]);
-      setSubjects(subsRes.data.data); setStudents(studentsRes.data.data); setDefaulters(defRes.data.data);
+      setSubjects(subsRes.data.data);
+      setDefaulters(defRes.data.data);
+
       const allSecs: any[] = [];
-      deptsRes.data.data.forEach((d: any) => d.programs?.forEach((p: any) => p.batches?.forEach((b: any) => b.sections?.forEach((s: any) => allSecs.push({ ...s, progName: p.name })))));
+      deptsRes.data.data.forEach((d: any) =>
+        d.programs?.forEach((p: any) =>
+          p.batches?.forEach((b: any) =>
+            b.sections?.forEach((s: any) =>
+              allSecs.push({
+                ...s,
+                progName: p.name,
+                deptCode: d.code,
+                deptName: d.name,
+                batchName: b.name,
+              })
+            )
+          )
+        )
+      );
       setSections(allSecs);
+
+      const initialSecId = allSecs[0]?.id || '';
+      setSelectedSectionId(initialSecId);
       if (subsRes.data.data.length > 0) setSelectedSubjectId(subsRes.data.data[0].id);
-      if (allSecs.length > 0) setSelectedSectionId(allSecs[0].id);
+
+      if (initialSecId) {
+        await loadStudentsForSection(initialSecId);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const loadStudentsForSection = async (sectionId: string) => {
+    if (!sectionId) return;
+    try {
+      const res = await apiClient.get(`/students?sectionId=${sectionId}&limit=200`);
+      const studentList = res.data.data;
+      setStudents(studentList);
       const initialMap: { [key: string]: string } = {};
-      studentsRes.data.data.forEach((s: any) => { initialMap[s.id] = 'PRESENT'; });
+      studentList.forEach((s: any) => {
+        initialMap[s.id] = 'PRESENT';
+      });
       setAttendanceMap(initialMap);
-    } catch (err) { console.error(err); }
-    finally { setLoading(false); }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const onSectionChange = (sectionId: string) => {
+    setSelectedSectionId(sectionId);
+    loadStudentsForSection(sectionId);
   };
 
   const fetchStudentData = async () => {
@@ -219,7 +263,20 @@ export const AttendancePage: React.FC = () => {
             <p className="text-sm font-semibold text-slate-800 mb-4">Session Details</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               <div><label className="block text-xs font-medium text-slate-700 mb-1">Subject</label><select className={inputCls} value={selectedSubjectId} onChange={(e) => setSelectedSubjectId(e.target.value)}>{subjects.map((s) => <option key={s.id} value={s.id}>{s.code} - {s.name}</option>)}</select></div>
-              <div><label className="block text-xs font-medium text-slate-700 mb-1">Section</label><select className={inputCls} value={selectedSectionId} onChange={(e) => setSelectedSectionId(e.target.value)}>{sections.map((s) => <option key={s.id} value={s.id}>{s.name} ({s.progName})</option>)}</select></div>
+              <div>
+                <label className="block text-xs font-medium text-slate-700 mb-1">Section / Division</label>
+                <select
+                  className={inputCls}
+                  value={selectedSectionId}
+                  onChange={(e) => onSectionChange(e.target.value)}
+                >
+                  {sections.map((s) => (
+                    <option key={s.id} value={s.id}>
+                      [{s.deptCode}] {s.name} &bull; {s.batchName}
+                    </option>
+                  ))}
+                </select>
+              </div>
               <div><label className="block text-xs font-medium text-slate-700 mb-1">Date</label><input type="date" className={inputCls} value={sessionDate} onChange={(e) => setSessionDate(e.target.value)} /></div>
               <div><label className="block text-xs font-medium text-slate-700 mb-1">Time Slot</label><input className={inputCls} value={sessionTime} onChange={(e) => setSessionTime(e.target.value)} placeholder="09:00 - 10:00" /></div>
             </div>

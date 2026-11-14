@@ -42,8 +42,8 @@ export class StudentsController {
 
       const where: any = {};
 
-      // Department scoping for FACULTY role
-      if (req.user?.role === 'FACULTY' && req.user.departmentId) {
+      // Department scoping for FACULTY role (when not querying a specific section)
+      if (req.user?.role === 'FACULTY' && req.user.departmentId && !sectionId && !departmentId) {
         where.departmentId = req.user.departmentId;
       } else if (departmentId) {
         where.departmentId = String(departmentId);
