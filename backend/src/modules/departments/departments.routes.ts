@@ -9,6 +9,9 @@ const router = Router();
 // Everyone authenticated can view department hierarchy
 router.get('/', authenticateJWT, DepartmentsController.listDepartments);
 
+// Department Dashboard (Students & Attendance, Syllabus Coverage, Load Completion)
+router.get('/:code/dashboard', authenticateJWT, DepartmentsController.getDepartmentDashboard);
+
 // Only Super Admin, Admin & Management can modify academic hierarchy
 router.post(
   '/',

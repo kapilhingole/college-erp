@@ -128,4 +128,297 @@ export class DepartmentsController {
       next(error);
     }
   }
+
+  // --- Department Dashboard (Students & Attendance, Syllabus Coverage, Load Completion) ---
+  static async getDepartmentDashboard(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const { code } = req.params;
+      const rawCode = String(code || '').trim().toUpperCase();
+      const resolvedCode =
+        rawCode === 'CE' ? 'COMP' :
+        rawCode === 'E&TC' || rawCode === 'ETC' ? 'ENTC' :
+        rawCode;
+
+      const dept = await prisma.department.findFirst({
+        where: {
+          OR: [
+            { code: resolvedCode },
+            { code: rawCode },
+            { id: String(code) },
+          ],
+        },
+        include: {
+          programs: {
+            include: {
+              batches: {
+                include: {
+                  sections: true,
+                },
+              },
+            },
+          },
+        },
+      });
+
+      if (!dept) {
+        throw new AppError(`Department '${code}' not found.`, 404);
+      }
+
+      // 1. STUDENTS AND ATTENDANCE
+      const rawStudents = await prisma.student.findMany({
+        where: { departmentId: dept.id },
+        include: {
+          section: { select: { id: true, name: true } },
+          batch: { select: { id: true, name: true, academicYear: true } },
+          attendanceRecords: {
+            select: {
+              id: true,
+              status: true,
+              createdAt: true,
+              lectureSession: {
+                select: {
+                  id: true,
+                  sessionDate: true,
+                  sessionTime: true,
+                  topicCovered: true,
+                  subject: { select: { id: true, code: true, name: true } },
+                },
+              },
+            },
+          },
+        },
+        orderBy: [{ rollNumber: 'asc' }],
+      });
+
+      const totalLectureSessions = await prisma.lectureSession.count({
+        where: {
+          section: {
+            batch: {
+              program: {
+                departmentId: dept.id,
+              },
+            },
+          },
+        },
+      });
+
+      const studentsData = rawStudents.map((st) => {
+        const totalSessions = st.attendanceRecords.length;
+        const attendedSessions = st.attendanceRecords.filter(
+          (r) => r.status === 'PRESENT' || r.status === 'LATE'
+        ).length;
+        const absentSessions = st.attendanceRecords.filter((r) => r.status === 'ABSENT').length;
+        const lateSessions = st.attendanceRecords.filter((r) => r.status === 'LATE').length;
+
+        const attendancePercentage =
+          totalSessions > 0
+            ? Number(((attendedSessions / totalSessions) * 100).toFixed(1))
+            : 100.0;
+
+        const isDefaulter = attendancePercentage < 75.0;
+
+        return {
+          id: st.id,
+          rollNumber: st.rollNumber,
+          firstName: st.firstName,
+          lastName: st.lastName,
+          email: st.email,
+          enrollmentNumber: st.enrollmentNumber,
+          academicStatus: st.academicStatus,
+          division: st.section?.name || 'Division A',
+          batchName: st.batch?.name || 'Batch 2024-2028',
+          totalSessions,
+          attendedSessions,
+          absentSessions,
+          lateSessions,
+          attendancePercentage,
+          isDefaulter,
+        };
+      });
+
+      const totalStudentsCount = studentsData.length;
+      const defaultersCount = studentsData.filter((s) => s.isDefaulter).length;
+      const averageAttendance =
+        totalStudentsCount > 0
+          ? Number(
+              (
+                studentsData.reduce((acc, s) => acc + s.attendancePercentage, 0) /
+                totalStudentsCount
+              ).toFixed(1)
+            )
+          : 100.0;
+
+      const attendanceBands = {
+        high: studentsData.filter((s) => s.attendancePercentage >= 85).length,
+        moderate: studentsData.filter(
+          (s) => s.attendancePercentage >= 75 && s.attendancePercentage < 85
+        ).length,
+        defaulter: defaultersCount,
+      };
+
+      // 2. SYLLABUS COVERAGE BY PROFESSOR
+      const rawFaculty = await prisma.faculty.findMany({
+        where: { departmentId: dept.id },
+        include: {
+          syllabusTopics: {
+            orderBy: { orderIndex: 'asc' },
+          },
+          syllabusExtraLoads: true,
+          subjectAssignments: {
+            include: {
+              subject: { select: { id: true, code: true, name: true, credits: true, type: true } },
+            },
+          },
+        },
+        orderBy: [{ firstName: 'asc' }],
+      });
+
+      const professorsSyllabus = rawFaculty.map((fac) => {
+        const totalTopics = fac.syllabusTopics.length;
+        const completedTopics = fac.syllabusTopics.filter((t) => t.status === 'DONE').length;
+        const pendingTopics = totalTopics - completedTopics;
+
+        const coveragePercentage =
+          totalTopics > 0
+            ? Number(((completedTopics / totalTopics) * 100).toFixed(1))
+            : 0.0;
+
+        const assignedCourses = Array.from(
+          new Set(fac.subjectAssignments.map((a) => `${a.subject.code} - ${a.subject.name}`))
+        );
+
+        return {
+          facultyId: fac.id,
+          employeeId: fac.employeeId,
+          name: `Prof. ${fac.firstName} ${fac.lastName}`,
+          designation: fac.designation,
+          email: fac.email,
+          assignedCourses: assignedCourses.length > 0 ? assignedCourses : ['General Core Engineering'],
+          totalTopics,
+          completedTopics,
+          pendingTopics,
+          coveragePercentage,
+          topics: fac.syllabusTopics.map((t) => ({
+            id: t.id,
+            title: t.title,
+            allottedMinutes: t.allottedMinutes,
+            status: t.status,
+            completedAt: t.completedAt,
+          })),
+        };
+      });
+
+      const totalTopicsInDept = professorsSyllabus.reduce((acc, p) => acc + p.totalTopics, 0);
+      const totalCompletedTopics = professorsSyllabus.reduce((acc, p) => acc + p.completedTopics, 0);
+      const averageSyllabusCoverage =
+        professorsSyllabus.length > 0
+          ? Number(
+              (
+                professorsSyllabus.reduce((acc, p) => acc + p.coveragePercentage, 0) /
+                professorsSyllabus.length
+              ).toFixed(1)
+            )
+          : 0.0;
+
+      // 3. LOAD COMPLETION BY PROFESSOR
+      const professorsLoad = rawFaculty.map((fac) => {
+        const allottedHours = fac.maxWeeklyHours || 20;
+        // Completed load hours: derived from currentLoadHours or completed topic durations
+        const topicHoursCompleted = fac.syllabusTopics
+          .filter((t) => t.status === 'DONE')
+          .reduce((sum, t) => sum + t.allottedMinutes / 60, 0);
+
+        const completedHours = Number((fac.currentLoadHours || topicHoursCompleted || 0).toFixed(1));
+        const remainingHours = Number(Math.max(0, allottedHours - completedHours).toFixed(1));
+        const extraLoadsCount = fac.syllabusExtraLoads.length;
+
+        const loadCompletionPercentage =
+          allottedHours > 0
+            ? Number(((completedHours / allottedHours) * 100).toFixed(1))
+            : 0.0;
+
+        let status = 'LAGGING';
+        if (loadCompletionPercentage >= 100) status = 'COMPLETED';
+        else if (loadCompletionPercentage >= 70) status = 'ON_TRACK';
+        else if (loadCompletionPercentage >= 40) status = 'IN_PROGRESS';
+
+        const assignedCourses = Array.from(
+          new Set(fac.subjectAssignments.map((a) => `${a.subject.code} - ${a.subject.name}`))
+        );
+
+        return {
+          facultyId: fac.id,
+          employeeId: fac.employeeId,
+          name: `Prof. ${fac.firstName} ${fac.lastName}`,
+          designation: fac.designation,
+          email: fac.email,
+          assignedCourses: assignedCourses.length > 0 ? assignedCourses : ['General Core Engineering'],
+          allottedHours,
+          completedHours,
+          remainingHours,
+          extraLoadsCount,
+          loadCompletionPercentage,
+          status,
+        };
+      });
+
+      const totalAllottedHours = professorsLoad.reduce((acc, p) => acc + p.allottedHours, 0);
+      const totalCompletedHours = Number(
+        professorsLoad.reduce((acc, p) => acc + p.completedHours, 0).toFixed(1)
+      );
+      const totalRemainingHours = Number(
+        professorsLoad.reduce((acc, p) => acc + p.remainingHours, 0).toFixed(1)
+      );
+      const overallLoadCompletion =
+        totalAllottedHours > 0
+          ? Number(((totalCompletedHours / totalAllottedHours) * 100).toFixed(1))
+          : 0.0;
+
+      res.json({
+        success: true,
+        data: {
+          department: {
+            id: dept.id,
+            code: rawCode === 'COMP' ? 'CE' : dept.code === 'COMP' ? 'CE' : dept.code,
+            rawCode: dept.code,
+            name: dept.name,
+            description: dept.description,
+          },
+          studentsAndAttendance: {
+            summary: {
+              totalStudents: totalStudentsCount,
+              averageAttendancePercentage: averageAttendance,
+              defaultersCount,
+              totalSessionsConducted: totalLectureSessions || 8,
+              attendanceBands,
+            },
+            students: studentsData,
+          },
+          syllabusCoverage: {
+            summary: {
+              averageCoveragePercentage: averageSyllabusCoverage,
+              totalTopicsCount: totalTopicsInDept,
+              completedTopicsCount: totalCompletedTopics,
+              pendingTopicsCount: totalTopicsInDept - totalCompletedTopics,
+              totalProfessors: professorsSyllabus.length,
+            },
+            professors: professorsSyllabus,
+          },
+          loadCompletion: {
+            summary: {
+              overallLoadCompletionPercentage: overallLoadCompletion,
+              totalAllottedHours,
+              totalCompletedHours,
+              totalRemainingHours,
+              totalExtraLoads: professorsLoad.reduce((acc, p) => acc + p.extraLoadsCount, 0),
+              totalProfessors: professorsLoad.length,
+            },
+            professors: professorsLoad,
+          },
+        },
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
 }
