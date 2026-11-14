@@ -3,17 +3,17 @@
   "campus": "Induri, Pune",
   "academic_year": "2026-2027",
   "head_of_campus": {
-    "name": "Head of Campus",
-    "mobile": null
+    "name": "Prof. Sachin M. Godase",
+    "mobile": "9527609339"
   },
   "sources": [
     {
       "year": "FY",
-      "file": "FY. B.Tech Roll Call List along with ZPRN 2026-27.xlsx"
+      "file": "FY_roll_call_2026-27.xlsx"
     },
     {
       "year": "SY",
-      "file": "SY. B.Tech Roll Call List along with ZPRN.xlsx"
+      "file": "SY_roll_call.xlsx"
     }
   ],
   "summary": {
@@ -52,8 +52,8 @@
       "name": "Computer Engineering",
       "roll_prefix": "CO",
       "head_of_department": {
-        "name": "Head of Department",
-        "mobile": null
+        "name": "Prof. Rakhi Tarone",
+        "mobile": "7987775309"
       },
       "fy": {
         "semester": "I",
@@ -64,24 +64,24 @@
             "total_students": 46,
             "stated_total": 46,
             "class_teacher": {
-              "name": "Class Teacher",
-              "mobile": null
+              "name": "Prof. Priti Pande",
+              "mobile": "8975354756"
             },
             "batches": {
               "A1": {
                 "range": "CO1101 to CO1123",
                 "total": 23,
                 "gfm_teacher": {
-                  "name": "GFM Batch 1",
-                  "mobile": null
+                  "name": "Prof. Priti Pande",
+                  "mobile": "8975354756"
                 }
               },
               "A2": {
                 "range": "CO1124 to CO1146",
                 "total": 23,
                 "gfm_teacher": {
-                  "name": "GFM Batch 2",
-                  "mobile": null
+                  "name": "Prof. Vedant Sharma",
+                  "mobile": "8087910166"
                 }
               }
             },
@@ -209,7 +209,8 @@
                 "batch": "A1",
                 "admission": "REGULAR",
                 "flags": [
-                  "BRANCH_CODE_MISMATCH"
+                  "BRANCH_CODE_MISMATCH",
+                  "DUPLICATE_ZPRN"
                 ]
               },
               {
@@ -426,7 +427,10 @@
                 "roll_no": "CO1142",
                 "name": "TOSHIT SURESH GAIKWAD",
                 "batch": "A2",
-                "admission": "REGULAR"
+                "admission": "REGULAR",
+                "flags": [
+                  "DUPLICATE_ZPRN"
+                ]
               },
               {
                 "sr_no": 43,
@@ -434,7 +438,10 @@
                 "roll_no": "CO1143",
                 "name": "URMILA DNYANOBA GIRSHETTI",
                 "batch": "A2",
-                "admission": "REGULAR"
+                "admission": "REGULAR",
+                "flags": [
+                  "DUPLICATE_ZPRN"
+                ]
               },
               {
                 "sr_no": 44,
@@ -468,24 +475,24 @@
             "total_students": 45,
             "stated_total": 45,
             "class_teacher": {
-              "name": "Class Teacher",
-              "mobile": null
+              "name": "Prof. Mahima Gamot",
+              "mobile": "8208761317"
             },
             "batches": {
               "B1": {
                 "range": "CO1201 to CO1223",
                 "total": 23,
                 "gfm_teacher": {
-                  "name": "GFM Batch 1",
-                  "mobile": null
+                  "name": "Prof. Mahima Gamot",
+                  "mobile": "8208761317"
                 }
               },
               "B2": {
                 "range": "CO1224 to CO1245",
                 "total": 22,
                 "gfm_teacher": {
-                  "name": "GFM Batch 2",
-                  "mobile": null
+                  "name": "Prof. Jyoti Jadhav",
+                  "mobile": "9370090288"
                 }
               }
             },
@@ -863,7 +870,7 @@
             "total_students": 72,
             "stated_total": 72,
             "class_teacher": {
-              "name": null,
+              "name": "Prof. Bhasker Singh",
               "mobile": null
             },
             "batches": {
@@ -1489,7 +1496,7 @@
             "total_students": 70,
             "stated_total": 70,
             "class_teacher": {
-              "name": null,
+              "name": "Prof. Suhas chavan",
               "mobile": null
             },
             "batches": {
@@ -2082,8 +2089,8 @@
       "name": "Artificial Intelligence and Data Science",
       "roll_prefix": "AD",
       "head_of_department": {
-        "name": "Head of Department",
-        "mobile": null
+        "name": "Prof. Swapnali Deshmukh",
+        "mobile": "7743975994"
       },
       "fy": {
         "semester": "I",
@@ -2094,24 +2101,24 @@
             "total_students": 54,
             "stated_total": 54,
             "class_teacher": {
-              "name": "Class Teacher",
-              "mobile": null
+              "name": "Prof. Nitesh Lad",
+              "mobile": "7219772723"
             },
             "batches": {
               "C1": {
                 "range": "AD1301 to AD1327",
                 "total": 27,
                 "gfm_teacher": {
-                  "name": "GFM Batch 1",
-                  "mobile": null
+                  "name": "Prof. Nitesh Lad",
+                  "mobile": "7219772723"
                 }
               },
               "C2": {
                 "range": "AD1328 to AD1354",
                 "total": 27,
                 "gfm_teacher": {
-                  "name": "GFM Batch 2",
-                  "mobile": null
+                  "name": "Prof. Snehal Dharme",
+                  "mobile": "8390736438"
                 }
               }
             },
@@ -2210,7 +2217,10 @@
                 "roll_no": "AD1312",
                 "name": "ESHWAR",
                 "batch": "C1",
-                "admission": "REGULAR"
+                "admission": "REGULAR",
+                "flags": [
+                  "DUPLICATE_ZPRN"
+                ]
               },
               {
                 "sr_no": 13,
@@ -2556,16 +2566,16 @@
             "total_students": 53,
             "stated_total": 53,
             "class_teacher": {
-              "name": "Class Teacher",
-              "mobile": null
+              "name": "Prof. Sayali Ambole",
+              "mobile": "8830305038"
             },
             "batches": {
               "D1": {
                 "range": "AD1401 to AD1427",
                 "total": 27,
                 "gfm_teacher": {
-                  "name": "GFM Batch 1",
-                  "mobile": null
+                  "name": "Prof. Sayali Ambole",
+                  "mobile": "8830305038"
                 }
               },
               "D2": {
@@ -2573,8 +2583,8 @@
                 "total": 26,
                 "source_range": "AD1428 to AD153",
                 "gfm_teacher": {
-                  "name": "GFM Batch 2",
-                  "mobile": null
+                  "name": "Prof. Chetan Harak",
+                  "mobile": "9763588475"
                 }
               }
             },
@@ -2713,7 +2723,10 @@
                 "roll_no": "AD1417",
                 "name": "NIKITA NAMDEV BHOSALE",
                 "batch": "D1",
-                "admission": "REGULAR"
+                "admission": "REGULAR",
+                "flags": [
+                  "DUPLICATE_ZPRN"
+                ]
               },
               {
                 "sr_no": 18,
@@ -2985,7 +2998,10 @@
                 "roll_no": "AD1451",
                 "name": "YASHRAJ SURAJ PATIL",
                 "batch": "D2",
-                "admission": "REGULAR"
+                "admission": "REGULAR",
+                "flags": [
+                  "DUPLICATE_ZPRN"
+                ]
               },
               {
                 "sr_no": 52,
@@ -2993,7 +3009,10 @@
                 "roll_no": "AD1452",
                 "name": "YOGYATA PRAVINKUMAR RAUT",
                 "batch": "D2",
-                "admission": "REGULAR"
+                "admission": "REGULAR",
+                "flags": [
+                  "DUPLICATE_ZPRN"
+                ]
               },
               {
                 "sr_no": 53,
@@ -3001,7 +3020,10 @@
                 "roll_no": "AD1453",
                 "name": "YUGAL TULSIDAS TUPATE",
                 "batch": "D2",
-                "admission": "REGULAR"
+                "admission": "REGULAR",
+                "flags": [
+                  "DUPLICATE_ZPRN"
+                ]
               }
             ]
           }
@@ -3016,7 +3038,7 @@
             "total_students": 72,
             "stated_total": 72,
             "class_teacher": {
-              "name": null,
+              "name": "Prof. Kiran Kalokhe",
               "mobile": null
             },
             "batches": {
@@ -3631,7 +3653,7 @@
             "total_students": 70,
             "stated_total": 70,
             "class_teacher": {
-              "name": null,
+              "name": "Mrs. Yogita Chaskar",
               "mobile": null
             },
             "batches": {
@@ -4222,8 +4244,8 @@
       "name": "Electronics and Computer Engineering",
       "roll_prefix": "EC",
       "head_of_department": {
-        "name": "Head of Department",
-        "mobile": null
+        "name": "Prof. Aparna Bhat",
+        "mobile": "8867656045"
       },
       "fy": {
         "semester": "I",
@@ -4234,24 +4256,24 @@
             "total_students": 34,
             "stated_total": 34,
             "class_teacher": {
-              "name": "Class Teacher",
-              "mobile": null
+              "name": "Prof. Mahesh Patil",
+              "mobile": "9511796929"
             },
             "batches": {
               "E1": {
                 "range": "EC1501 to EC1517",
                 "total": 17,
                 "gfm_teacher": {
-                  "name": "GFM Batch 1",
-                  "mobile": null
+                  "name": "Prof. Mahesh Patil",
+                  "mobile": "9511796929"
                 }
               },
               "E2": {
                 "range": "EC1518 to EC1534",
                 "total": 17,
                 "gfm_teacher": {
-                  "name": "GFM Batch 2",
-                  "mobile": null
+                  "name": "Prof. Nirmala Chede",
+                  "mobile": "8830488239"
                 }
               }
             },
@@ -4515,7 +4537,8 @@
                 "batch": "E2",
                 "admission": "REGULAR",
                 "flags": [
-                  "BRANCH_CODE_MISMATCH"
+                  "BRANCH_CODE_MISMATCH",
+                  "DUPLICATE_ZPRN"
                 ]
               },
               {
@@ -4526,7 +4549,8 @@
                 "batch": "E2",
                 "admission": "REGULAR",
                 "flags": [
-                  "BRANCH_CODE_MISMATCH"
+                  "BRANCH_CODE_MISMATCH",
+                  "DUPLICATE_ZPRN"
                 ]
               },
               {
@@ -4550,7 +4574,7 @@
             "total_students": 69,
             "stated_total": 69,
             "class_teacher": {
-              "name": null,
+              "name": "Prof. Vaibhav Nema",
               "mobile": null
             },
             "batches": {
@@ -5131,8 +5155,8 @@
       "name": "Electronics and Telecommunication Engineering",
       "roll_prefix": "ET",
       "head_of_department": {
-        "name": "Head of Department",
-        "mobile": null
+        "name": "Prof. Rashmi Bhumbare",
+        "mobile": "8999570542"
       },
       "fy": {
         "semester": "I",
@@ -5143,24 +5167,24 @@
             "total_students": 39,
             "stated_total": 39,
             "class_teacher": {
-              "name": "Class Teacher",
-              "mobile": null
+              "name": "Prof. Narayan Walunjkar",
+              "mobile": "8983088694"
             },
             "batches": {
               "F1": {
                 "range": "ET1601 to ET1620",
                 "total": 20,
                 "gfm_teacher": {
-                  "name": "GFM Batch 1",
-                  "mobile": null
+                  "name": "Prof. Rashmi Bhumbare",
+                  "mobile": "8999570542"
                 }
               },
               "F2": {
                 "range": "ET1621 to ET1639",
                 "total": 19,
                 "gfm_teacher": {
-                  "name": "GFM Batch 2",
-                  "mobile": null
+                  "name": "Prof. Narayan Walunjkar",
+                  "mobile": "8983088694"
                 }
               }
             },
@@ -5490,7 +5514,7 @@
             "total_students": 72,
             "stated_total": 72,
             "class_teacher": {
-              "name": null,
+              "name": "Prof. Priyanka Bahirwade",
               "mobile": null
             },
             "batches": {

@@ -11,6 +11,9 @@
     "prisma:push": "prisma db push",
     "prisma:seed": "ts-node-dev prisma/seed.ts",
     "prisma:clean-seed": "ts-node-dev prisma/clean-seed.ts",
+    "rollcall:build": "node scripts/build-rollcall-master.js",
+    "rollcall:import": "node scripts/import-rollcall-master.js",
+    "rollcall:sync": "npm run rollcall:build && npm run rollcall:import",
     "db:postgres:push": "prisma db push --schema prisma/schema.postgresql.prisma",
     "test": "vitest run"
   },

@@ -6,6 +6,10 @@
  *   data/students_master.json
  *   data/students_rollcall_clean.xlsx
  *
+ * Inputs default to the copies kept inside this project (backend/data/), falling back
+ * to the original Downloads location, so the whole pipeline runs from the ERP folder.
+ * Pass explicit paths to override:  node scripts/build-rollcall-master.js <fy.xlsx> <sy.xlsx>
+ *
  * ZPRNs are never invented. Duplicates, branch-code mismatches, and missing ZPRNs
  * are kept as printed and recorded in data_issues.
  */
@@ -13,12 +17,22 @@ const fs = require('fs');
 const path = require('path');
 const XLSX = require('xlsx');
 
-const FY_PATH =
-  process.argv[2] ||
-  'c:/Users/LENOVO/Downloads/FY. B.Tech Roll Call List along with ZPRN 2026-27.xlsx';
-const SY_PATH =
-  process.argv[3] ||
-  'c:/Users/LENOVO/Downloads/SY. B.Tech Roll Call List along with ZPRN.xlsx';
+function resolveInput(argvPath, repoRelative, downloadsPath) {
+  if (argvPath) return argvPath;
+  const repoPath = path.resolve(__dirname, repoRelative);
+  return fs.existsSync(repoPath) ? repoPath : downloadsPath;
+}
+
+const FY_PATH = resolveInput(
+  process.argv[2],
+  '../data/FY_roll_call_2026-27.xlsx',
+  'c:/Users/LENOVO/Downloads/FY. B.Tech Roll Call List along with ZPRN 2026-27.xlsx'
+);
+const SY_PATH = resolveInput(
+  process.argv[3],
+  '../data/SY_roll_call.xlsx',
+  'c:/Users/LENOVO/Downloads/SY. B.Tech Roll Call List along with ZPRN.xlsx'
+);
 
 const OUT_JSON = path.resolve(__dirname, '../../data/students_master.json');
 const OUT_XLSX = path.resolve(__dirname, '../../data/students_rollcall_clean.xlsx');
@@ -58,6 +72,24 @@ const SHEET_DEPT = {
   'E&TC A': 'ENTC',
 };
 
+// Division sheets are named "<dept label> <division letter>" (e.g. "CO A", "E&TC A").
+// Exact names win; otherwise the leading label is resolved through aliases so that a
+// newly added division (e.g. "CO C", "AIDS C") is still captured instead of skipped.
+const SHEET_DEPT_ALIASES = {
+  CO: 'CO',
+  COMP: 'CO',
+  COMPUTER: 'CO',
+  AIDS: 'AIDS',
+  AD: 'AIDS',
+  'AI&DS': 'AIDS',
+  ECE: 'ECE',
+  EC: 'ECE',
+  ENTC: 'ENTC',
+  'E&TC': 'ENTC',
+  ETC: 'ENTC',
+  ET: 'ENTC',
+};
+
 function cell(value) {
   return String(value == null ? '' : value).replace(/\s+/g, ' ').trim();
 }
@@ -95,6 +127,12 @@ function deptOfRoll(roll) {
   const parsed = parseRoll(roll);
   if (!parsed) return null;
   return Object.keys(DEPTS).find((code) => DEPTS[code].rollPrefix === parsed.prefix) || null;
+}
+
+function deptOfSheet(sheetName) {
+  if (SHEET_DEPT[sheetName]) return SHEET_DEPT[sheetName];
+  const label = cell(sheetName).split(/\s+/)[0].toUpperCase();
+  return SHEET_DEPT_ALIASES[label] || null;
 }
 
 /**
@@ -314,10 +352,11 @@ function extractStaff(rows) {
       continue;
     }
 
-    const index = values.findIndex(Boolean);
-    const label = values[index] || '';
+    // FY footers separate label / name / mobile with blank cells, so read the
+    // compacted (non-empty) values instead of adjacent physical columns.
+    const label = texts[0];
     if (!ROLE_RE.test(label)) continue;
-    assignStaff(staff, label, cleanStaff(values[index + 1] || ''), cleanMobile(values[index + 2]));
+    assignStaff(staff, label, cleanStaff(texts[1] || ''), cleanMobile(texts[2] || ''));
   }
 
   return staff;
@@ -357,11 +396,15 @@ function admissionOf(zprn, year) {
 function parseWorkbook(filePath, fallbackYear) {
   const workbook = XLSX.readFile(filePath);
   const divisions = [];
+  const unmappedSheets = [];
   let headOfCampus = null;
 
   for (const sheetName of workbook.SheetNames) {
-    const deptCode = SHEET_DEPT[sheetName];
-    if (!deptCode) continue;
+    const deptCode = deptOfSheet(sheetName);
+    if (!deptCode) {
+      unmappedSheets.push(sheetName);
+      continue;
+    }
     const rows = sheetRows(workbook, sheetName);
     const meta = parseMeta(rows);
     const { headerIndex, rollCols } = findRollColumns(rows);
@@ -394,7 +437,7 @@ function parseWorkbook(filePath, fallbackYear) {
     });
   }
 
-  return { divisions, headOfCampus, sheetNames: workbook.SheetNames };
+  return { divisions, headOfCampus, unmappedSheets, sheetNames: workbook.SheetNames };
 }
 
 function batchPayload(batch, students, gfm) {
@@ -428,6 +471,16 @@ function buildMaster(fy, sy) {
   const issues = [];
   const head = fy.headOfCampus || sy.headOfCampus || { name: null, mobile: null };
   const departments = {};
+
+  for (const [year, source] of [['FY', fy], ['SY', sy]]) {
+    source.unmappedSheets.forEach((sheetName) => {
+      issues.push({
+        type: 'UNMAPPED_SHEET',
+        message: `${year} sheet "${sheetName}" was not recognised as a division sheet and was not stored. Add its department label to SHEET_DEPT or SHEET_DEPT_ALIASES.`,
+        location: `${year} ${sheetName}`,
+      });
+    });
+  }
 
   for (const code of Object.keys(DEPTS)) {
     departments[code] = {
