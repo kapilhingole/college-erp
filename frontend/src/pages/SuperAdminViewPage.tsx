@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Filter, Download, Eye, FileSpreadsheet, TrendingUp } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
+import { Filter, Download, Eye, FileSpreadsheet, TrendingUp, Building2 } from 'lucide-react';
 import { apiClient } from '../api/client';
 import { useAuth } from '../context/AuthContext';
 
@@ -172,6 +173,12 @@ export const SuperAdminViewPage: React.FC = () => {
           >
             <TrendingUp className="w-3.5 h-3.5" /> Marks
           </button>
+          <NavLink
+            to="/departments"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 transition"
+          >
+            <Building2 className="w-3.5 h-3.5" /> Department Architecture
+          </NavLink>
         </div>
       </div>
 

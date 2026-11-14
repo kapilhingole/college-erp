@@ -60,7 +60,23 @@ export class AcademicsController {
 
       const subjects = await prisma.subject.findMany({
         where,
-        include: { department: { select: { id: true, code: true, name: true } } },
+        include: {
+          department: { select: { id: true, code: true, name: true } },
+          subjectAssignments: {
+            include: {
+              faculty: {
+                select: {
+                  id: true,
+                  firstName: true,
+                  lastName: true,
+                  employeeId: true,
+                  designation: true,
+                  email: true,
+                },
+              },
+            },
+          },
+        },
         orderBy: [{ semester: 'asc' }, { code: 'asc' }],
       });
 
