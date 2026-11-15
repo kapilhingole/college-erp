@@ -155,21 +155,19 @@ export const SuperAdminViewPage: React.FC = () => {
         <div className="flex gap-2">
           <button
             onClick={() => setActiveTab('attendance')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition ${
-              activeTab === 'attendance'
-                ? 'bg-slate-900 text-white'
-                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-            }`}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition ${activeTab === 'attendance'
+              ? 'bg-slate-900 text-white'
+              : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              }`}
           >
             <Eye className="w-3.5 h-3.5" /> Attendance
           </button>
           <button
             onClick={() => setActiveTab('marks')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition ${
-              activeTab === 'marks'
-                ? 'bg-slate-900 text-white'
-                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-            }`}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition ${activeTab === 'marks'
+              ? 'bg-slate-900 text-white'
+              : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              }`}
           >
             <TrendingUp className="w-3.5 h-3.5" /> Marks
           </button>
@@ -343,13 +341,12 @@ export const SuperAdminViewPage: React.FC = () => {
                         </td>
                         <td className="py-2.5 px-4">
                           <span
-                            className={`text-[10px] font-bold px-2 py-0.5 rounded ${
-                              rec.status === 'PRESENT'
-                                ? 'bg-emerald-100 text-emerald-700'
-                                : rec.status === 'ABSENT'
+                            className={`text-[10px] font-bold px-2 py-0.5 rounded ${rec.status === 'PRESENT'
+                              ? 'bg-emerald-100 text-emerald-700'
+                              : rec.status === 'ABSENT'
                                 ? 'bg-red-100 text-red-700'
                                 : 'bg-amber-100 text-amber-700'
-                            }`}
+                              }`}
                           >
                             {rec.status}
                           </span>
@@ -526,13 +523,12 @@ export const SuperAdminViewPage: React.FC = () => {
                         </td>
                         <td className="py-2.5 px-4">
                           <span
-                            className={`text-[10px] font-bold px-2 py-0.5 rounded ${
-                              m.status === 'PASS'
-                                ? 'bg-emerald-100 text-emerald-700'
-                                : m.status === 'FAIL'
+                            className={`text-[10px] font-bold px-2 py-0.5 rounded ${m.status === 'PASS'
+                              ? 'bg-emerald-100 text-emerald-700'
+                              : m.status === 'FAIL'
                                 ? 'bg-red-100 text-red-700'
                                 : 'bg-gray-100 text-gray-700'
-                            }`}
+                              }`}
                           >
                             {m.status}
                           </span>

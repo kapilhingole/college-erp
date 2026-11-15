@@ -15,12 +15,15 @@ import {
   TrendingUp,
   FileSpreadsheet,
   Award,
-  Sparkles
+  Sparkles,
+  Plus,
+  Edit3
 } from 'lucide-react';
 import { apiClient } from '../api/client';
+import { DepartmentManualEntry } from '../components/departments/DepartmentManualEntry';
 
 export type DeptCode = 'AIDS' | 'CE' | 'ECE' | 'ENTC' | 'E&TC';
-export type DetailTab = 'attendance' | 'syllabus' | 'load';
+export type DetailTab = 'attendance' | 'syllabus' | 'load' | 'manual';
 
 interface DepartmentCardInfo {
   code: DeptCode;
@@ -321,9 +324,9 @@ export const DepartmentsPage: React.FC = () => {
             const summary = deptSummaries[dept.code];
             const stuCount = summary?.studentsAndAttendance?.summary?.totalStudents ?? (dept.code === 'AIDS' ? 249 : dept.code === 'CE' ? 233 : dept.code === 'ECE' ? 103 : 111);
             const facCount = summary?.syllabusCoverage?.summary?.totalProfessors ?? (dept.code === 'CE' ? 24 : dept.code === 'ENTC' ? 12 : 2);
-            const attPct = summary?.studentsAndAttendance?.summary?.averageAttendancePercentage ?? 87.5;
-            const sylPct = summary?.syllabusCoverage?.summary?.averageCoveragePercentage ?? 58.3;
-            const loadPct = summary?.loadCompletion?.summary?.overallLoadCompletionPercentage ?? 75.0;
+            const attPct = summary?.studentsAndAttendance?.summary?.averageAttendancePercentage ?? 0;
+            const sylPct = summary?.syllabusCoverage?.summary?.averageCoveragePercentage ?? 0;
+            const loadPct = summary?.loadCompletion?.summary?.overallLoadCompletionPercentage ?? 0;
 
             return (
               <div
@@ -411,7 +414,7 @@ export const DepartmentsPage: React.FC = () => {
     totalStudents: 0,
     averageAttendancePercentage: 0,
     defaultersCount: 0,
-    totalSessionsConducted: 8,
+    totalSessionsConducted: 0,
     attendanceBands: { high: 0, moderate: 0, defaulter: 0 },
   };
 
@@ -475,10 +478,10 @@ export const DepartmentsPage: React.FC = () => {
         </div>
 
         {/* ------------------------------------------------------------- */}
-        {/* THE THREE OPTIONS SELECTOR (EXACTLY THREE OPTIONS)            */}
+        {/* THE FOUR OPTIONS SELECTOR                                      */}
         {/* ------------------------------------------------------------- */}
         <div className="mt-6 pt-5 border-t border-slate-100">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {/* Option 1 Button */}
             <button
               onClick={() => setActiveTab('attendance')}
@@ -493,7 +496,7 @@ export const DepartmentsPage: React.FC = () => {
                   <GraduationCap
                     className={`w-4 h-4 ${activeTab === 'attendance' ? 'text-emerald-400' : 'text-emerald-600'}`}
                   />
-                  <span>1. Students and Attendance</span>
+                  <span>1. Students & Attendance</span>
                 </div>
                 <span
                   className={`text-[10px] font-bold px-2 py-0.5 rounded ${
@@ -526,7 +529,7 @@ export const DepartmentsPage: React.FC = () => {
                   <BookOpen
                     className={`w-4 h-4 ${activeTab === 'syllabus' ? 'text-sky-400' : 'text-sky-600'}`}
                   />
-                  <span>2. Syllabus Coverage by Professor</span>
+                  <span>2. Syllabus Coverage</span>
                 </div>
                 <span
                   className={`text-[10px] font-bold px-2 py-0.5 rounded ${
@@ -577,6 +580,41 @@ export const DepartmentsPage: React.FC = () => {
                 Allotted teaching load hours delivered vs pending
               </p>
             </button>
+
+            {/* Option 4 Button: Manual Data Entry */}
+            <button
+              onClick={() => setActiveTab('manual')}
+              className={`p-3.5 rounded-xl border text-left transition-all ${
+                activeTab === 'manual'
+                  ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
+                  : 'bg-indigo-50/70 text-indigo-950 border-indigo-200 hover:bg-indigo-100/70'
+              }`}
+            >
+              <div className="flex items-center justify-between mb-1.5">
+                <div className="flex items-center gap-1.5 font-bold text-xs">
+                  <Edit3
+                    className={`w-4 h-4 ${activeTab === 'manual' ? 'text-indigo-400' : 'text-indigo-600'}`}
+                  />
+                  <span>4. ✍️ Manual Data Adding</span>
+                </div>
+                <span
+                  className={`text-[10px] font-bold px-2 py-0.5 rounded ${
+                    activeTab === 'manual'
+                      ? 'bg-slate-800 text-slate-200'
+                      : 'bg-white text-indigo-700 border border-indigo-200'
+                  }`}
+                >
+                  Live Input
+                </span>
+              </div>
+              <p
+                className={`text-[11px] leading-tight ${
+                  activeTab === 'manual' ? 'text-slate-300' : 'text-slate-600'
+                }`}
+              >
+                Add attendance, add topics, toggle status & update workload
+              </p>
+            </button>
           </div>
         </div>
       </div>
@@ -593,6 +631,41 @@ export const DepartmentsPage: React.FC = () => {
           {/* ============================================================= */}
           {activeTab === 'attendance' && (
             <div className="space-y-5">
+              {/* Option Action Header */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <h3 className="text-base font-bold text-slate-900">Students and Attendance</h3>
+                  <p className="text-xs text-slate-500">Official enrolled roll-calls and verified lecture attendance records.</p>
+                </div>
+                <button
+                  onClick={() => setActiveTab('manual')}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white shadow-xs transition"
+                >
+                  <Plus className="w-3.5 h-3.5" /> Record Attendance Manually
+                </button>
+              </div>
+
+              {/* Zero Dummy Data Indicator */}
+              {stuSummary.totalSessionsConducted === 0 && (
+                <div className="p-4 rounded-xl bg-amber-50/90 border border-amber-200 text-amber-900 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <span className="font-bold flex items-center gap-1.5">
+                      <AlertTriangle className="w-4 h-4 text-amber-600" />
+                      Zero Dummy Data: No Sessions Recorded Yet
+                    </span>
+                    <p className="text-[11px] text-amber-800 mt-0.5">
+                      All synthetic mock attendance was purged. You can record genuine daily attendance sessions branch-wise right now using the manual data tab.
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setActiveTab('manual')}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-700 text-white shadow-xs shrink-0 transition"
+                  >
+                    <Plus className="w-3.5 h-3.5" /> Record Today's Session
+                  </button>
+                </div>
+              )}
+
               {/* Calculation Methodology Callout */}
               <div className="p-4 rounded-xl bg-blue-50/70 border border-blue-200 text-blue-900 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div>
@@ -818,6 +891,20 @@ export const DepartmentsPage: React.FC = () => {
           {/* ============================================================= */}
           {activeTab === 'syllabus' && (
             <div className="space-y-5">
+              {/* Option Action Header */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <h3 className="text-base font-bold text-slate-900">Syllabus Coverage by Professor</h3>
+                  <p className="text-xs text-slate-500">Official syllabus curriculum units & real-time topic completion tracking per professor.</p>
+                </div>
+                <button
+                  onClick={() => setActiveTab('manual')}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-700 text-white shadow-xs transition"
+                >
+                  <Plus className="w-3.5 h-3.5" /> Add / Toggle Syllabus Topics
+                </button>
+              </div>
+
               {/* Calculation Methodology Callout */}
               <div className="p-4 rounded-xl bg-sky-50/70 border border-sky-200 text-sky-900 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div>
@@ -1039,6 +1126,20 @@ export const DepartmentsPage: React.FC = () => {
           {/* ============================================================= */}
           {activeTab === 'load' && (
             <div className="space-y-5">
+              {/* Option Action Header */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <h3 className="text-base font-bold text-slate-900">Load Completion</h3>
+                  <p className="text-xs text-slate-500">Allotted weekly teaching load vs delivered hours with compensatory extra load tracking.</p>
+                </div>
+                <button
+                  onClick={() => setActiveTab('manual')}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-700 text-white shadow-xs transition"
+                >
+                  <Plus className="w-3.5 h-3.5" /> Update Faculty Load
+                </button>
+              </div>
+
               {/* Calculation Methodology Callout */}
               <div className="p-4 rounded-xl bg-amber-50/70 border border-amber-200 text-amber-900 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div>
@@ -1216,6 +1317,23 @@ export const DepartmentsPage: React.FC = () => {
                 </table>
               </div>
             </div>
+          )}
+
+          {/* ============================================================= */}
+          {/* OPTION 4 CONTENT: MANUAL DATA ENTRY                           */}
+          {/* ============================================================= */}
+          {activeTab === 'manual' && (
+            <DepartmentManualEntry
+              deptCode={selectedDept}
+              deptId={detailData?.department?.id}
+              deptName={currentDeptName}
+              faculty={detailData?.faculty || detailData?.syllabusCoverage?.professors || []}
+              subjects={detailData?.subjects || []}
+              sections={detailData?.sections || []}
+              students={detailData?.studentsAndAttendance?.students || []}
+              onRefresh={() => loadDepartmentDetail(selectedDept)}
+              onNavigateTab={(tab) => setActiveTab(tab)}
+            />
           )}
         </div>
       )}

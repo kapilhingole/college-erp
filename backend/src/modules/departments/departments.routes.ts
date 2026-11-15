@@ -12,6 +12,32 @@ router.get('/', authenticateJWT, DepartmentsController.listDepartments);
 // Department Dashboard (Students & Attendance, Syllabus Coverage, Load Completion)
 router.get('/:code/dashboard', authenticateJWT, DepartmentsController.getDepartmentDashboard);
 
+// Manual Data Adding Routes
+router.post(
+  '/attendance/manual-session',
+  authenticateJWT,
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT', 'FACULTY'),
+  DepartmentsController.recordManualAttendance
+);
+router.post(
+  '/syllabus/add-topic',
+  authenticateJWT,
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT', 'FACULTY'),
+  DepartmentsController.addSyllabusTopic
+);
+router.patch(
+  '/syllabus/topic-status',
+  authenticateJWT,
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT', 'FACULTY'),
+  DepartmentsController.updateTopicStatus
+);
+router.put(
+  '/faculty/load',
+  authenticateJWT,
+  requireRoles('SUPER_ADMIN', 'ADMIN', 'MANAGEMENT'),
+  DepartmentsController.updateFacultyLoad
+);
+
 // Only Super Admin, Admin & Management can modify academic hierarchy
 router.post(
   '/',

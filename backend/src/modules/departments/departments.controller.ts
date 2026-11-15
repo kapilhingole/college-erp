@@ -213,9 +213,9 @@ export class DepartmentsController {
         const attendancePercentage =
           totalSessions > 0
             ? Number(((attendedSessions / totalSessions) * 100).toFixed(1))
-            : 100.0;
+            : 0.0;
 
-        const isDefaulter = attendancePercentage < 75.0;
+        const isDefaulter = totalSessions > 0 && attendancePercentage < 75.0;
 
         return {
           id: st.id,
@@ -237,20 +237,21 @@ export class DepartmentsController {
       });
 
       const totalStudentsCount = studentsData.length;
+      const studentsWithSessions = studentsData.filter((s) => s.totalSessions > 0);
       const defaultersCount = studentsData.filter((s) => s.isDefaulter).length;
       const averageAttendance =
-        totalStudentsCount > 0
+        studentsWithSessions.length > 0
           ? Number(
               (
-                studentsData.reduce((acc, s) => acc + s.attendancePercentage, 0) /
-                totalStudentsCount
+                studentsWithSessions.reduce((acc, s) => acc + s.attendancePercentage, 0) /
+                studentsWithSessions.length
               ).toFixed(1)
             )
-          : 100.0;
+          : 0.0;
 
       const attendanceBands = {
-        high: studentsData.filter((s) => s.attendancePercentage >= 85).length,
-        moderate: studentsData.filter(
+        high: studentsWithSessions.filter((s) => s.attendancePercentage >= 85).length,
+        moderate: studentsWithSessions.filter(
           (s) => s.attendancePercentage >= 75 && s.attendancePercentage < 85
         ).length,
         defaulter: defaultersCount,
@@ -374,6 +375,22 @@ export class DepartmentsController {
           ? Number(((totalCompletedHours / totalAllottedHours) * 100).toFixed(1))
           : 0.0;
 
+      const deptSections = dept.programs.flatMap((p) =>
+        p.batches.flatMap((b) =>
+          b.sections.map((s) => ({
+            id: s.id,
+            name: `${s.name} (${p.name} - ${b.name})`,
+            rawName: s.name,
+          }))
+        )
+      );
+
+      const deptSubjects = await prisma.subject.findMany({
+        where: { departmentId: dept.id },
+        select: { id: true, code: true, name: true, semester: true },
+        orderBy: { code: 'asc' },
+      });
+
       res.json({
         success: true,
         data: {
@@ -384,12 +401,20 @@ export class DepartmentsController {
             name: dept.name,
             description: dept.description,
           },
+          sections: deptSections,
+          subjects: deptSubjects,
+          faculty: rawFaculty.map((f) => ({
+            id: f.id,
+            employeeId: f.employeeId,
+            name: `Prof. ${f.firstName} ${f.lastName}`,
+            designation: f.designation,
+          })),
           studentsAndAttendance: {
             summary: {
               totalStudents: totalStudentsCount,
               averageAttendancePercentage: averageAttendance,
               defaultersCount,
-              totalSessionsConducted: totalLectureSessions || 8,
+              totalSessionsConducted: totalLectureSessions,
               attendanceBands,
             },
             students: studentsData,
@@ -417,6 +442,118 @@ export class DepartmentsController {
           },
         },
       });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  // --- Manual Data Adding Handlers (Attendance, Syllabus, Teaching Load) ---
+
+  static async recordManualAttendance(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const { subjectId, facultyId, sectionId, sessionDate, sessionTime, topicCovered, records } = req.body;
+      if (!sectionId || !subjectId || !facultyId) {
+        throw new AppError('Subject, faculty, and section are required.', 400);
+      }
+      const session = await prisma.lectureSession.create({
+        data: {
+          subjectId,
+          facultyId,
+          sectionId,
+          sessionDate: sessionDate ? new Date(sessionDate) : new Date(),
+          sessionTime: sessionTime || '09:00 - 10:00',
+          topicCovered: topicCovered || 'Regular Class Lecture',
+        },
+      });
+      if (Array.isArray(records) && records.length > 0) {
+        await prisma.attendanceRecord.createMany({
+          data: records.map((r: any) => ({
+            lectureSessionId: session.id,
+            studentId: r.studentId,
+            status: r.status || 'PRESENT',
+            remarks: r.remarks || null,
+          })),
+        });
+      }
+      res.status(201).json({ success: true, message: 'Attendance session recorded successfully.', data: session });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async addSyllabusTopic(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const { facultyId, title, description, allottedMinutes, orderIndex, status } = req.body;
+      if (!facultyId || !title) {
+        throw new AppError('Faculty and topic title are required.', 400);
+      }
+      const isDone = status === 'DONE';
+      const topic = await prisma.syllabusTopic.create({
+        data: {
+          facultyId,
+          title: String(title).trim(),
+          description: description || null,
+          allottedMinutes: Number(allottedMinutes) || 120,
+          orderIndex: Number(orderIndex) || 0,
+          status: isDone ? 'DONE' : 'PENDING',
+          completedAt: isDone ? new Date() : null,
+        },
+      });
+      res.status(201).json({ success: true, message: 'Syllabus topic added.', data: topic });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async updateTopicStatus(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const { topicId, status } = req.body;
+      if (!topicId || !status) {
+        throw new AppError('Topic ID and status are required.', 400);
+      }
+      const isDone = status === 'DONE';
+      const updated = await prisma.syllabusTopic.update({
+        where: { id: topicId },
+        data: {
+          status: isDone ? 'DONE' : 'PENDING',
+          completedAt: isDone ? new Date() : null,
+        },
+      });
+      res.json({ success: true, message: `Topic status updated to ${status}.`, data: updated });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async updateFacultyLoad(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const { facultyId, maxWeeklyHours, currentLoadHours, addExtraLoad } = req.body;
+      if (!facultyId) {
+        throw new AppError('Faculty ID is required.', 400);
+      }
+      const updateData: any = {};
+      if (maxWeeklyHours !== undefined) updateData.maxWeeklyHours = Number(maxWeeklyHours);
+      if (currentLoadHours !== undefined) updateData.currentLoadHours = Number(currentLoadHours);
+
+      const faculty = await prisma.faculty.update({
+        where: { id: facultyId },
+        data: updateData,
+      });
+
+      if (addExtraLoad) {
+        const firstTopic = await prisma.syllabusTopic.findFirst({ where: { facultyId } });
+        if (firstTopic) {
+          await prisma.syllabusExtraLoad.create({
+            data: {
+              facultyId,
+              topicId: firstTopic.id,
+              reason: 'COMPENSATORY_LOAD',
+            },
+          });
+        }
+      }
+
+      res.json({ success: true, message: 'Faculty academic load updated.', data: faculty });
     } catch (error) {
       next(error);
     }
