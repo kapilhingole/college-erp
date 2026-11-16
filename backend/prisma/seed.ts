@@ -510,13 +510,13 @@ async function main() {
         designation: f.desig,
         qualification: f.qual,
         departmentId: f.deptId,
-        maxWeeklyHours: require("./fy_syllabus_roster.json")[f.empId]?.maxWeeklyHours || 20,
+        maxWeeklyHours: (require("./syllabus_roster.json")[f.empId] || require("./fy_syllabus_roster.json")[f.empId])?.maxWeeklyHours || 20,
       },
     });
     facultyList.push(fac);
 
     // Seed syllabus load topics for this faculty member (Clean slate: all PENDING, 0% initial progress)
-    const assignedTopics = require("./fy_syllabus_roster.json")[f.empId]?.topics || f.topics || [];
+    const assignedTopics = (require("./syllabus_roster.json")[f.empId] || require("./fy_syllabus_roster.json")[f.empId])?.topics || f.topics || [];
     if (assignedTopics && assignedTopics.length > 0) {
       for (let i = 0; i < assignedTopics.length; i++) {
         const top = assignedTopics[i];
@@ -524,6 +524,7 @@ async function main() {
           data: {
             facultyId: fac.id,
             title: top.title,
+            description: top.description || null,
             allottedMinutes: top.allottedMinutes,
             orderIndex: i,
             status: 'PENDING',

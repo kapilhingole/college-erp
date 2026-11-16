@@ -1,0 +1,1073 @@
+{
+  "sySyllabi": {
+    "aids_dsa": {
+      "code": "25ADPC302",
+      "name": "Data Structure and Algorithms (AIDS)",
+      "dept": "AIDS",
+      "units": [
+        {
+          "title": "Unit 1: Introduction to Data Structures and Algorithms",
+          "desc": "Abstract Data Types (ADT), Linear and Non-linear, Static and Dynamic data structures. Time & Space complexity, Asymptotic notation (Big-O, Theta, Omega), Step count analysis, Divide & Conquer and Greedy strategies.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 2: Linear Data Structures, Searching and Sorting",
+          "desc": "Array ADT, Operations, Multidimensional arrays, Sparse matrix. Linear search, Binary search, Fibonacci search. Bubble sort, Insertion sort, Selection sort, Quick sort, Merge sort. Hash tables, hash functions, collision resolution.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 3: Linked Lists",
+          "desc": "Static vs Dynamic memory management, Singly linked, Circular linked, Doubly linked lists. Primitive operations: Create, Traverse, Search, Insert, Delete, Sort, Concatenate. Undo-Redo functionality case study.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 4: Stacks and Applications",
+          "desc": "Stack ADT, Primitive operations (Push, Pop, Peek), Infix, Prefix, Postfix expressions, Expression conversion and evaluation (Infix to Postfix, Postfix evaluation), Multiple stacks, Linked stack.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 5: Queues and Task Scheduling",
+          "desc": "Queue ADT, Operations (Enqueue, Dequeue, Peek), Linear queue, Circular queue, Priority queue, Deque (Double Ended Queue), Multiple queues, Real-time task scheduling applications.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 6: Graphs and Trees",
+          "desc": "Tree terminology, Binary Trees, Binary Search Tree (BST) operations, Traversals (Inorder, Preorder, Postorder), Threaded binary trees. Graph representations (Adjacency Matrix, Adjacency List), BFS & DFS traversals, Minimum Spanning Trees.",
+          "hours": 7
+        }
+      ]
+    },
+    "aids_oop": {
+      "code": "25ADPC303",
+      "name": "Object Oriented Programming with C++",
+      "dept": "AIDS",
+      "units": [
+        {
+          "title": "Unit 1: Principles of Object-Oriented Programming & C++ Basics",
+          "desc": "Paradigms of programming languages, Basic concepts of OOP: Classes, Objects, Data Abstraction, Encapsulation, Inheritance, Polymorphism. Tokens, expressions, control structures, functions in C++, inline functions, default arguments.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 2: Classes, Objects and Constructors",
+          "desc": "Specifying a class, member functions, private member functions, arrays within class, memory allocation for objects, static data members, arrays of objects, objects as function arguments, friendly functions, Constructors, parameterized constructors, copy constructors, destructors.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 3: Operator Overloading and Type Conversions",
+          "desc": "Concept of operator overloading, overloading unary and binary operators, overloading using friend functions, string manipulation using operators, rules for overloading operators, type conversions (basic to class, class to basic, class to class).",
+          "hours": 7
+        },
+        {
+          "title": "Unit 4: Inheritance and Virtual Functions",
+          "desc": "Defining derived classes, single, multilevel, multiple, hierarchical, hybrid inheritance, virtual base classes, abstract classes. Pointers to objects, this pointer, pointers to derived classes, virtual functions, pure virtual functions, dynamic binding.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 5: Console I/O Operations and Working with Files",
+          "desc": "C++ streams, stream classes, unformatted and formatted I/O operations, managing output with manipulators. Classes for file stream operations, opening/closing files, detecting EOF, file modes, file pointers, sequential and random access files.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 6: Templates and Exception Handling",
+          "desc": "Class templates, class templates with multiple parameters, function templates, function templates with multiple parameters, overloading template functions. Basics of exception handling, try, catch, throw blocks, rethrowing exceptions.",
+          "hours": 7
+        }
+      ]
+    },
+    "aids_cg": {
+      "code": "25ADPC304",
+      "name": "Computer Graphics",
+      "dept": "AIDS",
+      "units": [
+        {
+          "title": "Unit 1: Basic Concepts and Graphics Hardware",
+          "desc": "Introduction to Computer Graphics, Video display devices, Refresh CRT, Raster scan and Random scan displays, Colour CRT, Flat-panel displays. Line drawing algorithms: DDA, Bresenham line algorithm, Circle generating algorithms (Bresenham, Midpoint circle algorithm).",
+          "hours": 7
+        },
+        {
+          "title": "Unit 2: 2D Transformations and Windowing/Clipping",
+          "desc": "Basic 2D geometric transformations: Translation, Rotation, Scaling, Matrix representations and homogeneous coordinates, Composite transformations (Reflection, Shear). Viewing pipeline, Window-to-viewport transformation, Cohen-Sutherland line clipping, Sutherland-Hodgeman polygon clipping.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 3: 3D Transformations and Projections",
+          "desc": "3D geometric transformations: Translation, Rotation, Scaling, Reflection and Shear, Rotation about an arbitrary axis. Projections: Parallel (Oblique: Cavalier, Cabinet; Orthographic: Isometric, Dimetric, Trimetric) and Perspective (1-point, 2-point, 3-point vanishing points).",
+          "hours": 7
+        },
+        {
+          "title": "Unit 4: Light and Colour Models & Shading",
+          "desc": "Colour models: RGB, HSV, CMY. Illumination Models: Ambient Light, Diffuse reflection, Specular Reflection, Phong model, Combined diffuse and specular reflections with multiple light sources. Shading algorithms: Halftone, Gouraud and Phong shading. Hidden surface removal: Depth-buffer (Z-buffer), Depth-sort (Painter algorithm).",
+          "hours": 7
+        },
+        {
+          "title": "Unit 5: Curves and Fractals",
+          "desc": "Curve generation: Interpolation and approximation, Blending functions, B-Spline curves, Bezier curves. Fractals: Introduction, classification, fractal generation (Koch snowflake, Triadic curve, Hilbert curve), applications in computer graphics.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 6: Animation and Virtual Reality Basics",
+          "desc": "Principles of animation, traditional animation techniques, computer animation processes, frame-by-frame animation, keyframing, morphing, kinematics and inverse kinematics. Introduction to Virtual Reality hardware and interactive environments.",
+          "hours": 7
+        }
+      ]
+    },
+    "aids_stats": {
+      "code": "25ADMD301",
+      "name": "Statistics for Artificial Intelligence",
+      "dept": "AIDS",
+      "units": [
+        {
+          "title": "Unit 1: Random Variables & Bivariate Probability Distribution",
+          "desc": "Random variables (discrete, continuous), probability distributions, bivariate random variables, marginal probability distribution, conditional probability distribution, joint distribution function, covariance and correlation in AI applications.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 2: Inferential Statistics & Hypothesis Formulation",
+          "desc": "Statistical inference, testing of hypothesis, formulation of null and alternative hypothesis, critical region, level of significance, Type I and Type II errors, power of test, principle of maximum likelihood.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 3: Hypothesis Testing Techniques",
+          "desc": "Most Powerful test, Likelihood Ratio tests, test for mean and variance of normal population, two-sample tests, testing equality of variances, non-parametric methods (Chi-Square test, Mann-Whitney U test).",
+          "hours": 7
+        },
+        {
+          "title": "Unit 4: Regression & Correlation Analysis",
+          "desc": "Karl Pearson correlation, Spearman rank correlation, simple and multiple linear regression, least squares method, regression coefficients, AI applications: feature selection, multicollinearity detection.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 5: Time Series Analysis & Forecasting",
+          "desc": "Components of time series (trend, seasonal, cyclical, irregular), moving averages, exponential smoothing, autoregressive models (AR), moving average models (MA), ARIMA, SARIMA modeling for AI forecasting.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 6: Statistical Models in Real-Time AI Systems",
+          "desc": "Bayesian decision theory, Naive Bayes classifier, Hidden Markov Models (HMM) formulation, statistical anomaly detection, application in recommendation engines and fraud detection.",
+          "hours": 7
+        }
+      ]
+    },
+    "aids_python": {
+      "code": "25ADVS303",
+      "name": "Advanced Python Programming",
+      "dept": "AIDS",
+      "units": [
+        {
+          "title": "Unit 1: Advanced Object-Oriented Python",
+          "desc": "Classes, objects, magic/dunder methods (__init__, __str__, __repr__, __call__), inheritance, multiple inheritance and MRO, abstract base classes, property decorators, encapsulation.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 2: Functional Programming & Metaprogramming",
+          "desc": "First-class functions, closures, decorators with and without arguments, functools module, lambda functions, map, filter, reduce, list/dict/set comprehensions, generators, yield statement, itertools.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 3: Advanced Data Structures & Memory Management",
+          "desc": "Collections module (namedtuple, defaultdict, Counter, deque, OrderedDict), heapq, bisect, memory management in Python, reference counting, garbage collection, copy vs deepcopy.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 4: Concurrency, Threading & Multiprocessing",
+          "desc": "GIL (Global Interpreter Lock), threading module, synchronization primitives (Locks, RLock, Semaphores), multiprocessing module, Process Pools, concurrent.futures, asyncio fundamentals, coroutines.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 5: File Handling, Serialization & Networking",
+          "desc": "Working with text, binary, CSV and JSON files, context managers (with statement, contextlib), serialization with pickle and dill, network requests using urllib and requests, REST API consumption.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 6: Scientific Computing & Data Manipulation Libraries",
+          "desc": "NumPy arrays, vectorization, broadcasting, linear algebra operations, Pandas Series and DataFrames, data cleaning, filtering, groupby, merging, Matplotlib & Seaborn data visualization techniques.",
+          "hours": 7
+        }
+      ]
+    },
+    "comp_ds": {
+      "code": "25COPC302",
+      "name": "Data Structures (COMP)",
+      "dept": "COMP",
+      "units": [
+        {
+          "title": "Unit 1: Introduction to Data Structures and Arrays",
+          "desc": "Need and importance of data structures in problem-solving, Characteristics of a good algorithm, Abstract Data Types (ADT), Linear vs Non-linear, Static vs Dynamic allocation, 1D & 2D Arrays, Sparse Matrix representation, Applications in computer engineering.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 2: Searching, Sorting and Analysis of Algorithms",
+          "desc": "Linear search, Binary search, Fibonacci search, Bubble sort, Insertion sort, Selection sort, Quick sort, Merge sort, Radix sort, Asymptotic notations (Big-O, Omega, Theta), Space-time tradeoff, Hashing fundamentals and collision resolution.",
+          "hours": 8
+        },
+        {
+          "title": "Unit 3: Stacks and Applications",
+          "desc": "Stack ADT, Array and Linked representation, Stack operations (Push, Pop, Peek), Expression evaluation, Infix to Postfix conversion, Infix to Prefix conversion, Recursion using stack, Backtracking applications.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 4: Linked Lists",
+          "desc": "Singly linked list, Doubly linked list, Circular linked list, Header linked list, Primitive operations (Insertion, Deletion, Traversal, Reversal), Polynomial manipulation using linked list, Memory management and garbage collection.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 5: Queues and Applications",
+          "desc": "Queue ADT, Sequential and linked organization, Circular queue, Priority queue, Double Ended Queue (Deque), Multiple queues, Job scheduling, CPU burst queue management.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 6: Trees and Binary Trees",
+          "desc": "Basic tree terminology, Binary Trees, Representation, Traversal algorithms (Inorder, Preorder, Postorder), Binary Search Tree (BST) operations, Threaded Binary Trees, Introduction to AVL Trees and B-Trees.",
+          "hours": 7
+        }
+      ]
+    },
+    "comp_pased": {
+      "code": "25COPC303",
+      "name": "Processor Architecture and System Design",
+      "dept": "COMP",
+      "units": [
+        {
+          "title": "Unit 1: Fundamentals of Computer Architecture & Computer Arithmetic",
+          "desc": "Structure and functions, Von Neumann vs Harvard architectures, Multiprocessors vs Multicomputers, Fixed-point and Floating-point representations, Error detection & correction codes, Computer arithmetic: Addition, Subtraction, Booth multiplication algorithm, Division algorithms.",
+          "hours": 4
+        },
+        {
+          "title": "Unit 2: Processor Organization & Instruction Set Architecture",
+          "desc": "CPU architecture, Register organization, Instruction cycle, Instruction formats, Addressing modes, RISC vs CISC architectural comparison, Control Unit design: Hardwired vs Microprogrammed control units.",
+          "hours": 5
+        },
+        {
+          "title": "Unit 3: Memory Organization & Cache Architecture",
+          "desc": "Memory hierarchy, Main memory, RAM/ROM chips, Cache memory principles, Mapping functions (Direct, Associative, Set-associative), Cache replacement algorithms, Write policies, Virtual memory concepts, Paging and TLB.",
+          "hours": 5
+        },
+        {
+          "title": "Unit 4: Input/Output Organization & Interrupts",
+          "desc": "Peripheral devices, I/O interfaces, Asynchronous data transfer (Strobe, Handshaking), Modes of transfer: Programmed I/O, Interrupt-driven I/O, Direct Memory Access (DMA), DMA controller architecture.",
+          "hours": 5
+        },
+        {
+          "title": "Unit 5: Pipelining & Parallel Processing",
+          "desc": "Linear pipelining, Instruction pipeline, Pipeline hazards (Structural, Data, Control hazards) and mitigation techniques, Superscalar processors, Vector processing, Array processors.",
+          "hours": 5
+        },
+        {
+          "title": "Unit 6: System Design, Multicore & Embedded Processors",
+          "desc": "Modern multi-core processor architectures, Interconnection structures, Bus arbitration, Cache coherence protocols (MESI), Introduction to ARM and RISC-V processor architectures.",
+          "hours": 4
+        }
+      ]
+    },
+    "comp_java": {
+      "code": "25COPC304",
+      "name": "Java Programming",
+      "dept": "COMP",
+      "units": [
+        {
+          "title": "Unit 1: Java Evolution, Overview & Syntax",
+          "desc": "Features of Java, JVM, JRE, JDK architecture, Bytecode execution, Java data types, Variables, Operators, Decision making (if-else, switch), Looping constructs (while, do-while, for, for-each), 1D and 2D Arrays.",
+          "hours": 4
+        },
+        {
+          "title": "Unit 2: Classes, Objects & Methods",
+          "desc": "Defining classes, Field variables, Methods, Creating objects, Accessing class members, Constructors, Method overloading, Static members, this keyword, Garbage collection, finalize method.",
+          "hours": 5
+        },
+        {
+          "title": "Unit 3: Inheritance & Polymorphism",
+          "desc": "Subclassing, Types of inheritance, Method overriding, super keyword, final keyword with variables, methods, and classes, Abstract classes and methods, Dynamic method dispatch.",
+          "hours": 5
+        },
+        {
+          "title": "Unit 4: Packages & Interfaces",
+          "desc": "Defining interfaces, Implementing interfaces, Extending interfaces, Accessing interface variables, Java API packages, Creating and using user-defined packages, Access protection across packages.",
+          "hours": 5
+        },
+        {
+          "title": "Unit 5: Exception Handling & Multithreading",
+          "desc": "Types of errors, Exceptions, try, catch, throw, throws, finally blocks, User-defined exceptions. Multithreaded programming: Creating threads, Life cycle of a thread, Thread priorities, Synchronization, Inter-thread communication.",
+          "hours": 5
+        },
+        {
+          "title": "Unit 6: Java Collections Framework & I/O Streams",
+          "desc": "Byte streams and Character streams, File input/output operations, Collection interfaces (List, Set, Map), Implementations (ArrayList, LinkedList, HashSet, HashMap), Iterators, Generics fundamentals.",
+          "hours": 4
+        }
+      ]
+    },
+    "comp_dm": {
+      "code": "25COMD301",
+      "name": "Discrete Mathematics",
+      "dept": "COMP",
+      "units": [
+        {
+          "title": "Unit 1: Propositional Logic and Proofs",
+          "desc": "Compound statements, Truth tables, Algebra of propositions, Conditional and biconditional statements, Tautologies and contradictions, Logical equivalence, Rules of inference, Methods of proof (Direct, Indirect, Contradiction).",
+          "hours": 7
+        },
+        {
+          "title": "Unit 2: Induction, Recursion and Recurrence Relations",
+          "desc": "Principle of Mathematical Induction, Strong induction, Recursively defined sequences, Solving linear recurrence relations with constant coefficients, Generating functions.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 3: Sets, Relations and Functions",
+          "desc": "Set operations, Venn diagrams, Relations, Representation of relations (Matrix, Digraph), Properties of relations (Reflexive, Symmetric, Transitive), Equivalence relations and partitions, Partial orderings, Hasse diagrams, Functions (Injective, Surjective, Bijective), Composition of functions.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 4: Combinatorics and Counting Principles",
+          "desc": "Basic counting principles (Sum rule, Product rule), Pigeonhole principle and generalized pigeonhole principle, Permutations and Combinations, Binomial theorem, Inclusion-Exclusion principle and applications.",
+          "hours": 8
+        },
+        {
+          "title": "Unit 5: Graph Theory and Applications",
+          "desc": "Graphs and graph models, Graph terminology and special types (Complete, Bipartite, Regular), Graph representations, Isomorphism, Euler and Hamiltonian paths/circuits, Shortest path algorithms (Dijkstra), Planar graphs, Graph coloring.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 6: Trees and Algebraic Structures",
+          "desc": "Tree properties, Spanning trees, Minimum spanning trees (Prim, Kruskal), Algebraic structures: Binary operations, Semigroups, Monoids, Groups, Subgroups, Cosets, Lagrange theorem, Rings and Fields basics.",
+          "hours": 7
+        }
+      ]
+    },
+    "comp_dm_social": {
+      "code": "25COMC301",
+      "name": "Digital Marketing and Social Media",
+      "dept": "COMP",
+      "units": [
+        {
+          "title": "Unit 1: Foundations of Digital Marketing & SEO",
+          "desc": "Traditional vs Digital marketing, Inbound vs Outbound marketing, Search Engine Optimization (SEO) fundamentals, On-page and Off-page SEO, Keyword research, Search engine algorithms.",
+          "hours": 3
+        },
+        {
+          "title": "Unit 2: Content Marketing & Copywriting",
+          "desc": "Content strategy formulation, Blog posts, Infographics, Video content, Storytelling for brands, Copywriting principles, Call-to-action (CTA) optimization.",
+          "hours": 2
+        },
+        {
+          "title": "Unit 3: Social Media Marketing & Platform Dynamics",
+          "desc": "Facebook, Instagram, LinkedIn, X (Twitter), YouTube marketing strategies, Audience targeting, Community management, Social media calendar creation, Organic vs Paid reach.",
+          "hours": 3
+        },
+        {
+          "title": "Unit 4: Search Engine Marketing (SEM) & Paid Advertising",
+          "desc": "Google Ads platform, Search ads, Display ads, Pay-Per-Click (PPC) models, Quality score, Ad auction mechanics, Campaign budget management.",
+          "hours": 2
+        },
+        {
+          "title": "Unit 5: Email Marketing & Conversion Funnels",
+          "desc": "Lead generation, Lead nurturing, Email list segmentation, Campaign creation (Mailchimp), A/B testing, Open rates, Click-through rates, Conversion funnel architecture.",
+          "hours": 2
+        },
+        {
+          "title": "Unit 6: Digital Marketing Analytics & Performance Metrics",
+          "desc": "Google Analytics 4 (GA4) metrics, Conversion tracking, Cost Per Acquisition (CPA), Return On Ad Spend (ROAS), Customer Lifetime Value (CLV), ROI calculation.",
+          "hours": 2
+        }
+      ]
+    },
+    "ece_dem": {
+      "code": "25ECPC302",
+      "name": "Digital Electronics and Microcontroller (ECE)",
+      "dept": "ECE",
+      "units": [
+        {
+          "title": "Unit 1: Digital Number Systems and Logic Fundamentals",
+          "desc": "Digital Systems, Binary, Octal, Decimal and Hexadecimal Number Systems, Conversions, Binary Arithmetic, 1s and 2s Complement, Logic Gates, Universal Gates, Boolean Algebra, De Morgans Theorems, Karnaugh Map (K-Map) simplification (up to 4 variables).",
+          "hours": 9
+        },
+        {
+          "title": "Unit 2: Combinational Logic Circuits",
+          "desc": "Design and Analysis of Combinational Circuits, Half Adder, Full Adder, Half Subtractor, Full Subtractor, Binary Parallel Adder, Lookahead Carry Adder, BCD Adder, Multiplexer, Demultiplexer, Encoders, Decoders, Code Converters (Binary to Gray, Gray to Binary, BCD to Excess-3).",
+          "hours": 9
+        },
+        {
+          "title": "Unit 3: Sequential Logic Circuits",
+          "desc": "Latches and Flip-Flops: SR, JK, D and T flip-flops, Master-Slave Flip-Flop, Truth Tables and Excitation Tables, Flip-Flop conversions, Registers: Buffer registers, Shift registers (SISO, SIPO, PISO, PIPO), Bidirectional and Universal shift registers.",
+          "hours": 8
+        },
+        {
+          "title": "Unit 4: Counters and State Machine Design",
+          "desc": "Asynchronous (Ripple) Counters, Synchronous Counters, Up/Down Counters, Modulo-N Counters, Ring Counter, Johnson Counter, Finite State Machines (Mealy and Moore models), State diagrams, State tables, State reduction, Sequence detector design.",
+          "hours": 9
+        },
+        {
+          "title": "Unit 5: Microcontroller 8051 Architecture & Programming",
+          "desc": "Comparison of Microprocessors and Microcontrollers, 8051 Microcontroller architecture, Pin diagram, Memory organization (Internal RAM, ROM, SFRs), Addressing modes, Instruction set (Data transfer, Arithmetic, Logical, Branching), Assembly language programming.",
+          "hours": 9
+        },
+        {
+          "title": "Unit 6: 8051 Hardware Interfacing & Applications",
+          "desc": "8051 Timers and Counters (Timer 0, Timer 1 modes), Serial communication (UART, SCON, SBUF), Interrupt structure and ISR programming, Interfacing with LEDs, Seven-segment displays, LCD, ADC, DAC, and Stepper Motor.",
+          "hours": 8
+        }
+      ]
+    },
+    "ece_dsa": {
+      "code": "25ECPC303",
+      "name": "Data Structure and Algorithms (ECE)",
+      "dept": "ECE",
+      "units": [
+        {
+          "title": "Unit 1: Introduction to Data Structures & Complexity",
+          "desc": "Concept, Types of data structures (Linear, Non-linear), Common operations, Complexity analysis, Time complexity, Space complexity, Order of growth, Asymptotic notations (Big-O, Omega, Theta).",
+          "hours": 6
+        },
+        {
+          "title": "Unit 2: Searching and Sorting Techniques",
+          "desc": "Linear search, Binary search, Sorting algorithms: Bubble sort, Selection sort, Insertion sort, Merge sort, Quick sort, Analysis and comparison of sorting algorithms.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 3: Linear Arrays and Linked Lists",
+          "desc": "Linear Arrays, Representation in memory, Insertion and deletion, 2D Arrays, Sparse matrix representation. Linked Lists: Singly linked list, Doubly linked list, Circular linked list, Primitive operations (Insert, Delete, Traverse, Search).",
+          "hours": 7
+        },
+        {
+          "title": "Unit 4: Stacks and Queues",
+          "desc": "Stack ADT, Operations (Push, Pop, Peek), Stack implementation using array and linked list, Expression conversion (Infix to Postfix), Expression evaluation. Queue ADT, Operations (Enqueue, Dequeue), Circular queue, Priority queue.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 5: Trees and Binary Search Trees",
+          "desc": "Tree terminology, Binary Trees, Representation, Traversals (Inorder, Preorder, Postorder), Binary Search Tree (BST), BST operations: Insertion, Deletion, Searching.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 6: Graph Fundamentals and Algorithms",
+          "desc": "Graph terminology and representation (Adjacency matrix, Adjacency list), Graph traversals: Breadth First Search (BFS), Depth First Search (DFS), Minimum Spanning Tree (Prims and Kruskals algorithms), Shortest path algorithm (Dijkstras algorithm).",
+          "hours": 7
+        }
+      ]
+    },
+    "ece_coa": {
+      "code": "25ECPC304",
+      "name": "Computer Organization and Architecture (ECE)",
+      "dept": "ECE",
+      "units": [
+        {
+          "title": "Unit 1: Computer Evolution & Arithmetic",
+          "desc": "Organization & Architecture, Structure & Function, Integer representation (Fixed point, Signed numbers), Integer arithmetic (2s Complement addition, subtraction, Booth algorithm, Restoring & Non-restoring division).",
+          "hours": 6
+        },
+        {
+          "title": "Unit 2: Processor Design & Instruction Set Architecture",
+          "desc": "CPU Architecture, Register organization, Instruction types, Operand types, Instruction formats, Addressing modes, Instruction cycles, RISC vs CISC comparison, Von Neumann vs Harvard architecture.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 3: Control Unit & Microprogrammed Control",
+          "desc": "Control unit operations, Hardwired control unit design, Microprogrammed control unit, Microinstructions, Sequencing and execution of microinstructions.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 4: Memory System Design & Cache Memory",
+          "desc": "Memory hierarchy, Semiconductor main memory, Cache memory principles, Mapping functions (Direct, Associative, Set-associative), Replacement algorithms, Cache coherence, Virtual memory.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 5: Input/Output Systems & DMA",
+          "desc": "External devices, I/O modules, Programmed I/O, Interrupt-driven I/O, DMA architecture, DMA data transfer modes, Standard bus architectures (PCI, USB).",
+          "hours": 7
+        },
+        {
+          "title": "Unit 6: Pipelining & Advanced Processor Architecture",
+          "desc": "Parallel processing, Pipelining concepts, Arithmetic pipeline, Instruction pipeline, Pipeline hazards and solutions, Superscalar processors, Multicore processors.",
+          "hours": 6
+        }
+      ]
+    },
+    "ece_em3": {
+      "code": "25ECMD301",
+      "name": "Engineering Mathematics III (ECE)",
+      "dept": "ECE",
+      "units": [
+        {
+          "title": "Unit 1: Linear Differential Equations",
+          "desc": "Linear Differential Equations (LDE) of nth order with constant coefficients, Method of variation of parameters, Cauchy and Legendre differential equations, Simultaneous DE, Applications to electric circuits.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 2: Statistics and Probability",
+          "desc": "Measures of central tendency, Dispersion, Moments, Skewness, Kurtosis, Correlation and Regression, Probability distributions (Binomial, Poisson, Normal), Chi-Square test of hypothesis.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 3: Z-Transforms",
+          "desc": "Definition, Properties of Z-transform, Z-transform of standard sequences, Inverse Z-transform, Solution of difference equations using Z-transform.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 4: Fourier Transform",
+          "desc": "Fourier integral theorem, Fourier sine and cosine integrals, Fourier transform, Inverse Fourier transform, Discrete Fourier Transform (DFT), Fast Fourier Transform (FFT) basics.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 5: Vector Differential Calculus",
+          "desc": "Physical interpretation of vector differentiation, Vector differential operator (Del), Gradient, Divergence and Curl, Directional derivatives, Solenoidal and Irrotational vector fields, Scalar potential.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 6: Vector Integral Calculus",
+          "desc": "Line integral, Surface integral, Volume integral, Greens theorem in plane, Stokes theorem, Gauss Divergence theorem, Applications to electromagnetic fields.",
+          "hours": 7
+        }
+      ]
+    },
+    "ece_workshop": {
+      "code": "25ECVS304",
+      "name": "Electronics Workshop & Circuits",
+      "dept": "ECE",
+      "units": [
+        {
+          "title": "Unit 1: Electronic Components & PCB Design Fundamentals",
+          "desc": "Identification of active and passive components, datasheets, SMD components, soldering techniques, schematic capture and PCB layout design using CAD tools.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 2: PCB Etching, Drilling and Assembling",
+          "desc": "Chemical etching process, drilling, component mounting, testing continuity, troubleshooting solder bridges and cold joints.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 3: Test and Measurement Instruments",
+          "desc": "Operating Digital Storage Oscilloscopes (DSO), Function Generators, Digital Multimeters, regulated DC power supplies, signal measurement.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 4: Analog and Digital Prototype Testing",
+          "desc": "Testing 555 timer multivibrator circuits, 741 Op-Amp amplifier configurations, regulated power supply prototyping, logic gates implementation.",
+          "hours": 7
+        }
+      ]
+    },
+    "entc_dsda": {
+      "code": "25ETPC302",
+      "name": "Digital System Design & Applications",
+      "dept": "ENTC",
+      "units": [
+        {
+          "title": "Unit 1: Combinational Circuit Design",
+          "desc": "Digital codes (Binary, BCD, Gray, Excess-3), Code conversions, Half and Full Adder, Half and Full Subtractor, Digital Comparator, Realization of Boolean functions using MUX/DEMUX, Parity generator and checker.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 2: Sequential Circuit Design",
+          "desc": "Flip-Flops: SR, JK, D, T, Preset & Clear, Conversion of flip-flops, Registers: Buffer, Shift registers (SISO, SIPO, PISO, PIPO), Counters: Asynchronous, Synchronous, Ring, Johnson, Modulus counter (IC 7490).",
+          "hours": 7
+        },
+        {
+          "title": "Unit 3: State Machines",
+          "desc": "Basic design steps: State diagram, State table, State reduction, State assignment, Mealy and Moore machine representation, Implementation, Finite state machine sequence detector, Algorithmic State Machines (ASM).",
+          "hours": 6
+        },
+        {
+          "title": "Unit 4: Programmable Logic Devices",
+          "desc": "Introduction to PLDs: ROM, PLA, PAL, Designing combinational circuits using PLDs, Applications of PLDs in digital circuit design.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 5: Applications of Digital Circuits",
+          "desc": "Digital circuit design: Sequence detector, Iterative circuit (Comparator), Sequential circuits using ROM & PLAs, CPLDs & FPGAs, Serial adder with accumulator.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 6: Introduction to VLSI and Verilog",
+          "desc": "Introduction to VLSI, Introduction to Hardware Description Language (Verilog), Modules, Ports, Functions, Modeling techniques, Introduction to FPGA architecture.",
+          "hours": 6
+        }
+      ]
+    },
+    "entc_nas": {
+      "code": "25ETPC303",
+      "name": "Network Analysis & Synthesis",
+      "dept": "ENTC",
+      "units": [
+        {
+          "title": "Unit 1: Graph Theory & Circuit Analysis",
+          "desc": "Node, Path, Degree, Tree, Loop, Cut set and Tie set, Incidence, Cut set and Tie set matrices, Graph theory method to solve currents and voltages in electrical networks.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 2: Two Port Networks and Network Functions",
+          "desc": "Definition of two-port network, Dependent and independent variables, Z parameters, Y parameters, h parameters, ABCD transmission parameters, Interrelations between parameters.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 3: Network Theorems (AC & DC)",
+          "desc": "Superposition theorem, Thevenin theorem, Norton theorem, Maximum Power Transfer theorem, Reciprocity theorem applied to AC networks with independent and dependent sources.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 4: Transient Analysis of Circuits",
+          "desc": "Initial conditions in network elements, DC and AC response of series and parallel R-L, R-C and R-L-C circuits, Time constant, Transient solution using classical differential equation method.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 5: Laplace Transform in Circuit Analysis",
+          "desc": "Application of Laplace transform to circuit analysis, Transformed impedance and admittance, Transient and steady-state response of electrical networks using Laplace transforms.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 6: Synthesis of One-Port Networks",
+          "desc": "Hurwitz polynomials, Positive Real Functions (PRF) properties, Synthesis of LC, RC and RL networks using Foster-I, Foster-II, Cauer-I and Cauer-II forms.",
+          "hours": 6
+        }
+      ]
+    },
+    "entc_dsa": {
+      "code": "25ETPC304",
+      "name": "Data Structures & Algorithms (ENTC)",
+      "dept": "ENTC",
+      "units": [
+        {
+          "title": "Unit 1: Introduction to Data Structures & Complexity",
+          "desc": "Concept, Types of data structures (Linear, Non-linear), Primitive operations, Time and space complexities, Asymptotic notation (Big-O, Omega, Theta).",
+          "hours": 7
+        },
+        {
+          "title": "Unit 2: Sorting and Searching Techniques",
+          "desc": "Linear search, Binary search, Bubble sort, Selection sort, Insertion sort, Merge sort, Quick sort, Hashing techniques and collision resolution.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 3: Linear Arrays and Linked Lists",
+          "desc": "Representation of arrays, 2D arrays, Sparse matrix, Singly linked list, Doubly linked list, Circular linked list, Node operations (Insert, Delete, Search, Traverse).",
+          "hours": 6
+        },
+        {
+          "title": "Unit 4: Stacks and Queues",
+          "desc": "Stack ADT, Stack operations (Push, Pop, Peek), Expression evaluation, Infix to Postfix conversion, Queue ADT, Circular queue, Priority queue, Real-time queue applications.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 5: Trees and Binary Search Trees",
+          "desc": "Tree terminology, Binary Trees, Traversals (Inorder, Preorder, Postorder), Binary Search Tree (BST) creation, Insertion and Deletion in BST.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 6: Graph Representations and Traversals",
+          "desc": "Graph representation (Adjacency matrix, Adjacency list), BFS and DFS traversals, Minimum Spanning Trees (Prim and Kruskal algorithms), Applications of graphs in telecommunication routing.",
+          "hours": 6
+        }
+      ]
+    },
+    "entc_em3": {
+      "code": "25ETMD301",
+      "name": "Engineering Mathematics – III (ENTC)",
+      "dept": "ENTC",
+      "units": [
+        {
+          "title": "Unit 1: Linear Differential Equations",
+          "desc": "LDE of nth order with constant coefficients, Method of variation of parameters, Cauchy and Legendre differential equations, Simultaneous DE, Electric circuit applications.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 2: Statistics and Probability",
+          "desc": "Measures of central tendency, Dispersion, Moments, Skewness, Kurtosis, Correlation and Regression, Probability distributions (Binomial, Poisson, Normal), Chi-Square test.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 3: Z-Transforms",
+          "desc": "Definition, Properties of Z-transform, Z-transform of standard sequences, Inverse Z-transform, Solution of difference equations using Z-transform.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 4: Fourier Transform",
+          "desc": "Fourier integral theorem, Fourier sine and cosine integrals, Fourier transform, Inverse Fourier transform, Application to signal processing.",
+          "hours": 7
+        },
+        {
+          "title": "Unit 5: Vector Differential Calculus",
+          "desc": "Vector differential operator (Del), Gradient, Divergence and Curl, Directional derivatives, Solenoidal and Irrotational fields, Scalar potential function.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 6: Vector Integral Calculus",
+          "desc": "Line integral, Surface integral, Volume integral, Green theorem, Stokes theorem, Gauss Divergence theorem, Applications in electromagnetic theory.",
+          "hours": 6
+        }
+      ]
+    },
+    "entc_pst1": {
+      "code": "25ETVS302",
+      "name": "Problem Solving Technique – I (PST-I)",
+      "dept": "ENTC",
+      "units": [
+        {
+          "title": "Unit 1: Problem Understanding & Definitions",
+          "desc": "Problem definitions, Classifications (Simple, Complex, Structured, Unstructured), Problem solving methodology - Step by Step approach.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 2: Problem Solving Approaches & Working Models",
+          "desc": "Structured step-by-step working model, Principles to think and apply, Root Cause Analysis, 5 Whys technique, Fishbone diagram.",
+          "hours": 6
+        },
+        {
+          "title": "Unit 3: Basic Tools for Problem Solving & Case Studies",
+          "desc": "7 QC Tools (Check Sheet, Pareto Diagram, Cause and Effect, Histogram, Scatter Diagram, Control Charts, Stratification), Engineering problem case studies.",
+          "hours": 16
+        }
+      ]
+    },
+    "entc_focp": {
+      "code": "25ETVS303",
+      "name": "Fundamental of C Programming (FOCP)",
+      "dept": "ENTC",
+      "units": [
+        {
+          "title": "Unit 1: Introduction to C Programming",
+          "desc": "Algorithms, Flowcharts, Structure of C program, Compilation and execution, Character set, Tokens, Keywords, Identifiers, Variables, Constants.",
+          "hours": 4
+        },
+        {
+          "title": "Unit 2: Data Types, Operators and Input/Output",
+          "desc": "Data types, Variable declaration, Symbolic constants, Arithmetic, Relational, Logical, Assignment operators, Operator precedence, Formatted I/O (printf, scanf).",
+          "hours": 5
+        },
+        {
+          "title": "Unit 3: Decision Making and Looping",
+          "desc": "if, if-else, nested if-else, switch statement, while loop, do-while loop, for loop, break and continue statements, Engineering calculations using loops.",
+          "hours": 5
+        },
+        {
+          "title": "Unit 4: Arrays and String Handling",
+          "desc": "1D arrays, 2D arrays, Array initialization, Matrix operations, String declaration, String I/O, Standard string manipulation library functions.",
+          "hours": 4
+        },
+        {
+          "title": "Unit 5: Functions and Modular Programming",
+          "desc": "Function definition, Function prototype, Function call, Parameter passing (Call by value, Call by reference), Storage classes, Scope of variables, Recursion.",
+          "hours": 4
+        },
+        {
+          "title": "Unit 6: Pointers, Structures and File Basics",
+          "desc": "Concept of pointers, Pointer variables, Address operator, Array of pointers, Structures definition, Accessing members, Introduction to file opening and closing.",
+          "hours": 4
+        }
+      ]
+    },
+    "sy_oe1": {
+      "code": "25ALOE301",
+      "name": "Open Elective - I (OE - 1)",
+      "dept": "ALL",
+      "units": [
+        {
+          "title": "Module 1: Digital Literacy & Applications",
+          "desc": "Digital infrastructure, Cloud computing fundamentals, Cybersecurity hygiene, Productivity applications, Digital payments.",
+          "hours": 6
+        },
+        {
+          "title": "Module 2: Environmental Studies & Sustainability",
+          "desc": "Ecosystems, Natural resource management, Environmental pollution control, Waste management techniques, Environmental protection laws.",
+          "hours": 5
+        },
+        {
+          "title": "Module 3: Green Energy & Sustainability",
+          "desc": "Energy crisis, Renewable energy resources, Solar PV systems, Wind energy generation, Biomass conversion, Energy efficiency.",
+          "hours": 5
+        },
+        {
+          "title": "Module 4: Basics of Consumer Electronics",
+          "desc": "Home appliances, Audio-video systems, Smart home devices, Power management in gadgets, Troubleshooting consumer electronics.",
+          "hours": 5
+        },
+        {
+          "title": "Module 5: Renewable Energy Systems",
+          "desc": "Solar thermal systems, Hydroelectric power basics, Geothermal and Ocean energy, Grid integration of renewables, Future trends.",
+          "hours": 5
+        }
+      ]
+    },
+    "sy_ll3": {
+      "code": "25CC305",
+      "name": "Liberal Learning - III",
+      "dept": "ALL",
+      "units": [
+        {
+          "title": "Module 1: Vocal Music & Singing",
+          "desc": "Voice culture, Pitch control, Tonal accuracy, Light music, Folk music, Stage performance presentation.",
+          "hours": 4
+        },
+        {
+          "title": "Module 2: Instrumental Music (Guitar / Synthesizer)",
+          "desc": "Advanced chord voicings, Inversions, Modal scales, Staff notation reading, Performance drills.",
+          "hours": 4
+        },
+        {
+          "title": "Module 3: Cinematography & Video Production",
+          "desc": "Camera operations, Composition, Lighting techniques, Gimbal stabilization, Short film project shooting.",
+          "hours": 4
+        },
+        {
+          "title": "Module 4: Dance & Choreography",
+          "desc": "Storytelling through dance, Rhythm completion, Theme-based choreography development, Stage aesthetics.",
+          "hours": 4
+        },
+        {
+          "title": "Module 5: Sports & Athletics (Basketball / Cricket / Volleyball / Football)",
+          "desc": "Position-specific training, Tactical drills, Team coordination, Sports psychology, Fitness conditioning.",
+          "hours": 5
+        },
+        {
+          "title": "Module 6: Precision Sports (Rifle & Pistol Shooting)",
+          "desc": "Stance, Breathing cycle, Sight alignment, Trigger squeeze, Mental focus under match pressure.",
+          "hours": 5
+        }
+      ]
+    }
+  },
+  "syFacultyRoster": [
+    {
+      "empId": "FAC-ZCOER-002",
+      "name": "Mrs. Priti Pande",
+      "syllabi": [
+        "comp_dm",
+        "ece_em3"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-003",
+      "name": "Ms. Tejashree Sutar",
+      "syllabi": [
+        "sy_ll3"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-005",
+      "name": "Ms. Sayali Ambole",
+      "syllabi": [
+        "sy_oe1"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-006",
+      "name": "Mr. Vaibhav Nema",
+      "syllabi": [
+        "ece_workshop"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-007",
+      "name": "Mr. Rupesh Gonate",
+      "syllabi": [
+        "entc_dsda"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-008",
+      "name": "Ms. Mahima Gamot",
+      "syllabi": [
+        "sy_oe1"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-009",
+      "name": "Ms. Aparna Bhat",
+      "syllabi": [
+        "ece_dem"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-010",
+      "name": "Ms. Lata Arjun",
+      "syllabi": [
+        "aids_dsa"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-011",
+      "name": "Mr. Kiran Kalokhe",
+      "syllabi": [
+        "comp_ds"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-012",
+      "name": "Ms. Swapnali Deshmukh",
+      "syllabi": [
+        "entc_dsa"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-013",
+      "name": "Mr. Bhasker Singh",
+      "syllabi": [
+        "comp_java"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-014",
+      "name": "Mrs. Snehal Dharme",
+      "syllabi": [
+        "comp_ds"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-015",
+      "name": "Ms. Rashmi Bhumbare",
+      "syllabi": [
+        "entc_nas"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-016",
+      "name": "Mr. Mahesh Patil",
+      "syllabi": [
+        "ece_dsa"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-017",
+      "name": "Mrs. Rakhi Tarone",
+      "syllabi": [
+        "comp_ds"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-018",
+      "name": "Mr. Vedant Sharma",
+      "syllabi": [
+        "aids_python"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-019",
+      "name": "Ms. Shrutika More",
+      "syllabi": [
+        "aids_dsa"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-020",
+      "name": "Mrs. Priyanka Bahirwade",
+      "syllabi": [
+        "comp_ds"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-021",
+      "name": "Ms. Samrudhi Pachpinde",
+      "syllabi": [
+        "ece_dsa"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-023",
+      "name": "Ms. Yogita Chaskar",
+      "syllabi": [
+        "aids_oop"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-024",
+      "name": "Ms. Anushka Chavan",
+      "syllabi": [
+        "entc_focp"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-025",
+      "name": "Ms. Gauri Deshmukh",
+      "syllabi": [
+        "sy_oe1"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-026",
+      "name": "Mr. Shivam More",
+      "syllabi": [
+        "aids_cg"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-027",
+      "name": "Mr. Sachin Kadam",
+      "syllabi": [
+        "comp_dm_social"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-028",
+      "name": "Mrs. Anita Nikam",
+      "syllabi": [
+        "comp_dm"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-029",
+      "name": "Mr. Suhas Chavan",
+      "syllabi": [
+        "comp_pased"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-030",
+      "name": "Mr. Sandeep Pawar",
+      "syllabi": [
+        "sy_ll3"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-031",
+      "name": "Mr. N. Walunjkar",
+      "syllabi": [
+        "ece_coa"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-032",
+      "name": "Ms. Seema Patil",
+      "syllabi": [
+        "aids_stats"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-033",
+      "name": "Mr. Nitesh Lad",
+      "syllabi": [
+        "aids_python"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-034",
+      "name": "Ms. Jyoti Jadhav",
+      "syllabi": [
+        "aids_dsa"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-036",
+      "name": "Mr. Krushnat Dubal",
+      "syllabi": [
+        "entc_pst1"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-037",
+      "name": "Mrs. Nirmala Chede",
+      "syllabi": [
+        "entc_em3"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-038",
+      "name": "Mr. Mayur Narawade",
+      "syllabi": [
+        "aids_python"
+      ]
+    },
+    {
+      "empId": "FAC-ZCOER-039",
+      "name": "Ms. Gauri Shiwale",
+      "syllabi": [
+        "sy_ll3"
+      ]
+    }
+  ]
+}

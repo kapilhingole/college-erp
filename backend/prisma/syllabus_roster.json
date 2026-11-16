@@ -1,0 +1,3390 @@
+{
+  "FAC-ZCOER-001": {
+    "name": "Sachin Godase",
+    "maxWeeklyHours": 4,
+    "topics": [
+      {
+        "title": "Engineering Graphics — Unit 1: Principles of Engineering Drawing & Lettering",
+        "description": "Drawing instruments, Sheet layout, Line conventions, Lettering and Dimensioning techniques as per BIS.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Graphics — Unit 2: Engineering Curves & Geometric Constructions",
+        "description": "Conic sections (Ellipse, Parabola, Hyperbola), Involutes, Cycloidal curves and Spirals.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Graphics — Unit 3: Orthographic Projections of Points, Lines & Planes",
+        "description": "First angle and Third angle projections, Projection of lines inclined to both planes, Projections of planes.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Graphics — Unit 4: Isometric Projections & Solid Modeling",
+        "description": "Isometric scale, Isometric view vs projection of prisms, pyramids, cylinders and composite solids.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Graphics — Unit 5: Development of Lateral Surfaces of Solids",
+        "description": "Parallel-line development and Radial-line development for prisms, cylinders, cones and pyramids.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Graphics — Unit 6: Computer Aided Drafting (CAD) Practices",
+        "description": "CAD software interface, Draw commands, Modify commands, Dimensioning, Layer management and 2D drafting.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-002": {
+    "name": "Priti Pande",
+    "maxWeeklyHours": 16,
+    "topics": [
+      {
+        "title": "Engineering Mathematics - I — Unit 1: System of Linear Equations",
+        "description": "Rank of a matrix, System of linear equations, Linear dependence and independence of vectors, Linear and orthogonal transformations, Application to engineering problems.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 2: Eigen Values, Eigen Vectors & Diagonalization",
+        "description": "Eigen values and Eigen vectors, Cayley-Hamilton theorem, Diagonalization of a matrix, Reduction of quadratic forms to canonical form.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 3: Differential Calculus",
+        "description": "Rolle's theorem, Mean value theorems, Taylor's and Maclaurin's series expansions, Standard expansions, Indeterminate forms.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 4: Partial Differentiation",
+        "description": "Partial derivatives of first and higher orders, Euler's theorem on homogeneous functions, Partial derivative of composite functions, Implicit differentiation.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 5: Applications of Partial Differentiation",
+        "description": "Jacobians and applications, Errors and Approximations, Maxima and minima of two variables, Lagrange's undetermined multipliers.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 6: Fourier Series & Harmonic Analysis",
+        "description": "Definition, Dirichlet's conditions, Full range Fourier series, Half range Fourier series, Harmonic analysis.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Discrete Mathematics — Unit 1: Propositional Logic and Proofs",
+        "description": "Compound statements, Truth tables, Algebra of propositions, Conditional and biconditional statements, Tautologies and contradictions, Logical equivalence, Rules of inference, Methods of proof (Direct, Indirect, Contradiction).",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Discrete Mathematics — Unit 2: Induction, Recursion and Recurrence Relations",
+        "description": "Principle of Mathematical Induction, Strong induction, Recursively defined sequences, Solving linear recurrence relations with constant coefficients, Generating functions.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Discrete Mathematics — Unit 3: Sets, Relations and Functions",
+        "description": "Set operations, Venn diagrams, Relations, Representation of relations (Matrix, Digraph), Properties of relations (Reflexive, Symmetric, Transitive), Equivalence relations and partitions, Partial orderings, Hasse diagrams, Functions (Injective, Surjective, Bijective), Composition of functions.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Discrete Mathematics — Unit 4: Combinatorics and Counting Principles",
+        "description": "Basic counting principles (Sum rule, Product rule), Pigeonhole principle and generalized pigeonhole principle, Permutations and Combinations, Binomial theorem, Inclusion-Exclusion principle and applications.",
+        "allottedMinutes": 480,
+        "status": "PENDING"
+      },
+      {
+        "title": "Discrete Mathematics — Unit 5: Graph Theory and Applications",
+        "description": "Graphs and graph models, Graph terminology and special types (Complete, Bipartite, Regular), Graph representations, Isomorphism, Euler and Hamiltonian paths/circuits, Shortest path algorithms (Dijkstra), Planar graphs, Graph coloring.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Discrete Mathematics — Unit 6: Trees and Algebraic Structures",
+        "description": "Tree properties, Spanning trees, Minimum spanning trees (Prim, Kruskal), Algebraic structures: Binary operations, Semigroups, Monoids, Groups, Subgroups, Cosets, Lagrange theorem, Rings and Fields basics.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics III (ECE) — Unit 1: Linear Differential Equations",
+        "description": "Linear Differential Equations (LDE) of nth order with constant coefficients, Method of variation of parameters, Cauchy and Legendre differential equations, Simultaneous DE, Applications to electric circuits.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics III (ECE) — Unit 2: Statistics and Probability",
+        "description": "Measures of central tendency, Dispersion, Moments, Skewness, Kurtosis, Correlation and Regression, Probability distributions (Binomial, Poisson, Normal), Chi-Square test of hypothesis.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics III (ECE) — Unit 3: Z-Transforms",
+        "description": "Definition, Properties of Z-transform, Z-transform of standard sequences, Inverse Z-transform, Solution of difference equations using Z-transform.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics III (ECE) — Unit 4: Fourier Transform",
+        "description": "Fourier integral theorem, Fourier sine and cosine integrals, Fourier transform, Inverse Fourier transform, Discrete Fourier Transform (DFT), Fast Fourier Transform (FFT) basics.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics III (ECE) — Unit 5: Vector Differential Calculus",
+        "description": "Physical interpretation of vector differentiation, Vector differential operator (Del), Gradient, Divergence and Curl, Directional derivatives, Solenoidal and Irrotational vector fields, Scalar potential.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics III (ECE) — Unit 6: Vector Integral Calculus",
+        "description": "Line integral, Surface integral, Volume integral, Greens theorem in plane, Stokes theorem, Gauss Divergence theorem, Applications to electromagnetic fields.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-003": {
+    "name": "Tejashree Sutar",
+    "maxWeeklyHours": 10,
+    "topics": [
+      {
+        "title": "Professional Development - I — Unit 1: Values, Self-Discipline & Personal Grooming",
+        "description": "Universal human values, Professional ethics, Hygiene, Grooming, Dress codes, Time management & Personal accountability.",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      },
+      {
+        "title": "Professional Development - I — Unit 2: Soft Skills Fundamentals & Personal Orientation",
+        "description": "Self-awareness, SWOT analysis, Emotional intelligence, Active listening, Non-verbal cues, Public speaking and overcoming stage fright.",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      },
+      {
+        "title": "Professional Development - I — Unit 3: Advanced Soft Skills & Social Dynamics",
+        "description": "Interpersonal communication, Teamwork, Conflict resolution, Empathy, Workplace etiquette and corporate cultural adaptation.",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 1: Vocal Music & Singing",
+        "description": "Voice culture, Pitch control, Tonal accuracy, Light music, Folk music, Stage performance presentation.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 2: Instrumental Music (Guitar / Synthesizer)",
+        "description": "Advanced chord voicings, Inversions, Modal scales, Staff notation reading, Performance drills.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 3: Cinematography & Video Production",
+        "description": "Camera operations, Composition, Lighting techniques, Gimbal stabilization, Short film project shooting.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 4: Dance & Choreography",
+        "description": "Storytelling through dance, Rhythm completion, Theme-based choreography development, Stage aesthetics.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 5: Sports & Athletics (Basketball / Cricket / Volleyball / Football)",
+        "description": "Position-specific training, Tactical drills, Team coordination, Sports psychology, Fitness conditioning.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 6: Precision Sports (Rifle & Pistol Shooting)",
+        "description": "Stance, Breathing cycle, Sight alignment, Trigger squeeze, Mental focus under match pressure.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-004": {
+    "name": "Harshala Ritapure",
+    "maxWeeklyHours": 12,
+    "topics": [
+      {
+        "title": "Engineering Mechanics — Unit 1: Resolution & Composition of Forces",
+        "description": "Force systems, Resultant of concurrent and non-concurrent force systems, Moment of a force, Varignon theorem.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mechanics — Unit 2: Equilibrium of Coplanar Force Systems",
+        "description": "Free body diagrams, Conditions of equilibrium, Lami theorem, Support reactions for beams.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mechanics — Unit 3: Kinematics of Particles & Projectile Motion",
+        "description": "Rectilinear motion, Uniform and accelerated motion, Projectile motion, Curvilinear motion in Cartesian and Polar coordinates.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mechanics — Unit 4: Kinetics of Particles - Work-Energy & Impulse",
+        "description": "Newton's second law, D'Alembert's principle, Work-energy principle, Law of conservation of momentum, Direct central impact.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mechanics — Unit 5: Centroid, Center of Gravity & Moment of Inertia",
+        "description": "Centroid of composite plane figures, Parallel and Perpendicular axis theorems, Moment of inertia of standard sections.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mechanics — Unit 6: Friction, Wedges & Ladder Equilibrium",
+        "description": "Laws of dry friction, Angle of friction and repose, Cone of friction, Equilibrium of wedges, ladders and belt friction.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-005": {
+    "name": "Sayali Ambole",
+    "maxWeeklyHours": 20,
+    "topics": [
+      {
+        "title": "Engineering Chemistry — Unit 1: Water Technology & Softening Processes",
+        "description": "Hardness, Alkalinity, Softening methods: Zeolite & Demineralization, Reverse Osmosis, Hardness calculations.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 2: Instrumental Methods of Analysis",
+        "description": "Quantitative and Qualitative analysis, Colorimetry, pHmetry, Conductometry and Titrations.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 3: Corrosion Science & Corrosion Prevention",
+        "description": "Dry and Wet corrosion, Hydrogen evolution & Oxygen absorption mechanisms, Cathodic protection and coatings.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 4: Engineering Polymers & Nanomaterials",
+        "description": "Classification, Polymerization mechanisms, Thermoplastics vs Thermosetting, Conducting polymers, Biodegradable polymers.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 5: Fuels and Combustion Calculations",
+        "description": "Calorific value (HCV, LCV), Proximate and Ultimate analysis of coal, Alternative fuels and flue gas analysis.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 6: Advanced Materials & Nanotechnology",
+        "description": "Nanomaterials classification, Synthesis methods (Sol-Gel, CVD), Carbon nanotubes, Engineering applications.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Professional Development - I — Unit 1: Values, Self-Discipline & Personal Grooming",
+        "description": "Universal human values, Professional ethics, Hygiene, Grooming, Dress codes, Time management & Personal accountability.",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      },
+      {
+        "title": "Professional Development - I — Unit 2: Soft Skills Fundamentals & Personal Orientation",
+        "description": "Self-awareness, SWOT analysis, Emotional intelligence, Active listening, Non-verbal cues, Public speaking and overcoming stage fright.",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      },
+      {
+        "title": "Professional Development - I — Unit 3: Advanced Soft Skills & Social Dynamics",
+        "description": "Interpersonal communication, Teamwork, Conflict resolution, Empathy, Workplace etiquette and corporate cultural adaptation.",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      },
+      {
+        "title": "Open Elective - I (OE - 1) — Module 1: Digital Literacy & Applications",
+        "description": "Digital infrastructure, Cloud computing fundamentals, Cybersecurity hygiene, Productivity applications, Digital payments.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Open Elective - I (OE - 1) — Module 2: Environmental Studies & Sustainability",
+        "description": "Ecosystems, Natural resource management, Environmental pollution control, Waste management techniques, Environmental protection laws.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Open Elective - I (OE - 1) — Module 3: Green Energy & Sustainability",
+        "description": "Energy crisis, Renewable energy resources, Solar PV systems, Wind energy generation, Biomass conversion, Energy efficiency.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Open Elective - I (OE - 1) — Module 4: Basics of Consumer Electronics",
+        "description": "Home appliances, Audio-video systems, Smart home devices, Power management in gadgets, Troubleshooting consumer electronics.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Open Elective - I (OE - 1) — Module 5: Renewable Energy Systems",
+        "description": "Solar thermal systems, Hydroelectric power basics, Geothermal and Ocean energy, Grid integration of renewables, Future trends.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-006": {
+    "name": "Vaibhav Nema",
+    "maxWeeklyHours": 24,
+    "topics": [
+      {
+        "title": "Electronic Circuits & Devices — Unit 1: Diode Applications & Power Regulators",
+        "description": "PN junction characteristics, Rectifier circuits, Ripple factor, Voltage regulator circuits, Zener diodes.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 2: Bipolar Junction Transistor Biasing & Amplifiers",
+        "description": "BJT operation, Operating point (Q-point), Thermal runaway, Voltage divider bias, Small signal analysis.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 3: Field Effect Transistors (FET & MOSFET)",
+        "description": "JFET characteristics, MOSFET (Enhancement & Depletion), Biasing of FET, High frequency response.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 4: Feedback Amplifiers & Sinusoidal Oscillators",
+        "description": "Feedback topologies, Gain stabilization, Barkhausen criterion, RC phase shift, Hartley and Colpitts oscillators.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 5: Operational Amplifiers & Linear Signal Circuits",
+        "description": "Ideal op-amp characteristics, Inverting and Non-inverting amplifiers, Summing amplifier, Integrator, Differentiator.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 6: Non-Linear Op-Amp Circuits & Active Filters",
+        "description": "Comparators, Schmitt triggers, First-order and Second-order active Butterworth filters, Precision rectifiers.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 1: DC Circuits & Network Analysis",
+        "description": "Charge, current, voltage, power, Ohm's Law, Kirchhoff's laws (KCL, KVL), Mesh and Nodal analysis, Thevenin's & Norton's theorems.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 2: AC Circuits & Single/Three-Phase Power",
+        "description": "Phasor representation, Series & Parallel RLC circuits, Active/Reactive/Apparent power, Power factor improvement, 3-Phase balanced circuits.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 3: Electrical Machines & Power Systems",
+        "description": "Single phase transformer: EMF equation, losses & efficiency, DC motor operation, 3-Phase Induction motor, Star rating energy conservation.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 4: Semiconductor Diodes & Power Rectifiers",
+        "description": "PN Junction characteristics, Half-wave, Full-wave and Bridge rectifiers, Filter circuits, Zener diode voltage regulation.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 5: Transistors, Amplifiers & Switching Circuits",
+        "description": "BJT operation, CE/CB/CC configurations, DC load line, CE amplifier operation, Introduction to MOSFET and power switching.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 6: Digital Logic & Combinational Circuits",
+        "description": "Number systems, Boolean algebra, De Morgan's laws, Logic gates, Half/Full adder, Multiplexers and Flip-Flops.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronics Workshop & Circuits — Unit 1: Electronic Components & PCB Design Fundamentals",
+        "description": "Identification of active and passive components, datasheets, SMD components, soldering techniques, schematic capture and PCB layout design using CAD tools.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronics Workshop & Circuits — Unit 2: PCB Etching, Drilling and Assembling",
+        "description": "Chemical etching process, drilling, component mounting, testing continuity, troubleshooting solder bridges and cold joints.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronics Workshop & Circuits — Unit 3: Test and Measurement Instruments",
+        "description": "Operating Digital Storage Oscilloscopes (DSO), Function Generators, Digital Multimeters, regulated DC power supplies, signal measurement.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronics Workshop & Circuits — Unit 4: Analog and Digital Prototype Testing",
+        "description": "Testing 555 timer multivibrator circuits, 741 Op-Amp amplifier configurations, regulated power supply prototyping, logic gates implementation.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-007": {
+    "name": "Rupesh Gonate",
+    "maxWeeklyHours": 18,
+    "topics": [
+      {
+        "title": "Electronic Circuits & Devices — Unit 1: Diode Applications & Power Regulators",
+        "description": "PN junction characteristics, Rectifier circuits, Ripple factor, Voltage regulator circuits, Zener diodes.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 2: Bipolar Junction Transistor Biasing & Amplifiers",
+        "description": "BJT operation, Operating point (Q-point), Thermal runaway, Voltage divider bias, Small signal analysis.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 3: Field Effect Transistors (FET & MOSFET)",
+        "description": "JFET characteristics, MOSFET (Enhancement & Depletion), Biasing of FET, High frequency response.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 4: Feedback Amplifiers & Sinusoidal Oscillators",
+        "description": "Feedback topologies, Gain stabilization, Barkhausen criterion, RC phase shift, Hartley and Colpitts oscillators.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 5: Operational Amplifiers & Linear Signal Circuits",
+        "description": "Ideal op-amp characteristics, Inverting and Non-inverting amplifiers, Summing amplifier, Integrator, Differentiator.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 6: Non-Linear Op-Amp Circuits & Active Filters",
+        "description": "Comparators, Schmitt triggers, First-order and Second-order active Butterworth filters, Precision rectifiers.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital System Design & Applications — Unit 1: Combinational Circuit Design",
+        "description": "Digital codes (Binary, BCD, Gray, Excess-3), Code conversions, Half and Full Adder, Half and Full Subtractor, Digital Comparator, Realization of Boolean functions using MUX/DEMUX, Parity generator and checker.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital System Design & Applications — Unit 2: Sequential Circuit Design",
+        "description": "Flip-Flops: SR, JK, D, T, Preset & Clear, Conversion of flip-flops, Registers: Buffer, Shift registers (SISO, SIPO, PISO, PIPO), Counters: Asynchronous, Synchronous, Ring, Johnson, Modulus counter (IC 7490).",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital System Design & Applications — Unit 3: State Machines",
+        "description": "Basic design steps: State diagram, State table, State reduction, State assignment, Mealy and Moore machine representation, Implementation, Finite state machine sequence detector, Algorithmic State Machines (ASM).",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital System Design & Applications — Unit 4: Programmable Logic Devices",
+        "description": "Introduction to PLDs: ROM, PLA, PAL, Designing combinational circuits using PLDs, Applications of PLDs in digital circuit design.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital System Design & Applications — Unit 5: Applications of Digital Circuits",
+        "description": "Digital circuit design: Sequence detector, Iterative circuit (Comparator), Sequential circuits using ROM & PLAs, CPLDs & FPGAs, Serial adder with accumulator.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital System Design & Applications — Unit 6: Introduction to VLSI and Verilog",
+        "description": "Introduction to VLSI, Introduction to Hardware Description Language (Verilog), Modules, Ports, Functions, Modeling techniques, Introduction to FPGA architecture.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-008": {
+    "name": "Mahima Gamot",
+    "maxWeeklyHours": 19,
+    "topics": [
+      {
+        "title": "Engineering Physics — Unit 1: Wave Optics & Thin Film Interference",
+        "description": "Interference in thin films, Newton's rings, Anti-reflection coatings and engineering applications.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 2: Diffraction, Polarization & Optical Instruments",
+        "description": "Fraunhofer diffraction, Diffraction grating, Polarization by reflection, Brewster law, Optical activity.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 3: Lasers & Fiber Optic Communication",
+        "description": "Laser mechanisms, Population inversion, He-Ne laser, Semiconductor laser, Optical fiber transmission and attenuation.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 4: Quantum Mechanics & Wave Equations",
+        "description": "De Broglie hypothesis, Heisenberg uncertainty principle, Schrödinger's wave equation, 1D potential well.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 5: Semiconductor Physics & Superconductivity",
+        "description": "Band theory, Hall effect, Superconductors, Meissner effect, Type-I and Type-II materials and applications.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 6: Nanoscience & Advanced Engineering Materials",
+        "description": "Quantum confinement, Synthesis of nanomaterials, Carbon nanotubes, Graphene and sensor applications.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Professional Development - I — Unit 1: Values, Self-Discipline & Personal Grooming",
+        "description": "Universal human values, Professional ethics, Hygiene, Grooming, Dress codes, Time management & Personal accountability.",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      },
+      {
+        "title": "Professional Development - I — Unit 2: Soft Skills Fundamentals & Personal Orientation",
+        "description": "Self-awareness, SWOT analysis, Emotional intelligence, Active listening, Non-verbal cues, Public speaking and overcoming stage fright.",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      },
+      {
+        "title": "Professional Development - I — Unit 3: Advanced Soft Skills & Social Dynamics",
+        "description": "Interpersonal communication, Teamwork, Conflict resolution, Empathy, Workplace etiquette and corporate cultural adaptation.",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      },
+      {
+        "title": "Open Elective - I (OE - 1) — Module 1: Digital Literacy & Applications",
+        "description": "Digital infrastructure, Cloud computing fundamentals, Cybersecurity hygiene, Productivity applications, Digital payments.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Open Elective - I (OE - 1) — Module 2: Environmental Studies & Sustainability",
+        "description": "Ecosystems, Natural resource management, Environmental pollution control, Waste management techniques, Environmental protection laws.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Open Elective - I (OE - 1) — Module 3: Green Energy & Sustainability",
+        "description": "Energy crisis, Renewable energy resources, Solar PV systems, Wind energy generation, Biomass conversion, Energy efficiency.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Open Elective - I (OE - 1) — Module 4: Basics of Consumer Electronics",
+        "description": "Home appliances, Audio-video systems, Smart home devices, Power management in gadgets, Troubleshooting consumer electronics.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Open Elective - I (OE - 1) — Module 5: Renewable Energy Systems",
+        "description": "Solar thermal systems, Hydroelectric power basics, Geothermal and Ocean energy, Grid integration of renewables, Future trends.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-009": {
+    "name": "Aparna Bhat",
+    "maxWeeklyHours": 21,
+    "topics": [
+      {
+        "title": "Electronic Circuits & Devices — Unit 1: Diode Applications & Power Regulators",
+        "description": "PN junction characteristics, Rectifier circuits, Ripple factor, Voltage regulator circuits, Zener diodes.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 2: Bipolar Junction Transistor Biasing & Amplifiers",
+        "description": "BJT operation, Operating point (Q-point), Thermal runaway, Voltage divider bias, Small signal analysis.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 3: Field Effect Transistors (FET & MOSFET)",
+        "description": "JFET characteristics, MOSFET (Enhancement & Depletion), Biasing of FET, High frequency response.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 4: Feedback Amplifiers & Sinusoidal Oscillators",
+        "description": "Feedback topologies, Gain stabilization, Barkhausen criterion, RC phase shift, Hartley and Colpitts oscillators.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 5: Operational Amplifiers & Linear Signal Circuits",
+        "description": "Ideal op-amp characteristics, Inverting and Non-inverting amplifiers, Summing amplifier, Integrator, Differentiator.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 6: Non-Linear Op-Amp Circuits & Active Filters",
+        "description": "Comparators, Schmitt triggers, First-order and Second-order active Butterworth filters, Precision rectifiers.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital Electronics and Microcontroller (ECE) — Unit 1: Digital Number Systems and Logic Fundamentals",
+        "description": "Digital Systems, Binary, Octal, Decimal and Hexadecimal Number Systems, Conversions, Binary Arithmetic, 1s and 2s Complement, Logic Gates, Universal Gates, Boolean Algebra, De Morgans Theorems, Karnaugh Map (K-Map) simplification (up to 4 variables).",
+        "allottedMinutes": 540,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital Electronics and Microcontroller (ECE) — Unit 2: Combinational Logic Circuits",
+        "description": "Design and Analysis of Combinational Circuits, Half Adder, Full Adder, Half Subtractor, Full Subtractor, Binary Parallel Adder, Lookahead Carry Adder, BCD Adder, Multiplexer, Demultiplexer, Encoders, Decoders, Code Converters (Binary to Gray, Gray to Binary, BCD to Excess-3).",
+        "allottedMinutes": 540,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital Electronics and Microcontroller (ECE) — Unit 3: Sequential Logic Circuits",
+        "description": "Latches and Flip-Flops: SR, JK, D and T flip-flops, Master-Slave Flip-Flop, Truth Tables and Excitation Tables, Flip-Flop conversions, Registers: Buffer registers, Shift registers (SISO, SIPO, PISO, PIPO), Bidirectional and Universal shift registers.",
+        "allottedMinutes": 480,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital Electronics and Microcontroller (ECE) — Unit 4: Counters and State Machine Design",
+        "description": "Asynchronous (Ripple) Counters, Synchronous Counters, Up/Down Counters, Modulo-N Counters, Ring Counter, Johnson Counter, Finite State Machines (Mealy and Moore models), State diagrams, State tables, State reduction, Sequence detector design.",
+        "allottedMinutes": 540,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital Electronics and Microcontroller (ECE) — Unit 5: Microcontroller 8051 Architecture & Programming",
+        "description": "Comparison of Microprocessors and Microcontrollers, 8051 Microcontroller architecture, Pin diagram, Memory organization (Internal RAM, ROM, SFRs), Addressing modes, Instruction set (Data transfer, Arithmetic, Logical, Branching), Assembly language programming.",
+        "allottedMinutes": 540,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital Electronics and Microcontroller (ECE) — Unit 6: 8051 Hardware Interfacing & Applications",
+        "description": "8051 Timers and Counters (Timer 0, Timer 1 modes), Serial communication (UART, SCON, SBUF), Interrupt structure and ISR programming, Interfacing with LEDs, Seven-segment displays, LCD, ADC, DAC, and Stepper Motor.",
+        "allottedMinutes": 480,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-010": {
+    "name": "Lata Arjun",
+    "maxWeeklyHours": 24,
+    "topics": [
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 1: DC Circuits & Network Analysis",
+        "description": "Charge, current, voltage, power, Ohm's Law, Kirchhoff's laws (KCL, KVL), Mesh and Nodal analysis, Thevenin's & Norton's theorems.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 2: AC Circuits & Single/Three-Phase Power",
+        "description": "Phasor representation, Series & Parallel RLC circuits, Active/Reactive/Apparent power, Power factor improvement, 3-Phase balanced circuits.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 3: Electrical Machines & Power Systems",
+        "description": "Single phase transformer: EMF equation, losses & efficiency, DC motor operation, 3-Phase Induction motor, Star rating energy conservation.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 4: Semiconductor Diodes & Power Rectifiers",
+        "description": "PN Junction characteristics, Half-wave, Full-wave and Bridge rectifiers, Filter circuits, Zener diode voltage regulation.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 5: Transistors, Amplifiers & Switching Circuits",
+        "description": "BJT operation, CE/CB/CC configurations, DC load line, CE amplifier operation, Introduction to MOSFET and power switching.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 6: Digital Logic & Combinational Circuits",
+        "description": "Number systems, Boolean algebra, De Morgan's laws, Logic gates, Half/Full adder, Multiplexers and Flip-Flops.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 1: Object-Oriented Paradigms & Class Modeling",
+        "description": "Encapsulation, Abstraction, Class and Object instantiation, Member functions, Access specifiers.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 2: Constructors, Destructors & Function Overloading",
+        "description": "Default, Parameterized and Copy constructors, Destructors, Constructor overloading, this pointer.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 3: Inheritance & Base-Derived Hierarchies",
+        "description": "Single, Multilevel, Multiple, Hierarchical and Hybrid inheritance, Virtual base class, Protected members.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 4: Polymorphism, Virtual Functions & Interfaces",
+        "description": "Compile-time vs Run-time polymorphism, Function overriding, Pure virtual functions, Abstract classes.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 5: Exception Handling & Robust Error Management",
+        "description": "try, catch, throw blocks, Multiple catch handlers, Standard exception classes, Custom exceptions.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 6: File Streams, Templates & Standard Libraries",
+        "description": "File stream classes (ifstream, ofstream), Template functions and classes, Standard Template Library (vector, map).",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 1: Introduction to Data Structures and Algorithms",
+        "description": "Abstract Data Types (ADT), Linear and Non-linear, Static and Dynamic data structures. Time & Space complexity, Asymptotic notation (Big-O, Theta, Omega), Step count analysis, Divide & Conquer and Greedy strategies.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 2: Linear Data Structures, Searching and Sorting",
+        "description": "Array ADT, Operations, Multidimensional arrays, Sparse matrix. Linear search, Binary search, Fibonacci search. Bubble sort, Insertion sort, Selection sort, Quick sort, Merge sort. Hash tables, hash functions, collision resolution.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 3: Linked Lists",
+        "description": "Static vs Dynamic memory management, Singly linked, Circular linked, Doubly linked lists. Primitive operations: Create, Traverse, Search, Insert, Delete, Sort, Concatenate. Undo-Redo functionality case study.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 4: Stacks and Applications",
+        "description": "Stack ADT, Primitive operations (Push, Pop, Peek), Infix, Prefix, Postfix expressions, Expression conversion and evaluation (Infix to Postfix, Postfix evaluation), Multiple stacks, Linked stack.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 5: Queues and Task Scheduling",
+        "description": "Queue ADT, Operations (Enqueue, Dequeue, Peek), Linear queue, Circular queue, Priority queue, Deque (Double Ended Queue), Multiple queues, Real-time task scheduling applications.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 6: Graphs and Trees",
+        "description": "Tree terminology, Binary Trees, Binary Search Tree (BST) operations, Traversals (Inorder, Preorder, Postorder), Threaded binary trees. Graph representations (Adjacency Matrix, Adjacency List), BFS & DFS traversals, Minimum Spanning Trees.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-011": {
+    "name": "Kiran Kalokhe",
+    "maxWeeklyHours": 20,
+    "topics": [
+      {
+        "title": "Data Structures & Algorithms — Unit 1: Stacks, Queues & Linear Data Structures",
+        "description": "Stack ADT, Infix to Postfix conversion, Queue ADT, Circular Queue, Priority Queue implementation.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 2: Linked Lists & Dynamic Memory Allocation",
+        "description": "Singly linked list, Doubly linked list, Circular linked list, Polynomial representation using linked lists.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 3: Trees & Binary Search Tree Traversal",
+        "description": "Binary tree representation, Inorder, Preorder, Postorder traversal, BST operations (Insert, Delete, Search), AVL trees.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 4: Graph Representations & Shortest Path Algorithms",
+        "description": "Adjacency matrix and list, BFS and DFS traversals, Dijkstra algorithm, Prim and Kruskal MST algorithms.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 5: Hashing Techniques & Hash Tables",
+        "description": "Hash functions, Collision resolution techniques (Linear probing, Quadratic probing, Chaining), Open addressing.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 6: Algorithm Design & Asymptotic Complexity Analysis",
+        "description": "Big-O, Big-Omega, Theta notations, Divide-and-Conquer strategy, Sorting analysis (Quick sort, Merge sort).",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 1: Introduction to Data Structures and Arrays",
+        "description": "Need and importance of data structures in problem-solving, Characteristics of a good algorithm, Abstract Data Types (ADT), Linear vs Non-linear, Static vs Dynamic allocation, 1D & 2D Arrays, Sparse Matrix representation, Applications in computer engineering.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 2: Searching, Sorting and Analysis of Algorithms",
+        "description": "Linear search, Binary search, Fibonacci search, Bubble sort, Insertion sort, Selection sort, Quick sort, Merge sort, Radix sort, Asymptotic notations (Big-O, Omega, Theta), Space-time tradeoff, Hashing fundamentals and collision resolution.",
+        "allottedMinutes": 480,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 3: Stacks and Applications",
+        "description": "Stack ADT, Array and Linked representation, Stack operations (Push, Pop, Peek), Expression evaluation, Infix to Postfix conversion, Infix to Prefix conversion, Recursion using stack, Backtracking applications.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 4: Linked Lists",
+        "description": "Singly linked list, Doubly linked list, Circular linked list, Header linked list, Primitive operations (Insertion, Deletion, Traversal, Reversal), Polynomial manipulation using linked list, Memory management and garbage collection.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 5: Queues and Applications",
+        "description": "Queue ADT, Sequential and linked organization, Circular queue, Priority queue, Double Ended Queue (Deque), Multiple queues, Job scheduling, CPU burst queue management.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 6: Trees and Binary Trees",
+        "description": "Basic tree terminology, Binary Trees, Representation, Traversal algorithms (Inorder, Preorder, Postorder), Binary Search Tree (BST) operations, Threaded Binary Trees, Introduction to AVL Trees and B-Trees.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-012": {
+    "name": "Swapnali Deshmukh",
+    "maxWeeklyHours": 24,
+    "topics": [
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 1: DC Circuits & Network Analysis",
+        "description": "Charge, current, voltage, power, Ohm's Law, Kirchhoff's laws (KCL, KVL), Mesh and Nodal analysis, Thevenin's & Norton's theorems.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 2: AC Circuits & Single/Three-Phase Power",
+        "description": "Phasor representation, Series & Parallel RLC circuits, Active/Reactive/Apparent power, Power factor improvement, 3-Phase balanced circuits.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 3: Electrical Machines & Power Systems",
+        "description": "Single phase transformer: EMF equation, losses & efficiency, DC motor operation, 3-Phase Induction motor, Star rating energy conservation.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 4: Semiconductor Diodes & Power Rectifiers",
+        "description": "PN Junction characteristics, Half-wave, Full-wave and Bridge rectifiers, Filter circuits, Zener diode voltage regulation.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 5: Transistors, Amplifiers & Switching Circuits",
+        "description": "BJT operation, CE/CB/CC configurations, DC load line, CE amplifier operation, Introduction to MOSFET and power switching.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 6: Digital Logic & Combinational Circuits",
+        "description": "Number systems, Boolean algebra, De Morgan's laws, Logic gates, Half/Full adder, Multiplexers and Flip-Flops.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms (ENTC) — Unit 1: Introduction to Data Structures & Complexity",
+        "description": "Concept, Types of data structures (Linear, Non-linear), Primitive operations, Time and space complexities, Asymptotic notation (Big-O, Omega, Theta).",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms (ENTC) — Unit 2: Sorting and Searching Techniques",
+        "description": "Linear search, Binary search, Bubble sort, Selection sort, Insertion sort, Merge sort, Quick sort, Hashing techniques and collision resolution.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms (ENTC) — Unit 3: Linear Arrays and Linked Lists",
+        "description": "Representation of arrays, 2D arrays, Sparse matrix, Singly linked list, Doubly linked list, Circular linked list, Node operations (Insert, Delete, Search, Traverse).",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms (ENTC) — Unit 4: Stacks and Queues",
+        "description": "Stack ADT, Stack operations (Push, Pop, Peek), Expression evaluation, Infix to Postfix conversion, Queue ADT, Circular queue, Priority queue, Real-time queue applications.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms (ENTC) — Unit 5: Trees and Binary Search Trees",
+        "description": "Tree terminology, Binary Trees, Traversals (Inorder, Preorder, Postorder), Binary Search Tree (BST) creation, Insertion and Deletion in BST.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms (ENTC) — Unit 6: Graph Representations and Traversals",
+        "description": "Graph representation (Adjacency matrix, Adjacency list), BFS and DFS traversals, Minimum Spanning Trees (Prim and Kruskal algorithms), Applications of graphs in telecommunication routing.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-013": {
+    "name": "Bhasker Singh",
+    "maxWeeklyHours": 26,
+    "topics": [
+      {
+        "title": "Object Oriented Programming — Unit 1: Object-Oriented Paradigms & Class Modeling",
+        "description": "Encapsulation, Abstraction, Class and Object instantiation, Member functions, Access specifiers.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 2: Constructors, Destructors & Function Overloading",
+        "description": "Default, Parameterized and Copy constructors, Destructors, Constructor overloading, this pointer.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 3: Inheritance & Base-Derived Hierarchies",
+        "description": "Single, Multilevel, Multiple, Hierarchical and Hybrid inheritance, Virtual base class, Protected members.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 4: Polymorphism, Virtual Functions & Interfaces",
+        "description": "Compile-time vs Run-time polymorphism, Function overriding, Pure virtual functions, Abstract classes.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 5: Exception Handling & Robust Error Management",
+        "description": "try, catch, throw blocks, Multiple catch handlers, Standard exception classes, Custom exceptions.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 6: File Streams, Templates & Standard Libraries",
+        "description": "File stream classes (ifstream, ofstream), Template functions and classes, Standard Template Library (vector, map).",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Java Programming — Unit 1: Java Evolution, Overview & Syntax",
+        "description": "Features of Java, JVM, JRE, JDK architecture, Bytecode execution, Java data types, Variables, Operators, Decision making (if-else, switch), Looping constructs (while, do-while, for, for-each), 1D and 2D Arrays.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Java Programming — Unit 2: Classes, Objects & Methods",
+        "description": "Defining classes, Field variables, Methods, Creating objects, Accessing class members, Constructors, Method overloading, Static members, this keyword, Garbage collection, finalize method.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Java Programming — Unit 3: Inheritance & Polymorphism",
+        "description": "Subclassing, Types of inheritance, Method overriding, super keyword, final keyword with variables, methods, and classes, Abstract classes and methods, Dynamic method dispatch.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Java Programming — Unit 4: Packages & Interfaces",
+        "description": "Defining interfaces, Implementing interfaces, Extending interfaces, Accessing interface variables, Java API packages, Creating and using user-defined packages, Access protection across packages.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Java Programming — Unit 5: Exception Handling & Multithreading",
+        "description": "Types of errors, Exceptions, try, catch, throw, throws, finally blocks, User-defined exceptions. Multithreaded programming: Creating threads, Life cycle of a thread, Thread priorities, Synchronization, Inter-thread communication.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Java Programming — Unit 6: Java Collections Framework & I/O Streams",
+        "description": "Byte streams and Character streams, File input/output operations, Collection interfaces (List, Set, Map), Implementations (ArrayList, LinkedList, HashSet, HashMap), Iterators, Generics fundamentals.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-014": {
+    "name": "Snehal Dharme",
+    "maxWeeklyHours": 20,
+    "topics": [
+      {
+        "title": "Data Structures & Algorithms — Unit 1: Stacks, Queues & Linear Data Structures",
+        "description": "Stack ADT, Infix to Postfix conversion, Queue ADT, Circular Queue, Priority Queue implementation.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 2: Linked Lists & Dynamic Memory Allocation",
+        "description": "Singly linked list, Doubly linked list, Circular linked list, Polynomial representation using linked lists.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 3: Trees & Binary Search Tree Traversal",
+        "description": "Binary tree representation, Inorder, Preorder, Postorder traversal, BST operations (Insert, Delete, Search), AVL trees.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 4: Graph Representations & Shortest Path Algorithms",
+        "description": "Adjacency matrix and list, BFS and DFS traversals, Dijkstra algorithm, Prim and Kruskal MST algorithms.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 5: Hashing Techniques & Hash Tables",
+        "description": "Hash functions, Collision resolution techniques (Linear probing, Quadratic probing, Chaining), Open addressing.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 6: Algorithm Design & Asymptotic Complexity Analysis",
+        "description": "Big-O, Big-Omega, Theta notations, Divide-and-Conquer strategy, Sorting analysis (Quick sort, Merge sort).",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 1: Introduction to Data Structures and Arrays",
+        "description": "Need and importance of data structures in problem-solving, Characteristics of a good algorithm, Abstract Data Types (ADT), Linear vs Non-linear, Static vs Dynamic allocation, 1D & 2D Arrays, Sparse Matrix representation, Applications in computer engineering.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 2: Searching, Sorting and Analysis of Algorithms",
+        "description": "Linear search, Binary search, Fibonacci search, Bubble sort, Insertion sort, Selection sort, Quick sort, Merge sort, Radix sort, Asymptotic notations (Big-O, Omega, Theta), Space-time tradeoff, Hashing fundamentals and collision resolution.",
+        "allottedMinutes": 480,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 3: Stacks and Applications",
+        "description": "Stack ADT, Array and Linked representation, Stack operations (Push, Pop, Peek), Expression evaluation, Infix to Postfix conversion, Infix to Prefix conversion, Recursion using stack, Backtracking applications.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 4: Linked Lists",
+        "description": "Singly linked list, Doubly linked list, Circular linked list, Header linked list, Primitive operations (Insertion, Deletion, Traversal, Reversal), Polynomial manipulation using linked list, Memory management and garbage collection.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 5: Queues and Applications",
+        "description": "Queue ADT, Sequential and linked organization, Circular queue, Priority queue, Double Ended Queue (Deque), Multiple queues, Job scheduling, CPU burst queue management.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 6: Trees and Binary Trees",
+        "description": "Basic tree terminology, Binary Trees, Representation, Traversal algorithms (Inorder, Preorder, Postorder), Binary Search Tree (BST) operations, Threaded Binary Trees, Introduction to AVL Trees and B-Trees.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-015": {
+    "name": "Rashmi Bhumbare",
+    "maxWeeklyHours": 18,
+    "topics": [
+      {
+        "title": "Electronic Circuits & Devices — Unit 1: Diode Applications & Power Regulators",
+        "description": "PN junction characteristics, Rectifier circuits, Ripple factor, Voltage regulator circuits, Zener diodes.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 2: Bipolar Junction Transistor Biasing & Amplifiers",
+        "description": "BJT operation, Operating point (Q-point), Thermal runaway, Voltage divider bias, Small signal analysis.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 3: Field Effect Transistors (FET & MOSFET)",
+        "description": "JFET characteristics, MOSFET (Enhancement & Depletion), Biasing of FET, High frequency response.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 4: Feedback Amplifiers & Sinusoidal Oscillators",
+        "description": "Feedback topologies, Gain stabilization, Barkhausen criterion, RC phase shift, Hartley and Colpitts oscillators.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 5: Operational Amplifiers & Linear Signal Circuits",
+        "description": "Ideal op-amp characteristics, Inverting and Non-inverting amplifiers, Summing amplifier, Integrator, Differentiator.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 6: Non-Linear Op-Amp Circuits & Active Filters",
+        "description": "Comparators, Schmitt triggers, First-order and Second-order active Butterworth filters, Precision rectifiers.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Network Analysis & Synthesis — Unit 1: Graph Theory & Circuit Analysis",
+        "description": "Node, Path, Degree, Tree, Loop, Cut set and Tie set, Incidence, Cut set and Tie set matrices, Graph theory method to solve currents and voltages in electrical networks.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Network Analysis & Synthesis — Unit 2: Two Port Networks and Network Functions",
+        "description": "Definition of two-port network, Dependent and independent variables, Z parameters, Y parameters, h parameters, ABCD transmission parameters, Interrelations between parameters.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Network Analysis & Synthesis — Unit 3: Network Theorems (AC & DC)",
+        "description": "Superposition theorem, Thevenin theorem, Norton theorem, Maximum Power Transfer theorem, Reciprocity theorem applied to AC networks with independent and dependent sources.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Network Analysis & Synthesis — Unit 4: Transient Analysis of Circuits",
+        "description": "Initial conditions in network elements, DC and AC response of series and parallel R-L, R-C and R-L-C circuits, Time constant, Transient solution using classical differential equation method.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Network Analysis & Synthesis — Unit 5: Laplace Transform in Circuit Analysis",
+        "description": "Application of Laplace transform to circuit analysis, Transformed impedance and admittance, Transient and steady-state response of electrical networks using Laplace transforms.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Network Analysis & Synthesis — Unit 6: Synthesis of One-Port Networks",
+        "description": "Hurwitz polynomials, Positive Real Functions (PRF) properties, Synthesis of LC, RC and RL networks using Foster-I, Foster-II, Cauer-I and Cauer-II forms.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-016": {
+    "name": "Mahesh Patil",
+    "maxWeeklyHours": 22,
+    "topics": [
+      {
+        "title": "Data Structures & Algorithms — Unit 1: Stacks, Queues & Linear Data Structures",
+        "description": "Stack ADT, Infix to Postfix conversion, Queue ADT, Circular Queue, Priority Queue implementation.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 2: Linked Lists & Dynamic Memory Allocation",
+        "description": "Singly linked list, Doubly linked list, Circular linked list, Polynomial representation using linked lists.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 3: Trees & Binary Search Tree Traversal",
+        "description": "Binary tree representation, Inorder, Preorder, Postorder traversal, BST operations (Insert, Delete, Search), AVL trees.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 4: Graph Representations & Shortest Path Algorithms",
+        "description": "Adjacency matrix and list, BFS and DFS traversals, Dijkstra algorithm, Prim and Kruskal MST algorithms.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 5: Hashing Techniques & Hash Tables",
+        "description": "Hash functions, Collision resolution techniques (Linear probing, Quadratic probing, Chaining), Open addressing.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 6: Algorithm Design & Asymptotic Complexity Analysis",
+        "description": "Big-O, Big-Omega, Theta notations, Divide-and-Conquer strategy, Sorting analysis (Quick sort, Merge sort).",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 1: DC Circuits & Network Analysis",
+        "description": "Charge, current, voltage, power, Ohm's Law, Kirchhoff's laws (KCL, KVL), Mesh and Nodal analysis, Thevenin's & Norton's theorems.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 2: AC Circuits & Single/Three-Phase Power",
+        "description": "Phasor representation, Series & Parallel RLC circuits, Active/Reactive/Apparent power, Power factor improvement, 3-Phase balanced circuits.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 3: Electrical Machines & Power Systems",
+        "description": "Single phase transformer: EMF equation, losses & efficiency, DC motor operation, 3-Phase Induction motor, Star rating energy conservation.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 4: Semiconductor Diodes & Power Rectifiers",
+        "description": "PN Junction characteristics, Half-wave, Full-wave and Bridge rectifiers, Filter circuits, Zener diode voltage regulation.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 5: Transistors, Amplifiers & Switching Circuits",
+        "description": "BJT operation, CE/CB/CC configurations, DC load line, CE amplifier operation, Introduction to MOSFET and power switching.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 6: Digital Logic & Combinational Circuits",
+        "description": "Number systems, Boolean algebra, De Morgan's laws, Logic gates, Half/Full adder, Multiplexers and Flip-Flops.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (ECE) — Unit 1: Introduction to Data Structures & Complexity",
+        "description": "Concept, Types of data structures (Linear, Non-linear), Common operations, Complexity analysis, Time complexity, Space complexity, Order of growth, Asymptotic notations (Big-O, Omega, Theta).",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (ECE) — Unit 2: Searching and Sorting Techniques",
+        "description": "Linear search, Binary search, Sorting algorithms: Bubble sort, Selection sort, Insertion sort, Merge sort, Quick sort, Analysis and comparison of sorting algorithms.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (ECE) — Unit 3: Linear Arrays and Linked Lists",
+        "description": "Linear Arrays, Representation in memory, Insertion and deletion, 2D Arrays, Sparse matrix representation. Linked Lists: Singly linked list, Doubly linked list, Circular linked list, Primitive operations (Insert, Delete, Traverse, Search).",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (ECE) — Unit 4: Stacks and Queues",
+        "description": "Stack ADT, Operations (Push, Pop, Peek), Stack implementation using array and linked list, Expression conversion (Infix to Postfix), Expression evaluation. Queue ADT, Operations (Enqueue, Dequeue), Circular queue, Priority queue.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (ECE) — Unit 5: Trees and Binary Search Trees",
+        "description": "Tree terminology, Binary Trees, Representation, Traversals (Inorder, Preorder, Postorder), Binary Search Tree (BST), BST operations: Insertion, Deletion, Searching.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (ECE) — Unit 6: Graph Fundamentals and Algorithms",
+        "description": "Graph terminology and representation (Adjacency matrix, Adjacency list), Graph traversals: Breadth First Search (BFS), Depth First Search (DFS), Minimum Spanning Tree (Prims and Kruskals algorithms), Shortest path algorithm (Dijkstras algorithm).",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-017": {
+    "name": "Rakhi Tarone",
+    "maxWeeklyHours": 20,
+    "topics": [
+      {
+        "title": "Data Structures & Algorithms — Unit 1: Stacks, Queues & Linear Data Structures",
+        "description": "Stack ADT, Infix to Postfix conversion, Queue ADT, Circular Queue, Priority Queue implementation.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 2: Linked Lists & Dynamic Memory Allocation",
+        "description": "Singly linked list, Doubly linked list, Circular linked list, Polynomial representation using linked lists.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 3: Trees & Binary Search Tree Traversal",
+        "description": "Binary tree representation, Inorder, Preorder, Postorder traversal, BST operations (Insert, Delete, Search), AVL trees.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 4: Graph Representations & Shortest Path Algorithms",
+        "description": "Adjacency matrix and list, BFS and DFS traversals, Dijkstra algorithm, Prim and Kruskal MST algorithms.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 5: Hashing Techniques & Hash Tables",
+        "description": "Hash functions, Collision resolution techniques (Linear probing, Quadratic probing, Chaining), Open addressing.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 6: Algorithm Design & Asymptotic Complexity Analysis",
+        "description": "Big-O, Big-Omega, Theta notations, Divide-and-Conquer strategy, Sorting analysis (Quick sort, Merge sort).",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 1: Introduction to Data Structures and Arrays",
+        "description": "Need and importance of data structures in problem-solving, Characteristics of a good algorithm, Abstract Data Types (ADT), Linear vs Non-linear, Static vs Dynamic allocation, 1D & 2D Arrays, Sparse Matrix representation, Applications in computer engineering.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 2: Searching, Sorting and Analysis of Algorithms",
+        "description": "Linear search, Binary search, Fibonacci search, Bubble sort, Insertion sort, Selection sort, Quick sort, Merge sort, Radix sort, Asymptotic notations (Big-O, Omega, Theta), Space-time tradeoff, Hashing fundamentals and collision resolution.",
+        "allottedMinutes": 480,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 3: Stacks and Applications",
+        "description": "Stack ADT, Array and Linked representation, Stack operations (Push, Pop, Peek), Expression evaluation, Infix to Postfix conversion, Infix to Prefix conversion, Recursion using stack, Backtracking applications.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 4: Linked Lists",
+        "description": "Singly linked list, Doubly linked list, Circular linked list, Header linked list, Primitive operations (Insertion, Deletion, Traversal, Reversal), Polynomial manipulation using linked list, Memory management and garbage collection.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 5: Queues and Applications",
+        "description": "Queue ADT, Sequential and linked organization, Circular queue, Priority queue, Double Ended Queue (Deque), Multiple queues, Job scheduling, CPU burst queue management.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 6: Trees and Binary Trees",
+        "description": "Basic tree terminology, Binary Trees, Representation, Traversal algorithms (Inorder, Preorder, Postorder), Binary Search Tree (BST) operations, Threaded Binary Trees, Introduction to AVL Trees and B-Trees.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-018": {
+    "name": "Vedant Sharma",
+    "maxWeeklyHours": 22,
+    "topics": [
+      {
+        "title": "Web Application Development — Unit 1: Web Architecture & HTML5 Standards",
+        "description": "Client-server architecture, HTTP/HTTPS, HTML document hierarchy, Semantic tags, Headings, Text formatting.",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 2: Lists, Hyperlinks & Multimedia Integration",
+        "description": "Ordered and unordered lists, Anchor tags, Relative & absolute paths, Responsive images, Audio and Video embedding.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 3: Modern CSS Styling & Flexbox Layouts",
+        "description": "CSS Selectors, Box Model (Margin, Border, Padding), Flexbox layouts, Media queries for responsive design.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 4: Tables, Interactive Forms & Input Validation",
+        "description": "HTML tables, colspan/rowspan, Form elements, Input types, Client-side form validation attributes.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 5: JavaScript Essentials & DOM Manipulation",
+        "description": "JavaScript syntax, Variables, Event handling (click, change, submit), Dynamic DOM updates.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 6: Web Hosting, Deployment & Version Control",
+        "description": "Web servers, DNS, Cloud hosting platforms (GitHub Pages / Render), Production deployment practices.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 1: Computer Hardware & Operating System Setup",
+        "description": "Hardware components, CPU, Memory, BIOS settings, Installation and configuration of Linux/Windows OS.",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 2: Advanced Word Processing & Spreadsheet Analytics",
+        "description": "Technical documentation formatting, Advanced Excel formulas (VLOOKUP, INDEX/MATCH), Pivot tables and charting.",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 3: Internet Technologies, Cybersecurity & Safety",
+        "description": "Networking basics, IP addresses, Secure browsing, Antivirus, Two-factor authentication, Phishing defense.",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 4: Version Control Systems - Git & GitHub Workflows",
+        "description": "Git initialization, staging, commit, push, pull, branching, merge conflict resolution, Pull Requests on GitHub.",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 5: Cloud Tools, Document Collaboration & Technical Presentation",
+        "description": "Google Workspace, Cloud storage management, Collaborative document editing, Creating technical slide decks.",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 1: Advanced Object-Oriented Python",
+        "description": "Classes, objects, magic/dunder methods (__init__, __str__, __repr__, __call__), inheritance, multiple inheritance and MRO, abstract base classes, property decorators, encapsulation.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 2: Functional Programming & Metaprogramming",
+        "description": "First-class functions, closures, decorators with and without arguments, functools module, lambda functions, map, filter, reduce, list/dict/set comprehensions, generators, yield statement, itertools.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 3: Advanced Data Structures & Memory Management",
+        "description": "Collections module (namedtuple, defaultdict, Counter, deque, OrderedDict), heapq, bisect, memory management in Python, reference counting, garbage collection, copy vs deepcopy.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 4: Concurrency, Threading & Multiprocessing",
+        "description": "GIL (Global Interpreter Lock), threading module, synchronization primitives (Locks, RLock, Semaphores), multiprocessing module, Process Pools, concurrent.futures, asyncio fundamentals, coroutines.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 5: File Handling, Serialization & Networking",
+        "description": "Working with text, binary, CSV and JSON files, context managers (with statement, contextlib), serialization with pickle and dill, network requests using urllib and requests, REST API consumption.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 6: Scientific Computing & Data Manipulation Libraries",
+        "description": "NumPy arrays, vectorization, broadcasting, linear algebra operations, Pandas Series and DataFrames, data cleaning, filtering, groupby, merging, Matplotlib & Seaborn data visualization techniques.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-019": {
+    "name": "Shrutika More",
+    "maxWeeklyHours": 17,
+    "topics": [
+      {
+        "title": "Problem Solving and Logic Building — Unit 1: Problem Solving Logic & C Fundamentals",
+        "description": "Algorithms, Flowcharts, Structure of C program, Data types, Variables, Constants, Operators, Type casting.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 2: Decision Control & Looping Constructs",
+        "description": "if-else, nested branching, switch-case, while, do-while, for loops, break and continue, Pattern generation logic.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 3: Functions, Recursion & Modular Design",
+        "description": "Function definition & call, Parameter passing, Call by value, Scope and Storage classes, Recursion mechanisms.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 4: 1D & 2D Arrays and Algorithms",
+        "description": "Array declaration, Linear & Binary search, Bubble & Selection sort, 2D arrays, Matrix operations.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 5: Strings, Pointers & Memory Addresses",
+        "description": "String operations, Standard string library, Pointer concept, Address-of operator, Pointer arithmetic, Call by reference.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 6: Structures, Unions & File Handling",
+        "description": "Structures and Unions, Array of structures, File handling: fopen, fclose, fprintf, fscanf, Text and Binary files.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Database Management Systems — Unit 1: Database Architecture & ER Data Modeling",
+        "description": "Three-schema architecture, Data independence, Entity-Relationship diagrams, Extended ER features.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Database Management Systems — Unit 2: Relational Model & Relational Algebra",
+        "description": "Relational model concepts, Integrity constraints, Relational algebra operations (Select, Project, Join, Union).",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Database Management Systems — Unit 3: Structured Query Language (SQL) Mastery",
+        "description": "DDL, DML, DCL, Subqueries, Complex joins, Aggregate functions, Views, Triggers and Stored procedures.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Database Management Systems — Unit 4: Relational Schema Normalization",
+        "description": "Functional dependencies, Normal forms: 1NF, 2NF, 3NF, BCNF, Lossless join and Dependency preservation.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Database Management Systems — Unit 5: Transaction Management & ACID Properties",
+        "description": "Transaction states, ACID properties, Serializability, Concurrency control protocols: Two-phase locking, Deadlocks.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Database Management Systems — Unit 6: Indexing, Storage Systems & NoSQL Overview",
+        "description": "Primary and Secondary indexing, B-Trees, B+ Trees, Introduction to NoSQL document stores (MongoDB).",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 1: Introduction to Data Structures and Algorithms",
+        "description": "Abstract Data Types (ADT), Linear and Non-linear, Static and Dynamic data structures. Time & Space complexity, Asymptotic notation (Big-O, Theta, Omega), Step count analysis, Divide & Conquer and Greedy strategies.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 2: Linear Data Structures, Searching and Sorting",
+        "description": "Array ADT, Operations, Multidimensional arrays, Sparse matrix. Linear search, Binary search, Fibonacci search. Bubble sort, Insertion sort, Selection sort, Quick sort, Merge sort. Hash tables, hash functions, collision resolution.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 3: Linked Lists",
+        "description": "Static vs Dynamic memory management, Singly linked, Circular linked, Doubly linked lists. Primitive operations: Create, Traverse, Search, Insert, Delete, Sort, Concatenate. Undo-Redo functionality case study.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 4: Stacks and Applications",
+        "description": "Stack ADT, Primitive operations (Push, Pop, Peek), Infix, Prefix, Postfix expressions, Expression conversion and evaluation (Infix to Postfix, Postfix evaluation), Multiple stacks, Linked stack.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 5: Queues and Task Scheduling",
+        "description": "Queue ADT, Operations (Enqueue, Dequeue, Peek), Linear queue, Circular queue, Priority queue, Deque (Double Ended Queue), Multiple queues, Real-time task scheduling applications.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 6: Graphs and Trees",
+        "description": "Tree terminology, Binary Trees, Binary Search Tree (BST) operations, Traversals (Inorder, Preorder, Postorder), Threaded binary trees. Graph representations (Adjacency Matrix, Adjacency List), BFS & DFS traversals, Minimum Spanning Trees.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-020": {
+    "name": "Priyanka Bahirwade",
+    "maxWeeklyHours": 22,
+    "topics": [
+      {
+        "title": "Data Structures & Algorithms — Unit 1: Stacks, Queues & Linear Data Structures",
+        "description": "Stack ADT, Infix to Postfix conversion, Queue ADT, Circular Queue, Priority Queue implementation.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 2: Linked Lists & Dynamic Memory Allocation",
+        "description": "Singly linked list, Doubly linked list, Circular linked list, Polynomial representation using linked lists.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 3: Trees & Binary Search Tree Traversal",
+        "description": "Binary tree representation, Inorder, Preorder, Postorder traversal, BST operations (Insert, Delete, Search), AVL trees.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 4: Graph Representations & Shortest Path Algorithms",
+        "description": "Adjacency matrix and list, BFS and DFS traversals, Dijkstra algorithm, Prim and Kruskal MST algorithms.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 5: Hashing Techniques & Hash Tables",
+        "description": "Hash functions, Collision resolution techniques (Linear probing, Quadratic probing, Chaining), Open addressing.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 6: Algorithm Design & Asymptotic Complexity Analysis",
+        "description": "Big-O, Big-Omega, Theta notations, Divide-and-Conquer strategy, Sorting analysis (Quick sort, Merge sort).",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 1: Introduction to Data Structures and Arrays",
+        "description": "Need and importance of data structures in problem-solving, Characteristics of a good algorithm, Abstract Data Types (ADT), Linear vs Non-linear, Static vs Dynamic allocation, 1D & 2D Arrays, Sparse Matrix representation, Applications in computer engineering.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 2: Searching, Sorting and Analysis of Algorithms",
+        "description": "Linear search, Binary search, Fibonacci search, Bubble sort, Insertion sort, Selection sort, Quick sort, Merge sort, Radix sort, Asymptotic notations (Big-O, Omega, Theta), Space-time tradeoff, Hashing fundamentals and collision resolution.",
+        "allottedMinutes": 480,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 3: Stacks and Applications",
+        "description": "Stack ADT, Array and Linked representation, Stack operations (Push, Pop, Peek), Expression evaluation, Infix to Postfix conversion, Infix to Prefix conversion, Recursion using stack, Backtracking applications.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 4: Linked Lists",
+        "description": "Singly linked list, Doubly linked list, Circular linked list, Header linked list, Primitive operations (Insertion, Deletion, Traversal, Reversal), Polynomial manipulation using linked list, Memory management and garbage collection.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 5: Queues and Applications",
+        "description": "Queue ADT, Sequential and linked organization, Circular queue, Priority queue, Double Ended Queue (Deque), Multiple queues, Job scheduling, CPU burst queue management.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures (COMP) — Unit 6: Trees and Binary Trees",
+        "description": "Basic tree terminology, Binary Trees, Representation, Traversal algorithms (Inorder, Preorder, Postorder), Binary Search Tree (BST) operations, Threaded Binary Trees, Introduction to AVL Trees and B-Trees.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-021": {
+    "name": "Samrudhi Pachpinde",
+    "maxWeeklyHours": 22,
+    "topics": [
+      {
+        "title": "Data Structures & Algorithms — Unit 1: Stacks, Queues & Linear Data Structures",
+        "description": "Stack ADT, Infix to Postfix conversion, Queue ADT, Circular Queue, Priority Queue implementation.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 2: Linked Lists & Dynamic Memory Allocation",
+        "description": "Singly linked list, Doubly linked list, Circular linked list, Polynomial representation using linked lists.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 3: Trees & Binary Search Tree Traversal",
+        "description": "Binary tree representation, Inorder, Preorder, Postorder traversal, BST operations (Insert, Delete, Search), AVL trees.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 4: Graph Representations & Shortest Path Algorithms",
+        "description": "Adjacency matrix and list, BFS and DFS traversals, Dijkstra algorithm, Prim and Kruskal MST algorithms.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 5: Hashing Techniques & Hash Tables",
+        "description": "Hash functions, Collision resolution techniques (Linear probing, Quadratic probing, Chaining), Open addressing.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 6: Algorithm Design & Asymptotic Complexity Analysis",
+        "description": "Big-O, Big-Omega, Theta notations, Divide-and-Conquer strategy, Sorting analysis (Quick sort, Merge sort).",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 1: Object-Oriented Paradigms & Class Modeling",
+        "description": "Encapsulation, Abstraction, Class and Object instantiation, Member functions, Access specifiers.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 2: Constructors, Destructors & Function Overloading",
+        "description": "Default, Parameterized and Copy constructors, Destructors, Constructor overloading, this pointer.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 3: Inheritance & Base-Derived Hierarchies",
+        "description": "Single, Multilevel, Multiple, Hierarchical and Hybrid inheritance, Virtual base class, Protected members.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 4: Polymorphism, Virtual Functions & Interfaces",
+        "description": "Compile-time vs Run-time polymorphism, Function overriding, Pure virtual functions, Abstract classes.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 5: Exception Handling & Robust Error Management",
+        "description": "try, catch, throw blocks, Multiple catch handlers, Standard exception classes, Custom exceptions.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 6: File Streams, Templates & Standard Libraries",
+        "description": "File stream classes (ifstream, ofstream), Template functions and classes, Standard Template Library (vector, map).",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (ECE) — Unit 1: Introduction to Data Structures & Complexity",
+        "description": "Concept, Types of data structures (Linear, Non-linear), Common operations, Complexity analysis, Time complexity, Space complexity, Order of growth, Asymptotic notations (Big-O, Omega, Theta).",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (ECE) — Unit 2: Searching and Sorting Techniques",
+        "description": "Linear search, Binary search, Sorting algorithms: Bubble sort, Selection sort, Insertion sort, Merge sort, Quick sort, Analysis and comparison of sorting algorithms.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (ECE) — Unit 3: Linear Arrays and Linked Lists",
+        "description": "Linear Arrays, Representation in memory, Insertion and deletion, 2D Arrays, Sparse matrix representation. Linked Lists: Singly linked list, Doubly linked list, Circular linked list, Primitive operations (Insert, Delete, Traverse, Search).",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (ECE) — Unit 4: Stacks and Queues",
+        "description": "Stack ADT, Operations (Push, Pop, Peek), Stack implementation using array and linked list, Expression conversion (Infix to Postfix), Expression evaluation. Queue ADT, Operations (Enqueue, Dequeue), Circular queue, Priority queue.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (ECE) — Unit 5: Trees and Binary Search Trees",
+        "description": "Tree terminology, Binary Trees, Representation, Traversals (Inorder, Preorder, Postorder), Binary Search Tree (BST), BST operations: Insertion, Deletion, Searching.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (ECE) — Unit 6: Graph Fundamentals and Algorithms",
+        "description": "Graph terminology and representation (Adjacency matrix, Adjacency list), Graph traversals: Breadth First Search (BFS), Depth First Search (DFS), Minimum Spanning Tree (Prims and Kruskals algorithms), Shortest path algorithm (Dijkstras algorithm).",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-022": {
+    "name": "Swati Jadhav",
+    "maxWeeklyHours": 24,
+    "topics": [
+      {
+        "title": "Communication Skills — Unit 1: Communication Fundamentals & Active Listening",
+        "description": "Communication cycle, Barriers to communication, Types of communication, Active listening techniques.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 2: Business Correspondence & Formal Writing",
+        "description": "Business letters, Email writing etiquette, Memorandum, Notice, Agenda and Minutes of meetings.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 3: Spoken Communication & Presentation Skills",
+        "description": "Verbal communication, Pitch, Tone, Body language, Designing slide presentations and delivery.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 4: Grammar, Vocabulary & Language Enhancement",
+        "description": "Common grammatical errors, Sentence structure, Vocabulary building, Phrasal verbs and idioms.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 5: Interpersonal Dynamics & Group Discussion",
+        "description": "Group discussion strategies, Role plays, Conflict resolution, Emotional quotient in team discussions.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 6: Professional Ethics in Communication",
+        "description": "Ethical communication, Plagiarism avoidance, Confidentiality, Cross-cultural communication sensitivity.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-023": {
+    "name": "Yogita Chaskar",
+    "maxWeeklyHours": 26,
+    "topics": [
+      {
+        "title": "Object Oriented Programming — Unit 1: Object-Oriented Paradigms & Class Modeling",
+        "description": "Encapsulation, Abstraction, Class and Object instantiation, Member functions, Access specifiers.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 2: Constructors, Destructors & Function Overloading",
+        "description": "Default, Parameterized and Copy constructors, Destructors, Constructor overloading, this pointer.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 3: Inheritance & Base-Derived Hierarchies",
+        "description": "Single, Multilevel, Multiple, Hierarchical and Hybrid inheritance, Virtual base class, Protected members.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 4: Polymorphism, Virtual Functions & Interfaces",
+        "description": "Compile-time vs Run-time polymorphism, Function overriding, Pure virtual functions, Abstract classes.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 5: Exception Handling & Robust Error Management",
+        "description": "try, catch, throw blocks, Multiple catch handlers, Standard exception classes, Custom exceptions.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 6: File Streams, Templates & Standard Libraries",
+        "description": "File stream classes (ifstream, ofstream), Template functions and classes, Standard Template Library (vector, map).",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming with C++ — Unit 1: Principles of Object-Oriented Programming & C++ Basics",
+        "description": "Paradigms of programming languages, Basic concepts of OOP: Classes, Objects, Data Abstraction, Encapsulation, Inheritance, Polymorphism. Tokens, expressions, control structures, functions in C++, inline functions, default arguments.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming with C++ — Unit 2: Classes, Objects and Constructors",
+        "description": "Specifying a class, member functions, private member functions, arrays within class, memory allocation for objects, static data members, arrays of objects, objects as function arguments, friendly functions, Constructors, parameterized constructors, copy constructors, destructors.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming with C++ — Unit 3: Operator Overloading and Type Conversions",
+        "description": "Concept of operator overloading, overloading unary and binary operators, overloading using friend functions, string manipulation using operators, rules for overloading operators, type conversions (basic to class, class to basic, class to class).",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming with C++ — Unit 4: Inheritance and Virtual Functions",
+        "description": "Defining derived classes, single, multilevel, multiple, hierarchical, hybrid inheritance, virtual base classes, abstract classes. Pointers to objects, this pointer, pointers to derived classes, virtual functions, pure virtual functions, dynamic binding.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming with C++ — Unit 5: Console I/O Operations and Working with Files",
+        "description": "C++ streams, stream classes, unformatted and formatted I/O operations, managing output with manipulators. Classes for file stream operations, opening/closing files, detecting EOF, file modes, file pointers, sequential and random access files.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming with C++ — Unit 6: Templates and Exception Handling",
+        "description": "Class templates, class templates with multiple parameters, function templates, function templates with multiple parameters, overloading template functions. Basics of exception handling, try, catch, throw blocks, rethrowing exceptions.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-024": {
+    "name": "Anushka Chavan",
+    "maxWeeklyHours": 21,
+    "topics": [
+      {
+        "title": "Problem Solving and Logic Building — Unit 1: Problem Solving Logic & C Fundamentals",
+        "description": "Algorithms, Flowcharts, Structure of C program, Data types, Variables, Constants, Operators, Type casting.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 2: Decision Control & Looping Constructs",
+        "description": "if-else, nested branching, switch-case, while, do-while, for loops, break and continue, Pattern generation logic.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 3: Functions, Recursion & Modular Design",
+        "description": "Function definition & call, Parameter passing, Call by value, Scope and Storage classes, Recursion mechanisms.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 4: 1D & 2D Arrays and Algorithms",
+        "description": "Array declaration, Linear & Binary search, Bubble & Selection sort, 2D arrays, Matrix operations.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 5: Strings, Pointers & Memory Addresses",
+        "description": "String operations, Standard string library, Pointer concept, Address-of operator, Pointer arithmetic, Call by reference.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 6: Structures, Unions & File Handling",
+        "description": "Structures and Unions, Array of structures, File handling: fopen, fclose, fprintf, fscanf, Text and Binary files.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 1: Diode Applications & Power Regulators",
+        "description": "PN junction characteristics, Rectifier circuits, Ripple factor, Voltage regulator circuits, Zener diodes.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 2: Bipolar Junction Transistor Biasing & Amplifiers",
+        "description": "BJT operation, Operating point (Q-point), Thermal runaway, Voltage divider bias, Small signal analysis.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 3: Field Effect Transistors (FET & MOSFET)",
+        "description": "JFET characteristics, MOSFET (Enhancement & Depletion), Biasing of FET, High frequency response.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 4: Feedback Amplifiers & Sinusoidal Oscillators",
+        "description": "Feedback topologies, Gain stabilization, Barkhausen criterion, RC phase shift, Hartley and Colpitts oscillators.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 5: Operational Amplifiers & Linear Signal Circuits",
+        "description": "Ideal op-amp characteristics, Inverting and Non-inverting amplifiers, Summing amplifier, Integrator, Differentiator.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 6: Non-Linear Op-Amp Circuits & Active Filters",
+        "description": "Comparators, Schmitt triggers, First-order and Second-order active Butterworth filters, Precision rectifiers.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Fundamental of C Programming (FOCP) — Unit 1: Introduction to C Programming",
+        "description": "Algorithms, Flowcharts, Structure of C program, Compilation and execution, Character set, Tokens, Keywords, Identifiers, Variables, Constants.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Fundamental of C Programming (FOCP) — Unit 2: Data Types, Operators and Input/Output",
+        "description": "Data types, Variable declaration, Symbolic constants, Arithmetic, Relational, Logical, Assignment operators, Operator precedence, Formatted I/O (printf, scanf).",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Fundamental of C Programming (FOCP) — Unit 3: Decision Making and Looping",
+        "description": "if, if-else, nested if-else, switch statement, while loop, do-while loop, for loop, break and continue statements, Engineering calculations using loops.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Fundamental of C Programming (FOCP) — Unit 4: Arrays and String Handling",
+        "description": "1D arrays, 2D arrays, Array initialization, Matrix operations, String declaration, String I/O, Standard string manipulation library functions.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Fundamental of C Programming (FOCP) — Unit 5: Functions and Modular Programming",
+        "description": "Function definition, Function prototype, Function call, Parameter passing (Call by value, Call by reference), Storage classes, Scope of variables, Recursion.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Fundamental of C Programming (FOCP) — Unit 6: Pointers, Structures and File Basics",
+        "description": "Concept of pointers, Pointer variables, Address operator, Array of pointers, Structures definition, Accessing members, Introduction to file opening and closing.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-025": {
+    "name": "Gauri Deshmukh",
+    "maxWeeklyHours": 16,
+    "topics": [
+      {
+        "title": "Engineering Physics — Unit 1: Wave Optics & Thin Film Interference",
+        "description": "Interference in thin films, Newton's rings, Anti-reflection coatings and engineering applications.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 2: Diffraction, Polarization & Optical Instruments",
+        "description": "Fraunhofer diffraction, Diffraction grating, Polarization by reflection, Brewster law, Optical activity.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 3: Lasers & Fiber Optic Communication",
+        "description": "Laser mechanisms, Population inversion, He-Ne laser, Semiconductor laser, Optical fiber transmission and attenuation.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 4: Quantum Mechanics & Wave Equations",
+        "description": "De Broglie hypothesis, Heisenberg uncertainty principle, Schrödinger's wave equation, 1D potential well.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 5: Semiconductor Physics & Superconductivity",
+        "description": "Band theory, Hall effect, Superconductors, Meissner effect, Type-I and Type-II materials and applications.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 6: Nanoscience & Advanced Engineering Materials",
+        "description": "Quantum confinement, Synthesis of nanomaterials, Carbon nanotubes, Graphene and sensor applications.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 1: Communication Fundamentals & Active Listening",
+        "description": "Communication cycle, Barriers to communication, Types of communication, Active listening techniques.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 2: Business Correspondence & Formal Writing",
+        "description": "Business letters, Email writing etiquette, Memorandum, Notice, Agenda and Minutes of meetings.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 3: Spoken Communication & Presentation Skills",
+        "description": "Verbal communication, Pitch, Tone, Body language, Designing slide presentations and delivery.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 4: Grammar, Vocabulary & Language Enhancement",
+        "description": "Common grammatical errors, Sentence structure, Vocabulary building, Phrasal verbs and idioms.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 5: Interpersonal Dynamics & Group Discussion",
+        "description": "Group discussion strategies, Role plays, Conflict resolution, Emotional quotient in team discussions.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 6: Professional Ethics in Communication",
+        "description": "Ethical communication, Plagiarism avoidance, Confidentiality, Cross-cultural communication sensitivity.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Open Elective - I (OE - 1) — Module 1: Digital Literacy & Applications",
+        "description": "Digital infrastructure, Cloud computing fundamentals, Cybersecurity hygiene, Productivity applications, Digital payments.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Open Elective - I (OE - 1) — Module 2: Environmental Studies & Sustainability",
+        "description": "Ecosystems, Natural resource management, Environmental pollution control, Waste management techniques, Environmental protection laws.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Open Elective - I (OE - 1) — Module 3: Green Energy & Sustainability",
+        "description": "Energy crisis, Renewable energy resources, Solar PV systems, Wind energy generation, Biomass conversion, Energy efficiency.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Open Elective - I (OE - 1) — Module 4: Basics of Consumer Electronics",
+        "description": "Home appliances, Audio-video systems, Smart home devices, Power management in gadgets, Troubleshooting consumer electronics.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Open Elective - I (OE - 1) — Module 5: Renewable Energy Systems",
+        "description": "Solar thermal systems, Hydroelectric power basics, Geothermal and Ocean energy, Grid integration of renewables, Future trends.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-026": {
+    "name": "Shivam More",
+    "maxWeeklyHours": 16,
+    "topics": [
+      {
+        "title": "Engineering Physics — Unit 1: Wave Optics & Thin Film Interference",
+        "description": "Interference in thin films, Newton's rings, Anti-reflection coatings and engineering applications.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 2: Diffraction, Polarization & Optical Instruments",
+        "description": "Fraunhofer diffraction, Diffraction grating, Polarization by reflection, Brewster law, Optical activity.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 3: Lasers & Fiber Optic Communication",
+        "description": "Laser mechanisms, Population inversion, He-Ne laser, Semiconductor laser, Optical fiber transmission and attenuation.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 4: Quantum Mechanics & Wave Equations",
+        "description": "De Broglie hypothesis, Heisenberg uncertainty principle, Schrödinger's wave equation, 1D potential well.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 5: Semiconductor Physics & Superconductivity",
+        "description": "Band theory, Hall effect, Superconductors, Meissner effect, Type-I and Type-II materials and applications.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 6: Nanoscience & Advanced Engineering Materials",
+        "description": "Quantum confinement, Synthesis of nanomaterials, Carbon nanotubes, Graphene and sensor applications.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 1: Communication Fundamentals & Active Listening",
+        "description": "Communication cycle, Barriers to communication, Types of communication, Active listening techniques.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 2: Business Correspondence & Formal Writing",
+        "description": "Business letters, Email writing etiquette, Memorandum, Notice, Agenda and Minutes of meetings.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 3: Spoken Communication & Presentation Skills",
+        "description": "Verbal communication, Pitch, Tone, Body language, Designing slide presentations and delivery.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 4: Grammar, Vocabulary & Language Enhancement",
+        "description": "Common grammatical errors, Sentence structure, Vocabulary building, Phrasal verbs and idioms.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 5: Interpersonal Dynamics & Group Discussion",
+        "description": "Group discussion strategies, Role plays, Conflict resolution, Emotional quotient in team discussions.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 6: Professional Ethics in Communication",
+        "description": "Ethical communication, Plagiarism avoidance, Confidentiality, Cross-cultural communication sensitivity.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Computer Graphics — Unit 1: Basic Concepts and Graphics Hardware",
+        "description": "Introduction to Computer Graphics, Video display devices, Refresh CRT, Raster scan and Random scan displays, Colour CRT, Flat-panel displays. Line drawing algorithms: DDA, Bresenham line algorithm, Circle generating algorithms (Bresenham, Midpoint circle algorithm).",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Computer Graphics — Unit 2: 2D Transformations and Windowing/Clipping",
+        "description": "Basic 2D geometric transformations: Translation, Rotation, Scaling, Matrix representations and homogeneous coordinates, Composite transformations (Reflection, Shear). Viewing pipeline, Window-to-viewport transformation, Cohen-Sutherland line clipping, Sutherland-Hodgeman polygon clipping.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Computer Graphics — Unit 3: 3D Transformations and Projections",
+        "description": "3D geometric transformations: Translation, Rotation, Scaling, Reflection and Shear, Rotation about an arbitrary axis. Projections: Parallel (Oblique: Cavalier, Cabinet; Orthographic: Isometric, Dimetric, Trimetric) and Perspective (1-point, 2-point, 3-point vanishing points).",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Computer Graphics — Unit 4: Light and Colour Models & Shading",
+        "description": "Colour models: RGB, HSV, CMY. Illumination Models: Ambient Light, Diffuse reflection, Specular Reflection, Phong model, Combined diffuse and specular reflections with multiple light sources. Shading algorithms: Halftone, Gouraud and Phong shading. Hidden surface removal: Depth-buffer (Z-buffer), Depth-sort (Painter algorithm).",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Computer Graphics — Unit 5: Curves and Fractals",
+        "description": "Curve generation: Interpolation and approximation, Blending functions, B-Spline curves, Bezier curves. Fractals: Introduction, classification, fractal generation (Koch snowflake, Triadic curve, Hilbert curve), applications in computer graphics.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Computer Graphics — Unit 6: Animation and Virtual Reality Basics",
+        "description": "Principles of animation, traditional animation techniques, computer animation processes, frame-by-frame animation, keyframing, morphing, kinematics and inverse kinematics. Introduction to Virtual Reality hardware and interactive environments.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-027": {
+    "name": "Sachin Kadam",
+    "maxWeeklyHours": 25,
+    "topics": [
+      {
+        "title": "Problem Solving and Logic Building — Unit 1: Problem Solving Logic & C Fundamentals",
+        "description": "Algorithms, Flowcharts, Structure of C program, Data types, Variables, Constants, Operators, Type casting.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 2: Decision Control & Looping Constructs",
+        "description": "if-else, nested branching, switch-case, while, do-while, for loops, break and continue, Pattern generation logic.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 3: Functions, Recursion & Modular Design",
+        "description": "Function definition & call, Parameter passing, Call by value, Scope and Storage classes, Recursion mechanisms.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 4: 1D & 2D Arrays and Algorithms",
+        "description": "Array declaration, Linear & Binary search, Bubble & Selection sort, 2D arrays, Matrix operations.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 5: Strings, Pointers & Memory Addresses",
+        "description": "String operations, Standard string library, Pointer concept, Address-of operator, Pointer arithmetic, Call by reference.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 6: Structures, Unions & File Handling",
+        "description": "Structures and Unions, Array of structures, File handling: fopen, fclose, fprintf, fscanf, Text and Binary files.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital Marketing and Social Media — Unit 1: Foundations of Digital Marketing & SEO",
+        "description": "Traditional vs Digital marketing, Inbound vs Outbound marketing, Search Engine Optimization (SEO) fundamentals, On-page and Off-page SEO, Keyword research, Search engine algorithms.",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital Marketing and Social Media — Unit 2: Content Marketing & Copywriting",
+        "description": "Content strategy formulation, Blog posts, Infographics, Video content, Storytelling for brands, Copywriting principles, Call-to-action (CTA) optimization.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital Marketing and Social Media — Unit 3: Social Media Marketing & Platform Dynamics",
+        "description": "Facebook, Instagram, LinkedIn, X (Twitter), YouTube marketing strategies, Audience targeting, Community management, Social media calendar creation, Organic vs Paid reach.",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital Marketing and Social Media — Unit 4: Search Engine Marketing (SEM) & Paid Advertising",
+        "description": "Google Ads platform, Search ads, Display ads, Pay-Per-Click (PPC) models, Quality score, Ad auction mechanics, Campaign budget management.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital Marketing and Social Media — Unit 5: Email Marketing & Conversion Funnels",
+        "description": "Lead generation, Lead nurturing, Email list segmentation, Campaign creation (Mailchimp), A/B testing, Open rates, Click-through rates, Conversion funnel architecture.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Digital Marketing and Social Media — Unit 6: Digital Marketing Analytics & Performance Metrics",
+        "description": "Google Analytics 4 (GA4) metrics, Conversion tracking, Cost Per Acquisition (CPA), Return On Ad Spend (ROAS), Customer Lifetime Value (CLV), ROI calculation.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-028": {
+    "name": "Anita Nikam",
+    "maxWeeklyHours": 20,
+    "topics": [
+      {
+        "title": "Basic Mathematics — Unit 1: Matrices, Determinants & System of Equations",
+        "description": "Operations on matrices, Determinants, Inverse of a matrix, Solution of simultaneous linear equations using Cramers rule.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 2: Trigonometric Functions & Complex Numbers",
+        "description": "Compound angles, Multiple and Submultiple angles, Inverse trigonometric functions, Algebra of complex numbers.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 3: Differential Calculus & Standard Derivatives",
+        "description": "Limits and Continuity, Derivatives of standard functions, Rules of differentiation, Chain rule, Product and Quotient rule.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 4: Applications of Derivatives & Tangents/Normals",
+        "description": "Equations of tangent and normal, Velocity and Acceleration, Maxima and Minima of single variable functions.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 5: Integral Calculus & Standard Integrals",
+        "description": "Indefinite integrals, Integration by substitution, by parts and partial fractions, Definite integrals and properties.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 6: Fundamentals of Statistics & Probability",
+        "description": "Measures of central tendency (Mean, Median, Mode), Standard deviation, Basic probability rules.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Discrete Mathematics — Unit 1: Propositional Logic and Proofs",
+        "description": "Compound statements, Truth tables, Algebra of propositions, Conditional and biconditional statements, Tautologies and contradictions, Logical equivalence, Rules of inference, Methods of proof (Direct, Indirect, Contradiction).",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Discrete Mathematics — Unit 2: Induction, Recursion and Recurrence Relations",
+        "description": "Principle of Mathematical Induction, Strong induction, Recursively defined sequences, Solving linear recurrence relations with constant coefficients, Generating functions.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Discrete Mathematics — Unit 3: Sets, Relations and Functions",
+        "description": "Set operations, Venn diagrams, Relations, Representation of relations (Matrix, Digraph), Properties of relations (Reflexive, Symmetric, Transitive), Equivalence relations and partitions, Partial orderings, Hasse diagrams, Functions (Injective, Surjective, Bijective), Composition of functions.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Discrete Mathematics — Unit 4: Combinatorics and Counting Principles",
+        "description": "Basic counting principles (Sum rule, Product rule), Pigeonhole principle and generalized pigeonhole principle, Permutations and Combinations, Binomial theorem, Inclusion-Exclusion principle and applications.",
+        "allottedMinutes": 480,
+        "status": "PENDING"
+      },
+      {
+        "title": "Discrete Mathematics — Unit 5: Graph Theory and Applications",
+        "description": "Graphs and graph models, Graph terminology and special types (Complete, Bipartite, Regular), Graph representations, Isomorphism, Euler and Hamiltonian paths/circuits, Shortest path algorithms (Dijkstra), Planar graphs, Graph coloring.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Discrete Mathematics — Unit 6: Trees and Algebraic Structures",
+        "description": "Tree properties, Spanning trees, Minimum spanning trees (Prim, Kruskal), Algebraic structures: Binary operations, Semigroups, Monoids, Groups, Subgroups, Cosets, Lagrange theorem, Rings and Fields basics.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-029": {
+    "name": "Suhas Chavan",
+    "maxWeeklyHours": 25,
+    "topics": [
+      {
+        "title": "Electronic Circuits & Devices — Unit 1: Diode Applications & Power Regulators",
+        "description": "PN junction characteristics, Rectifier circuits, Ripple factor, Voltage regulator circuits, Zener diodes.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 2: Bipolar Junction Transistor Biasing & Amplifiers",
+        "description": "BJT operation, Operating point (Q-point), Thermal runaway, Voltage divider bias, Small signal analysis.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 3: Field Effect Transistors (FET & MOSFET)",
+        "description": "JFET characteristics, MOSFET (Enhancement & Depletion), Biasing of FET, High frequency response.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 4: Feedback Amplifiers & Sinusoidal Oscillators",
+        "description": "Feedback topologies, Gain stabilization, Barkhausen criterion, RC phase shift, Hartley and Colpitts oscillators.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 5: Operational Amplifiers & Linear Signal Circuits",
+        "description": "Ideal op-amp characteristics, Inverting and Non-inverting amplifiers, Summing amplifier, Integrator, Differentiator.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 6: Non-Linear Op-Amp Circuits & Active Filters",
+        "description": "Comparators, Schmitt triggers, First-order and Second-order active Butterworth filters, Precision rectifiers.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Processor Architecture and System Design — Unit 1: Fundamentals of Computer Architecture & Computer Arithmetic",
+        "description": "Structure and functions, Von Neumann vs Harvard architectures, Multiprocessors vs Multicomputers, Fixed-point and Floating-point representations, Error detection & correction codes, Computer arithmetic: Addition, Subtraction, Booth multiplication algorithm, Division algorithms.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Processor Architecture and System Design — Unit 2: Processor Organization & Instruction Set Architecture",
+        "description": "CPU architecture, Register organization, Instruction cycle, Instruction formats, Addressing modes, RISC vs CISC architectural comparison, Control Unit design: Hardwired vs Microprogrammed control units.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Processor Architecture and System Design — Unit 3: Memory Organization & Cache Architecture",
+        "description": "Memory hierarchy, Main memory, RAM/ROM chips, Cache memory principles, Mapping functions (Direct, Associative, Set-associative), Cache replacement algorithms, Write policies, Virtual memory concepts, Paging and TLB.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Processor Architecture and System Design — Unit 4: Input/Output Organization & Interrupts",
+        "description": "Peripheral devices, I/O interfaces, Asynchronous data transfer (Strobe, Handshaking), Modes of transfer: Programmed I/O, Interrupt-driven I/O, Direct Memory Access (DMA), DMA controller architecture.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Processor Architecture and System Design — Unit 5: Pipelining & Parallel Processing",
+        "description": "Linear pipelining, Instruction pipeline, Pipeline hazards (Structural, Data, Control hazards) and mitigation techniques, Superscalar processors, Vector processing, Array processors.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Processor Architecture and System Design — Unit 6: System Design, Multicore & Embedded Processors",
+        "description": "Modern multi-core processor architectures, Interconnection structures, Bus arbitration, Cache coherence protocols (MESI), Introduction to ARM and RISC-V processor architectures.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-030": {
+    "name": "Sandeep Pawar",
+    "maxWeeklyHours": 24,
+    "topics": [
+      {
+        "title": "Liberal Learning - I — Module 1: Fundamentals of Artistic Expression",
+        "description": "Introduction to artistic discipline, Posture, Breathing and Foundation exercises.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 2: Rhythm, Beat & Timing Foundations",
+        "description": "Tempo control, Metronome practice, Rhythmic syncopation exercises.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 3: Notation Reading & Theoretical Concepts",
+        "description": "Basic scales, Melodic lines, Sight reading and Tablature interpretation.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 4: Technical Drills & Primary Execution",
+        "description": "Fingering techniques, Movement agility, Tone control and Precision.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 5: Pattern Progression & Transitional Dynamics",
+        "description": "Chord / Movement transitions, Velocity drills, Dynamic control.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 6: Repertoire Exploration & Practice Routines",
+        "description": "Structured study of classical and contemporary pieces, Methodical practice.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 7: Expression, Tone & Nuance Development",
+        "description": "Phrasing, Emotional nuance, Dynamic contrast, Artistic interpretation.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 8: Ear Training & Creative Improvisation",
+        "description": "Interval recognition, Melodic recall, Improvisation within standard frameworks.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 9: Solo Performance Preparation",
+        "description": "Solo repertoire polishing, Memory retention techniques, Stage composure.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 10: Ensemble Coordination & Collaborative Harmony",
+        "description": "Group dynamics, Listening to co-performers, Synchronized timing.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 11: Stage Craft, Presence & Performance Etiquette",
+        "description": "Handling stage equipment, Microphone etiquette, Engaging an audience.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 12: Creative Composition & Original Arranging",
+        "description": "Assembling independent musical or choreographic ideas into a coherent arrangement.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 13: Technical Polish & Rehearsal Run-throughs",
+        "description": "End-to-end rehearsal, Troubleshooting difficult transitions, Confidence building.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 14: Final Showcase Recital & Peer Critique",
+        "description": "Live performance demonstration, Constructive feedback evaluation and self-reflection.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 1: Vocal Music & Singing",
+        "description": "Voice culture, Pitch control, Tonal accuracy, Light music, Folk music, Stage performance presentation.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 2: Instrumental Music (Guitar / Synthesizer)",
+        "description": "Advanced chord voicings, Inversions, Modal scales, Staff notation reading, Performance drills.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 3: Cinematography & Video Production",
+        "description": "Camera operations, Composition, Lighting techniques, Gimbal stabilization, Short film project shooting.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 4: Dance & Choreography",
+        "description": "Storytelling through dance, Rhythm completion, Theme-based choreography development, Stage aesthetics.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 5: Sports & Athletics (Basketball / Cricket / Volleyball / Football)",
+        "description": "Position-specific training, Tactical drills, Team coordination, Sports psychology, Fitness conditioning.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 6: Precision Sports (Rifle & Pistol Shooting)",
+        "description": "Stance, Breathing cycle, Sight alignment, Trigger squeeze, Mental focus under match pressure.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-031": {
+    "name": "N. Walunjkar",
+    "maxWeeklyHours": 24,
+    "topics": [
+      {
+        "title": "Engineering Physics — Unit 1: Wave Optics & Thin Film Interference",
+        "description": "Interference in thin films, Newton's rings, Anti-reflection coatings and engineering applications.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 2: Diffraction, Polarization & Optical Instruments",
+        "description": "Fraunhofer diffraction, Diffraction grating, Polarization by reflection, Brewster law, Optical activity.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 3: Lasers & Fiber Optic Communication",
+        "description": "Laser mechanisms, Population inversion, He-Ne laser, Semiconductor laser, Optical fiber transmission and attenuation.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 4: Quantum Mechanics & Wave Equations",
+        "description": "De Broglie hypothesis, Heisenberg uncertainty principle, Schrödinger's wave equation, 1D potential well.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 5: Semiconductor Physics & Superconductivity",
+        "description": "Band theory, Hall effect, Superconductors, Meissner effect, Type-I and Type-II materials and applications.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 6: Nanoscience & Advanced Engineering Materials",
+        "description": "Quantum confinement, Synthesis of nanomaterials, Carbon nanotubes, Graphene and sensor applications.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Computer Organization and Architecture (ECE) — Unit 1: Computer Evolution & Arithmetic",
+        "description": "Organization & Architecture, Structure & Function, Integer representation (Fixed point, Signed numbers), Integer arithmetic (2s Complement addition, subtraction, Booth algorithm, Restoring & Non-restoring division).",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Computer Organization and Architecture (ECE) — Unit 2: Processor Design & Instruction Set Architecture",
+        "description": "CPU Architecture, Register organization, Instruction types, Operand types, Instruction formats, Addressing modes, Instruction cycles, RISC vs CISC comparison, Von Neumann vs Harvard architecture.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Computer Organization and Architecture (ECE) — Unit 3: Control Unit & Microprogrammed Control",
+        "description": "Control unit operations, Hardwired control unit design, Microprogrammed control unit, Microinstructions, Sequencing and execution of microinstructions.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Computer Organization and Architecture (ECE) — Unit 4: Memory System Design & Cache Memory",
+        "description": "Memory hierarchy, Semiconductor main memory, Cache memory principles, Mapping functions (Direct, Associative, Set-associative), Replacement algorithms, Cache coherence, Virtual memory.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Computer Organization and Architecture (ECE) — Unit 5: Input/Output Systems & DMA",
+        "description": "External devices, I/O modules, Programmed I/O, Interrupt-driven I/O, DMA architecture, DMA data transfer modes, Standard bus architectures (PCI, USB).",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Computer Organization and Architecture (ECE) — Unit 6: Pipelining & Advanced Processor Architecture",
+        "description": "Parallel processing, Pipelining concepts, Arithmetic pipeline, Instruction pipeline, Pipeline hazards and solutions, Superscalar processors, Multicore processors.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-032": {
+    "name": "Seema Patil",
+    "maxWeeklyHours": 20,
+    "topics": [
+      {
+        "title": "Engineering Mathematics - I — Unit 1: System of Linear Equations",
+        "description": "Rank of a matrix, System of linear equations, Linear dependence and independence of vectors, Linear and orthogonal transformations, Application to engineering problems.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 2: Eigen Values, Eigen Vectors & Diagonalization",
+        "description": "Eigen values and Eigen vectors, Cayley-Hamilton theorem, Diagonalization of a matrix, Reduction of quadratic forms to canonical form.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 3: Differential Calculus",
+        "description": "Rolle's theorem, Mean value theorems, Taylor's and Maclaurin's series expansions, Standard expansions, Indeterminate forms.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 4: Partial Differentiation",
+        "description": "Partial derivatives of first and higher orders, Euler's theorem on homogeneous functions, Partial derivative of composite functions, Implicit differentiation.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 5: Applications of Partial Differentiation",
+        "description": "Jacobians and applications, Errors and Approximations, Maxima and minima of two variables, Lagrange's undetermined multipliers.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 6: Fourier Series & Harmonic Analysis",
+        "description": "Definition, Dirichlet's conditions, Full range Fourier series, Half range Fourier series, Harmonic analysis.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Statistics for Artificial Intelligence — Unit 1: Random Variables & Bivariate Probability Distribution",
+        "description": "Random variables (discrete, continuous), probability distributions, bivariate random variables, marginal probability distribution, conditional probability distribution, joint distribution function, covariance and correlation in AI applications.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Statistics for Artificial Intelligence — Unit 2: Inferential Statistics & Hypothesis Formulation",
+        "description": "Statistical inference, testing of hypothesis, formulation of null and alternative hypothesis, critical region, level of significance, Type I and Type II errors, power of test, principle of maximum likelihood.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Statistics for Artificial Intelligence — Unit 3: Hypothesis Testing Techniques",
+        "description": "Most Powerful test, Likelihood Ratio tests, test for mean and variance of normal population, two-sample tests, testing equality of variances, non-parametric methods (Chi-Square test, Mann-Whitney U test).",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Statistics for Artificial Intelligence — Unit 4: Regression & Correlation Analysis",
+        "description": "Karl Pearson correlation, Spearman rank correlation, simple and multiple linear regression, least squares method, regression coefficients, AI applications: feature selection, multicollinearity detection.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Statistics for Artificial Intelligence — Unit 5: Time Series Analysis & Forecasting",
+        "description": "Components of time series (trend, seasonal, cyclical, irregular), moving averages, exponential smoothing, autoregressive models (AR), moving average models (MA), ARIMA, SARIMA modeling for AI forecasting.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Statistics for Artificial Intelligence — Unit 6: Statistical Models in Real-Time AI Systems",
+        "description": "Bayesian decision theory, Naive Bayes classifier, Hidden Markov Models (HMM) formulation, statistical anomaly detection, application in recommendation engines and fraud detection.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-033": {
+    "name": "Nitesh Lad",
+    "maxWeeklyHours": 21,
+    "topics": [
+      {
+        "title": "Web Application Development — Unit 1: Web Architecture & HTML5 Standards",
+        "description": "Client-server architecture, HTTP/HTTPS, HTML document hierarchy, Semantic tags, Headings, Text formatting.",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 2: Lists, Hyperlinks & Multimedia Integration",
+        "description": "Ordered and unordered lists, Anchor tags, Relative & absolute paths, Responsive images, Audio and Video embedding.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 3: Modern CSS Styling & Flexbox Layouts",
+        "description": "CSS Selectors, Box Model (Margin, Border, Padding), Flexbox layouts, Media queries for responsive design.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 4: Tables, Interactive Forms & Input Validation",
+        "description": "HTML tables, colspan/rowspan, Form elements, Input types, Client-side form validation attributes.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 5: JavaScript Essentials & DOM Manipulation",
+        "description": "JavaScript syntax, Variables, Event handling (click, change, submit), Dynamic DOM updates.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 6: Web Hosting, Deployment & Version Control",
+        "description": "Web servers, DNS, Cloud hosting platforms (GitHub Pages / Render), Production deployment practices.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 1: Advanced Object-Oriented Python",
+        "description": "Classes, objects, magic/dunder methods (__init__, __str__, __repr__, __call__), inheritance, multiple inheritance and MRO, abstract base classes, property decorators, encapsulation.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 2: Functional Programming & Metaprogramming",
+        "description": "First-class functions, closures, decorators with and without arguments, functools module, lambda functions, map, filter, reduce, list/dict/set comprehensions, generators, yield statement, itertools.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 3: Advanced Data Structures & Memory Management",
+        "description": "Collections module (namedtuple, defaultdict, Counter, deque, OrderedDict), heapq, bisect, memory management in Python, reference counting, garbage collection, copy vs deepcopy.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 4: Concurrency, Threading & Multiprocessing",
+        "description": "GIL (Global Interpreter Lock), threading module, synchronization primitives (Locks, RLock, Semaphores), multiprocessing module, Process Pools, concurrent.futures, asyncio fundamentals, coroutines.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 5: File Handling, Serialization & Networking",
+        "description": "Working with text, binary, CSV and JSON files, context managers (with statement, contextlib), serialization with pickle and dill, network requests using urllib and requests, REST API consumption.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 6: Scientific Computing & Data Manipulation Libraries",
+        "description": "NumPy arrays, vectorization, broadcasting, linear algebra operations, Pandas Series and DataFrames, data cleaning, filtering, groupby, merging, Matplotlib & Seaborn data visualization techniques.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-034": {
+    "name": "Jyoti Jadhav",
+    "maxWeeklyHours": 23,
+    "topics": [
+      {
+        "title": "Data Structures & Algorithms — Unit 1: Stacks, Queues & Linear Data Structures",
+        "description": "Stack ADT, Infix to Postfix conversion, Queue ADT, Circular Queue, Priority Queue implementation.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 2: Linked Lists & Dynamic Memory Allocation",
+        "description": "Singly linked list, Doubly linked list, Circular linked list, Polynomial representation using linked lists.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 3: Trees & Binary Search Tree Traversal",
+        "description": "Binary tree representation, Inorder, Preorder, Postorder traversal, BST operations (Insert, Delete, Search), AVL trees.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 4: Graph Representations & Shortest Path Algorithms",
+        "description": "Adjacency matrix and list, BFS and DFS traversals, Dijkstra algorithm, Prim and Kruskal MST algorithms.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 5: Hashing Techniques & Hash Tables",
+        "description": "Hash functions, Collision resolution techniques (Linear probing, Quadratic probing, Chaining), Open addressing.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 6: Algorithm Design & Asymptotic Complexity Analysis",
+        "description": "Big-O, Big-Omega, Theta notations, Divide-and-Conquer strategy, Sorting analysis (Quick sort, Merge sort).",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 1: Introduction to Data Structures and Algorithms",
+        "description": "Abstract Data Types (ADT), Linear and Non-linear, Static and Dynamic data structures. Time & Space complexity, Asymptotic notation (Big-O, Theta, Omega), Step count analysis, Divide & Conquer and Greedy strategies.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 2: Linear Data Structures, Searching and Sorting",
+        "description": "Array ADT, Operations, Multidimensional arrays, Sparse matrix. Linear search, Binary search, Fibonacci search. Bubble sort, Insertion sort, Selection sort, Quick sort, Merge sort. Hash tables, hash functions, collision resolution.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 3: Linked Lists",
+        "description": "Static vs Dynamic memory management, Singly linked, Circular linked, Doubly linked lists. Primitive operations: Create, Traverse, Search, Insert, Delete, Sort, Concatenate. Undo-Redo functionality case study.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 4: Stacks and Applications",
+        "description": "Stack ADT, Primitive operations (Push, Pop, Peek), Infix, Prefix, Postfix expressions, Expression conversion and evaluation (Infix to Postfix, Postfix evaluation), Multiple stacks, Linked stack.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 5: Queues and Task Scheduling",
+        "description": "Queue ADT, Operations (Enqueue, Dequeue, Peek), Linear queue, Circular queue, Priority queue, Deque (Double Ended Queue), Multiple queues, Real-time task scheduling applications.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structure and Algorithms (AIDS) — Unit 6: Graphs and Trees",
+        "description": "Tree terminology, Binary Trees, Binary Search Tree (BST) operations, Traversals (Inorder, Preorder, Postorder), Threaded binary trees. Graph representations (Adjacency Matrix, Adjacency List), BFS & DFS traversals, Minimum Spanning Trees.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-035": {
+    "name": "Chetan Harak",
+    "maxWeeklyHours": 22,
+    "topics": [
+      {
+        "title": "Engineering Chemistry — Unit 1: Water Technology & Softening Processes",
+        "description": "Hardness, Alkalinity, Softening methods: Zeolite & Demineralization, Reverse Osmosis, Hardness calculations.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 2: Instrumental Methods of Analysis",
+        "description": "Quantitative and Qualitative analysis, Colorimetry, pHmetry, Conductometry and Titrations.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 3: Corrosion Science & Corrosion Prevention",
+        "description": "Dry and Wet corrosion, Hydrogen evolution & Oxygen absorption mechanisms, Cathodic protection and coatings.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 4: Engineering Polymers & Nanomaterials",
+        "description": "Classification, Polymerization mechanisms, Thermoplastics vs Thermosetting, Conducting polymers, Biodegradable polymers.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 5: Fuels and Combustion Calculations",
+        "description": "Calorific value (HCV, LCV), Proximate and Ultimate analysis of coal, Alternative fuels and flue gas analysis.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 6: Advanced Materials & Nanotechnology",
+        "description": "Nanomaterials classification, Synthesis methods (Sol-Gel, CVD), Carbon nanotubes, Engineering applications.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Indian Knowledge System & Financial Literacy — Unit 1: Foundations of Indian Knowledge System",
+        "description": "History and scope of IKS, Indian numeral system, Discovery of zero, Mathematical contributions of ancient scholars.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Indian Knowledge System & Financial Literacy — Unit 2: Engineering & Architectural Applications of IKS",
+        "description": "Ancient metallurgy, Iron extraction, Lost-wax casting, Vastushastra, Town planning, Temple architecture and Water irrigation.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Indian Knowledge System & Financial Literacy — Unit 3: Banking & Financial Fundamentals for Engineers",
+        "description": "Banking systems, RBI functions, Bank accounts, Digital payment infrastructure (UPI, NEFT), Credit vs Debit mechanisms.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Indian Knowledge System & Financial Literacy — Unit 4: Personal Budgeting & Financial Planning",
+        "description": "Budgeting principles (50/30/20), Emergency fund creation, Credit scores, Debt management and career goal financial planning.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Indian Knowledge System & Financial Literacy — Unit 5: Investment Strategies & Wealth Management",
+        "description": "Investment instruments: Mutual funds, SIPs, Equities, Fixed deposits, Risk-return tradeoff, Health and Life insurance.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Indian Knowledge System & Financial Literacy — Unit 6: Financial Compliance, Taxation & Cybersecurity",
+        "description": "Income tax fundamentals, PAN, Filing procedures, Tax deductions, Safeguarding against digital financial frauds.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-036": {
+    "name": "Krushnat Dubal",
+    "maxWeeklyHours": 22,
+    "topics": [
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 1: DC Circuits & Network Analysis",
+        "description": "Charge, current, voltage, power, Ohm's Law, Kirchhoff's laws (KCL, KVL), Mesh and Nodal analysis, Thevenin's & Norton's theorems.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 2: AC Circuits & Single/Three-Phase Power",
+        "description": "Phasor representation, Series & Parallel RLC circuits, Active/Reactive/Apparent power, Power factor improvement, 3-Phase balanced circuits.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 3: Electrical Machines & Power Systems",
+        "description": "Single phase transformer: EMF equation, losses & efficiency, DC motor operation, 3-Phase Induction motor, Star rating energy conservation.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 4: Semiconductor Diodes & Power Rectifiers",
+        "description": "PN Junction characteristics, Half-wave, Full-wave and Bridge rectifiers, Filter circuits, Zener diode voltage regulation.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 5: Transistors, Amplifiers & Switching Circuits",
+        "description": "BJT operation, CE/CB/CC configurations, DC load line, CE amplifier operation, Introduction to MOSFET and power switching.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 6: Digital Logic & Combinational Circuits",
+        "description": "Number systems, Boolean algebra, De Morgan's laws, Logic gates, Half/Full adder, Multiplexers and Flip-Flops.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving Technique – I (PST-I) — Unit 1: Problem Understanding & Definitions",
+        "description": "Problem definitions, Classifications (Simple, Complex, Structured, Unstructured), Problem solving methodology - Step by Step approach.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving Technique – I (PST-I) — Unit 2: Problem Solving Approaches & Working Models",
+        "description": "Structured step-by-step working model, Principles to think and apply, Root Cause Analysis, 5 Whys technique, Fishbone diagram.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving Technique – I (PST-I) — Unit 3: Basic Tools for Problem Solving & Case Studies",
+        "description": "7 QC Tools (Check Sheet, Pareto Diagram, Cause and Effect, Histogram, Scatter Diagram, Control Charts, Stratification), Engineering problem case studies.",
+        "allottedMinutes": 960,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-037": {
+    "name": "Nirmala Chede",
+    "maxWeeklyHours": 16,
+    "topics": [
+      {
+        "title": "Engineering Mathematics - I — Unit 1: System of Linear Equations",
+        "description": "Rank of a matrix, System of linear equations, Linear dependence and independence of vectors, Linear and orthogonal transformations, Application to engineering problems.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 2: Eigen Values, Eigen Vectors & Diagonalization",
+        "description": "Eigen values and Eigen vectors, Cayley-Hamilton theorem, Diagonalization of a matrix, Reduction of quadratic forms to canonical form.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 3: Differential Calculus",
+        "description": "Rolle's theorem, Mean value theorems, Taylor's and Maclaurin's series expansions, Standard expansions, Indeterminate forms.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 4: Partial Differentiation",
+        "description": "Partial derivatives of first and higher orders, Euler's theorem on homogeneous functions, Partial derivative of composite functions, Implicit differentiation.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 5: Applications of Partial Differentiation",
+        "description": "Jacobians and applications, Errors and Approximations, Maxima and minima of two variables, Lagrange's undetermined multipliers.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 6: Fourier Series & Harmonic Analysis",
+        "description": "Definition, Dirichlet's conditions, Full range Fourier series, Half range Fourier series, Harmonic analysis.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics – III (ENTC) — Unit 1: Linear Differential Equations",
+        "description": "LDE of nth order with constant coefficients, Method of variation of parameters, Cauchy and Legendre differential equations, Simultaneous DE, Electric circuit applications.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics – III (ENTC) — Unit 2: Statistics and Probability",
+        "description": "Measures of central tendency, Dispersion, Moments, Skewness, Kurtosis, Correlation and Regression, Probability distributions (Binomial, Poisson, Normal), Chi-Square test.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics – III (ENTC) — Unit 3: Z-Transforms",
+        "description": "Definition, Properties of Z-transform, Z-transform of standard sequences, Inverse Z-transform, Solution of difference equations using Z-transform.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics – III (ENTC) — Unit 4: Fourier Transform",
+        "description": "Fourier integral theorem, Fourier sine and cosine integrals, Fourier transform, Inverse Fourier transform, Application to signal processing.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics – III (ENTC) — Unit 5: Vector Differential Calculus",
+        "description": "Vector differential operator (Del), Gradient, Divergence and Curl, Directional derivatives, Solenoidal and Irrotational fields, Scalar potential function.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics – III (ENTC) — Unit 6: Vector Integral Calculus",
+        "description": "Line integral, Surface integral, Volume integral, Green theorem, Stokes theorem, Gauss Divergence theorem, Applications in electromagnetic theory.",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-038": {
+    "name": "Mayur Narawade",
+    "maxWeeklyHours": 16,
+    "topics": [
+      {
+        "title": "Web Application Development — Unit 1: Web Architecture & HTML5 Standards",
+        "description": "Client-server architecture, HTTP/HTTPS, HTML document hierarchy, Semantic tags, Headings, Text formatting.",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 2: Lists, Hyperlinks & Multimedia Integration",
+        "description": "Ordered and unordered lists, Anchor tags, Relative & absolute paths, Responsive images, Audio and Video embedding.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 3: Modern CSS Styling & Flexbox Layouts",
+        "description": "CSS Selectors, Box Model (Margin, Border, Padding), Flexbox layouts, Media queries for responsive design.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 4: Tables, Interactive Forms & Input Validation",
+        "description": "HTML tables, colspan/rowspan, Form elements, Input types, Client-side form validation attributes.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 5: JavaScript Essentials & DOM Manipulation",
+        "description": "JavaScript syntax, Variables, Event handling (click, change, submit), Dynamic DOM updates.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 6: Web Hosting, Deployment & Version Control",
+        "description": "Web servers, DNS, Cloud hosting platforms (GitHub Pages / Render), Production deployment practices.",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 1: Advanced Object-Oriented Python",
+        "description": "Classes, objects, magic/dunder methods (__init__, __str__, __repr__, __call__), inheritance, multiple inheritance and MRO, abstract base classes, property decorators, encapsulation.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 2: Functional Programming & Metaprogramming",
+        "description": "First-class functions, closures, decorators with and without arguments, functools module, lambda functions, map, filter, reduce, list/dict/set comprehensions, generators, yield statement, itertools.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 3: Advanced Data Structures & Memory Management",
+        "description": "Collections module (namedtuple, defaultdict, Counter, deque, OrderedDict), heapq, bisect, memory management in Python, reference counting, garbage collection, copy vs deepcopy.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 4: Concurrency, Threading & Multiprocessing",
+        "description": "GIL (Global Interpreter Lock), threading module, synchronization primitives (Locks, RLock, Semaphores), multiprocessing module, Process Pools, concurrent.futures, asyncio fundamentals, coroutines.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 5: File Handling, Serialization & Networking",
+        "description": "Working with text, binary, CSV and JSON files, context managers (with statement, contextlib), serialization with pickle and dill, network requests using urllib and requests, REST API consumption.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Advanced Python Programming — Unit 6: Scientific Computing & Data Manipulation Libraries",
+        "description": "NumPy arrays, vectorization, broadcasting, linear algebra operations, Pandas Series and DataFrames, data cleaning, filtering, groupby, merging, Matplotlib & Seaborn data visualization techniques.",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-039": {
+    "name": "Gauri Shiwale",
+    "maxWeeklyHours": 20,
+    "topics": [
+      {
+        "title": "Basic Mathematics — Unit 1: Matrices, Determinants & System of Equations",
+        "description": "Operations on matrices, Determinants, Inverse of a matrix, Solution of simultaneous linear equations using Cramers rule.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 2: Trigonometric Functions & Complex Numbers",
+        "description": "Compound angles, Multiple and Submultiple angles, Inverse trigonometric functions, Algebra of complex numbers.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 3: Differential Calculus & Standard Derivatives",
+        "description": "Limits and Continuity, Derivatives of standard functions, Rules of differentiation, Chain rule, Product and Quotient rule.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 4: Applications of Derivatives & Tangents/Normals",
+        "description": "Equations of tangent and normal, Velocity and Acceleration, Maxima and Minima of single variable functions.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 5: Integral Calculus & Standard Integrals",
+        "description": "Indefinite integrals, Integration by substitution, by parts and partial fractions, Definite integrals and properties.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 6: Fundamentals of Statistics & Probability",
+        "description": "Measures of central tendency (Mean, Median, Mode), Standard deviation, Basic probability rules.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 1: Vocal Music & Singing",
+        "description": "Voice culture, Pitch control, Tonal accuracy, Light music, Folk music, Stage performance presentation.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 2: Instrumental Music (Guitar / Synthesizer)",
+        "description": "Advanced chord voicings, Inversions, Modal scales, Staff notation reading, Performance drills.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 3: Cinematography & Video Production",
+        "description": "Camera operations, Composition, Lighting techniques, Gimbal stabilization, Short film project shooting.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 4: Dance & Choreography",
+        "description": "Storytelling through dance, Rhythm completion, Theme-based choreography development, Stage aesthetics.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 5: Sports & Athletics (Basketball / Cricket / Volleyball / Football)",
+        "description": "Position-specific training, Tactical drills, Team coordination, Sports psychology, Fitness conditioning.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - III — Module 6: Precision Sports (Rifle & Pistol Shooting)",
+        "description": "Stance, Breathing cycle, Sight alignment, Trigger squeeze, Mental focus under match pressure.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-040": {
+    "name": "Vishnu Jadhav",
+    "maxWeeklyHours": 19,
+    "topics": [
+      {
+        "title": "Engineering Chemistry — Unit 1: Water Technology & Softening Processes",
+        "description": "Hardness, Alkalinity, Softening methods: Zeolite & Demineralization, Reverse Osmosis, Hardness calculations.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 2: Instrumental Methods of Analysis",
+        "description": "Quantitative and Qualitative analysis, Colorimetry, pHmetry, Conductometry and Titrations.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 3: Corrosion Science & Corrosion Prevention",
+        "description": "Dry and Wet corrosion, Hydrogen evolution & Oxygen absorption mechanisms, Cathodic protection and coatings.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 4: Engineering Polymers & Nanomaterials",
+        "description": "Classification, Polymerization mechanisms, Thermoplastics vs Thermosetting, Conducting polymers, Biodegradable polymers.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 5: Fuels and Combustion Calculations",
+        "description": "Calorific value (HCV, LCV), Proximate and Ultimate analysis of coal, Alternative fuels and flue gas analysis.",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 6: Advanced Materials & Nanotechnology",
+        "description": "Nanomaterials classification, Synthesis methods (Sol-Gel, CVD), Carbon nanotubes, Engineering applications.",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 1: Computer Hardware & Operating System Setup",
+        "description": "Hardware components, CPU, Memory, BIOS settings, Installation and configuration of Linux/Windows OS.",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 2: Advanced Word Processing & Spreadsheet Analytics",
+        "description": "Technical documentation formatting, Advanced Excel formulas (VLOOKUP, INDEX/MATCH), Pivot tables and charting.",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 3: Internet Technologies, Cybersecurity & Safety",
+        "description": "Networking basics, IP addresses, Secure browsing, Antivirus, Two-factor authentication, Phishing defense.",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 4: Version Control Systems - Git & GitHub Workflows",
+        "description": "Git initialization, staging, commit, push, pull, branching, merge conflict resolution, Pull Requests on GitHub.",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 5: Cloud Tools, Document Collaboration & Technical Presentation",
+        "description": "Google Workspace, Cloud storage management, Collaborative document editing, Creating technical slide decks.",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-SYLL-A-149868": {
+    "name": "Anita Rao",
+    "maxWeeklyHours": 20,
+    "topics": []
+  },
+  "FAC-SYLL-B-149868": {
+    "name": "Ravi Menon",
+    "maxWeeklyHours": 20,
+    "topics": []
+  }
+}
