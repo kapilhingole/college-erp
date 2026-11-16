@@ -310,7 +310,7 @@ const ProvisionModal: React.FC<{ onClose: () => void; onCreated: () => void }> =
                       value={t.allottedMinutes}
                       onChange={(e) => setTopics((p) => p.map((r, j) => (j === i ? { ...r, allottedMinutes: Number(e.target.value) } : r)))}
                     />
-                    <span className="text-[11px] text-slate-400 font-medium">min</span>
+                    <span className="text-[11px] text-slate-500 font-semibold shrink-0">min ({Number((t.allottedMinutes / 60).toFixed(1))}h)</span>
                   </div>
                   <button type="button" onClick={() => setTopics((p) => p.filter((_, j) => j !== i))} className="text-slate-400 hover:text-red-500 p-1">✕</button>
                 </div>
@@ -457,7 +457,7 @@ const ManageModal: React.FC<{ detail: FacultyDetail; onClose: () => void; onChan
                     value={t.allottedMinutes}
                     onChange={(e) => setLoad((p) => p.map((r, j) => (j === i ? { ...r, allottedMinutes: Number(e.target.value) } : r)))}
                   />
-                  <span className="text-[11px] text-slate-400 font-medium">min</span>
+                  <span className="text-[11px] text-slate-500 font-semibold shrink-0">min ({Number((t.allottedMinutes / 60).toFixed(1))}h)</span>
                 </div>
                 {detail.topics[i] && (
                   <span className={`text-[10px] font-bold px-2 py-0.5 rounded shrink-0 ${detail.topics[i].status === 'DONE' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-600'}`}>

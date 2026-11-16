@@ -510,15 +510,16 @@ async function main() {
         designation: f.desig,
         qualification: f.qual,
         departmentId: f.deptId,
-        maxWeeklyHours: 18,
+        maxWeeklyHours: require("./fy_syllabus_roster.json")[f.empId]?.maxWeeklyHours || 20,
       },
     });
     facultyList.push(fac);
 
     // Seed syllabus load topics for this faculty member (Clean slate: all PENDING, 0% initial progress)
-    if (f.topics && f.topics.length > 0) {
-      for (let i = 0; i < f.topics.length; i++) {
-        const top = f.topics[i];
+    const assignedTopics = require("./fy_syllabus_roster.json")[f.empId]?.topics || f.topics || [];
+    if (assignedTopics && assignedTopics.length > 0) {
+      for (let i = 0; i < assignedTopics.length; i++) {
+        const top = assignedTopics[i];
         await prisma.syllabusTopic.create({
           data: {
             facultyId: fac.id,

@@ -1,0 +1,1777 @@
+{
+  "FAC-ZCOER-001": {
+    "maxWeeklyHours": 4,
+    "topics": [
+      {
+        "title": "Engineering Graphics — Unit 1: Principles of Engineering Drawing & Lettering",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Graphics — Unit 2: Engineering Curves & Geometric Constructions",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Graphics — Unit 3: Orthographic Projections of Points, Lines & Planes",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Graphics — Unit 4: Isometric Projections & Solid Modeling",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Graphics — Unit 5: Development of Lateral Surfaces of Solids",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Graphics — Unit 6: Computer Aided Drafting (CAD) Practices",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-002": {
+    "maxWeeklyHours": 16,
+    "topics": [
+      {
+        "title": "Engineering Mathematics - I — Unit 1: System of Linear Equations",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 2: Eigen Values, Eigen Vectors & Diagonalization",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 3: Differential Calculus",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 4: Partial Differentiation",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 5: Applications of Partial Differentiation",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 6: Fourier Series & Harmonic Analysis",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-003": {
+    "maxWeeklyHours": 10,
+    "topics": [
+      {
+        "title": "Professional Development - I — Unit 1: Values, Self-Discipline & Personal Grooming",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      },
+      {
+        "title": "Professional Development - I — Unit 2: Soft Skills Fundamentals & Personal Orientation",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      },
+      {
+        "title": "Professional Development - I — Unit 3: Advanced Soft Skills & Social Dynamics",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-004": {
+    "maxWeeklyHours": 12,
+    "topics": [
+      {
+        "title": "Engineering Mechanics — Unit 1: Resolution & Composition of Forces",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mechanics — Unit 2: Equilibrium of Coplanar Force Systems",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mechanics — Unit 3: Kinematics of Particles & Projectile Motion",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mechanics — Unit 4: Kinetics of Particles - Work-Energy & Impulse",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mechanics — Unit 5: Centroid, Center of Gravity & Moment of Inertia",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mechanics — Unit 6: Friction, Wedges & Ladder Equilibrium",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-005": {
+    "maxWeeklyHours": 20,
+    "topics": [
+      {
+        "title": "Engineering Chemistry — Unit 1: Water Technology & Softening Processes",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 2: Instrumental Methods of Analysis",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 3: Corrosion Science & Corrosion Prevention",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 4: Engineering Polymers & Nanomaterials",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 5: Fuels and Combustion Calculations",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 6: Advanced Materials & Nanotechnology",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Professional Development - I — Unit 1: Values, Self-Discipline & Personal Grooming",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      },
+      {
+        "title": "Professional Development - I — Unit 2: Soft Skills Fundamentals & Personal Orientation",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      },
+      {
+        "title": "Professional Development - I — Unit 3: Advanced Soft Skills & Social Dynamics",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-006": {
+    "maxWeeklyHours": 24,
+    "topics": [
+      {
+        "title": "Electronic Circuits & Devices — Unit 1: Diode Applications & Power Regulators",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 2: Bipolar Junction Transistor Biasing & Amplifiers",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 3: Field Effect Transistors (FET & MOSFET)",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 4: Feedback Amplifiers & Sinusoidal Oscillators",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 5: Operational Amplifiers & Linear Signal Circuits",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 6: Non-Linear Op-Amp Circuits & Active Filters",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 1: DC Circuits & Network Analysis",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 2: AC Circuits & Single/Three-Phase Power",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 3: Electrical Machines & Power Systems",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 4: Semiconductor Diodes & Power Rectifiers",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 5: Transistors, Amplifiers & Switching Circuits",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 6: Digital Logic & Combinational Circuits",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-007": {
+    "maxWeeklyHours": 18,
+    "topics": [
+      {
+        "title": "Electronic Circuits & Devices — Unit 1: Diode Applications & Power Regulators",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 2: Bipolar Junction Transistor Biasing & Amplifiers",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 3: Field Effect Transistors (FET & MOSFET)",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 4: Feedback Amplifiers & Sinusoidal Oscillators",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 5: Operational Amplifiers & Linear Signal Circuits",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 6: Non-Linear Op-Amp Circuits & Active Filters",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-008": {
+    "maxWeeklyHours": 19,
+    "topics": [
+      {
+        "title": "Engineering Physics — Unit 1: Wave Optics & Thin Film Interference",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 2: Diffraction, Polarization & Optical Instruments",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 3: Lasers & Fiber Optic Communication",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 4: Quantum Mechanics & Wave Equations",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 5: Semiconductor Physics & Superconductivity",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 6: Nanoscience & Advanced Engineering Materials",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Professional Development - I — Unit 1: Values, Self-Discipline & Personal Grooming",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      },
+      {
+        "title": "Professional Development - I — Unit 2: Soft Skills Fundamentals & Personal Orientation",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      },
+      {
+        "title": "Professional Development - I — Unit 3: Advanced Soft Skills & Social Dynamics",
+        "allottedMinutes": 840,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-009": {
+    "maxWeeklyHours": 21,
+    "topics": [
+      {
+        "title": "Electronic Circuits & Devices — Unit 1: Diode Applications & Power Regulators",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 2: Bipolar Junction Transistor Biasing & Amplifiers",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 3: Field Effect Transistors (FET & MOSFET)",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 4: Feedback Amplifiers & Sinusoidal Oscillators",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 5: Operational Amplifiers & Linear Signal Circuits",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 6: Non-Linear Op-Amp Circuits & Active Filters",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-010": {
+    "maxWeeklyHours": 24,
+    "topics": [
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 1: DC Circuits & Network Analysis",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 2: AC Circuits & Single/Three-Phase Power",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 3: Electrical Machines & Power Systems",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 4: Semiconductor Diodes & Power Rectifiers",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 5: Transistors, Amplifiers & Switching Circuits",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 6: Digital Logic & Combinational Circuits",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 1: Object-Oriented Paradigms & Class Modeling",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 2: Constructors, Destructors & Function Overloading",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 3: Inheritance & Base-Derived Hierarchies",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 4: Polymorphism, Virtual Functions & Interfaces",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 5: Exception Handling & Robust Error Management",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 6: File Streams, Templates & Standard Libraries",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-011": {
+    "maxWeeklyHours": 20,
+    "topics": [
+      {
+        "title": "Data Structures & Algorithms — Unit 1: Stacks, Queues & Linear Data Structures",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 2: Linked Lists & Dynamic Memory Allocation",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 3: Trees & Binary Search Tree Traversal",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 4: Graph Representations & Shortest Path Algorithms",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 5: Hashing Techniques & Hash Tables",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 6: Algorithm Design & Asymptotic Complexity Analysis",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-012": {
+    "maxWeeklyHours": 24,
+    "topics": [
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 1: DC Circuits & Network Analysis",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 2: AC Circuits & Single/Three-Phase Power",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 3: Electrical Machines & Power Systems",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 4: Semiconductor Diodes & Power Rectifiers",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 5: Transistors, Amplifiers & Switching Circuits",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 6: Digital Logic & Combinational Circuits",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-013": {
+    "maxWeeklyHours": 26,
+    "topics": [
+      {
+        "title": "Object Oriented Programming — Unit 1: Object-Oriented Paradigms & Class Modeling",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 2: Constructors, Destructors & Function Overloading",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 3: Inheritance & Base-Derived Hierarchies",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 4: Polymorphism, Virtual Functions & Interfaces",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 5: Exception Handling & Robust Error Management",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 6: File Streams, Templates & Standard Libraries",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-014": {
+    "maxWeeklyHours": 20,
+    "topics": [
+      {
+        "title": "Data Structures & Algorithms — Unit 1: Stacks, Queues & Linear Data Structures",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 2: Linked Lists & Dynamic Memory Allocation",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 3: Trees & Binary Search Tree Traversal",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 4: Graph Representations & Shortest Path Algorithms",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 5: Hashing Techniques & Hash Tables",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 6: Algorithm Design & Asymptotic Complexity Analysis",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-015": {
+    "maxWeeklyHours": 18,
+    "topics": [
+      {
+        "title": "Electronic Circuits & Devices — Unit 1: Diode Applications & Power Regulators",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 2: Bipolar Junction Transistor Biasing & Amplifiers",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 3: Field Effect Transistors (FET & MOSFET)",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 4: Feedback Amplifiers & Sinusoidal Oscillators",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 5: Operational Amplifiers & Linear Signal Circuits",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 6: Non-Linear Op-Amp Circuits & Active Filters",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-016": {
+    "maxWeeklyHours": 22,
+    "topics": [
+      {
+        "title": "Data Structures & Algorithms — Unit 1: Stacks, Queues & Linear Data Structures",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 2: Linked Lists & Dynamic Memory Allocation",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 3: Trees & Binary Search Tree Traversal",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 4: Graph Representations & Shortest Path Algorithms",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 5: Hashing Techniques & Hash Tables",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 6: Algorithm Design & Asymptotic Complexity Analysis",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 1: DC Circuits & Network Analysis",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 2: AC Circuits & Single/Three-Phase Power",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 3: Electrical Machines & Power Systems",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 4: Semiconductor Diodes & Power Rectifiers",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 5: Transistors, Amplifiers & Switching Circuits",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 6: Digital Logic & Combinational Circuits",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-017": {
+    "maxWeeklyHours": 20,
+    "topics": [
+      {
+        "title": "Data Structures & Algorithms — Unit 1: Stacks, Queues & Linear Data Structures",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 2: Linked Lists & Dynamic Memory Allocation",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 3: Trees & Binary Search Tree Traversal",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 4: Graph Representations & Shortest Path Algorithms",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 5: Hashing Techniques & Hash Tables",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 6: Algorithm Design & Asymptotic Complexity Analysis",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-018": {
+    "maxWeeklyHours": 22,
+    "topics": [
+      {
+        "title": "Web Application Development — Unit 1: Web Architecture & HTML5 Standards",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 2: Lists, Hyperlinks & Multimedia Integration",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 3: Modern CSS Styling & Flexbox Layouts",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 4: Tables, Interactive Forms & Input Validation",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 5: JavaScript Essentials & DOM Manipulation",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 6: Web Hosting, Deployment & Version Control",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 1: Computer Hardware & Operating System Setup",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 2: Advanced Word Processing & Spreadsheet Analytics",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 3: Internet Technologies, Cybersecurity & Safety",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 4: Version Control Systems - Git & GitHub Workflows",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 5: Cloud Tools, Document Collaboration & Technical Presentation",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-019": {
+    "maxWeeklyHours": 17,
+    "topics": [
+      {
+        "title": "Problem Solving and Logic Building — Unit 1: Problem Solving Logic & C Fundamentals",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 2: Decision Control & Looping Constructs",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 3: Functions, Recursion & Modular Design",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 4: 1D & 2D Arrays and Algorithms",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 5: Strings, Pointers & Memory Addresses",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 6: Structures, Unions & File Handling",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Database Management Systems — Unit 1: Database Architecture & ER Data Modeling",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Database Management Systems — Unit 2: Relational Model & Relational Algebra",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Database Management Systems — Unit 3: Structured Query Language (SQL) Mastery",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Database Management Systems — Unit 4: Relational Schema Normalization",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Database Management Systems — Unit 5: Transaction Management & ACID Properties",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Database Management Systems — Unit 6: Indexing, Storage Systems & NoSQL Overview",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-020": {
+    "maxWeeklyHours": 22,
+    "topics": [
+      {
+        "title": "Data Structures & Algorithms — Unit 1: Stacks, Queues & Linear Data Structures",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 2: Linked Lists & Dynamic Memory Allocation",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 3: Trees & Binary Search Tree Traversal",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 4: Graph Representations & Shortest Path Algorithms",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 5: Hashing Techniques & Hash Tables",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 6: Algorithm Design & Asymptotic Complexity Analysis",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-021": {
+    "maxWeeklyHours": 22,
+    "topics": [
+      {
+        "title": "Data Structures & Algorithms — Unit 1: Stacks, Queues & Linear Data Structures",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 2: Linked Lists & Dynamic Memory Allocation",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 3: Trees & Binary Search Tree Traversal",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 4: Graph Representations & Shortest Path Algorithms",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 5: Hashing Techniques & Hash Tables",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 6: Algorithm Design & Asymptotic Complexity Analysis",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 1: Object-Oriented Paradigms & Class Modeling",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 2: Constructors, Destructors & Function Overloading",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 3: Inheritance & Base-Derived Hierarchies",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 4: Polymorphism, Virtual Functions & Interfaces",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 5: Exception Handling & Robust Error Management",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 6: File Streams, Templates & Standard Libraries",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-022": {
+    "maxWeeklyHours": 24,
+    "topics": [
+      {
+        "title": "Communication Skills — Unit 1: Communication Fundamentals & Active Listening",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 2: Business Correspondence & Formal Writing",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 3: Spoken Communication & Presentation Skills",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 4: Grammar, Vocabulary & Language Enhancement",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 5: Interpersonal Dynamics & Group Discussion",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 6: Professional Ethics in Communication",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-023": {
+    "maxWeeklyHours": 26,
+    "topics": [
+      {
+        "title": "Object Oriented Programming — Unit 1: Object-Oriented Paradigms & Class Modeling",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 2: Constructors, Destructors & Function Overloading",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 3: Inheritance & Base-Derived Hierarchies",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 4: Polymorphism, Virtual Functions & Interfaces",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 5: Exception Handling & Robust Error Management",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Object Oriented Programming — Unit 6: File Streams, Templates & Standard Libraries",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-024": {
+    "maxWeeklyHours": 21,
+    "topics": [
+      {
+        "title": "Problem Solving and Logic Building — Unit 1: Problem Solving Logic & C Fundamentals",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 2: Decision Control & Looping Constructs",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 3: Functions, Recursion & Modular Design",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 4: 1D & 2D Arrays and Algorithms",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 5: Strings, Pointers & Memory Addresses",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 6: Structures, Unions & File Handling",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 1: Diode Applications & Power Regulators",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 2: Bipolar Junction Transistor Biasing & Amplifiers",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 3: Field Effect Transistors (FET & MOSFET)",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 4: Feedback Amplifiers & Sinusoidal Oscillators",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 5: Operational Amplifiers & Linear Signal Circuits",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 6: Non-Linear Op-Amp Circuits & Active Filters",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-025": {
+    "maxWeeklyHours": 16,
+    "topics": [
+      {
+        "title": "Engineering Physics — Unit 1: Wave Optics & Thin Film Interference",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 2: Diffraction, Polarization & Optical Instruments",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 3: Lasers & Fiber Optic Communication",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 4: Quantum Mechanics & Wave Equations",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 5: Semiconductor Physics & Superconductivity",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 6: Nanoscience & Advanced Engineering Materials",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 1: Communication Fundamentals & Active Listening",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 2: Business Correspondence & Formal Writing",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 3: Spoken Communication & Presentation Skills",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 4: Grammar, Vocabulary & Language Enhancement",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 5: Interpersonal Dynamics & Group Discussion",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 6: Professional Ethics in Communication",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-026": {
+    "maxWeeklyHours": 16,
+    "topics": [
+      {
+        "title": "Engineering Physics — Unit 1: Wave Optics & Thin Film Interference",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 2: Diffraction, Polarization & Optical Instruments",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 3: Lasers & Fiber Optic Communication",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 4: Quantum Mechanics & Wave Equations",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 5: Semiconductor Physics & Superconductivity",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 6: Nanoscience & Advanced Engineering Materials",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 1: Communication Fundamentals & Active Listening",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 2: Business Correspondence & Formal Writing",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 3: Spoken Communication & Presentation Skills",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 4: Grammar, Vocabulary & Language Enhancement",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 5: Interpersonal Dynamics & Group Discussion",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Communication Skills — Unit 6: Professional Ethics in Communication",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-027": {
+    "maxWeeklyHours": 25,
+    "topics": [
+      {
+        "title": "Problem Solving and Logic Building — Unit 1: Problem Solving Logic & C Fundamentals",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 2: Decision Control & Looping Constructs",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 3: Functions, Recursion & Modular Design",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 4: 1D & 2D Arrays and Algorithms",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 5: Strings, Pointers & Memory Addresses",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Problem Solving and Logic Building — Unit 6: Structures, Unions & File Handling",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-028": {
+    "maxWeeklyHours": 20,
+    "topics": [
+      {
+        "title": "Basic Mathematics — Unit 1: Matrices, Determinants & System of Equations",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 2: Trigonometric Functions & Complex Numbers",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 3: Differential Calculus & Standard Derivatives",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 4: Applications of Derivatives & Tangents/Normals",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 5: Integral Calculus & Standard Integrals",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 6: Fundamentals of Statistics & Probability",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-029": {
+    "maxWeeklyHours": 25,
+    "topics": [
+      {
+        "title": "Electronic Circuits & Devices — Unit 1: Diode Applications & Power Regulators",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 2: Bipolar Junction Transistor Biasing & Amplifiers",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 3: Field Effect Transistors (FET & MOSFET)",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 4: Feedback Amplifiers & Sinusoidal Oscillators",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 5: Operational Amplifiers & Linear Signal Circuits",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Electronic Circuits & Devices — Unit 6: Non-Linear Op-Amp Circuits & Active Filters",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-030": {
+    "maxWeeklyHours": 24,
+    "topics": [
+      {
+        "title": "Liberal Learning - I — Module 1: Fundamentals of Artistic Expression",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 2: Rhythm, Beat & Timing Foundations",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 3: Notation Reading & Theoretical Concepts",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 4: Technical Drills & Primary Execution",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 5: Pattern Progression & Transitional Dynamics",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 6: Repertoire Exploration & Practice Routines",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 7: Expression, Tone & Nuance Development",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 8: Ear Training & Creative Improvisation",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 9: Solo Performance Preparation",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 10: Ensemble Coordination & Collaborative Harmony",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 11: Stage Craft, Presence & Performance Etiquette",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 12: Creative Composition & Original Arranging",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 13: Technical Polish & Rehearsal Run-throughs",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Liberal Learning - I — Module 14: Final Showcase Recital & Peer Critique",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-031": {
+    "maxWeeklyHours": 24,
+    "topics": [
+      {
+        "title": "Engineering Physics — Unit 1: Wave Optics & Thin Film Interference",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 2: Diffraction, Polarization & Optical Instruments",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 3: Lasers & Fiber Optic Communication",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 4: Quantum Mechanics & Wave Equations",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 5: Semiconductor Physics & Superconductivity",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Physics — Unit 6: Nanoscience & Advanced Engineering Materials",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-032": {
+    "maxWeeklyHours": 20,
+    "topics": [
+      {
+        "title": "Engineering Mathematics - I — Unit 1: System of Linear Equations",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 2: Eigen Values, Eigen Vectors & Diagonalization",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 3: Differential Calculus",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 4: Partial Differentiation",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 5: Applications of Partial Differentiation",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 6: Fourier Series & Harmonic Analysis",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-033": {
+    "maxWeeklyHours": 21,
+    "topics": [
+      {
+        "title": "Web Application Development — Unit 1: Web Architecture & HTML5 Standards",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 2: Lists, Hyperlinks & Multimedia Integration",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 3: Modern CSS Styling & Flexbox Layouts",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 4: Tables, Interactive Forms & Input Validation",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 5: JavaScript Essentials & DOM Manipulation",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 6: Web Hosting, Deployment & Version Control",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-034": {
+    "maxWeeklyHours": 23,
+    "topics": [
+      {
+        "title": "Data Structures & Algorithms — Unit 1: Stacks, Queues & Linear Data Structures",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 2: Linked Lists & Dynamic Memory Allocation",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 3: Trees & Binary Search Tree Traversal",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 4: Graph Representations & Shortest Path Algorithms",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 5: Hashing Techniques & Hash Tables",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Data Structures & Algorithms — Unit 6: Algorithm Design & Asymptotic Complexity Analysis",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-035": {
+    "maxWeeklyHours": 22,
+    "topics": [
+      {
+        "title": "Engineering Chemistry — Unit 1: Water Technology & Softening Processes",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 2: Instrumental Methods of Analysis",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 3: Corrosion Science & Corrosion Prevention",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 4: Engineering Polymers & Nanomaterials",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 5: Fuels and Combustion Calculations",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 6: Advanced Materials & Nanotechnology",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Indian Knowledge System & Financial Literacy — Unit 1: Foundations of Indian Knowledge System",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Indian Knowledge System & Financial Literacy — Unit 2: Engineering & Architectural Applications of IKS",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Indian Knowledge System & Financial Literacy — Unit 3: Banking & Financial Fundamentals for Engineers",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Indian Knowledge System & Financial Literacy — Unit 4: Personal Budgeting & Financial Planning",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Indian Knowledge System & Financial Literacy — Unit 5: Investment Strategies & Wealth Management",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Indian Knowledge System & Financial Literacy — Unit 6: Financial Compliance, Taxation & Cybersecurity",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-036": {
+    "maxWeeklyHours": 22,
+    "topics": [
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 1: DC Circuits & Network Analysis",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 2: AC Circuits & Single/Three-Phase Power",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 3: Electrical Machines & Power Systems",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 4: Semiconductor Diodes & Power Rectifiers",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 5: Transistors, Amplifiers & Switching Circuits",
+        "allottedMinutes": 360,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Electrical & Electronics Engineering — Unit 6: Digital Logic & Combinational Circuits",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-037": {
+    "maxWeeklyHours": 16,
+    "topics": [
+      {
+        "title": "Engineering Mathematics - I — Unit 1: System of Linear Equations",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 2: Eigen Values, Eigen Vectors & Diagonalization",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 3: Differential Calculus",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 4: Partial Differentiation",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 5: Applications of Partial Differentiation",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Mathematics - I — Unit 6: Fourier Series & Harmonic Analysis",
+        "allottedMinutes": 420,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-038": {
+    "maxWeeklyHours": 16,
+    "topics": [
+      {
+        "title": "Web Application Development — Unit 1: Web Architecture & HTML5 Standards",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 2: Lists, Hyperlinks & Multimedia Integration",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 3: Modern CSS Styling & Flexbox Layouts",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 4: Tables, Interactive Forms & Input Validation",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 5: JavaScript Essentials & DOM Manipulation",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      },
+      {
+        "title": "Web Application Development — Unit 6: Web Hosting, Deployment & Version Control",
+        "allottedMinutes": 120,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-039": {
+    "maxWeeklyHours": 20,
+    "topics": [
+      {
+        "title": "Basic Mathematics — Unit 1: Matrices, Determinants & System of Equations",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 2: Trigonometric Functions & Complex Numbers",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 3: Differential Calculus & Standard Derivatives",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 4: Applications of Derivatives & Tangents/Normals",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 5: Integral Calculus & Standard Integrals",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Basic Mathematics — Unit 6: Fundamentals of Statistics & Probability",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      }
+    ]
+  },
+  "FAC-ZCOER-040": {
+    "maxWeeklyHours": 19,
+    "topics": [
+      {
+        "title": "Engineering Chemistry — Unit 1: Water Technology & Softening Processes",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 2: Instrumental Methods of Analysis",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 3: Corrosion Science & Corrosion Prevention",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 4: Engineering Polymers & Nanomaterials",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 5: Fuels and Combustion Calculations",
+        "allottedMinutes": 300,
+        "status": "PENDING"
+      },
+      {
+        "title": "Engineering Chemistry — Unit 6: Advanced Materials & Nanotechnology",
+        "allottedMinutes": 240,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 1: Computer Hardware & Operating System Setup",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 2: Advanced Word Processing & Spreadsheet Analytics",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 3: Internet Technologies, Cybersecurity & Safety",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 4: Version Control Systems - Git & GitHub Workflows",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      },
+      {
+        "title": "IT Proficiency — Unit 5: Cloud Tools, Document Collaboration & Technical Presentation",
+        "allottedMinutes": 180,
+        "status": "PENDING"
+      }
+    ]
+  }
+}

@@ -1091,8 +1091,13 @@ export const DepartmentsPage: React.FC = () => {
                                             <p className="font-semibold text-slate-800 text-[11px]">
                                               {t.title}
                                             </p>
-                                            <p className="text-[10px] text-slate-400 mt-0.5">
-                                              Allotted: {t.allottedMinutes} mins
+                                            <p className="text-[10px] text-slate-500 font-medium mt-0.5 flex items-center gap-1.5">
+                                              <span className="font-bold text-slate-800 bg-slate-100 px-1.5 py-0.5 rounded text-[10px] border border-slate-200">
+                                                {Number((t.allottedMinutes / 60).toFixed(1))} hrs
+                                              </span>
+                                              <span className="text-slate-400 font-normal">
+                                                ({t.allottedMinutes} mins load)
+                                              </span>
                                             </p>
                                           </div>
                                           <span

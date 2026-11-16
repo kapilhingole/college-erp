@@ -630,7 +630,7 @@ export const DepartmentManualEntry: React.FC<DepartmentManualEntryProps> = ({
                       <div>
                         <p className="text-xs font-bold text-slate-900">{t.title}</p>
                         <p className="text-[11px] text-slate-400 mt-0.5">
-                          Allotted: {t.allottedMinutes} mins ({Math.round(t.allottedMinutes / 60)} hrs)
+                          Allotted: <strong className="text-slate-700">{Number((t.allottedMinutes / 60).toFixed(1))} hrs</strong> ({t.allottedMinutes} mins load)
                         </p>
                       </div>
 
