@@ -326,6 +326,10 @@ model TimetableSlot {
   roomNumber      String
   semester        Int
   academicSession String      // 2024-25
+  divisionLabel   String?     // e.g. "Div A", "Div B" — from PDF timetable
+  yearLabel       String?     // "FY" | "SY" — First Year or Second Year
+  slotType        String      @default("LECTURE") // LECTURE, LAB, TUTORIAL
+  batchLabel      String?     // e.g. "A1", "A2", "B1", "B2", "ALL"
   createdAt       DateTime    @default(now())
   updatedAt       DateTime    @updatedAt
 

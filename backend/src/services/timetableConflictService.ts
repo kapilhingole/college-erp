@@ -7,6 +7,8 @@ export interface TimetableSlotItem {
   roomNumber: string;
   sectionId: string;
   subjectId?: string;
+  batchLabel?: string | null;
+  slotType?: string;
 }
 
 export interface ConflictResult {
@@ -93,14 +95,20 @@ export class TimetableConflictService {
           };
         }
 
-        // 3. Section conflict
+        // 3. Section conflict: parallel lab batches with distinct batchLabel are permitted
         if (slot.sectionId === targetSlot.sectionId) {
-          return {
-            hasConflict: true,
-            type: 'SECTION_OVERLAP',
-            message: `Section already has another class scheduled on ${slot.dayOfWeek} between ${slot.startTime} and ${slot.endTime}.`,
-            conflictingSlot: slot,
-          };
+          const isDistinctBatch =
+            (slot.slotType === 'LAB' || targetSlot.slotType === 'LAB') &&
+            Boolean(slot.batchLabel && targetSlot.batchLabel && slot.batchLabel !== targetSlot.batchLabel);
+
+          if (!isDistinctBatch) {
+            return {
+              hasConflict: true,
+              type: 'SECTION_OVERLAP',
+              message: `Section already has another class scheduled on ${slot.dayOfWeek} between ${slot.startTime} and ${slot.endTime}.`,
+              conflictingSlot: slot,
+            };
+          }
         }
       }
     }

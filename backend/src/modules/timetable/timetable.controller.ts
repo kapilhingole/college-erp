@@ -18,6 +18,7 @@ const timetableSlotSchema = z.object({
   divisionLabel: z.string().optional(),   // e.g. "Div A", "Div B"
   yearLabel: z.string().optional(),       // "FY" | "SY"
   slotType: z.string().optional(),        // "LECTURE" | "LAB" | "TUTORIAL"
+  batchLabel: z.string().optional(),      // e.g. "A1", "A2", "ALL"
 });
 
 const updateSlotSchema = timetableSlotSchema.partial();
@@ -124,6 +125,8 @@ export class TimetableController {
           roomNumber: data.roomNumber,
           sectionId: data.sectionId,
           subjectId: data.subjectId,
+          batchLabel: data.batchLabel,
+          slotType: data.slotType,
         },
         existingSlots.map((s) => ({
           id: s.id,
@@ -134,6 +137,8 @@ export class TimetableController {
           roomNumber: s.roomNumber,
           sectionId: s.sectionId,
           subjectId: s.subjectId,
+          batchLabel: s.batchLabel,
+          slotType: s.slotType,
         }))
       );
 
@@ -161,6 +166,7 @@ export class TimetableController {
           divisionLabel: data.divisionLabel,
           yearLabel: data.yearLabel,
           slotType: data.slotType ?? 'LECTURE',
+          batchLabel: data.batchLabel,
         },
         include: { subject: true, faculty: true, section: true },
       });
